@@ -11277,5 +11277,45 @@
     "user_id": "user_1781208591206_40aevf8yb",
     "timestamp": "2026-06-11T22:15:01.378457",
     "metadata": {}
+  },
+  {
+    "type": "page_view",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:24:45.929289",
+    "metadata": {}
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-11T22:24:45.966599",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_unload",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:24:56.057620",
+    "metadata": {}
+  },
+  {
+    "type": "page_hidden",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:24:56.118989",
+    "metadata": {}
+  },
+  {
+    "type": "page_view",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:24:56.349013",
+    "metadata": {}
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-11T22:24:56.412023",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
   }
 ]

@@ -2119,7 +2119,15 @@ body.dark .metric-bad {
 
               <!-- Country Mapping Panel -->
               <div id="countryMappingPanel" style="display: block;">
+                <!-- Loading Indicator -->
+                <div id="mappingsLoadingIndicator" style="text-align: center; padding: 40px;">
+                  <div style="font-size: 32px; margin-bottom: 12px;">⏳</div>
+                  <div style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Loading mappings...</div>
+                  <div style="font-size: 13px; color: var(--muted);">Please wait</div>
+                </div>
+
                 <!-- Statistics Bar -->
+                <div id="mappingsContent" style="display: none;">
                 <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
                   <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 8px; border: 1px solid #86efac;">
                     <div style="font-size: 11px; font-weight: 600; color: #166534; text-transform: uppercase;">Total Countries</div>
@@ -2168,6 +2176,7 @@ body.dark .metric-bad {
                   <button onclick="loadCountryMappings()" style="padding: 14px 20px; background: var(--muted); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
                     🔄 Reload
                   </button>
+                </div>
                 </div>
               </div>
 
@@ -2517,18 +2526,105 @@ function switchAdminTab(tabName) {
   if (tabName === 'analytics') {
     loadAnalyticsData();
   } else if (tabName === 'mappings') {
-    // Initialize mappings - call init function from admin_mappings.js
-    setTimeout(() => {
-      if (typeof initMappingsAdmin === 'function') {
-        initMappingsAdmin();
-      } else {
-        // Fallback: call load functions directly
-        if (typeof loadCountryMappings === 'function') loadCountryMappings();
-        if (typeof loadProductMappings === 'function') loadProductMappings();
-      }
-    }, 100);
+    // Initialize mappings with proper loading
+    loadMappingsData();
   } else if (tabName === 'system') {
     loadSystemStatus();
+  }
+}
+
+// Load Mappings Data
+async function loadMappingsData() {
+  try {
+    // Show loading indicator
+    const loadingIndicator = document.getElementById('mappingsLoadingIndicator');
+    const mappingsContent = document.getElementById('mappingsContent');
+
+    if (loadingIndicator) loadingIndicator.style.display = 'block';
+    if (mappingsContent) mappingsContent.style.display = 'none';
+
+    // Wait a bit for DOM to be ready
+    await new Promise(resolve => setTimeout(resolve, 200));
+
+    // Try to initialize mappings
+    if (typeof initMappingsAdmin === 'function') {
+      await initMappingsAdmin();
+    } else if (typeof loadCountryMappings === 'function') {
+      await loadCountryMappings();
+      if (typeof loadProductMappings === 'function') {
+        await loadProductMappings();
+      }
+    } else {
+      // Manual load as fallback
+      const API_URL = getAdminApiUrl();
+      const [countryRes, productRes] = await Promise.all([
+        fetch(`${API_URL}/api/mappings/country`),
+        fetch(`${API_URL}/api/mappings/product`)
+      ]);
+
+      if (countryRes.ok && productRes.ok) {
+        window.countryMappings = await countryRes.json();
+        window.productMappings = await productRes.json();
+
+        // Update counts manually if functions don't exist
+        const countryCount = Object.keys(window.countryMappings).length;
+        const productCount = Object.keys(window.productMappings).length;
+
+        document.getElementById('countryTotalCount').textContent = countryCount;
+        document.getElementById('countryTabCount').textContent = countryCount;
+        document.getElementById('productTotalCount').textContent = productCount;
+        document.getElementById('productTabCount').textContent = productCount;
+
+        // Render manually
+        renderMappingsManually();
+      }
+    }
+
+    // Hide loading, show content
+    if (loadingIndicator) loadingIndicator.style.display = 'none';
+    if (mappingsContent) mappingsContent.style.display = 'block';
+
+  } catch (error) {
+    console.error('Failed to load mappings:', error);
+    const loadingIndicator = document.getElementById('mappingsLoadingIndicator');
+    if (loadingIndicator) {
+      loadingIndicator.innerHTML = `
+        <div style="font-size: 32px; margin-bottom: 12px;">❌</div>
+        <div style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Failed to load mappings</div>
+        <div style="font-size: 13px; color: var(--muted);">${error.message}</div>
+        <button onclick="loadMappingsData()" style="margin-top: 16px; padding: 10px 20px; background: var(--brand); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+          🔄 Retry
+        </button>
+      `;
+    }
+  }
+}
+
+// Render mappings manually if admin_mappings.js functions don't work
+function renderMappingsManually() {
+  const countryGrid = document.getElementById('countryMappingsGrid');
+  const productGrid = document.getElementById('productMappingsGrid');
+
+  if (countryGrid && window.countryMappings) {
+    countryGrid.innerHTML = Object.entries(window.countryMappings)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([country, ou]) => `
+        <div style="padding: 12px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);">
+          <div style="font-weight: 600; margin-bottom: 4px;">${country}</div>
+          <div style="font-size: 12px; color: var(--muted);">→ ${ou}</div>
+        </div>
+      `).join('');
+  }
+
+  if (productGrid && window.productMappings) {
+    productGrid.innerHTML = Object.entries(window.productMappings)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([product, cloud]) => `
+        <div style="padding: 12px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);">
+          <div style="font-weight: 600; margin-bottom: 4px;">${product}</div>
+          <div style="font-size: 12px; color: var(--muted);">→ ${cloud}</div>
+        </div>
+      `).join('');
   }
 }
 
