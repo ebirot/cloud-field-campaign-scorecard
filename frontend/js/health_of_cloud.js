@@ -320,11 +320,7 @@ function updateQuarterProgress() {
         progressEl.innerHTML = `| ${percentComplete}% of ${quarter} completed${staleWarning}`;
     }
 
-    // Update refresh badge
-    const refreshEl = document.getElementById('dataRefreshText');
-    if (refreshEl) {
-        refreshEl.textContent = 'Daily refresh at 23:00 CET';
-    }
+    // Refresh badge removed - using bottom indicator instead
 }
 
 // Load all data from API
