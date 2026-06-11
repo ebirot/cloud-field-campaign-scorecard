@@ -96,10 +96,14 @@ async def overview():
 
 @app.get("/admin")
 async def admin():
-    """Serve the admin dashboard"""
-    frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "admin.html")
+    """Serve the modern admin dashboard"""
+    frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "admin_v2.html")
     if os.path.exists(frontend_path):
         return FileResponse(frontend_path)
+    # Fallback to old admin
+    frontend_path_old = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "admin.html")
+    if os.path.exists(frontend_path_old):
+        return FileResponse(frontend_path_old)
     return {"error": "Admin page not found"}
 
 @app.get("/email_scorecard")

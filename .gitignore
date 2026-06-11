@@ -76,6 +76,9 @@ backend/data/raw/
 # Refresh status file (runtime data)
 data/refresh_status.json
 
+# Analytics data (runtime data)
+data/analytics/
+
 # Temporary files
 *.tmp
 *.temp

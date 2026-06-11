@@ -544,6 +544,11 @@ function sortTable(tableId, columnIndex) {
 async function setRegionFilter(region) {
     currentRegionFilter = region;
 
+    // Track event
+    if (window.analyticsTracker) {
+        window.analyticsTracker.trackRegionChange(region);
+    }
+
     // Update button states
     document.querySelectorAll('.region-btn').forEach(btn => {
         btn.classList.remove('active');
@@ -1032,7 +1037,9 @@ async function setQuarterFilter(quarter) {
     currentQuarter = quarter;
 
     // Track quarter filter change
-    trackEvent('quarter_filter_changed', { quarter: quarter });
+    if (window.analyticsTracker) {
+        window.analyticsTracker.trackQuarterChange(quarter);
+    }
 
     // Update active button
     document.querySelectorAll('[data-quarter]').forEach(btn => {
@@ -1553,6 +1560,11 @@ function updateSelectionBanner() {
 async function selectCloud(cloudName) {
     currentCloud = cloudName;
     currentOUFilter = null; // Reset OU filter when switching to Cloud mode
+
+    // Track cloud selection
+    if (window.analyticsTracker) {
+        window.analyticsTracker.trackCloudChange(cloudName);
+    }
 
     // Reset region filter to BOTH (show all OUs)
     // Update the active button in the UI
