@@ -2600,6 +2600,30 @@ async function loadMappingsData() {
   }
 }
 
+// OU Color Palette
+const OU_COLORS = {
+  'FRANCE': { bg: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)', border: '#3b82f6', text: '#1e40af' },
+  'CENTRAL': { bg: 'linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%)', border: '#ec4899', text: '#9f1239' },
+  'UKI': { bg: 'linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%)', border: '#6366f1', text: '#3730a3' },
+  'NORTH': { bg: 'linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%)', border: '#8b5cf6', text: '#5b21b6' },
+  'SOUTH': { bg: 'linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)', border: '#f97316', text: '#9a3412' },
+  'AMER': { bg: 'linear-gradient(135deg, #fecaca 0%, #fca5a5 100%)', border: '#ef4444', text: '#991b1b' },
+  'Canada': { bg: 'linear-gradient(135deg, #fecdd3 0%, #fda4af 100%)', border: '#f43f5e', text: '#9f1239' },
+  'Others': { bg: 'linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%)', border: '#6b7280', text: '#374151' }
+};
+
+// Cloud Color Palette
+const CLOUD_COLORS = {
+  'Service': { bg: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)', border: '#3b82f6', text: '#1e40af' },
+  'Sales': { bg: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)', border: '#10b981', text: '#065f46' },
+  'Marketing': { bg: 'linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%)', border: '#ec4899', text: '#9f1239' },
+  'Commerce': { bg: 'linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)', border: '#f97316', text: '#9a3412' },
+  'Data': { bg: 'linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%)', border: '#8b5cf6', text: '#5b21b6' },
+  'AI & Data': { bg: 'linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%)', border: '#8b5cf6', text: '#5b21b6' },
+  'Field Service': { bg: 'linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%)', border: '#6366f1', text: '#3730a3' },
+  'Platform': { bg: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)', border: '#0ea5e9', text: '#075985' }
+};
+
 // Render mappings manually if admin_mappings.js functions don't work
 function renderMappingsManually() {
   const countryGrid = document.getElementById('countryMappingsGrid');
@@ -2608,23 +2632,97 @@ function renderMappingsManually() {
   if (countryGrid && window.countryMappings) {
     countryGrid.innerHTML = Object.entries(window.countryMappings)
       .sort(([a], [b]) => a.localeCompare(b))
-      .map(([country, ou]) => `
-        <div style="padding: 12px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);">
-          <div style="font-weight: 600; margin-bottom: 4px;">${country}</div>
-          <div style="font-size: 12px; color: var(--muted);">→ ${ou}</div>
-        </div>
-      `).join('');
+      .map(([country, ou]) => {
+        const colors = OU_COLORS[ou] || OU_COLORS['Others'];
+        return `
+          <div onclick="editCountryMapping('${country.replace(/'/g, "\\'")}', '${ou}')"
+               style="padding: 12px; background: ${colors.bg}; border-radius: 8px; border: 1px solid ${colors.border}; cursor: pointer; transition: all 0.2s;"
+               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-weight: 600; margin-bottom: 4px; color: ${colors.text};">${country}</div>
+            <div style="font-size: 12px; color: ${colors.text}; opacity: 0.8;">→ ${ou}</div>
+          </div>
+        `;
+      }).join('');
   }
 
   if (productGrid && window.productMappings) {
     productGrid.innerHTML = Object.entries(window.productMappings)
       .sort(([a], [b]) => a.localeCompare(b))
-      .map(([product, cloud]) => `
-        <div style="padding: 12px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);">
-          <div style="font-weight: 600; margin-bottom: 4px;">${product}</div>
-          <div style="font-size: 12px; color: var(--muted);">→ ${cloud}</div>
-        </div>
-      `).join('');
+      .map(([product, cloud]) => {
+        const colors = CLOUD_COLORS[cloud] || OU_COLORS['Others'];
+        return `
+          <div onclick="editProductMapping('${product.replace(/'/g, "\\'")}', '${cloud}')"
+               style="padding: 12px; background: ${colors.bg}; border-radius: 8px; border: 1px solid ${colors.border}; cursor: pointer; transition: all 0.2s;"
+               onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)';"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="font-weight: 600; margin-bottom: 4px; color: ${colors.text};">${product}</div>
+            <div style="font-size: 12px; color: ${colors.text}; opacity: 0.8;">→ ${cloud}</div>
+          </div>
+        `;
+      }).join('');
+  }
+}
+
+// Edit Country Mapping (inline prompt)
+function editCountryMapping(country, currentOU) {
+  const newOU = prompt(`Edit mapping for "${country}"\n\nCurrent OU: ${currentOU}\nEnter new OU:`, currentOU);
+  if (newOU && newOU !== currentOU) {
+    updateCountryMapping(country, newOU);
+  }
+}
+
+// Edit Product Mapping (inline prompt)
+function editProductMapping(product, currentCloud) {
+  const newCloud = prompt(`Edit mapping for "${product}"\n\nCurrent Cloud: ${currentCloud}\nEnter new Cloud:`, currentCloud);
+  if (newCloud && newCloud !== currentCloud) {
+    updateProductMapping(product, newCloud);
+  }
+}
+
+// Update Country Mapping
+async function updateCountryMapping(country, newOU) {
+  try {
+    const API_URL = getAdminApiUrl();
+    const response = await fetch(`${API_URL}/api/mappings/country/${encodeURIComponent(country)}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ou: newOU })
+    });
+
+    if (response.ok) {
+      window.countryMappings[country] = newOU;
+      renderMappingsManually();
+      alert(`✅ Updated: ${country} → ${newOU}`);
+    } else {
+      alert('❌ Failed to update mapping');
+    }
+  } catch (error) {
+    console.error('Update error:', error);
+    alert('❌ Error: ' + error.message);
+  }
+}
+
+// Update Product Mapping
+async function updateProductMapping(product, newCloud) {
+  try {
+    const API_URL = getAdminApiUrl();
+    const response = await fetch(`${API_URL}/api/mappings/product/${encodeURIComponent(product)}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cloud: newCloud })
+    });
+
+    if (response.ok) {
+      window.productMappings[product] = newCloud;
+      renderMappingsManually();
+      alert(`✅ Updated: ${product} → ${newCloud}`);
+    } else {
+      alert('❌ Failed to update mapping');
+    }
+  } catch (error) {
+    console.error('Update error:', error);
+    alert('❌ Error: ' + error.message);
   }
 }
 
