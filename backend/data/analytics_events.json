@@ -1,0 +1,8850 @@
+[
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:09:19.399771",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:20:54.802284",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:21:03.045116",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:21:04.574378",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:21:08.854086",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:21:19.694952",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:21:27.249770",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:21:29.122709",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:21:35.196093",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:21:38.001674",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:22:47.704946",
+    "metadata": {
+      "ou": "AMER REG"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:22:49.607567",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:22:50.777888",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:22:51.310274",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:22:52.024448",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:22:53.886688",
+    "metadata": {
+      "ou": "all"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:00.428428",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:01.153130",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:02.605410",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:14.294078",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:15.357233",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:15.954609",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:17.878452",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:18.663316",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:20.194499",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:25.874506",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:28.389362",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:30.421540",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:23:32.359335",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:26:08.476137",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:26:14.470390",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:26:18.127568",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:28:11.167159",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:28:20.117947",
+    "metadata": {
+      "ou": "TMT",
+      "leader": "Lenore Lang"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:28:43.363297",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:29:03.290822",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:33:26.569867",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:36:13.880071",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:42:04.421668",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:42:41.878731",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:43:08.644592",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:43:11.081270",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:43:15.297006",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:45:01.927789",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:48:55.520371",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:52:19.607664",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:52:35.085960",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:52:44.501978",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:52:46.030376",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:52:46.816120",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:52:47.754978",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:52:48.902106",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:52:49.849278",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:52:52.007770",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:53:15.123657",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:53:16.917996",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:53:27.319487",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:53:44.250557",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:53:51.509296",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T09:53:55.534235",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:35.309588",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:37.938951",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:37.950266",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:39.566290",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:42.985487",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:53.559197",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:56.789887",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:56.803823",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:59.750452",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:01:59.770230",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:02:03.007174",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:02:03.022430",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:02:05.030639",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:02:09.179551",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:02:16.856715",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:03:33.168983",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:03:38.008684",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:03:41.331792",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:03:46.849360",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:03:48.744033",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:03:49.904822",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:03:52.864281",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:08:42.021154",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "admin_config_saved",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:09:02.549367",
+    "metadata": {
+      "type": "cloud_mode",
+      "clouds": [
+        "Service",
+        "Sales",
+        "Marketing",
+        "Commerce",
+        "AI and Data"
+      ]
+    }
+  },
+  {
+    "type": "admin_config_saved",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:09:05.237699",
+    "metadata": {
+      "type": "ou_mode",
+      "clouds": [
+        "Service",
+        "Sales",
+        "Marketing",
+        "Commerce",
+        "AI and Data"
+      ]
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:09:21.309756",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:09:21.332575",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:09:30.217054",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:09:41.020578",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:09:44.495239",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:09:47.893287",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:10:12.151607",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:10:30.510036",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:15:47.672280",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:16:09.403623",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:17:04.263005",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:17:48.902289",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:17:54.706888",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:18:05.311888",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:28:01.647413",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:28:06.602900",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:31:09.270270",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:34:25.536538",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:39:56.448180",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T10:52:27.521225",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:07:35.518013",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:17.024592",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:26.723369",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:32.087026",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:33.872903",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:38.822773",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:40.148519",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:42.160347",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:44.246488",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:46.970230",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:51.867740",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:30:58.254006",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:31:05.736253",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:31:17.875003",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:31:23.242633",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:31:28.803578",
+    "metadata": {
+      "ou": "SOUTH",
+      "leader": "Marco Hernansanz"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:31:35.309097",
+    "metadata": {
+      "ou": "CBS",
+      "leader": "Scot Blocker"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:31:40.425887",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:31:45.907141",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:31:51.004925",
+    "metadata": {
+      "ou": "SOUTH",
+      "leader": "Marco Hernansanz"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:32:14.870418",
+    "metadata": {
+      "ou": "TMT",
+      "leader": "Lenore Lang"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:32:21.258042",
+    "metadata": {
+      "ou": "AMER REG",
+      "leader": "Mark Sullivan"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:36:51.298002",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:36:55.476037",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:36:55.501308",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:37:00.795955",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:47:57.823803",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:49:07.436749",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:49:09.209082",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:49:09.224636",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:49:11.787659",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:49:16.305219",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:50:29.286332",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:50:33.162286",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:50:38.268433",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:50:41.622703",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:50:41.773178",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:50:51.163888",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:50:55.360238",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:54:00.327829",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:54:08.862085",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:54:12.722895",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:54:16.092239",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:54:19.752511",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:54:23.642794",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:56:00.655165",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:56:04.238594",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:56:07.536747",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:56:10.324822",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T11:56:11.690254",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:11:21.516506",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:11:24.694325",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:11:26.725289",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:11:28.324039",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:11:53.152846",
+    "metadata": {
+      "ou": "TMT",
+      "leader": "Lenore Lang"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:20:48.462589",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:23:10.238910",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:23:18.940688",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:25:53.410064",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:27:12.814083",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:27:18.689914",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:30:44.174414",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:31:38.377733",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:32:44.942984",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:32:45.821673",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:37:42.328963",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:39:53.464579",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:39:58.556838",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:39:59.175505",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:39:59.921758",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:40:00.505906",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:40:19.429105",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:40:21.452806",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:42:21.046364",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:42:24.780745",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:42:29.241915",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:42:36.531831",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:42:40.669761",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:43:48.811632",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:43:58.675424",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:44:13.965370",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:44:17.802319",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:44:19.772065",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:44:20.741481",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:44:21.648882",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:44:23.629704",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:44:25.392627",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:44:28.051660",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:44:29.535998",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:28.906105",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:30.611564",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:32.283295",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:33.685614",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:35.854374",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:36.949568",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:40.071381",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:42.070132",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:45.667419",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:45:46.644614",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T14:46:11.849892",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:09:31.650769",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:09:36.787051",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:09:40.575332",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:10:32.944527",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:10:34.706355",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:10:35.378186",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:10:38.348353",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:17:35.731541",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:17:37.663494",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:17:39.729125",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:17:40.628896",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:17:53.462639",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:17:55.727973",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:20:26.858732",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:20:57.106313",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:21:01.386445",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:21:05.602179",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:21:15.540130",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:21:18.976421",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:21:22.577586",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:25:58.140328",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:02.285907",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:15.728954",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:20.902371",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:22.807350",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:24.159682",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:25.490473",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:28.834756",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:29.962269",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:31.996837",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:26:32.425385",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:29:45.558249",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:29:47.804587",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:29:48.455349",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:29:49.890924",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:29:51.864197",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:29:53.578472",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:29:56.408958",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:30:08.773532",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:30:08.777965",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:32:52.946548",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:04.246486",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:07.626940",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:09.784889",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:13.505865",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:16.193508",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:18.646140",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:26.041122",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:29.089117",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:36.362905",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:49:40.063309",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:57:05.232050",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:57:07.350085",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:57:10.581424",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:58:13.040974",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:58:17.886433",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:58:19.207614",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:58:21.037384",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:58:43.507575",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T15:58:46.613190",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:01:41.434900",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:01:45.216207",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:01:51.353983",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:01:57.289732",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:01:59.041470",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:02:00.388376",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:02:46.319169",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:02:47.383021",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:02:52.488047",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:03:05.791034",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:03:09.248615",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:05:50.218967",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:05:56.982937",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:06:16.077004",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:06:19.649829",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:06:22.943179",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:06:25.539040",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:07:58.079984",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:08:03.423422",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:08:16.222063",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:08:20.600376",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:08:49.242924",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:08:52.340746",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:08:56.798892",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:09:05.008525",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:09:10.924154",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:09:13.368913",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:09:14.754366",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:09:15.570338",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:09:19.435941",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:09:22.523555",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:09:32.136210",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:09:33.205431",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:10:54.588286",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:10:58.599968",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:11:01.135641",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:11:09.521229",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:11:13.368300",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:11:20.267747",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:11:21.808622",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:11:26.218251",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:11:40.354094",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:11:49.643618",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:11:57.008911",
+    "metadata": {
+      "ou": "SOUTH",
+      "leader": "Marco Hernansanz"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:12:10.700930",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:12:13.771261",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:12:16.073791",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:06.769076",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:10.592977",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:11.566249",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:16.640525",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:20.555940",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:22.433768",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:27.100653",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:36.964945",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:39.082691",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:14:44.093232",
+    "metadata": {
+      "ou": "SOUTH",
+      "leader": "Marco Hernansanz"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:15:02.417797",
+    "metadata": {
+      "ou": "CBS",
+      "leader": "Scot Blocker"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:15:09.608619",
+    "metadata": {
+      "ou": "TMT",
+      "leader": "Lenore Lang"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:15:14.115461",
+    "metadata": {
+      "ou": "AMER REG",
+      "leader": "Mark Sullivan"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:15:19.375702",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:15:21.268821",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:15:21.998943",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:15:22.913061",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:15:26.426669",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:15:46.365183",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:16:04.955311",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:16:23.115572",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:16:39.762140",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:16:41.805658",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:16:45.293136",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:16:49.863714",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:16:52.522672",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:16:56.156711",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:17:57.110995",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:04.735175",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:08.938733",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:12.250265",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:13.616252",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:31.207401",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:32.609314",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:35.593368",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:37.366455",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:39.265890",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:18:40.959750",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:20.372625",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:21.923526",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:24.270644",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:25.809403",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:26.680944",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:30.169987",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:32.767855",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:50.670204",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:53.356240",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:56.318584",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:19:58.578504",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:20:01.663401",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:20:03.320924",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:20:05.211899",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:20:17.331721",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:20:30.282692",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:20:34.091112",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:20:36.080545",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:20:39.216874",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:20:41.268339",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:05.063629",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:07.490683",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:08.503290",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:09.980321",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:13.194486",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:34.668828",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:35.696202",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:37.298662",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:38.784227",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:45.169413",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:46.305940",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:48.171971",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:49.144047",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:52.531036",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:55.130250",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:57.286778",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:21:58.947874",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:01.832829",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:05.288071",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:07.717221",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:15.117254",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:16.324209",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:23.335882",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:32.185697",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:33.334356",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:35.266265",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:36.311458",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:37.432186",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:22:52.748528",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:23:15.354233",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:23:32.929112",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:23:37.797027",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:23:40.331076",
+    "metadata": {
+      "ou": "SOUTH",
+      "leader": "Marco Hernansanz"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:23:43.096692",
+    "metadata": {
+      "ou": "CBS",
+      "leader": "Scot Blocker"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:23:45.775830",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:23:55.818290",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:23:57.906430",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:23:58.652864",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:24:09.345860",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:24:10.631924",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:24:11.203011",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:24:11.917728",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:24:12.524787",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:24:13.136517",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:24:14.827269",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:24:50.899875",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:25:17.452258",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:25:20.575525",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:25:24.321205",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:25:26.511157",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:25:28.705430",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:25:59.768128",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:26:35.510410",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:26:39.698302",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:26:41.612912",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:26:43.421696",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:26:45.698257",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:26:47.835240",
+    "metadata": {
+      "ou": "SOUTH",
+      "leader": "Marco Hernansanz"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:26:53.750959",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:28:11.337266",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:28:17.916105",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:28:19.975412",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:28:20.870765",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:28:21.654388",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:28:30.860885",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:28:31.892079",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:28:32.830066",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:52:26.623051",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:52:57.034048",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:52:59.440026",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:01.168661",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:16.813900",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:18.579803",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:37.279577",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:38.216143",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:39.069643",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:40.793112",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:42.528859",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:43.354991",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:44.982102",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:53:50.046495",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:54:06.680898",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:54:34.539638",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:54:35.491097",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:55:04.538865",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:56:19.510454",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:56:27.143487",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:57:28.280966",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:57:34.992812",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:57:38.821561",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:57:40.132679",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:58:13.373075",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:58:19.303318",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:58:35.126017",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:58:39.723892",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:59:41.195036",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T16:59:44.174675",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:00:06.080702",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:00:10.069306",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:00:38.689474",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:00:45.534436",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:01:27.160098",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:01:32.363109",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:01:36.370597",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:01:56.701927",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:02:00.461317",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:06.918786",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:08.642034",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:11.792424",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:32.180866",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:41.020792",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:43.431476",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:44.446441",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:46.132186",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:46.831399",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:48.351308",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:49.288819",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:50.931880",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:03:57.720397",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:04:00.963424",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:04:03.764210",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:04:09.925901",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:04:15.920210",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:04:21.373299",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:04:24.351610",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:05:33.579245",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:05:35.473237",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:05:36.637918",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:05:39.754844",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:05:45.778646",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:00.196563",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:02.019888",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:07.329592",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:08.559075",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:09.701550",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:10.044608",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:10.726696",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:13.739305",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:18.134525",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:24.363094",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:25.379781",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:37.875189",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:38.899450",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:48.314810",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:49.430842",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:06:50.979895",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:07:25.996624",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:07:28.169688",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:07:30.250247",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:07:59.379365",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:04.782536",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:15.806300",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:16.898877",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:17.673189",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:19.009648",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:20.940324",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:22.203541",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:23.444584",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:43.393685",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:46.237038",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:47.890470",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:49.377166",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:52.017982",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:08:54.135763",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:09:09.799590",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:09:11.584576",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:09:12.478985",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:09:13.719374",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:09:33.889265",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:09:46.424704",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:09:50.919013",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:09:52.712498",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:14.170963",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:18.459081",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:21.240263",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:40.205035",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:51.839507",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:53.324904",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:54.490640",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:55.436154",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:56.062735",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:56.676954",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:11:59.786850",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:01.421650",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:02.503176",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:06.780911",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:07.832657",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:08.910007",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:09.855349",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:10.797395",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:18.181609",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:19.793382",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:22.573206",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:24.770022",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:27.596611",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:30.606756",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:32.127475",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:34.277276",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:35.751536",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:40.594266",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:44.909430",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:49.005485",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:54.650002",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:55.548985",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:56.714294",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:12:57.507014",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:20:35.090481",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:20:37.622621",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:20:42.287246",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:20:45.538515",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:20:52.635759",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:20:56.881300",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:00.160396",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:01.538391",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:03.196390",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:12.064780",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:13.644001",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:18.038744",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:22.353992",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:24.319691",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:30.085818",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:54.536136",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:55.799820",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:21:59.864806",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:01.830394",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:09.384016",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:12.709588",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:15.106880",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:17.029964",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:23.411535",
+    "metadata": {
+      "ou": "CBS",
+      "leader": "Scot Blocker"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:31.729295",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:34.930686",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:39.318410",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:43.673284",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:22:50.925643",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:23:27.321924",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:23:30.116393",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:23:31.119750",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:23:52.780522",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:24:10.696732",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:24:55.939835",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:24:59.607932",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:25:05.300621",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:25:08.294269",
+    "metadata": {
+      "ou": "CBS",
+      "leader": "Scot Blocker"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:25:11.167371",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:25:15.641041",
+    "metadata": {
+      "ou": "SOUTH",
+      "leader": "Marco Hernansanz"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:25:49.024316",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:25:52.588891",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:26:00.239431",
+    "metadata": {
+      "ou": "CBS",
+      "leader": "Scot Blocker"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:26:03.391061",
+    "metadata": {
+      "ou": "PACE & AFD360",
+      "leader": "Connor Marsden"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:26:19.970627",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:26:26.157941",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:26:33.996122",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:26:38.863020",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:26:44.481271",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:26:51.689429",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:26:56.018418",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:27:44.106787",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:27:50.872251",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:27:51.743892",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T17:28:55.969176",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:07:05.350226",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:07:17.404745",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:07:54.317055",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:09:34.112103",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:26:08.277535",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:26:13.061383",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:26:14.095397",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:26:20.357450",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:26:21.787599",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:29:42.344639",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:29:46.030165",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:29:52.938449",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:06.989445",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:07.903235",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:08.917914",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:11.719768",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:17.781649",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:18.437461",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:18.902105",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:19.566881",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:20.635595",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:34.344001",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:37.290472",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-05-29T18:30:38.256339",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:36:16.043723",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:54:32.004655",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:56:24.500077",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:05.358097",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:07.797721",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:08.576731",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:18.195882",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:30.387863",
+    "metadata": {
+      "cloud": "Service",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:30.392267",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:32.798868",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:36.783510",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:39.813157",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:40.935042",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:57:54.982567",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:59:14.220149",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:59:23.674287",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:59:27.991222",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T10:59:33.359794",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T11:01:09.699221",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T11:09:03.390715",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T11:09:04.431980",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T11:09:22.736445",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T11:09:24.792422",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:52:36.071149",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:53:53.555038",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:53:54.720154",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:53:57.601133",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:56:22.196940",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:56:29.557194",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:56:32.993444",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:56:33.756943",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:27.108450",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:30.304553",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:31.439774",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:32.233486",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:33.012281",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:34.757836",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:35.728513",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:36.553238",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:37.455899",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:38.858969",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:39.704783",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:40.309489",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:43.862002",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:46.117483",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:46.977977",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:58:51.857740",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T12:59:05.236947",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:30.902409",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:31.845622",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:37.143785",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:38.722210",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:43.912512",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:45.891727",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:47.721931",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:49.489539",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:52.110598",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:01:53.805730",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:15.208371",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:19.187748",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:19.894942",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:22.139640",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:27.236031",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:28.919756",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:31.774518",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:33.165992",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:34.169191",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:03:35.769960",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:04:55.631500",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:05:13.368399",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:05:15.050356",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:09:40.664402",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:10:43.822639",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:10:47.881490",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:10:52.259964",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:11:07.002885",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:13:00.632506",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:13:48.005087",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:13:49.079425",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:15:08.449851",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:15:10.403741",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:15:11.139120",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:15:15.577559",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:15:52.810240",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:15:54.509264",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:16:40.508638",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:17:04.965703",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:17:05.665563",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:17:10.757680",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:18:04.822823",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:18:41.135122",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:18:52.944949",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:18:54.513804",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:19:17.614803",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:28:36.865502",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:28:40.339243",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:28:41.610926",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:28:43.306835",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:28:44.618896",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:29:23.252950",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:29:56.137422",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:29:58.794292",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:30:03.024560",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:30:04.732387",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:30:06.347418",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:30:08.598351",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:30:10.263712",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:30:17.026491",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:30:17.923810",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:11.776653",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:15.219633",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:16.363114",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:50.178050",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:51.042646",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:51.971558",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:52.743942",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:53.715850",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:55.458966",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:32:58.488142",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:33:01.311651",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:33:02.169618",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:33:03.390910",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:33:04.662985",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:33:14.272320",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:34:07.131416",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:34:11.478126",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:34:53.009735",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:34:57.962580",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:34:59.870559",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:01.898142",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:06.363253",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:08.149345",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:15.199610",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:16.884469",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:17.978072",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:18.821130",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:33.792257",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:35.334302",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:38.560758",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:47.786292",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:35:50.262220",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:25.054503",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:27.530466",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:28.265388",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:28.899025",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:29.478538",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:30.764101",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:32.869444",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:35.888273",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:36.760411",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:38.625737",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:39.433146",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:40.619893",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:41.370549",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:42.104452",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:44.264622",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:45.372154",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:38:57.264525",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:39:02.145624",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:39:07.904965",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:03.484118",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:07.776861",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:14.544237",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:18.216566",
+    "metadata": {
+      "quarter": "Q1,Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:20.510812",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:21.230483",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:22.257517",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:27.663954",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:40.164836",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:40:41.762782",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:41:35.469958",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:41:46.152115",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:41:51.861263",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:41:58.185603",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:41:59.507292",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:07.101883",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:12.192163",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:32.800467",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:34.395272",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:35.251614",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:35.787300",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:37.066716",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:38.609854",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:40.968136",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:42:49.158617",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:05.669296",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:08.096182",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:09.496997",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:10.933722",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:12.227626",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:13.871484",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:21.380443",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:24.827749",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:26.242171",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:27.521640",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:28.858021",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:32.579931",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:36.484907",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:39.283839",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:40.333657",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:41.520482",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:42.541844",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:43.766165",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:44.728717",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:46.086417",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:47.578052",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:44:52.203384",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:46:19.943649",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:47:24.774601",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:47:56.992630",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:47:58.791389",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:47:59.267672",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:48:02.198410",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:48:03.207784",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:48:05.548218",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:48:06.850045",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:48:29.521547",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:49:11.659669",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:49:12.903761",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:51:44.169413",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:51:46.502938",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:52:10.033312",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:52:12.001034",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:52:14.043014",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:52:15.634211",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:53:05.728530",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:53:07.085840",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:53:13.016888",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:53:19.957274",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:54:01.167499",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:57:23.227235",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:57:29.979914",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:57:34.394796",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:58:14.152280",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:58:18.054159",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:58:25.402629",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:58:34.746735",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T13:59:15.760402",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T14:05:43.142361",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T14:05:44.742124",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T14:05:47.145701",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T14:37:20.589853",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T14:38:08.138574",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T14:38:33.607995",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:00:45.564692",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:01:33.329197",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:02:09.146341",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:02:10.454747",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:02:11.449600",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:03:21.446478",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:03:24.640576",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:05:40.472811",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:05:46.333523",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:05:47.551553",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:05:48.234479",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:05:48.719994",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "manual_refresh",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:22.569806",
+    "metadata": {
+      "cloud": "Sales",
+      "ou": null
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:22.575821",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:33.457040",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:34.150763",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:34.999858",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:35.416040",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:43.410719",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:44.202410",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:44.677824",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:08:45.030287",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:02.017085",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:13.285863",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:14.143855",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:14.751347",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:15.422672",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:17.596034",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:18.138602",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:24.336233",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:25.307924",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:26.121935",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:26.979833",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:27.787580",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:30.998682",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:46.272511",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:49.379492",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:50.245808",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:51.480082",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:52.552116",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:54.532103",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:55.618440",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:56.591392",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:57.519404",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:10:58.563050",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:00.292282",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:03.537893",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:05.731438",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:06.660866",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:07.861383",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:09.197605",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:10.462620",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:11.201426",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:16.781921",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:17.444946",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:18.574261",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:20.675284",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:22.833232",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:27.043763",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:11:53.916676",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:12:11.131103",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:12:44.352340",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:12:50.532561",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:00.346110",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:01.230339",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:02.948713",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:10.762778",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:16.865939",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:19.145099",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:21.103704",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:25.812475",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:31.407889",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:33.286950",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:13:34.895007",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:14:38.553015",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:14:39.598193",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:14:57.383702",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:16:22.046699",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:18:24.333926",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:20:46.510055",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:21:01.688979",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:21:03.333046",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:21:04.259117",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:21:08.987213",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:21:14.349332",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:25:51.598487",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:25:55.922191",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:25:58.544563",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:26:01.359115",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:26:03.888954",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:26:12.886666",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:28:05.234010",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:28:08.695525",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:28:11.118631",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:31:09.620081",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:31:12.688341",
+    "metadata": {
+      "ou": "CENTRAL",
+      "leader": "Alexander Wallner"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:31:14.325123",
+    "metadata": {
+      "ou": "NORTH",
+      "leader": "Bob Vanstraelen"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:31:15.904397",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:31:31.906432",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:18.953182",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:21.151894",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:23.265490",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:26.580645",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:28.481308",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:30.227615",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:38.821887",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:42.151697",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:45.568239",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:49.795237",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:35:56.858719",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:38:12.799708",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:38:14.572368",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:42:24.623305",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:42:27.303808",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:42:34.288221",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:42:36.769914",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:50:58.717459",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:51:04.989544",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:51:10.239005",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:57:39.177189",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:57:45.396296",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:58:21.826300",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:59:30.650903",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:59:35.206999",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:59:36.380277",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:59:38.362140",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:59:48.996789",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T15:59:51.831314",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:03:48.823175",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:04:01.366469",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:08:27.164343",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:41:15.556223",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:41:16.463271",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:41:18.015524",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:41:21.492726",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:41:22.202270",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:41:26.579601",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:41:47.274172",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:42:46.246176",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:42:50.912084",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:42:52.513513",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:42:53.864590",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:42:56.566930",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:43:00.381287",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:48:55.626387",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:48:56.714760",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-01T16:48:58.256073",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T10:11:21.482387",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T13:03:44.524555",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T13:03:45.072703",
+    "metadata": {
+      "region": "AMER"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T13:03:45.920483",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T13:03:46.299275",
+    "metadata": {
+      "region": "BOTH"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T13:04:16.901864",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:25:05.687901",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:25:08.766516",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:25:14.583933",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:25:41.655369",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:29:36.531689",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:34:14.116711",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:40:31.272058",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:40:49.468027",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:41:31.226884",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:45:23.694180",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:57:44.476788",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T15:57:50.672529",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-02T17:08:56.946776",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:35:51.391807",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:49:26.426340",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:49:27.276185",
+    "metadata": {
+      "cloud": "Sales"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:49:28.291963",
+    "metadata": {
+      "cloud": "Marketing"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:49:29.815651",
+    "metadata": {
+      "cloud": "Commerce"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:49:30.780581",
+    "metadata": {
+      "cloud": "AI and Data"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:49:35.425561",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:49:36.133496",
+    "metadata": {
+      "ou": "UKI",
+      "leader": "Zahra Bahrololoumi"
+    }
+  },
+  {
+    "type": "ou_scorecard_opened",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:49:40.329047",
+    "metadata": {
+      "ou": "FRANCE",
+      "leader": "Emilie Sidiqian"
+    }
+  },
+  {
+    "type": "cloud_selected",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:50:10.232942",
+    "metadata": {
+      "cloud": "Service"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:55:24.766404",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T10:55:28.356127",
+    "metadata": {
+      "quarter": "YTD"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T11:24:29.128818",
+    "metadata": {
+      "quarter": "Q1"
+    }
+  },
+  {
+    "type": "quarter_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T11:24:30.071323",
+    "metadata": {
+      "quarter": "Q2"
+    }
+  },
+  {
+    "type": "region_filter_changed",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-03T11:24:31.729308",
+    "metadata": {
+      "region": "EMEA"
+    }
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-10T09:31:56.761844",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  }
+]

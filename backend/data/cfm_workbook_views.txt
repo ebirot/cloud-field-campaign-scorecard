@@ -1,0 +1,58 @@
+Workbook: FY27 AMER + EMEA CFM MDP Scorecard Builder
+ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+Project: GFM - EMEA Web Shared Services
+Updated: 2026-05-29 13:44:52+00:00
+
+Total Views: 10
+======================================================================
+
+1. 1. REGIONAL VIEW (Sales L2)
+   ID: 7f023632-9253-4801-8f01-1ee8f07c2dd2
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/1_REGIONALVIEWSalesL2
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+
+2. 1. REGIONAL VIEW (Sales L2 & Cloud)
+   ID: 1a4cca3a-ead5-452c-b215-12e2eb808f56
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/1_REGIONALVIEWSalesL2Cloud
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+
+3. 1. REGIONAL VIEW (Sales L3)
+   ID: 8307da78-b522-437c-807c-ec99aca37759
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/1_REGIONALVIEWSalesL3
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+
+4. 2. CLOUD VIEW APM L1
+   ID: 62f7283e-f571-491f-bcd9-dacd0f92006c
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/2_CLOUDVIEWAPML1
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+
+5. 2. CLOUD VIEW APM L2
+   ID: d6703c61-0fa7-42f2-9962-df1aa6b7eb3d
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/2_CLOUDVIEWAPML2
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+
+6. 3. HORSEMAN
+   ID: eed26c73-b9f4-4598-b68e-1db515463695
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/3_HORSEMAN
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+
+7. 4. TRAFFIC SOURCE
+   ID: 1d203316-c6d7-475c-bbd1-e7cce0c29147
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/4_TRAFFICSOURCE
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+
+8. 5.OFFER L1/L2
+   ID: 05657272-e2dd-4a60-a3fd-9cf1c1691155
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/5_OFFERL1L2
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+
+9. 6.WEBINAR
+   ID: 929ad87f-af7f-46f5-b6bb-9c4b0f838a7d
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/6_WEBINAR
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+
+10. Data Freshness
+   ID: 419c11ba-199c-42ae-8d52-474b0f10970e
+   Content URL: FY27AMEREMEACFMMDPScorecardBuilder/sheets/DataFreshness
+   Workbook ID: d55ddabc-02ed-4da9-b4f4-49e7959f29b6
+

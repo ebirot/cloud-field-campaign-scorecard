@@ -1,0 +1,32 @@
+# Minimal requirements for testing Tableau and Slack (no database)
+
+# Core Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Tableau Integration
+tableauserverclient==0.28
+
+# Slack Integration
+slack-sdk==3.26.2
+
+# Google Slides Integration
+google-auth==2.27.0
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+google-api-python-client==2.116.0
+
+# Data Processing
+pandas==2.2.0
+numpy==1.26.3
+
+# HTTP & API
+httpx==0.26.0
+requests==2.31.0
+
+# Utils
+python-dotenv==1.0.1
+python-dateutil==2.8.2
+pytz==2024.1

@@ -1,0 +1,467 @@
+/**
+ * Admin Mappings Management - Intuitive UI
+ * Country to OU and Product to Cloud mappings
+ */
+
+const MAPPINGS_API = 'http://localhost:8000/api/mappings';
+
+let countryMappings = {};
+let productMappings = {};
+let currentMappingTab = 'country';
+
+// ==========================================
+// TAB SWITCHING
+// ==========================================
+
+function switchMappingTab(tab) {
+    currentMappingTab = tab;
+
+    // Update tab styles
+    const countryTab = document.getElementById('countryMappingTab');
+    const productTab = document.getElementById('productMappingTab');
+    const countryPanel = document.getElementById('countryMappingPanel');
+    const productPanel = document.getElementById('productMappingPanel');
+
+    if (tab === 'country') {
+        countryTab.style.borderBottom = '3px solid var(--brand)';
+        countryTab.style.color = 'var(--brand)';
+        productTab.style.borderBottom = 'none';
+        productTab.style.color = 'var(--muted)';
+        countryPanel.style.display = 'block';
+        productPanel.style.display = 'none';
+    } else {
+        productTab.style.borderBottom = '3px solid var(--brand)';
+        productTab.style.color = 'var(--brand)';
+        countryTab.style.borderBottom = 'none';
+        countryTab.style.color = 'var(--muted)';
+        productPanel.style.display = 'block';
+        countryPanel.style.display = 'none';
+    }
+}
+
+// ==========================================
+// COUNTRY MAPPINGS
+// ==========================================
+
+async function loadCountryMappings() {
+    try {
+        const response = await fetch(`${MAPPINGS_API}/country`);
+        countryMappings = await response.json();
+        renderCountryMappings();
+        updateCountryStats();
+    } catch (error) {
+        console.error('Error loading country mappings:', error);
+        countryMappings = getDefaultCountryMappings();
+        renderCountryMappings();
+        updateCountryStats();
+    }
+}
+
+function getDefaultCountryMappings() {
+    return {
+        'Ireland': 'UKI', 'India': 'Others', 'South Korea': 'Others',
+        'Germany': 'CENTRAL', 'Sweden': 'NORTH', 'Japan': 'Others',
+        'Spain': 'SOUTH', 'CEE': 'SOUTH', 'Italy': 'SOUTH',
+        'UK': 'UKI', 'Turkey': 'SOUTH', 'United States': 'AMER',
+        'Finland': 'NORTH', 'Norway': 'NORTH', 'Brazil': 'Others',
+        'Luxembourg': 'NORTH', 'Denmark': 'NORTH', 'Portugal': 'SOUTH',
+        'Austria': 'CENTRAL', 'Canada': 'Canada', 'Mexico': 'Others',
+        'Israel': 'SOUTH', 'Mediterranean': 'SOUTH', 'France': 'FRANCE',
+        'MDE': 'SOUTH', 'ANZ': 'Others', 'Iceland': 'NORTH',
+        'Africa': 'SOUTH', 'Switzerland & Liechtenstein': 'CENTRAL',
+        'Thailand': 'Others', 'Netherlands': 'NORTH', 'Belgium': 'NORTH',
+        'United Kingdom': 'UKI'
+    };
+}
+
+function renderCountryMappings() {
+    const grid = document.getElementById('countryMappingsGrid');
+    const searchInput = document.getElementById('countrySearchInput');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+
+    const sortedCountries = Object.keys(countryMappings).sort();
+    const filtered = searchTerm ?
+        sortedCountries.filter(c => c.toLowerCase().includes(searchTerm)) :
+        sortedCountries;
+
+    let html = '';
+
+    filtered.forEach(country => {
+        const ou = countryMappings[country];
+        const ouColor = getOUColor(ou);
+        const ouBg = getOUBackground(ou);
+
+        html += `
+            <div class="mapping-card" style="background: var(--bg-white); border: 2px solid ${ouBg}; border-radius: 10px; padding: 14px; position: relative; transition: all 0.2s; cursor: pointer;"
+                 onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.12)'; this.style.transform='translateY(-2px)'"
+                 onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.08)'; this.style.transform='translateY(0)'">
+
+                <!-- Country Name -->
+                <div style="font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; padding-right: 30px;">
+                    ${country}
+                </div>
+
+                <!-- OU Badge -->
+                <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: ${ouBg}; border-radius: 6px; font-size: 12px; font-weight: 700; color: ${ouColor};">
+                    → ${ou}
+                </div>
+
+                <!-- Edit Button -->
+                <div style="position: absolute; top: 12px; right: 12px; display: flex; gap: 4px;">
+                    <button onclick="editCountryMapping('${country.replace(/'/g, "\\'")}', '${ou}')"
+                            style="padding: 6px 10px; background: #3b82f6; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600;"
+                            title="Edit">
+                        ✏️
+                    </button>
+                    <button onclick="deleteCountryMapping('${country.replace(/'/g, "\\'")}' )"
+                            style="padding: 6px 10px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600;"
+                            title="Delete">
+                        🗑️
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+
+    if (filtered.length === 0) {
+        html = `<div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--muted);">
+            <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
+            <div style="font-size: 16px; font-weight: 600;">No countries found</div>
+            <div style="font-size: 13px; margin-top: 8px;">Try a different search term</div>
+        </div>`;
+    }
+
+    grid.innerHTML = html;
+}
+
+function filterCountryMappings() {
+    renderCountryMappings();
+}
+
+function updateCountryStats() {
+    const total = Object.keys(countryMappings).length;
+    const emea = Object.values(countryMappings).filter(ou => ['UKI', 'FRANCE', 'CENTRAL', 'NORTH', 'SOUTH'].includes(ou)).length;
+    const amer = Object.values(countryMappings).filter(ou => ['AMER', 'Canada'].includes(ou)).length;
+
+    document.getElementById('countryTotalCount').textContent = total;
+    document.getElementById('countryEmeaCount').textContent = emea;
+    document.getElementById('countryAmerCount').textContent = amer;
+    document.getElementById('countryMappingTab').innerHTML = `🌍 Countries (${total})`;
+}
+
+function showAddCountryModal() {
+    const country = prompt('Enter Country/Subregion name:');
+    if (!country || !country.trim()) return;
+
+    const ou = prompt('Select OU:\n\n1. UKI\n2. FRANCE\n3. CENTRAL\n4. NORTH\n5. SOUTH\n6. AMER\n7. Canada\n8. Others\n\nEnter name:');
+    if (!ou || !ou.trim()) return;
+
+    const validOUs = ['UKI', 'FRANCE', 'CENTRAL', 'NORTH', 'SOUTH', 'AMER', 'Canada', 'Others'];
+    const ouUpper = ou.trim().toUpperCase();
+
+    if (!validOUs.map(o => o.toUpperCase()).includes(ouUpper)) {
+        alert('Invalid OU. Please enter one of: ' + validOUs.join(', '));
+        return;
+    }
+
+    const finalOU = validOUs.find(o => o.toUpperCase() === ouUpper);
+    countryMappings[country.trim()] = finalOU;
+    renderCountryMappings();
+    updateCountryStats();
+
+    alert(`✅ Added: ${country} → ${finalOU}\n\n⚠️ Don't forget to click "Save All" to persist!`);
+}
+
+function editCountryMapping(country, currentOU) {
+    const ou = prompt(`Edit mapping for "${country}":\n\nCurrent: ${currentOU}\n\nNew OU:`, currentOU);
+    if (ou && ou.trim() && ou !== currentOU) {
+        countryMappings[country] = ou.trim();
+        renderCountryMappings();
+        updateCountryStats();
+    }
+}
+
+function deleteCountryMapping(country) {
+    if (confirm(`Delete mapping for "${country}"?\n\nThis will remove the country from the mappings.`)) {
+        delete countryMappings[country];
+        renderCountryMappings();
+        updateCountryStats();
+    }
+}
+
+async function saveCountryMappings() {
+    const count = Object.keys(countryMappings).length;
+
+    if (!confirm(`Save ${count} country mappings to server?\n\nThis will overwrite the existing mappings file.`)) {
+        return;
+    }
+
+    try {
+        const response = await fetch(`${MAPPINGS_API}/country`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(countryMappings)
+        });
+
+        if (response.ok) {
+            alert(`✅ Successfully saved ${count} country mappings!\n\nThe Email parser will use these mappings on next refresh.`);
+        } else {
+            alert('❌ Failed to save to server. Changes kept locally only.');
+        }
+    } catch (error) {
+        console.error('Error saving:', error);
+        alert('❌ Network error. Changes kept locally only.');
+    }
+}
+
+function exportCountryCSV() {
+    let csv = 'Country,OU\n';
+    Object.keys(countryMappings).sort().forEach(country => {
+        csv += `"${country}","${countryMappings[country]}"\n`;
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'country_to_ou_mappings.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+// ==========================================
+// PRODUCT MAPPINGS
+// ==========================================
+
+async function loadProductMappings() {
+    try {
+        const response = await fetch(`${MAPPINGS_API}/product`);
+        productMappings = await response.json();
+        renderProductMappings();
+        updateProductStats();
+    } catch (error) {
+        console.error('Error loading product mappings:', error);
+        productMappings = getDefaultProductMappings();
+        renderProductMappings();
+        updateProductStats();
+    }
+}
+
+function getDefaultProductMappings() {
+    return {
+        'Agentforce': 'Agentforce',
+        'Einstein AI': 'Agentforce',
+        'Agentforce Sales': 'Sales',
+        'Agentforce Service': 'Service',
+        'Marketing Cloud': 'Marketing',
+        'Slack': 'Slack'
+    };
+}
+
+function renderProductMappings() {
+    const grid = document.getElementById('productMappingsGrid');
+    const searchInput = document.getElementById('productSearchInput');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+
+    const sortedProducts = Object.keys(productMappings).sort();
+    const filtered = searchTerm ?
+        sortedProducts.filter(p => p.toLowerCase().includes(searchTerm)) :
+        sortedProducts;
+
+    let html = '';
+
+    filtered.forEach(product => {
+        const cloud = productMappings[product];
+        const cloudColor = getCloudColor(cloud);
+        const cloudBg = getCloudBackground(cloud);
+
+        html += `
+            <div class="mapping-card" style="background: var(--bg-white); border: 2px solid ${cloudBg}; border-radius: 10px; padding: 14px; position: relative; transition: all 0.2s; cursor: pointer;"
+                 onmouseover="this.style.boxShadow='0 6px 20px rgba(0,0,0,0.12)'; this.style.transform='translateY(-2px)'"
+                 onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.08)'; this.style.transform='translateY(0)'">
+
+                <!-- Product Name -->
+                <div style="font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 10px; padding-right: 30px;">
+                    ${product}
+                </div>
+
+                <!-- Cloud Badge -->
+                <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: ${cloudBg}; border-radius: 6px; font-size: 12px; font-weight: 700; color: ${cloudColor};">
+                    → ${cloud}
+                </div>
+
+                <!-- Edit Button -->
+                <div style="position: absolute; top: 12px; right: 12px; display: flex; gap: 4px;">
+                    <button onclick="editProductMapping('${product.replace(/'/g, "\\'")}', '${cloud}')"
+                            style="padding: 6px 10px; background: #3b82f6; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600;"
+                            title="Edit">
+                        ✏️
+                    </button>
+                    <button onclick="deleteProductMapping('${product.replace(/'/g, "\\'")}' )"
+                            style="padding: 6px 10px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600;"
+                            title="Delete">
+                        🗑️
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+
+    if (filtered.length === 0) {
+        html = `<div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--muted);">
+            <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
+            <div style="font-size: 16px; font-weight: 600;">No products found</div>
+            <div style="font-size: 13px; margin-top: 8px;">Try a different search term</div>
+        </div>`;
+    }
+
+    grid.innerHTML = html;
+}
+
+function filterProductMappings() {
+    renderProductMappings();
+}
+
+function updateProductStats() {
+    const total = Object.keys(productMappings).length;
+    const agentforce = Object.values(productMappings).filter(c => c === 'Agentforce').length;
+    const core = Object.values(productMappings).filter(c => ['Sales', 'Service', 'Marketing', 'Commerce'].includes(c)).length;
+
+    document.getElementById('productTotalCount').textContent = total;
+    document.getElementById('productAgentforceCount').textContent = agentforce;
+    document.getElementById('productCoreCount').textContent = core;
+    document.getElementById('productMappingTab').innerHTML = `📦 Products (${total})`;
+}
+
+function showAddProductModal() {
+    const product = prompt('Enter Product name:');
+    if (!product || !product.trim()) return;
+
+    const cloud = prompt('Select Cloud:\n\n1. Agentforce\n2. Sales\n3. Service\n4. Marketing\n5. Commerce\n6. Data\n7. Platform\n8. Mulesoft\n9. Tableau\n10. Slack\n11. Others\n\nEnter name:');
+    if (!cloud || !cloud.trim()) return;
+
+    productMappings[product.trim()] = cloud.trim();
+    renderProductMappings();
+    updateProductStats();
+
+    alert(`✅ Added: ${product} → ${cloud}\n\n⚠️ Don't forget to click "Save All" to persist!`);
+}
+
+function editProductMapping(product, currentCloud) {
+    const cloud = prompt(`Edit mapping for "${product}":\n\nCurrent: ${currentCloud}\n\nNew Cloud:`, currentCloud);
+    if (cloud && cloud.trim() && cloud !== currentCloud) {
+        productMappings[product] = cloud.trim();
+        renderProductMappings();
+        updateProductStats();
+    }
+}
+
+function deleteProductMapping(product) {
+    if (confirm(`Delete mapping for "${product}"?`)) {
+        delete productMappings[product];
+        renderProductMappings();
+        updateProductStats();
+    }
+}
+
+async function saveProductMappings() {
+    const count = Object.keys(productMappings).length;
+
+    if (!confirm(`Save ${count} product mappings to server?`)) {
+        return;
+    }
+
+    try {
+        const response = await fetch(`${MAPPINGS_API}/product`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(productMappings)
+        });
+
+        if (response.ok) {
+            alert(`✅ Successfully saved ${count} product mappings!`);
+        } else {
+            alert('❌ Failed to save to server.');
+        }
+    } catch (error) {
+        console.error('Error saving:', error);
+        alert('❌ Network error.');
+    }
+}
+
+function exportProductCSV() {
+    let csv = 'Product,Cloud\n';
+    Object.keys(productMappings).sort().forEach(product => {
+        csv += `"${product}","${productMappings[product]}"\n`;
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'product_to_cloud_mappings.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+// ==========================================
+// COLOR HELPERS
+// ==========================================
+
+function getOUColor(ou) {
+    const colors = {
+        'UKI': '#10b981', 'FRANCE': '#3b82f6', 'CENTRAL': '#f59e0b',
+        'NORTH': '#8b5cf6', 'SOUTH': '#ec4899', 'AMER': '#ef4444',
+        'Canada': '#14b8a6', 'Others': '#6b7280'
+    };
+    return colors[ou] || '#6b7280';
+}
+
+function getOUBackground(ou) {
+    const backgrounds = {
+        'UKI': '#d1fae5', 'FRANCE': '#dbeafe', 'CENTRAL': '#fef3c7',
+        'NORTH': '#ede9fe', 'SOUTH': '#fce7f3', 'AMER': '#fee2e2',
+        'Canada': '#ccfbf1', 'Others': '#f3f4f6'
+    };
+    return backgrounds[ou] || '#f3f4f6';
+}
+
+function getCloudColor(cloud) {
+    const colors = {
+        'Agentforce': '#667eea', 'Sales': '#10b981', 'Service': '#3b82f6',
+        'Marketing': '#ec4899', 'Commerce': '#f59e0b', 'Data': '#8b5cf6',
+        'Platform': '#14b8a6', 'Mulesoft': '#6366f1', 'Tableau': '#f97316',
+        'Slack': '#84cc16', 'Others': '#6b7280'
+    };
+    return colors[cloud] || '#6b7280';
+}
+
+function getCloudBackground(cloud) {
+    const backgrounds = {
+        'Agentforce': '#e0e7ff', 'Sales': '#d1fae5', 'Service': '#dbeafe',
+        'Marketing': '#fce7f3', 'Commerce': '#fef3c7', 'Data': '#ede9fe',
+        'Platform': '#ccfbf1', 'Mulesoft': '#e0e7ff', 'Tableau': '#ffedd5',
+        'Slack': '#ecfccb', 'Others': '#f3f4f6'
+    };
+    return backgrounds[cloud] || '#f3f4f6';
+}
+
+// ==========================================
+// INITIALIZATION
+// ==========================================
+
+function initMappingsAdmin() {
+    loadCountryMappings();
+    loadProductMappings();
+}
+
+// Hook into switchTab
+const originalSwitchTab = window.switchTab;
+if (originalSwitchTab) {
+    window.switchTab = function(tab) {
+        originalSwitchTab(tab);
+        if (tab === 'admin') {
+            setTimeout(initMappingsAdmin, 100);
+        }
+    };
+}

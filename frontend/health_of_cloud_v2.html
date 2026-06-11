@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Cloud Field Campaign Scorecard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Design System */
+:root {
+  --brand-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --brand: #667eea;
+  --sidebar-bg: linear-gradient(180deg, #1e3a8a 0%, #312e81 100%);
+  --sidebar-text: #c7d2fe;
+  --sidebar-active: rgba(255, 255, 255, 0.15);
+  --bg: #f8fafc;
+  --bg-white: #FFFFFF;
+  --bg-subtle: #f1f5f9;
+  --slide-blue-dark: #0B2E59;
+  --slide-blue-header: #1B4B8A;
+  --slide-green-light: #E8F5E9;
+  --slide-green-text: #2E7D32;
+  --slide-red-text: #C62828;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --green: #10b981;
+  --red: #ef4444;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+
+  /* Smooth transitions for theme changes */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark Mode - Beautiful & High Contrast */
+body.dark {
+  --brand: #60a5fa;
+  --brand-gradient: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  --sidebar-bg: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+  --sidebar-text: #cbd5e1;
+  --sidebar-active: rgba(96, 165, 250, 0.2);
+  --bg: #0f172a;
+  --bg-white: #1e293b;
+  --bg-subtle: #334155;
+  --slide-blue-dark: #60a5fa;
+  --slide-blue-header: #3b82f6;
+  --slide-green-light: #065f46;
+  --slide-green-text: #34d399;
+  --slide-red-text: #f87171;
+  --border: #334155;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --green: #34d399;
+  --red: #f87171;
+  --shadow: 0 1px 3px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3);
+}
+
+body.dark .data-table tbody tr:nth-child(even):not(.total-row) {
+  background: #1e293b;
+}
+
+body.dark .data-table tbody tr:hover:not(.total-row) {
+  background: #334155 !important;
+}
+
+body.dark .table-box {
+  border: 1px solid var(--border);
+}
+
+body.dark .insight-box {
+  border: 1px solid var(--border);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-overlay.active {
+  display: flex;
+}
+
+.loading-spinner {
+  background: var(--bg);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 95, 178, 0.2);
+  border-top-color: #005FB2;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+body.dark .spinner {
+  border: 4px solid rgba(96, 165, 250, 0.2);
+  border-top-color: #60a5fa;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: var(--text);
+  font-weight: 500;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Salesforce Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sidebar - Same as before */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 260px;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.12);
+  overflow-y: auto;
+  transition: left 0.3s ease;
+}
+
+.sidebar.collapsed {
+  left: -260px;
+}
+
+.sidebar-collapse-btn {
+  position: fixed;
+  left: 220px;
+  top: 16px;
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+}
+
+.sidebar-collapse-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.sidebar.collapsed ~ .sidebar-collapse-btn,
+.sidebar.collapsed .sidebar-collapse-btn {
+  left: 8px;
+  background: var(--brand-gradient);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+}
+
+.sidebar.collapsed .sidebar-collapse-btn span {
+  transform: rotate(180deg);
+}
+
+.sidebar.collapsed .sidebar-collapse-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 3px 3px 12px rgba(0,0,0,0.4);
+}
+
+.sidebar.collapsed ~ .main {
+  margin-left: 0;
+}
+
+.main-content {
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.sidebar-logo { font-size: 28px; }
+.sidebar-titles { display: flex; flex-direction: column; }
+.sidebar-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.sidebar-subtitle {
+  font-size: 11px;
+  color: var(--sidebar-text);
+  opacity: 0.7;
+}
+
+.sidebar-nav { padding: 12px 0; flex: 1; }
+.nav-group-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(199,210,254,0.5);
+  padding: 16px 20px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sidebar-text);
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.nav-item.active {
+  background: var(--sidebar-active);
+  color: #fff;
+  border-left: 4px solid #fbbf24;
+  padding-left: 8px;
+  font-weight: 700;
+  box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.15);
+}
+
+.nav-icon {
+  font-size: 18px;
+  width: 22px;
+  text-align: center;
+}
+
+.cloud-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.country-flag {
+  font-size: 18px;
+  width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.nav-subsection {
+  margin-left: 12px;
+  border-left: 2px solid rgba(255,255,255,0.1);
+}
+
+.nav-subitem {
+  padding-left: 32px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.nav-subheader {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(199,210,254,0.4);
+  padding: 12px 20px 4px 32px;
+}
+
+.expand-toggle {
+  font-size: 10px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.sidebar-footer {
+  padding: 12px 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.version-info {
+  font-size: 9px;
+  opacity: 0.3;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.sidebar-footer-feedback {
+  opacity: 0.4;
+  font-size: 10px;
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Main */
+.main {
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Top bar */
+.top-bar {
+  background: linear-gradient(180deg, white 0%, var(--bg) 100%);
+  border-bottom: 2px solid var(--border);
+  padding: 16px 28px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.data-refresh-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.admin-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  transition: all 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.admin-button:hover {
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+  transform: translateY(-2px);
+}
+
+.refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--brand-gradient);
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+}
+
+.refresh-btn:hover {
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.35);
+  transform: translateY(-2px);
+}
+
+.refresh-btn:active {
+  transform: translateY(0);
+}
+
+.refresh-btn.refreshing {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.refresh-btn.refreshing #refreshIcon {
+  animation: spin 1s linear infinite;
+}
+
+body.dark .refresh-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+body.dark .refresh-btn:hover {
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--brand-gradient);
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s;
+}
+
+.user-badge.admin {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+body.dark .admin-button {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+}
+
+body.dark .admin-button:hover {
+  box-shadow: 0 6px 16px rgba(251, 191, 36, 0.5);
+}
+
+body.dark .user-badge {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+}
+
+body.dark .data-refresh-badge {
+  background: #2E2E36;
+  border-color: #3E3E46;
+  color: #9090A0;
+}
+
+/* Admin Config Styles */
+.admin-config-section {
+  background: var(--bg-elevated);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.config-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.cloud-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--bg-subtle);
+  border-radius: 8px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.cloud-checkbox-item:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.cloud-checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--brand);
+}
+
+.cloud-checkbox-item label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.save-config-btn {
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--brand-gradient);
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.25);
+}
+
+.save-config-btn:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.35);
+  transform: translateY(-1px);
+}
+
+.save-config-btn:active {
+  transform: translateY(0);
+}
+
+body.dark .admin-config-section {
+  background: #2A2A32;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+body.dark .config-box {
+  background: #25252D;
+  border-color: #3E3E46;
+}
+
+body.dark .cloud-checkbox-item {
+  background: #2E2E36;
+}
+
+body.dark .cloud-checkbox-item:hover {
+  background: rgba(102, 126, 234, 0.15);
+}
+
+/* Content */
+.content {
+  padding: 24px;
+  flex: 1;
+}
+
+/* Active Filters Display */
+.active-filters {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  background: white;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-left: 4px solid var(--brand);
+  border-bottom: 1px solid var(--border);
+}
+
+.filter-label {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Salesforce Sans', -apple-system, sans-serif;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.filter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #f0f0f3 0%, #fafbfc 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 13px;
+  font-family: 'Salesforce Sans', -apple-system, sans-serif;
+}
+
+.filter-badge-label {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.filter-badge-value {
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.data-freshness {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Selection Banner */
+.selection-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  animation: slideDown 0.3s ease-out;
+}
+
+.selection-banner.hidden {
+  display: none;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.selection-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.25);
+  padding: 12px 28px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.4);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.selection-label {
+  font-size: 18px;
+  font-weight: 700;
+  opacity: 1;
+  color: rgba(255,255,255,0.95);
+}
+
+.selection-value {
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+}
+
+.selection-icon {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selection-icon img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Header */
+.scorecard-header {
+  background: var(--slide-blue-dark);
+  color: white;
+  padding: 20px 24px;
+  border-radius: 0 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.selection-banner + .scorecard-header {
+  border-radius: 0 0 0 0;
+}
+
+.scorecard-title {
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+/* Region Toggle */
+.region-toggle {
+  display: flex;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.region-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.region-btn:hover {
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+.region-btn.active {
+  background: white;
+  color: var(--slide-blue-dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Export Button */
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: white;
+  color: var(--slide-blue-dark);
+  border: 2px solid white;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Salesforce Sans', -apple-system, sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.export-btn:hover {
+  background: rgba(255,255,255,0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.export-btn:active {
+  transform: translateY(0);
+}
+
+/* Tabs Navigation */
+.tabs-navigation {
+  display: flex;
+  background: white;
+  border-bottom: 2px solid var(--border);
+  padding: 0 24px;
+  gap: 4px;
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+  top: 2px;
+}
+
+.tab-item:hover {
+  color: var(--brand);
+  background: var(--bg-subtle);
+  border-radius: 8px 8px 0 0;
+}
+
+.tab-item.active {
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+  background: white;
+}
+
+.tab-item span:first-child {
+  font-size: 18px;
+}
+
+/* Campaign Sub-tabs */
+.campaign-subtab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  bottom: -2px;
+}
+
+.campaign-subtab:hover {
+  color: var(--brand);
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.campaign-subtab.active {
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+}
+
+.campaign-subtab span:first-child {
+  font-size: 16px;
+}
+
+.campaign-tab-content {
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* NEW LAYOUT: Tables Grid (2x2) + Insights Row (3 boxes) */
+.scorecard-body {
+  background: white;
+  border-radius: 0 0 12px 12px;
+  box-shadow: var(--shadow-md);
+  padding: 24px;
+}
+
+.tables-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: start;
+}
+
+.table-box {
+  background: white;
+  border-radius: 16px;
+  padding: 0;
+  border: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: all 0.3s;
+  display: inline-block;
+  width: 100%;
+}
+
+.table-box:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  /* Removed translateY for better screenshots */
+}
+
+.table-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Salesforce Sans', -apple-system, sans-serif;
+  letter-spacing: -0.2px;
+  color: white;
+  background: linear-gradient(135deg, var(--slide-blue-dark) 0%, var(--brand) 100%);
+  padding: 16px 20px;
+  margin: 0;
+  border: none;
+}
+
+.tableau-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  backdrop-filter: blur(5px);
+}
+
+.tableau-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tableau-link:active {
+  transform: translateY(0);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  font-family: 'Salesforce Sans', -apple-system, sans-serif;
+  display: table;
+  table-layout: fixed;
+}
+
+.data-table th {
+  background: var(--bg-subtle);
+  color: var(--slide-blue-dark);
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 2px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+.data-table th:first-child {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.data-table th:hover {
+  background: var(--brand-light);
+  color: var(--brand-dark);
+}
+
+.data-table th.sortable::after {
+  content: ' ⇅';
+  opacity: 0.3;
+  font-size: 11px;
+}
+
+.data-table th.sort-asc::after {
+  content: ' ▲';
+  opacity: 1;
+}
+
+.data-table th.sort-desc::after {
+  content: ' ▼';
+  opacity: 1;
+}
+
+.data-table tbody tr {
+  transition: all 0.2s;
+}
+
+.data-table tbody tr:nth-child(even):not(.total-row) {
+  background: #fafbfc;
+}
+
+.data-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f0f0f3;
+  color: var(--text);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.data-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+  padding-left: 16px;
+  color: var(--text);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody {
+  background: white;
+}
+
+.data-table tbody tr:hover:not(.total-row) {
+  background: #f0f7ff !important;
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.data-table tr.total-row {
+  background: linear-gradient(135deg, #e8eaf6 0%, #e3f2fd 100%) !important;
+  border-top: 3px solid var(--brand);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+}
+
+.data-table tr.total-row td {
+  padding: 16px 12px;
+  font-size: 14px;
+  font-weight: 700 !important;
+  color: var(--slide-blue-dark) !important;
+}
+
+.number-cell {
+  text-align: center;
+  font-family: 'Salesforce Sans', -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Conditional formatting - TEXT COLOR ONLY */
+/* Performance colors - Rouge/Orange/Vert (texte seulement) */
+.positive {
+  color: #059669 !important;
+  font-weight: 700 !important;
+}
+
+.neutral {
+  color: #f59e0b !important;
+  font-weight: 700 !important;
+}
+
+.negative {
+  color: #dc2626 !important;
+  font-weight: 700 !important;
+}
+
+body.dark .positive {
+  color: #34d399 !important;
+}
+
+body.dark .neutral {
+  color: #fbbf24 !important;
+}
+
+body.dark .negative {
+  color: #f87171 !important;
+}
+
+/* Email metric color classes */
+.metric-good {
+  color: #059669 !important;
+  font-weight: 600 !important;
+}
+
+.metric-warning {
+  color: #f59e0b !important;
+  font-weight: 600 !important;
+}
+
+.metric-bad {
+  color: #dc2626 !important;
+  font-weight: 600 !important;
+}
+
+body.dark .metric-good {
+  color: #34d399 !important;
+}
+
+body.dark .metric-warning {
+  color: #fbbf24 !important;
+}
+
+body.dark .metric-bad {
+  color: #f87171 !important;
+}
+
+.perf-excellent {
+  color: #047857 !important;
+  font-weight: 700;
+}
+
+.perf-good {
+  color: #d97706 !important;
+  font-weight: 700;
+}
+
+.perf-poor {
+  color: #dc2626 !important;
+  font-weight: 700;
+}
+
+.perf-negative {
+  color: #dc2626 !important;
+  font-weight: 700;
+}
+
+.perf-positive {
+  color: #047857 !important;
+  font-weight: 700;
+}
+
+/* Insights Row - 3 Boxes */
+.insights-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.insight-box {
+  background: white;
+  border-radius: 16px;
+  padding: 0;
+  border: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.insight-box:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.insight-box.highlights {
+  border-top: 4px solid var(--green);
+}
+
+.insight-box.lowlights {
+  border-top: 4px solid var(--red);
+}
+
+.insight-box.actions {
+  border-top: 4px solid #3b82f6;
+}
+
+.insight-box-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Salesforce Sans', -apple-system, sans-serif;
+  letter-spacing: -0.2px;
+  padding: 20px 24px 16px 24px;
+  margin: 0;
+  background: linear-gradient(135deg, #fafbfc 0%, #f0f0f3 100%);
+}
+
+.insight-box.highlights .insight-box-header {
+  color: var(--slide-green-text);
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.insight-box.lowlights .insight-box-header {
+  color: var(--slide-red-text);
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+}
+
+.insight-box.actions .insight-box-header {
+  color: #1e40af;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+}
+
+.insight-list {
+  list-style: none;
+  padding: 20px 24px 24px 24px;
+  margin: 0;
+}
+
+.insight-item {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.insight-item::before {
+  content: '●';
+  position: absolute;
+  left: 4px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.highlights .insight-item::before {
+  color: var(--slide-green-text);
+}
+.lowlights .insight-item::before {
+  color: var(--slide-red-text);
+}
+.actions .insight-item::before {
+  color: #1e40af;
+}
+
+.action-item strong {
+  color: #1e40af;
+  font-weight: 700;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 60px;
+  color: var(--muted);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+</style>
+</head>
+<body>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-spinner">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading data...</div>
+  </div>
+</div>
+
+<!-- Sidebar (same structure) -->
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">☁️</div>
+    <div class="sidebar-titles">
+      <div class="sidebar-title">Cloud Field Campaign Scorecard</div>
+    </div>
+    <button class="sidebar-collapse-btn" onclick="toggleSidebar()" title="Collapse sidebar">
+      <span id="sidebarCollapseIcon">◀</span>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-group-label">
+      <span>CLOUDS</span>
+      <span class="expand-toggle" onclick="toggleSection('clouds')">▼</span>
+    </div>
+    <div id="clouds-section" class="nav-subsection">
+      <div class="nav-item nav-subitem" onclick="selectCloud('Service')">
+        <img src="https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2024/06/icon-service.svg?w=64" class="cloud-logo" alt="Service">
+        <span>Service</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectCloud('Sales')">
+        <img src="https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2024/06/icon-sales.svg?w=64" class="cloud-logo" alt="Sales">
+        <span>Sales</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectCloud('Marketing')">
+        <img src="https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2024/06/icon-marketing.svg?w=64" class="cloud-logo" alt="Marketing">
+        <span>Marketing</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectCloud('Commerce')">
+        <img src="https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2024/06/icon-commerce.svg?w=64" class="cloud-logo" alt="Commerce">
+        <span>Commerce</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectCloud('AI and Data')">
+        <img src="https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2024/06/icon-data-cloud.svg?w=64" class="cloud-logo" alt="Data Cloud">
+        <span>AI and Data</span>
+      </div>
+    </div>
+
+    <div class="nav-group-label">
+      <span>OPERATING UNITS</span>
+      <span class="expand-toggle" onclick="toggleSection('ous')">▼</span>
+    </div>
+    <div id="ous-section" class="nav-subsection" style="display: block;">
+      <div class="nav-subheader">EMEA</div>
+      <div class="nav-item nav-subitem" onclick="selectOU('Zahra Bahrololoumi')">
+        <span class="country-flag">🏢</span>
+        <span>UKI</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectOU('Emilie Sidiqian')">
+        <span class="country-flag">🏢</span>
+        <span>France</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectOU('Alexander Wallner')">
+        <span class="country-flag">🏢</span>
+        <span>Central</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectOU('Bob Vanstraelen')">
+        <span class="country-flag">🏢</span>
+        <span>North</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectOU('Marco Hernansanz')">
+        <span class="country-flag">🏢</span>
+        <span>South</span>
+      </div>
+
+      <div class="nav-subheader">AMER</div>
+      <div class="nav-item nav-subitem" onclick="selectOU('Scot Blocker')">
+        <span class="country-flag">🏢</span>
+        <span>CBS</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectOU('Connor Marsden')">
+        <span class="country-flag">🏢</span>
+        <span>PACE & AFD360</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectOU('Mark Sullivan')">
+        <span class="country-flag">🏢</span>
+        <span>REG</span>
+      </div>
+      <div class="nav-item nav-subitem" onclick="selectOU('Lenore Lang')">
+        <span class="country-flag">🏢</span>
+        <span>TMT</span>
+      </div>
+    </div>
+
+    <!-- Admin Section (Hidden by default, shown when admin mode active) -->
+    <div id="adminSidebarSection" style="display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+      <div class="nav-item" onclick="openAdminSettings()" data-tab="admin" style="background: rgba(255,255,255,0.05); border-left: 3px solid #f59e0b;">
+        <span style="font-size: 20px;">⚙️</span>
+        <span style="font-weight: 600;">Admin Settings</span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="version-info">v1.0.0 • 2026-05-28</div>
+
+    <!-- Dark Mode Toggle -->
+    <div onclick="toggleDarkMode()" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;text-align:center;cursor:pointer;transition:all 0.2s;margin-bottom:10px;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
+        <div style="font-size:20px;" id="darkModeIcon">☀</div>
+        <div style="font-size:13px;font-weight:600;opacity:0.9;" id="darkModeLabel">Light Mode</div>
+      </div>
+    </div>
+
+    <!-- Admin Mode Toggle -->
+    <div onclick="toggleAdminMode()" id="adminModeSidebarBtn" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;text-align:center;cursor:pointer;transition:all 0.2s;margin-bottom:10px;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
+        <div style="font-size:20px;">🔐</div>
+        <div style="font-size:13px;font-weight:600;opacity:0.9;" id="adminModeSidebarLabel">Activate Admin Mode</div>
+      </div>
+    </div>
+
+    <div class="sidebar-footer-feedback">💬 Feedback: Etienne Birot</div>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+  <div class="top-bar">
+    <div class="breadcrumb">
+      <span>Home › Health of Cloud › </span>
+      <span id="currentCloud">Service</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div class="data-refresh-badge" id="dataRefreshBadge">
+        <span style="opacity: 0.7;">🔄</span>
+        <span id="dataRefreshText">Daily refresh at 23:00 CET</span>
+      </div>
+      <!-- Refresh Button -->
+      <button class="refresh-btn" onclick="manualRefresh()" title="Refresh data now">
+        <span id="refreshIcon">🔄</span>
+        <span>Refresh</span>
+      </button>
+      <!-- User Badge (read-only, updated by sidebar toggle) -->
+      <div class="user-badge" id="userBadgeTopBar">
+        <span id="userBadgeIcon">👤</span>
+        <span id="userBadgeText">Guest</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Selection Banner (visible when Cloud or OU is selected) -->
+    <div class="selection-banner hidden" id="selectionBanner">
+      <div class="selection-item" id="cloudSelection" style="display: none;">
+        <span class="selection-label">Selected Cloud:</span>
+        <span class="selection-icon" id="selectedCloudIcon">☁️</span>
+        <span class="selection-value" id="selectedCloudName">Service</span>
+      </div>
+      <div class="selection-item" id="ouSelection" style="display: none;">
+        <span class="selection-label">Selected OU:</span>
+        <span class="selection-icon">🏢</span>
+        <span class="selection-value" id="selectedOUName">CENTRAL</span>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="scorecard-header">
+      <div class="scorecard-title">
+        <span id="headerIcon">🏥</span>
+        <span id="headerTitle">Health of the Cloud Scorecard</span>
+        <span style="opacity: 0.7; font-size: 14px;" id="quarterProgress"></span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <!-- Quarter Toggle -->
+        <div class="region-toggle">
+          <button class="region-btn" onclick="setQuarterFilter('Q1')" data-quarter="Q1">
+            Q1
+          </button>
+          <button class="region-btn active" onclick="setQuarterFilter('Q2')" data-quarter="Q2">
+            Q2
+          </button>
+          <button class="region-btn" onclick="setQuarterFilter('YTD')" data-quarter="YTD">
+            YTD
+          </button>
+        </div>
+
+        <!-- Region Toggle -->
+        <div class="region-toggle">
+          <button class="region-btn active" onclick="setRegionFilter('BOTH')" data-region="BOTH">
+            🌍 EMEA + AMER
+          </button>
+          <button class="region-btn" onclick="setRegionFilter('EMEA')" data-region="EMEA">
+            🇪🇺 EMEA
+          </button>
+          <button class="region-btn" onclick="setRegionFilter('AMER')" data-region="AMER">
+            🇺🇸 AMER
+          </button>
+        </div>
+
+        <!-- Export Button -->
+        <button class="export-btn" onclick="exportSnapshot()" title="Export to Google Slides">
+          <span>📸</span>
+          <span>Export Snapshot</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="tabs-navigation">
+      <div class="tab-item active" onclick="switchTab('health')" data-tab="health">
+        <span>🏥</span>
+        <span>Health of Cloud</span>
+      </div>
+      <div class="tab-item" onclick="switchTab('lead')" data-tab="lead">
+        <span>🎯</span>
+        <span>Lead Scorecard</span>
+      </div>
+      <div class="tab-item" onclick="switchTab('campaign')" data-tab="campaign">
+        <span>📧</span>
+        <span>Campaign Scorecard</span>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="scorecard-body">
+      <div id="loadingState" class="loading">
+        <div class="spinner"></div>
+        <div>Loading scorecard data...</div>
+      </div>
+
+      <!-- Health of Cloud Content -->
+      <div id="healthContent" class="tab-content" style="display: none;">
+
+        <!-- Data Freshness Only -->
+        <div class="active-filters">
+          <div class="data-freshness">
+            <span>📅</span>
+            <span id="dataFreshness">Last updated: --</span>
+          </div>
+        </div>
+        <!-- Tables Grid (2x2) -->
+        <div class="tables-grid">
+          <!-- Region Table -->
+          <div class="table-box">
+            <div class="table-box-header">
+              <span id="regionTableTitle">MDP by Region</span>
+              <a href="#" class="tableau-link" id="regionalTableauLink" target="_blank" rel="noopener noreferrer">
+                <span>📊</span>
+                <span>View in Tableau</span>
+              </a>
+            </div>
+            <table class="data-table" id="regionTable"></table>
+          </div>
+
+          <!-- Horseman Table -->
+          <div class="table-box">
+            <div class="table-box-header">
+              <span>MDP by Horseman</span>
+              <a href="#" class="tableau-link" id="horsemanTableauLink" target="_blank" rel="noopener noreferrer">
+                <span>📊</span>
+                <span>View in Tableau</span>
+              </a>
+            </div>
+            <table class="data-table" id="horsemanTable"></table>
+          </div>
+
+          <!-- Traffic Table -->
+          <div class="table-box">
+            <div class="table-box-header">
+              <span>MDP by Traffic Source</span>
+              <a href="#" class="tableau-link" id="trafficTableauLink" target="_blank" rel="noopener noreferrer">
+                <span>📊</span>
+                <span>View in Tableau</span>
+              </a>
+            </div>
+            <table class="data-table" id="trafficTable"></table>
+          </div>
+
+          <!-- Offer Table -->
+          <div class="table-box">
+            <div class="table-box-header">
+              <span>MDP by Offer</span>
+              <a href="#" class="tableau-link" id="offerTableauLink" target="_blank" rel="noopener noreferrer">
+                <span>📊</span>
+                <span>View in Tableau</span>
+              </a>
+            </div>
+            <table class="data-table" id="offerTable"></table>
+          </div>
+        </div>
+
+        <!-- Insights Row (3 Boxes) -->
+        <div class="insights-row">
+          <!-- Highlights -->
+          <div class="insight-box highlights">
+            <div class="insight-box-header">
+              <span>Highlights</span>
+            </div>
+            <ul class="insight-list" id="highlightsList"></ul>
+          </div>
+
+          <!-- Areas to Watch -->
+          <div class="insight-box lowlights">
+            <div class="insight-box-header">
+              <span>Areas to Watch</span>
+            </div>
+            <ul class="insight-list" id="lowlightsList"></ul>
+          </div>
+
+          <!-- Actions -->
+          <div class="insight-box actions">
+            <div class="insight-box-header">
+              <span>Actions / Next Steps</span>
+            </div>
+            <ul class="insight-list" id="actionsList"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lead Scorecard Content -->
+      <div id="leadContent" class="tab-content" style="display: none;">
+
+        <div style="display: flex; align-items: center; justify-content: center; height: calc(100vh - 200px);">
+          <div style="text-align: center;">
+            <div style="font-size: 72px; margin-bottom: 24px;">🚧</div>
+            <h1 style="font-size: 48px; font-weight: 700; margin-bottom: 16px; background: linear-gradient(135deg, #4F46E5, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Coming Soon</h1>
+            <p style="font-size: 18px; opacity: 0.7; color: var(--text);">Lead Scorecard feature is under development</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- OLD LEAD CONTENT REMOVED -->
+      <div style="display: none;">
+          <div style="width: 320px; flex-shrink: 0; overflow-y: auto; padding: 20px; background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); border-radius: 16px; color: white;">
+
+
+            <!-- Valid Leads Box -->
+            <div style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.3);">
+              <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 8px;">📊 Valid Leads</div>
+              <div style="font-size: 32px; font-weight: 700; margin-bottom: 8px;" id="leadCockpitVL">-</div>
+              <div id="leadCockpitVLYoY" style="display: inline-block; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; background: rgba(34, 197, 94, 0.3); color: #fff;">+0% YoY</div>
+            </div>
+
+            <!-- Key Metrics Grid -->
+            <div style="display: grid; gap: 12px; margin-bottom: 16px;">
+              <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 10px; padding: 14px; border: 1px solid rgba(255,255,255,0.2);">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 10px; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px;">💼 MQL</div>
+                    <div style="font-size: 22px; font-weight: 700;" id="leadCockpitMQL">-</div>
+                  </div>
+                  <div id="leadCockpitMQLYoY" style="padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.2);">-</div>
+                </div>
+              </div>
+
+              <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 10px; padding: 14px; border: 1px solid rgba(255,255,255,0.2);">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 10px; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px;">💰 S2 Pipeline</div>
+                    <div style="font-size: 22px; font-weight: 700;" id="leadCockpitS2">-</div>
+                  </div>
+                  <div id="leadCockpitS2YoY" style="padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.2);">-</div>
+                </div>
+              </div>
+
+              <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 10px; padding: 14px; border: 1px solid rgba(255,255,255,0.2);">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 10px; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px;">💎 ACV</div>
+                    <div style="font-size: 22px; font-weight: 700;" id="leadCockpitACV">-</div>
+                  </div>
+                  <div id="leadCockpitACVYoY" style="padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.2);">-</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conversion Rates -->
+            <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.2);">
+              <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 12px;">📈 Conversion Rates</div>
+              <div style="font-size: 12px; line-height: 2.2;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <span style="opacity: 0.9;">MQL → VL</span>
+                  <div style="display: flex; gap: 6px; align-items: center;">
+                    <span style="font-weight: 600;" id="leadCockpitMQLVL">-</span>
+                    <span id="leadCockpitMQLVLDiff" style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(255,255,255,0.2);">-</span>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <span style="opacity: 0.9;">VL → S1</span>
+                  <div style="display: flex; gap: 6px; align-items: center;">
+                    <span style="font-weight: 600;" id="leadCockpitVLS1">-</span>
+                    <span id="leadCockpitVLS1Diff" style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(255,255,255,0.2);">-</span>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <span style="opacity: 0.9;">VL → S2</span>
+                  <div style="display: flex; gap: 6px; align-items: center;">
+                    <span style="font-weight: 600;" id="leadCockpitVLS2">-</span>
+                    <span id="leadCockpitVLS2Diff" style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(255,255,255,0.2);">-</span>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="opacity: 0.9;">S2 → ACV</span>
+                  <div style="display: flex; gap: 6px; align-items: center;">
+                    <span style="font-weight: 600;" id="leadCockpitS2ACV">-</span>
+                    <span id="leadCockpitS2ACVDiff" style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(255,255,255,0.2);">-</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Traffic Flags -->
+            <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.2);">
+              <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 12px;">🚩 Traffic Flags</div>
+              <div id="leadCockpitTrafficFlags" style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px;">
+                <div style="opacity: 0.5;">Loading...</div>
+              </div>
+            </div>
+
+            <!-- Lead Scores -->
+            <div style="background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 16px; border: 1px solid rgba(255,255,255,0.2);">
+              <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-bottom: 12px;">⭐ Lead Scores</div>
+              <div id="leadCockpitLeadScores" style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px;">
+                <div style="opacity: 0.5;">Loading...</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Main Content: Data Table -->
+          <div style="flex: 1; overflow-y: auto;">
+
+            <!-- Lead Data Table -->
+            <div class="data-box">
+              <div class="data-box-header">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                </div>
+              </div>
+
+              <div style="overflow-x: auto;">
+                <table class="data-table" id="leadCockpitTable">
+                  <thead>
+                    <tr>
+                      <th>OU</th>
+                      <th>VL #</th>
+                      <th>VL % YoY</th>
+                      <th>S1 #</th>
+                      <th>S1 % YoY</th>
+                      <th>S2 #</th>
+                      <th>S2 % YoY</th>
+                      <th>S2 $</th>
+                      <th>S2 $ YoY</th>
+                      <th>ACV $</th>
+                      <th>ACV $ YoY</th>
+                    </tr>
+                  </thead>
+                  <tbody id="leadCockpitTableBody">
+                    <tr>
+                      <td colspan="11" style="text-align: center; padding: 40px; color: var(--muted);">Loading...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Campaign Scorecard Content -->
+      <div id="campaignContent" class="tab-content" style="display: none;">
+
+        <!-- Campaign Sub-tabs -->
+        <div style="display: flex; gap: 8px; margin-bottom: 24px; border-bottom: 2px solid var(--border); padding-bottom: 0;">
+          <div class="campaign-subtab active" onclick="switchCampaignTab('webinar')" data-campaign-tab="webinar">
+            <span>🎯</span>
+            <span>Webinar</span>
+          </div>
+          <div class="campaign-subtab" onclick="switchCampaignTab('email')" data-campaign-tab="email">
+            <span>📧</span>
+            <span>Email</span>
+          </div>
+          <div class="campaign-subtab" onclick="switchCampaignTab('custom')" data-campaign-tab="custom">
+            <span>📊</span>
+            <span>Create your own Webinar view</span>
+          </div>
+          <div class="campaign-subtab" onclick="switchCampaignTab('custom-email')" data-campaign-tab="custom-email">
+            <span>📧</span>
+            <span>Create your own Email view</span>
+          </div>
+        </div>
+
+        <!-- Webinar Tab Content -->
+        <div id="webinarTabContent" class="campaign-tab-content">
+
+          <!-- Webinar by Sales Leader -->
+          <div class="table-box" style="margin-bottom: 24px;">
+            <div class="table-box-header">
+              <span>Webinar MDP by Sales Leader</span>
+              <a href="#" class="tableau-link" id="webinarTableauLink" target="_blank" rel="noopener noreferrer">
+                <span>📊</span>
+                <span>View in Tableau</span>
+              </a>
+            </div>
+            <table class="data-table" id="webinarLeaderTable"></table>
+          </div>
+
+          <!-- Webinar by Cloud -->
+          <div class="table-box">
+            <div class="table-box-header">
+              <span>Webinar MDP by Cloud</span>
+              <a href="#" class="tableau-link" id="webinarCloudTableauLink" target="_blank" rel="noopener noreferrer">
+                <span>📊</span>
+                <span>View in Tableau</span>
+              </a>
+            </div>
+            <table class="data-table" id="webinarCloudTable"></table>
+          </div>
+
+        </div>
+
+        <!-- Email Tab Content -->
+        <div id="emailTabContent" class="campaign-tab-content" style="display: none;">
+
+          <!-- Single Email Table (filters based on sidebar selection) -->
+          <div class="table-box">
+            <div class="table-box-header">
+              <span id="emailTableTitle">📧 Email Performance</span>
+            </div>
+            <table class="data-table" id="emailTable">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Dimension</th>
+                  <th style="width: 15%;">DSE Coverage</th>
+                  <th style="width: 20%;"># Emails Delivered</th>
+                  <th style="width: 15%;">Unique CTR</th>
+                  <th style="width: 15%;">U:CR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td colspan="5" style="text-align: center; padding: 40px; color: var(--muted);">Loading email data...</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- Custom View Tab Content -->
+        <div id="customTabContent" class="campaign-tab-content" style="display: none;">
+
+        <!-- Filters Bar -->
+        <div style="background: var(--bg-white); padding: 20px; border-radius: var(--radius); margin-bottom: 24px; border: 1px solid var(--border);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 16px; align-items: end;">
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px;">
+                Filter by Cloud
+              </label>
+              <select id="globalCloudFilter" multiple style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 14px; height: 120px;">
+                <option value="Service">Service</option>
+                <option value="Sales">Sales</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Commerce">Commerce</option>
+                <option value="AI and Data">AI and Data</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px;">
+                Filter by OU
+              </label>
+              <select id="globalOUFilter" multiple style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 14px; height: 120px;">
+                <optgroup label="EMEA">
+                  <option value="Zahra Bahrololoumi">UKI</option>
+                  <option value="Emilie Sidiqian">France</option>
+                  <option value="Alexander Wallner">Central</option>
+                  <option value="Marco Hernansanz">South</option>
+                  <option value="Bob Vanstraelen">North</option>
+                </optgroup>
+                <optgroup label="AMER">
+                  <option value="Mark Sullivan">CBS</option>
+                  <option value="Lenore Lang">PACE & AFD360</option>
+                  <option value="Connor Marsden">REG</option>
+                  <option value="Scot Blocker">TMT</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px;">
+                View by
+              </label>
+              <select id="globalViewMode" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 14px;">
+                <option value="by-cloud">By Cloud</option>
+                <option value="by-ou">By OU</option>
+              </select>
+            </div>
+
+            <button onclick="loadGlobalCampaignData()" style="padding: 12px 24px; background: var(--brand-gradient); color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; white-space: nowrap; height: 44px;">
+              Apply Filters
+            </button>
+          </div>
+
+          <p style="margin-top: 12px; font-size: 13px; color: var(--muted);">
+            💡 Select multiple Clouds or OUs (Ctrl+Click) for custom views • Current quarter: <strong id="globalCurrentQuarter">Q2</strong>
+          </p>
+        </div>
+
+        <!-- Webinar Table -->
+        <div class="table-box">
+          <div class="table-box-header">
+            <span>Webinar MDP - Global View</span>
+          </div>
+          <table class="data-table" id="globalWebinarTable">
+            <thead>
+              <tr id="globalTableHeader">
+                <th style="width: 40%;">Dimension</th>
+                <th style="width: 20%;">Current FY MDP</th>
+                <th style="width: 20%;">Previous FY MDP</th>
+                <th style="width: 20%;">MDP YoY</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="4" style="text-align: center; padding: 40px; color: var(--muted);">Select filters and click "Apply Filters"</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        </div>
+
+        <!-- Custom Email View Tab Content -->
+        <div id="customEmailTabContent" class="campaign-tab-content" style="display: none;">
+
+        <!-- Filters Bar -->
+        <div style="background: var(--bg-white); padding: 20px; border-radius: var(--radius); margin-bottom: 24px; border: 1px solid var(--border);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 16px; align-items: end;">
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px;">
+                Filter by Cloud
+              </label>
+              <select id="globalEmailCloudFilter" multiple style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 14px; height: 120px;">
+                <option value="Sales">Sales</option>
+                <option value="Service">Service</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Data">Data</option>
+                <option value="Agentforce">Agentforce</option>
+                <option value="Platform">Platform</option>
+                <option value="Mulesoft">Mulesoft</option>
+                <option value="Tableau">Tableau</option>
+                <option value="Slack">Slack</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px;">
+                Filter by OU
+              </label>
+              <select id="globalEmailOUFilter" multiple style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 14px; height: 120px;">
+                <optgroup label="EMEA">
+                  <option value="FRANCE">France</option>
+                  <option value="UKI">UKI</option>
+                  <option value="CENTRAL">Central</option>
+                  <option value="SOUTH">South</option>
+                  <option value="NORTH">North</option>
+                </optgroup>
+                <optgroup label="AMER">
+                  <option value="AMER">AMER</option>
+                  <option value="Canada">Canada</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px;">
+                View by
+              </label>
+              <select id="globalEmailViewMode" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); font-size: 14px;">
+                <option value="by-cloud">By Cloud</option>
+                <option value="by-ou">By OU</option>
+              </select>
+            </div>
+
+            <button onclick="loadGlobalEmailData()" style="padding: 12px 24px; background: var(--brand-gradient); color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; white-space: nowrap; height: 44px;">
+              Apply Filters
+            </button>
+          </div>
+
+          <p style="margin-top: 12px; font-size: 13px; color: var(--muted);">
+            💡 Select multiple Clouds or OUs (Ctrl+Click) for custom views • Current quarter: <strong id="globalEmailCurrentQuarter">Q2</strong>
+          </p>
+        </div>
+
+        <!-- Email Table -->
+        <div class="table-box">
+          <div class="table-box-header">
+            <span>📧 Email Performance - Global View</span>
+          </div>
+          <table class="data-table" id="globalEmailTable">
+            <thead>
+              <tr id="globalEmailTableHeader">
+                <th style="width: 25%;">Dimension</th>
+                <th style="width: 15%;">DSE Coverage</th>
+                <th style="width: 20%;"># Emails Delivered</th>
+                <th style="width: 15%;">Unique CTR</th>
+                <th style="width: 15%;">U:CR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="5" style="text-align: center; padding: 40px; color: var(--muted);">Select filters and click "Apply Filters"</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        </div>
+
+      </div>
+
+      <!-- Admin Dashboard Content -->
+      <div id="adminContent" class="tab-content" style="display: none;">
+        <div style="padding: 20px; display: grid; gap: 20px;">
+
+          <!-- Cloud Visibility Configuration -->
+          <div class="admin-config-section">
+            <h3 style="font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+              <span>☁️</span>
+              <span>Cloud Visibility Configuration</span>
+            </h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <!-- Cloud Mode Clouds -->
+              <div class="config-box">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                  <span>🌐</span>
+                  <span>Cloud Mode Scorecards</span>
+                </div>
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">
+                  Select which clouds appear in the sidebar for Cloud scorecards:
+                </div>
+                <div id="cloudModeCloudsList" style="display: flex; flex-direction: column; gap: 8px;">
+                  <!-- Generated by JS -->
+                </div>
+                <button onclick="saveCloudModeConfig()" class="save-config-btn" style="margin-top: 12px;">
+                  💾 Save Cloud Mode Config
+                </button>
+              </div>
+
+              <!-- OU Mode Clouds -->
+              <div class="config-box">
+                <div style="font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                  <span>🏢</span>
+                  <span>OU Mode Scorecards</span>
+                </div>
+                <div style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">
+                  Select which clouds to display in OU scorecard tables:
+                </div>
+                <div id="ouModeCloudsList" style="display: flex; flex-direction: column; gap: 8px;">
+                  <!-- Generated by JS -->
+                </div>
+                <button onclick="saveOUModeConfig()" class="save-config-btn" style="margin-top: 12px;">
+                  💾 Save OU Mode Config
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Mappings Configuration -->
+          <div class="admin-config-section">
+            <h3 style="font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+              <span>🗺️</span>
+              <span>Email Mappings Configuration</span>
+            </h3>
+            <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">
+              Configure how countries and products are mapped for email campaigns. Click on any item to edit inline.
+            </p>
+
+            <!-- Tabs for Country vs Product -->
+            <div style="display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 2px solid var(--border);">
+              <div id="countryMappingTab" class="mapping-tab active" onclick="switchMappingTab('country')" style="padding: 12px 24px; cursor: pointer; font-weight: 600; border-bottom: 3px solid var(--brand); color: var(--brand);">
+                🌍 Countries (0)
+              </div>
+              <div id="productMappingTab" class="mapping-tab" onclick="switchMappingTab('product')" style="padding: 12px 24px; cursor: pointer; font-weight: 600; color: var(--muted);">
+                📦 Products (0)
+              </div>
+            </div>
+
+            <!-- Country Mapping Panel -->
+            <div id="countryMappingPanel" style="display: block;">
+              <!-- Statistics Bar -->
+              <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 8px; border: 1px solid #86efac;">
+                  <div style="font-size: 11px; font-weight: 600; color: #166534; text-transform: uppercase;">Total Countries</div>
+                  <div id="countryTotalCount" style="font-size: 24px; font-weight: 700; color: #15803d;">0</div>
+                </div>
+                <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 8px; border: 1px solid #93c5fd;">
+                  <div style="font-size: 11px; font-weight: 600; color: #1e40af; text-transform: uppercase;">EMEA Countries</div>
+                  <div id="countryEmeaCount" style="font-size: 24px; font-weight: 700; color: #1e3a8a;">0</div>
+                </div>
+                <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-radius: 8px; border: 1px solid #fca5a5;">
+                  <div style="font-size: 11px; font-weight: 600; color: #991b1b; text-transform: uppercase;">AMER Countries</div>
+                  <div id="countryAmerCount" style="font-size: 24px; font-weight: 700; color: #b91c1c;">0</div>
+                </div>
+              </div>
+
+              <!-- Search & Actions -->
+              <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                <input
+                  type="text"
+                  id="countrySearchInput"
+                  placeholder="🔍 Search countries..."
+                  onkeyup="filterCountryMappings()"
+                  style="flex: 1; min-width: 200px; padding: 10px 16px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px;"
+                />
+                <button onclick="showAddCountryModal()" style="padding: 10px 20px; background: var(--brand); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; white-space: nowrap;">
+                  ➕ Add Country
+                </button>
+                <button onclick="showManageOUsModal()" style="padding: 10px 20px; background: #8b5cf6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; white-space: nowrap;">
+                  🏢 Manage OUs
+                </button>
+                <button onclick="exportCountryCSV()" style="padding: 10px 20px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+                  📥 Export CSV
+                </button>
+              </div>
+
+              <!-- Mappings Grid -->
+              <div id="countryMappingsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; max-height: 500px; overflow-y: auto; padding: 4px;">
+                <!-- Generated by JS -->
+              </div>
+
+              <!-- Save Button -->
+              <div style="margin-top: 16px; display: flex; gap: 12px;">
+                <button onclick="saveCountryMappings()" style="flex: 1; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 15px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">
+                  💾 Save All Country Mappings
+                </button>
+                <button onclick="loadCountryMappings()" style="padding: 14px 20px; background: var(--muted); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+                  🔄 Reload
+                </button>
+              </div>
+            </div>
+
+            <!-- Product Mapping Panel -->
+            <div id="productMappingPanel" style="display: none;">
+              <!-- Statistics Bar -->
+              <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 8px; border: 1px solid #86efac;">
+                  <div style="font-size: 11px; font-weight: 600; color: #166534; text-transform: uppercase;">Total Products</div>
+                  <div id="productTotalCount" style="font-size: 24px; font-weight: 700; color: #15803d;">0</div>
+                </div>
+                <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 8px; border: 1px solid #93c5fd;">
+                  <div style="font-size: 11px; font-weight: 600; color: #1e40af; text-transform: uppercase;">Agentforce Products</div>
+                  <div id="productAgentforceCount" style="font-size: 24px; font-weight: 700; color: #1e3a8a;">0</div>
+                </div>
+                <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; border: 1px solid #fcd34d;">
+                  <div style="font-size: 11px; font-weight: 600; color: #92400e; text-transform: uppercase;">Core Clouds</div>
+                  <div id="productCoreCount" style="font-size: 24px; font-weight: 700; color: #b45309;">0</div>
+                </div>
+              </div>
+
+              <!-- Search & Actions -->
+              <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                <input
+                  type="text"
+                  id="productSearchInput"
+                  placeholder="🔍 Search products..."
+                  onkeyup="filterProductMappings()"
+                  style="flex: 1; min-width: 200px; padding: 10px 16px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px;"
+                />
+                <button onclick="showAddProductModal()" style="padding: 10px 20px; background: var(--brand); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; white-space: nowrap;">
+                  ➕ Add Product
+                </button>
+                <button onclick="showManageCloudsModal()" style="padding: 10px 20px; background: #8b5cf6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; white-space: nowrap;">
+                  ☁️ Manage Clouds
+                </button>
+                <button onclick="exportProductCSV()" style="padding: 10px 20px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+                  📥 Export CSV
+                </button>
+              </div>
+
+              <!-- Mappings Grid -->
+              <div id="productMappingsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; max-height: 500px; overflow-y: auto; padding: 4px;">
+                <!-- Generated by JS -->
+              </div>
+
+              <!-- Save Button -->
+              <div style="margin-top: 16px; display: flex; gap: 12px;">
+                <button onclick="saveProductMappings()" style="flex: 1; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 15px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">
+                  💾 Save All Product Mappings
+                </button>
+                <button onclick="loadProductMappings()" style="padding: 14px 20px; background: var(--muted); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+                  🔄 Reload
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Analytics Dashboard (iframe) -->
+          <div class="admin-config-section">
+            <h3 style="font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+              <span>📊</span>
+              <span>Analytics Dashboard</span>
+            </h3>
+            <iframe
+              src="/admin"
+              style="width: 100%; height: 600px; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+              title="Admin Dashboard">
+            </iframe>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- MODALS -->
+<!-- ========================================== -->
+
+<!-- Admin Login Modal -->
+<div id="adminLoginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center;">
+  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 3px; max-width: 450px; width: 90%; box-shadow: 0 25px 70px rgba(0,0,0,0.4);">
+    <div style="background: var(--bg-white); border-radius: 18px; padding: 40px;">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <div style="font-size: 64px; margin-bottom: 16px;">🔐</div>
+        <h3 style="font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 8px;">
+          Admin Access
+        </h3>
+        <p style="font-size: 14px; color: var(--muted);">
+          Enter the admin password to access settings
+        </p>
+      </div>
+
+      <div style="margin-bottom: 28px;">
+        <label style="display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 10px;">Password</label>
+        <input
+          type="password"
+          id="adminPasswordInput"
+          placeholder="Enter admin password..."
+          style="width: 100%; padding: 14px 18px; border: 2px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); font-size: 16px; transition: all 0.2s;"
+          onkeypress="if(event.key==='Enter') submitAdminLogin()"
+          onfocus="this.style.borderColor='var(--brand)'"
+          onblur="this.style.borderColor='var(--border)'"
+        />
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <button onclick="closeAdminLoginModal()" style="flex: 1; padding: 14px; background: var(--muted); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 15px; transition: all 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+          Cancel
+        </button>
+        <button onclick="submitAdminLogin()" style="flex: 1; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-size: 15px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.4)'">
+          🔓 Unlock
+        </button>
+      </div>
+
+      <div id="adminLoginError" style="display: none; margin-top: 20px; padding: 12px 16px; background: #fee2e2; border: 2px solid #ef4444; border-radius: 8px; color: #991b1b; font-size: 13px; font-weight: 600; text-align: center;">
+        ❌ Incorrect password. Please try again.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Country Mapping Modal -->
+<div id="countryMappingModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: var(--bg-white); border-radius: 16px; padding: 32px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+    <h3 style="font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+      <span>🌍</span>
+      <span id="countryModalTitle">Add Country Mapping</span>
+    </h3>
+
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px;">Country / Subregion Name</label>
+      <input
+        type="text"
+        id="countryModalInput"
+        placeholder="e.g., United Kingdom, Germany, etc."
+        style="width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 15px;"
+      />
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <label style="display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px;">Operating Unit (OU)</label>
+      <select
+        id="countryModalSelect"
+        style="width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 15px; cursor: pointer;"
+      >
+        <!-- Generated by JS -->
+      </select>
+    </div>
+
+    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+      <button onclick="closeCountryModal()" style="padding: 12px 24px; background: var(--muted); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+        Cancel
+      </button>
+      <button onclick="saveCountryModal()" style="padding: 12px 24px; background: var(--brand); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Product Mapping Modal -->
+<div id="productMappingModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: var(--bg-white); border-radius: 16px; padding: 32px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+    <h3 style="font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+      <span>📦</span>
+      <span id="productModalTitle">Add Product Mapping</span>
+    </h3>
+
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px;">Product Name</label>
+      <input
+        type="text"
+        id="productModalInput"
+        placeholder="e.g., Sales Cloud, Marketing Cloud, etc."
+        style="width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 15px;"
+      />
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <label style="display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px;">Cloud</label>
+      <select
+        id="productModalSelect"
+        style="width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 15px; cursor: pointer;"
+      >
+        <!-- Generated by JS -->
+      </select>
+    </div>
+
+    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+      <button onclick="closeProductModal()" style="padding: 12px 24px; background: var(--muted); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+        Cancel
+      </button>
+      <button onclick="saveProductModal()" style="padding: 12px 24px; background: var(--brand); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Manage OUs Modal -->
+<div id="manageOUsModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: var(--bg-white); border-radius: 16px; padding: 32px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+    <h3 style="font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+      <span>🏢</span>
+      <span>Manage Operating Units</span>
+    </h3>
+
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">
+      Add or remove Operating Units (OUs) for country mappings.
+    </p>
+
+    <div style="margin-bottom: 20px;">
+      <div style="display: flex; gap: 8px;">
+        <input
+          type="text"
+          id="newOUInput"
+          placeholder="Enter new OU name..."
+          style="flex: 1; padding: 10px 14px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px;"
+        />
+        <button onclick="addNewOU()" style="padding: 10px 20px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+          ➕ Add
+        </button>
+      </div>
+    </div>
+
+    <div id="ouList" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+      <!-- Generated by JS -->
+    </div>
+
+    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+      <button onclick="closeManageOUsModal()" style="padding: 12px 24px; background: var(--brand); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+        Done
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Manage Clouds Modal -->
+<div id="manageCloudsModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+  <div style="background: var(--bg-white); border-radius: 16px; padding: 32px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+    <h3 style="font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+      <span>☁️</span>
+      <span>Manage Clouds</span>
+    </h3>
+
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">
+      Add or remove Cloud categories for product mappings.
+    </p>
+
+    <div style="margin-bottom: 20px;">
+      <div style="display: flex; gap: 8px;">
+        <input
+          type="text"
+          id="newCloudInput"
+          placeholder="Enter new Cloud name..."
+          style="flex: 1; padding: 10px 14px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px;"
+        />
+        <button onclick="addNewCloud()" style="padding: 10px 20px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+          ➕ Add
+        </button>
+      </div>
+    </div>
+
+    <div id="cloudList" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+      <!-- Generated by JS -->
+    </div>
+
+    <div style="display: flex; gap: 12px; justify-content: flex-end;">
+      <button onclick="closeManageCloudsModal()" style="padding: 12px 24px; background: var(--brand); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+        Done
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="js/health_of_cloud.js"></script>
+<script src="js/lead_scorecard.js"></script>
+<script src="js/lead_cockpit.js"></script>
+<script src="js/admin_mappings.js"></script>
+</body>
+</html>

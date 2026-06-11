@@ -1,0 +1,2594 @@
+EMEA Cloud Field Campaign Scorecards
+FY27 QTD April
+
+MDP - Scorecard
+This Tableau workbook provides all the MDP metrics needed to update the MDP Scorecard.
+Email
+Saved views to support self-serve real-time email reporting. Complete with definitions and benchmarks. 
+
+View here
+EMEA Field Campaign - EMAIL Scorecard Builder [Light Version]
+EMEA - Reporting Toolkit
+MDP - Webinar
+This Tableau workbook provides all the MDP metrics needed to update the Webinar Scorecard.
+Campaign
+Prioritised list of challenges, escalated and shared with Platform & Messaging team in partnership with Email Team.
+
+View here
+View here
+EMEA Field Campaign - EMAIL Scorecard Builder - Internal Optimisation
+Lead - Scorecard
+This Tableau workbook provides all the Leads metrics needed to update the Lead Scorecard.
+Leaderboard by APM L1
+Leaderboard by OU
+Core / Non Core Leads
+Top Lead Source
+Lead Score
+Note: Remember to create and save your own custom views for easier reuse and consistency.
+Traffic Flag
+Master : https://prod-uswest-c.online.tableau.com/#/site/salesforce/workbooks/1534752?:origin=card_share_link
+
+Health of the Cloud Scorecard 
+
+Health of the Cloud
+Scorecard
+Data Updated 14/04/26 - for FY27 Q1 QTD
+1
+MDP by Key Contributors Channels
+MDP by Horseman
+MDP by Traffic Source and Offer
+Q1 Overview - Service 
+1
+2
+3
+
+Performance Marketing Insights
+
+Actions / Next Steps
+🟢 Highlights
+Strong Overall Performance (+13% YoY), all regions showing growth, UKI the standout performer(+34%)
+Horsemen: Specialist showing the largest generated the largest YoY increase (+148%) BDR driving the largest portion of MDP (+47%)  
+Traffic Source: Email continues to grow for Service (+8% YoY)
+Offer Source: Webinar(L2) showing increase of 62% YoY, totalling 8% of MDP share
+🔴 Areas to watch
+Central performance has decreased largely, now pacing -32% YoY
+MDP percentage stand at 32%, which is -2.5 ppts compared to Q1 FY26
+AE contribution is down -14% YoY, the only horseman in decline
+Service Cloud & Industries (L2) is -19% year over year, the only Service L2 in decline 
+Search is down both Organic (-38%) and Paid (-27%)
+Email: Channel growth continues to marginally grow. Paid and Organic are continuing to decline.
+Webinar: We are seeing a positive increase in Webinar(L2), with increased focus, we anticipate that this will continue to rise.
+Q2 planning for Service is well underway. We have our BoM that we will be ensuring is active across Organic channels and we will have 9 Service focused webinars in Q2.
+Paid Media: Due to decreasing budget for EMEA OUs (-62% Cloud Campaigns, -15% (including SEM) in H1), we aim to assist Paid team to ensure budget is spent efficiently. 
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 MDP Scorecard Builder (workbook)
+MDP by Region
+
+Health of the Cloud
+Scorecard
+Data Updated 14/04/26 - for FY27 Q1 QTD
+1
+MDP by Key Contributors Channels
+MDP by Horseman
+MDP by Traffic Source and Offer
+Q1 Overview - Field Service & Operations 
+1
+2
+3
+
+Performance Marketing Insights
+
+Actions / Next Steps
+🟢 Highlights
+MDP Performance is up (+5% YoY), North the standout performer (+46%) followed by UKI (+9%) 
+Horsemen: Specialist showing the largest generated the largest YoY increase (+205%) 
+Traffic Source: Slow growth coming from Email and N/A groupings
+Offer Source: Webinar(L2) showing increase of 7% YoY, it is now 6% of MDP share
+🔴 Areas to watch
+Declining YoY growth in France (-22%) & Central (-9%)
+AE and BDR contributions are trending downwards year over year.
+Offer Source: Events is down year over year (-12%)
+Search is down both Organic (-44%) and Paid (-56%) 
+Note: We also see this trend for Service at an L1 level
+Email: Activation of Field Service BoM in EMEA. New localised offers will be added to the engine in Q2.
+Webinar: We still have room to improve and grow Webinar % MDP share this FY (currently 6%) We plan to do it by: 
+Re-running the Field Service webinar for an EMEA audience in early May in English.
+Field Service focused in language webinars for South OU languages in our Q2 plans (June)
+We will be increasing volume of Service webinars across EMEA at a L1 level, this in turn will have a knock on impact for Field Service.
+Paid Media: Exploring options of carving out dedicated Field Service budget for Paid programs. Currently 25% content in paid program is for Field Service, but targeting is based on Service L1 personas.
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 MDP Scorecard Builder (workbook)
+MDP by Region
+
+Health of the Cloud
+Scorecard
+Data Updated 04/10/26 - for FY27 Q1 QTD
+1
+MDP by Region
+MDP by Key Contributors Channels
+MDP by Horseman
+MDP by Traffic Source and Offer
+Q4 Overview - Sales 
+1
+2
+3
+
+Performance Marketing Insights
+
+
+Continued focus on webinar channel, leveraging AI to expand language coverage and focus on ‘squeezing’ incremental MDP through on-demand programs (Organic & Paid) - Refresh promo copy around high performing state of sales preview webinar which has delivered $2.2m MDP since Jan
+Continue to invest in paid with field campaign budget to counteract impact of budget reductions, with a focus on using $ to support the high performing webinar program 
+Blocked out a week 20th - 24th April to focus on activating localised emails across DSE and Nurture Quests to boost email MDP growth. May audit of all emails targeting sales buyers in partnership with GIC & PMM 
+Webinar offers are the highest performing emails - We need continued single send support from email team to help increase email MDP and retain webinar growth
+Demo localisation project is underway to support organic growth 
+
+Actions / Next Steps
+MDP Campaigns Dataset ; MDP Oppties Dataset ; MDP Scorecard Builder
+🟢 Highlights
+Webinars continue to deliver strong growth (+44%), with share gradually increasing
+North is experiencing strong growth with MDP +45% YoY and contributing 34%, with the region benefitting from English language cloud programs 
+🔴 Areas to watch
+Decline in Central (-3% when corrected for CH) is driven by decline in paid (-18% excl CH) and organic (-34% excl CH) and reflected across all clouds - However, webinar performance remains strong at 34% YoY growth (excl. CH)  
+South has been affected by a pause in activity in the Middle East, which has now been reactivated 
+MDP growth should be stronger - With events contributing a significant amount of MDP but only growing at 4% YoY - This may be due to event timings this year vs last year 
+Paid search is experiencing YoY decline, likely due to budget cuts, and organic continues to decline at -33% YoY growth
+Localised demo’s have been overwritten by English versions, work has begun to introduce ‘non EN’ playlists to fix this issue, fallback project continues to try and support this issue, which is also a reflection of larger macro trends around AI search behaviour 
+
+Health of the Cloud
+Scorecard
+Data Updated 04/15/26 - 81% of quarter elapsed
+1
+MDP by Region
+MDP by Key Contributors Channels
+MDP by Horseman
+MDP by Traffic Source and Offer
+Q1 QTD Overview - Marketing 
+1
+2
+3
+
+Performance Marketing Insights
+
+Actions / Next Steps
+🟢 Highlights
+Strong MDP cont. from BDR w/ double-digit growth in Central (+32% Y/Y), South (+28% Y/Y), and France (+11% Y/Y). MDP cont. from Digital Specialist ramping up with $16.4M generated across OUs. Significant growth from ECS (+133% Y/Y) in North, despite being down overall.
+Webinar growth strong across 5 OUs w/ strongest cont. in South ($1.7M) and UKI ($1.4M).
+Strong growth in Paid (+57% Y/Y) driven primarily by content synd ($4.9M) followed by third party email, lead buy, and display. 
+🔴 Areas to watch
+Double-digit Y/Y decline in MDP generated by AE across 5 OUs, most notably in Central (-77% Y/Y) and South (-60% Y/Y)
+While Email generated from events (+34% Y/Y) and webinars (+160% Y/Y) is up, “other” email offers (making up roughly 72% of Email MDP) are down -23% Y/Y w/ most notable cont. from dynamic demos, guides/digital guides, microsites, personalized assets, newsletters.
+Decline in organic (-48% Y/Y) and paid (-31% Y/Y) search as well as organic (-41% Y/Y) and paid (-13% Y/Y) social
+Despite +28% Y/Y growth in MDP from webinars, Central MDP is down -16.6% Y/Y fueled by -23% Y/Y decline in Events and -14% Y/Y decline in “other” email and organic offers. Moderate Y/Y growth in South can be attributed to a -22% Y/Y decline in Events.
+Webinar: Continue webinar momentum with execution of (4) Q2 webinars and live and on-demand promotion through DSE and Nurtures; promote (1) Q2 webinar on-demand via CFM Paid Media pilot
+Email: Activate Q2 GIC BOM, including 7 UK English offers, 3 French offers, 3 German offers, 3 Italian offers, 3 Dutch offers, and 3 Spanish (Spain) offers; continue monitoring offer mix of demos, guides, etc.
+Events: Build on CNX’26 momentum with Post-CNX’26 webinar and follow-up nurture targeting attendees and non-attendees w/ CNX2U content
+Organic & Paid Search: Follow-up w/ paid media team on decline in SEM
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 AMER + EMEA CFM MDP Scorecard Builder
+
+
+Health of the Cloud
+Scorecard
+Data Updated 04/15/26 - 81% of quarter elapsed
+1
+MDP by Region
+MDP by Key Contributors Channels
+MDP by Horseman
+MDP by Traffic Source and Offer
+1
+2
+3
+
+Performance Marketing Insights
+
+Actions / Next Steps
+🟢 Highlights
+MDP growth in 3/5 OUs, with South a standout performer (+23%), increasing MDP contr. +2.0 ppts y/y
+AEs primarily driving the growth in South (+45%) and France (+53%) OUs, while Specialists command the highest share of MDP in North (42% vs 24% EMEA average)
+Paid is a resilient Traffic Source, registering strong growth y/y (+43%), with Content Syndication (+94%) and TPE (+178%) all contributing.
+🔴 Areas to watch
+UKI OU remains a hotspot - no RVP sales leader, lack of rigour for pipeline discovery across all Horsemen
+BDR-sourced MDP has seen a massive 36% y/y decline across EMEA - less dedicated BDRs for Commerce compared to last year
+All Commerce-owned campaigns for Email, Paid Search and Organic showing growth y/y but overall MDP is down which means Commerce is benefitting less from Other Cloud campaigns in these areas
+Events represent the largest Offer Source ($7.9M) but are down 23% YoY, with much less MDP being sourced from World Tours (-51%) 
+
+Paid Search: Commerce-owned Paid Search campaigns delivered a 6% increase y/y, despite the overall decline. Participated in Q2 SEM QEO process to optimise the Commerce offer mix and align keyword themes with AMER to help deliver more impact. 
+Webinar and Email: Commerce-owned Campaigns on these channels again performing well but need to ramp up performance by maximising coverage and promotion to safeguard against declines from Other Clouds
+BDR productivity: Audit the 36% drop in BDR-sourced MDP. Determine if this is due to reduced headcount, poor lead quality, or a shift in focus. Meeting set up with PMM, BDR leadership and Sales Programs
+UKI: $20K budget on BrightTALK has been activated for guaranteed Leads as well as topping up existing SEM programs to help address decline
+
+Q1 QTD Overview - Commerce
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 AMER + EMEA CFM MDP Scorecard Builder
+
+
+Health of the Cloud
+Scorecard
+Data Updated 04/10/26 - for FY27 Q1 QTD
+1
+MDP by Region
+MDP by Key Contributors Channels
+MDP by Horseman
+MDP by Traffic Source and Offer
+1
+2
+3
+
+Performance Marketing Insights
+
+Actions / Next Steps
+🟢 Highlights
+MDP is declining with only the North OU registering double digit growth. 
+Introducing the specialist model has paid off with being the only Horseman that registered growth at 32%.  
+🔴 Areas to watch
+Our webinar program has been non-existent so we need to focus on revamping it in Q2, seeing a sharp decline of 30%. 
+Events is 47% YoY also due to FY26 having experienced special Agentforce events which has skewed the data, while in FY27 all Agentforce topics will be folded under existing World Tours and Innovation days. 
+Biggest declined we see in FR and Central where we would need to focus on localized content. 
+
+Email: Drill into the offer types and campaigns driving the decline y/y. Without coverage last year we look at making up  ground starting Q2 with new BOM offers and localized content coming through. Planning to launch the first Agentforce localized Nurture, English first beginning of Q2 and localized towards the middle-end of the quarter. 
+Webinar: Launching the webinar program with 4 webinars: April 28th focused on Agentforce Studio and May on Agentforce Voice in DE and FR with other languages to follow. 
+Fresh DSE content: Launching a new BOM with localized content containing 5 new offers to refresh the data base. Retiring underperforming content. 
+
+Q1 QTD Overview - AI & Data 
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 MDP Scorecard Builder (workbook)
+
+
+
+
+Marketing Insights
+
+MDP by Cloud
+MDP by Key Contributors Channels
+MDP by Key Contributors Channels
+Q1 QTD - UKI OU
+Actions / Next Steps
+1
+3
+MDP by Horseman
+2
+Promote the April Commerce and Service webinars to Sales teams to accelerate pipeline.
+Use the BrightTalk on-demand paid program to increase views for February's webinars.
+Launch Nurture Quests and expand email offers for Sales and Service to improve email performance.
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 AMER + EMEA CFM MDP Scorecard Builder
+Health of the Cloud
+Scorecard
+Data Updated 04/15/26
+1
+🟢 Highlights
+
+Service Cloud generated the highest MDP at $38.0M, increasing by 37% YoY.
+Events contributed $52.1M to MDP, growing by 13% YoY.
+Paid traffic MDP reached $21.3M, an 83% YoY increase.
+Opportunity sourcing from Specialists grew by 70% YoY to $14.8M.
+
+🔴 Lowlights
+
+Commerce Cloud MDP decreased by 48% YoY to $5.4M, with an 11.2 percentage point drop in contribution share.
+AI and Data Cloud MDP fell by 33% YoY to $23.5M.
+Email traffic MDP declined by 61% YoY to $11.1M.
+The top two opportunity sources, BDR and AE, decreased by 3% and 9% YoY respectively, stalling overall growth.
+
+MDP by Cloud
+MDP by Key Contributors Channels
+MDP by Key Contributors Channels
+Q1 QTD - FR OU
+1
+3
+MDP by Horseman
+2
+Health of the Cloud
+Scorecard
+Data Updated 04/15/26
+1
+
+Marketing Insights
+
+Actions / Next Steps
+Launch Nurture Quests across all clouds to establish a complete email journey.
+Promote the April Commerce webinar to Sales teams to improve current webinar performance.
+Activate the Marketing Cloud paid search budget and track its impact on pipeline.
+🟢 Highlights
+
+Total Paid traffic MDP increased by 74% YoY to $12.3M.
+Opportunity sourcing from Specialists grew by 17% YoY to $7.2M.
+Marketing Cloud MDP increased by 14% YoY to $8.8M, gaining 0.5 percentage points in contribution.
+Service and Sales Clouds maintained positive YoY growth at 5% ($20.9M) and 4% ($19.6M), respectively.
+
+🔴 Lowlights
+
+Overall MDP for the OU decreased by 17% YoY to $61.5M.
+AI and Data Cloud MDP dropped by 63% YoY to $9.4M, resulting in a 7.7 percentage point loss in contribution share.
+AE-sourced opportunities declined by 40% YoY to $15.9M.
+Events offer source MDP decreased by 34% YoY to $24.0M.
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 AMER + EMEA CFM MDP Scorecard Builder
+
+MDP by Cloud
+MDP by Key Contributors Channels
+MDP by Key Contributors Channels
+Q1 QTD - SOUTH OU
+1
+3
+MDP by Horseman
+2
+Health of the Cloud
+Scorecard
+Data Updated 04/15/26
+1
+
+Marketing Insights
+
+Actions / Next Steps
+Promote the April Service webinar to Sales teams to close the performance gap.
+Increase email offer coverage across all clouds to sustain current strong email performance.
+Direct the highly engaged Commerce email audience to register for the April Commerce webinar.
+🟢 Highlights
+
+Email traffic MDP more than doubled, increasing by 113% YoY to $17.4M.
+Commerce Cloud demonstrated the strongest cloud growth at 23% YoY, gaining 1.9 percentage points in contribution share.
+BDR remained the highest volume opportunity source at $41.9M, growing by 12% YoY.
+
+🔴 Lowlights
+
+AI and Data Cloud MDP declined by 32% YoY to $12.5M.
+AE-sourced opportunities dropped significantly by 26% YoY to $27.4M.
+Search channels underperformed, with Paid Search and Organic Search falling by 50% and 49% YoY, respectively.
+Events offer source MDP decreased by 25% YoY to $30.5M.
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 AMER + EMEA CFM MDP Scorecard Builder
+
+MDP by Cloud
+MDP by Key Contributors Channels
+MDP by Key Contributors Channels
+Q1 QTD - CENTRAL OU
+1
+3
+MDP by Horseman
+2
+Health of the Cloud
+Scorecard
+Data Updated 04/15/26
+1
+
+Marketing Insights
+
+Actions / Next Steps
+Promote remaining April webinars to Sales teams to increase registrations and pipeline.
+Activate the Service Cloud paid search budget and monitor its effect on pipeline.
+Improve email click-through rates across all clouds using the new monthly optimization process.
+🟢 Highlights
+
+Total Paid channels proved most resilient, limiting YoY decline to 8% and gaining 0.06 percentage points in MDP share.
+BDR remained the top opportunity source at $23.0M, holding a 49% share of the total MDP.
+Service Cloud increased its MDP contribution share by 1.1 percentage points, despite an overall decline in volume.
+
+🔴 Lowlights
+
+Overall MDP for the OU contracted sharply by 36% YoY to $47.4M.
+AI and Data Cloud MDP plummeted by 64% YoY to $7.2M, resulting in a 4.1 percentage point loss in contribution share.
+AE-sourced opportunities experienced a severe 61% YoY decline, dropping to $16.0M.
+Key digital traffic sources saw significant drops, with Organic Search and Email falling by 62% and 52% YoY, respectively.
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 AMER + EMEA CFM MDP Scorecard Builder
+
+MDP by Cloud
+MDP by Key Contributors Channels
+MDP by Key Contributors Channels
+Q1 QTD - NORTH OU
+1
+3
+MDP by Horseman
+2
+Health of the Cloud
+Scorecard
+Data Updated 04/15/26
+1
+
+Marketing Insights
+
+Actions / Next Steps
+Promote the April Sales and Commerce webinars to maintain momentum and reach targets.
+Use the BrightTalk on-demand program to distribute February's webinar content.
+Apply the monthly optimization process to improve email click-through rates for Sales and Service.
+🟢 Highlights
+
+Overall MDP grew significantly by 51% YoY to $90.2M, with positive growth recorded across all product clouds.
+Specialist-sourced opportunities recorded a massive 524% YoY increase, reaching $12.0M.
+Sales Cloud generated the highest MDP at $32.2M, driven by a 78% YoY growth rate.
+Total Paid traffic MDP doubled, increasing by 100% YoY to $14.2M.
+
+🔴 Lowlights
+
+Commerce Cloud recorded the slowest segment growth at 10% YoY, causing a 9.7 percentage point drop in contribution share.
+Service Cloud lost 9.5 percentage points in contribution share, despite its absolute YoY volume growth.
+Specific search channels declined, with Organic Search and Paid Search falling by 24% and 11% YoY, respectively.
+AE and BDR opportunity sources lost 4.9 and 3.8 percentage points in contribution share, failing to match the overall 51% growth pace.
+MDP Campaigns Dataset ; MDP Oppties Dataset ; FY27 AMER + EMEA CFM MDP Scorecard Builder
+
+Lead Performance Scorecard
+
+Valid Leads
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+
+Marketing Insights
+🟢 Highlights
+Email Marketing 3rd Party saw massive growth as a lead source, surging 1387% YoY to 357 leads.
+Top-tier lead quality improved significantly, with 'Score 5' leads growing 185% YoY to capture a 26% share.
+Marketing Cloud S2$ grew by 46.4% and S1 volume by 26.7%, demonstrating strong downstream conversion despite a 71.8% decrease in Valid Leads.
+Events channel share grew by 27% YoY, making Events the top overall lead source with 377 leads (+21% YoY).
+🔴 Lowlights
+Total Valid Leads fell 44% YoY to 2K, heavily impacted by a 55% YoY decline in higher-intent Core Leads.
+Core digital channels suffered severe YoY declines, with Organic and Paid lead volumes dropping 70% and 41%, respectively.
+Commerce Cloud recorded the steepest declines across all metrics, including a 71.8% drop in Valid Leads and a 79.4% fall in S2$.
+Despite a 27.9% increase in Valid Leads, AI and Data Cloud struggled with downstream conversion, resulting in a 64.8% drop in S1 volume and a 12.7% decline in S2$.
+26% Share
+27% YoY
+Events/Other
+54% Share
+-41% YoY
+Paid
+SEM +Paid Digital
+20% Share
+-70% YoY
+Organic Website + SEO
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+2K
+-44% YoY 
+Core Non-Core
+Core
+33% share.
+-55% YoY
+Non-Core
+67% share.
+-36% YoY
+2
+Lead Performance Scorecard
+Data Updated 04/15/26
+2
+QTD - UKI OU
+Actions/Next Steps
+Promote the April Commerce and Service webinars to Sales teams to accelerate pipeline.
+Use the BrightTalk on-demand paid program to increase views for February's webinars.
+Launch Nurture Quests and expand email offers for Sales and Service to improve email performance.
+
+
+
+3
+26% Share
+(-10% YoY)
+
+Lead Score: 76% were scored 3+
+(MDS Lead Score Initial)
+
+4
+23% Share
+(-15% YoY)
+
+
+5
+26% Share
+(+185% YoY)
+
+Top 3 Lead Sources
+377
+(+21% YoY)
+Events
+357
+(+1387% YoY)
+Email Mktg 3rd Party
+305
+(-58% YoY)
+SEM
+
+Valid Leads
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+31% Share
+322% YoY
+Events/Other
+49% Share
+-2% YoY
+Paid
+SEM +Paid Digital
+19% Share
+-41% YoY
+Organic Website + SEO
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+1K
++11% YoY 
+Core Non-Core
+Core
+30% share.
+-4% YoY
+Non-Core
+70% share.
++19% YoY
+2
+Lead Performance Scorecard
+Data Updated 04/15/26
+2
+QTD - FR OU
+
+3
+25% Share
+(-28% YoY)
+
+Lead Score: 69% were scored 3+
+(MDS Lead Score Initial)
+
+4
+20% Share
+(+1.5% YoY)
+
+
+5
+24% Share
+(+198% YoY)
+
+Top 3 Lead Sources
+272
+(+7% YoY)
+Content Promotion
+195
+(+3150% YoY)
+Email - 3rd Party
+112
+(+14% YoY)
+Website
+
+Marketing Insights
+🟢 Highlights
+Top-quality 'Score 5' leads grew significantly by 198% YoY, capturing a 24% share of total leads.
+Email - 3rd Party experienced a massive 3150% YoY increase, becoming the second-largest lead source with 195 leads.
+The Events/Other channel expanded rapidly, growing 322% YoY to secure a 31% share of total leads.
+Marketing Cloud demonstrated excellent downstream conversion, increasing S2$ by 47.1% and S1 volume by 133.3% despite lower initial lead volumes.
+🔴 Lowlights
+Overall S2$ generated declined by 32.2%, failing to capitalize on the 10.7% growth in total Valid Leads.
+High-intent Core leads decreased by 4% YoY, aligning with a steep 41% YoY drop in the Organic lead channel.
+AI and Data Cloud saw a 125.9% surge in Valid Leads but struggled heavily with conversion, resulting in a 45% drop in S2$.
+Commerce Cloud performance stalled completely, with Valid Leads falling by 66.9% and S1 volume dropping 100%.
+Source
+
+Actions/Next Steps
+
+Launch Nurture Quests across all clouds to establish a complete email journey.
+Promote the April Commerce webinar to Sales teams to improve current webinar performance.
+Activate the Marketing Cloud paid search budget and track its impact on pipeline.
+
+
+
+Valid Leads
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+28% Share
++7% YoY
+Events/Other
+48% Share
+0% YoY
+Paid
+SEM +Paid Digital
+23% Share
+-47% YoY
+Organic Website + SEO
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+Core Non-Core
+Core
+37% share.
++7% YoY
+Non-Core
+63% share.
+-25% YoY
+2
+Lead Performance Scorecard
+Data Updated 04/15/26
+2
+QTD - CENTRAL OU
+Actions/Next Steps
+
+Promote remaining April webinars to Sales teams to increase registrations and pipeline.
+Activate the Service Cloud paid search budget and monitor its effect on pipeline.
+Improve email click-through rates across all clouds using the new monthly optimization process.
+
+
+
+3
+27% Share
+(-39% YoY)
+
+Lead Score: 70% were scored 3+
+(MDS Lead Score Initial)
+
+4
+19% Share
+(-29% YoY)
+
+
+5
+23% Share
+(+135% YoY)
+
+Top 3 Lead Sources
+323
+(-14% YoY)
+Content Promotion
+172
+(+19% YoY)
+Website
+159
+(+40% YoY)
+Events
+
+Marketing Insights
+🟢 Highlights
+High-intent Core leads increased by 7% YoY, expanding their share to 37% of total leads.
+Top-quality 'Score 5' leads surged by 135% YoY to capture a 23% share.
+Website and Events lead sources recorded strong volume growth, increasing by 19% and 40% YoY, respectively.
+Marketing Cloud demonstrated solid downstream conversion, increasing S1 volume by 46.7% and S2$ by 4.5%.
+🔴 Lowlights
+Total Valid Leads decreased by 16% YoY to 1,324, driving an overall S2$ decline of 23.9%.
+Organic channel performance dropped sharply, falling 47% YoY.
+Sales Cloud experienced heavy volume and pipeline declines, with Valid Leads down 39.1% and S2$ falling 38.7%.
+AI and Data Cloud struggled significantly with conversion, recording a 61.5% drop in S1 volume and a 46.3% decline in S2$.
+1.3K
+-16% YoY
+
+Valid Leads
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+28% Share
++34% YoY
+Events/Other
+48% Share
+-25% YoY
+Paid
+SEM +Paid Digital
+25% Share
+-52% YoY
+Organic Website + SEO
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+1.9K
+-26% YoY 
+Core Non-Core
+Core
+42% share.
+-6% YoY
+Non-Core
+58% share.
+-36% YoY
+2
+Lead Performance Scorecard
+Data Updated 04/15/26
+2
+QTD - SOUTH OU
+
+3
+18% Share
+(-57% YoY)
+
+Lead Score: 65% were scored 3+
+(MDS Lead Score Initial)
+
+4
+25% Share
+(-35% YoY)
+
+
+5
+22% Share
+(+66% YoY)
+
+Top 3 Lead Sources
+348
+(-1% YoY)
+Appx/Partner/Dev
+343
+(+351% YoY)
+Email Marketing
+237
+(+38% YoY)
+SEM
+Actions/Next Steps
+
+Promote the April Service webinar to Sales teams to close the performance gap.
+Increase email offer coverage across all clouds to sustain current strong email performance.
+Direct the highly engaged Commerce email audience to register for the April Commerce webinar.
+
+
+Marketing Insights
+🟢 Highlights
+Email Marketing lead source volume grew by 351% YoY to 343 leads.
+Top-quality 'Score 5' leads increased by 66% YoY, capturing a 22% share of total leads.
+Commerce Cloud S2$ generated surged by 242.1% and S1 volume grew by 60%, despite a 59.9% drop in Valid Leads.
+Marketing Cloud demonstrated strong downstream conversion, increasing S2$ by 21.1% and S1 volume by 10%.
+🔴 Lowlights
+Total Valid Leads decreased by 26% YoY to 1,900, driving a 16.5% drop in total S2$ to $14.2M.
+Organic channel performance dropped sharply, falling 52% YoY.
+Mid-tier lead quality declined, with 'Score 3' and 'Score 4' lead volumes falling 57% and 35% YoY, respectively.
+AI and Data Cloud struggled heavily with conversion; despite flat lead volume (+0.5%), S1 volume plummeted 57.7% and S2$ declined 33.1%.
+
+Valid Leads
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+21% Share
++123% YoY
+Events/Other
+61% Share
+-23% YoY
+Paid
+SEM +Paid Digital
+18% Share
+-39% YoY
+Organic Website + SEO
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+1.6K
+-16% YoY 
+Core Non-Core
+Core
+29% share.
+-5% YoY
+Non-Core
+71% share.
+-19% YoY
+2
+Lead Performance Scorecard
+Data Updated 04/17/25
+2
+QTD - NORTH OU
+
+3
+19% Share
+(-36% YoY)
+
+Lead Score: 64% were scored 3+
+(MDS Lead Score Initial)
+
+4
+21% Share
+(+7% YoY)
+
+
+5
+23% Share
+(+198% YoY)
+
+Top 3 Lead Sources
+391
+(-62% YoY)
+Content Promotion
+437
+(+1847% YoY)
+Email Marketing - 3rd Party
+162
+(+19% YoY)
+Website
+Actions/Next Steps
+
+Promote the April Sales and Commerce webinars to maintain momentum and reach targets.
+Use the BrightTalk on-demand program to distribute February's webinar content.
+Apply the monthly optimization process to improve email click-through rates for Sales and Service.
+
+
+
+Marketing Insights
+🟢 Highlights
+Top-quality 'Score 5' leads surged by 198% YoY, capturing a 23% share of total leads.
+Email Marketing - 3rd Party volume experienced massive growth, increasing by 1847% YoY to become the top source with 437 leads.
+Overall S2$ generated grew by 22% to $17.6M, heavily driven by an 87.7% S2$ increase in Sales Cloud despite its lower lead volume.
+The Events/Other channel more than doubled, growing by 123% YoY to secure a 21% share.
+🔴 Lowlights
+Total Valid Leads decreased by 16% YoY to 1.6K, heavily impacted by a 19% drop in Non-Core leads.
+Key digital channels saw significant declines, with Organic and Paid lead volumes falling by 39% and 23% YoY, respectively.
+Content Promotion experienced a sharp 62% YoY drop in lead volume.
+Commerce Cloud struggled across the funnel, with Valid Leads dropping 41.1% and total S2$ declining by 30.1%.
+
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+2
+Lead Performance Scorecard
+Data Updated 16/04/26
+Q1 Overview - Service
+2
+
+Marketing Insights
+🟢 Highlights
+Despite overall decrease in Paid Media Budget YoY, Paid leads still make up 57% of all Service leads
+High intent Core lead share is growing year on year, with a 37% share for Q1 to date
+Strong VL>S2 # in North and South, shows strong follow up habits and engagement with BDR teams in North & South.
+73% of leads are scoring 3+, with strong growth in cohort scoring 5 (29%)
+🔴 Areas to watch
+Conversion rates for VL through to S2 $ are generally trending down across EMEA OUs year over year 
+Although we have just an 8% reduction in VL, we are seeing large decreases in S1#(-11%) and S2 $(-32%) year over year, despite 29% of leads scoring a 5
+Impact of lower quarterly budget may lead to fewer valid leads, focus will be on maintaining/improving quality of these leads.
+Actions/Next Steps
+Our April 30th Service webinars will positively impact Organic lead volume in April, currently 170 reg, expecting to surpass 300. 
+On Demand Paid Media webinar program kicked off in April focused on driving leads in UKI & North.
+Ensure all Core Offers are live in email engine to increase volume of Core leads.
+QEO feedback given for Service SEM program to Paid Media team. As budgets did not decline here, expect to see this lead source grow in importance throughout FY27
+Valid Leads
+24% Share
++34% YoY
+Events/Other
+19% Share
+-60% YoY
+Organic
+57% Share
++34% YoY
+Paid
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+1.6K
+-8.1% YoY 
+Core Non-Core
+Core
+37% share.
++38% YoY
+Non-Core
+63% share.
+-23% YoY
+
+3
+20% Share
+(+37% YoY)
+
+Lead Score: 73% were scored 3+
+(MDS Lead Score Initial)
+
+4
+24% Share
+(-19% YoY)
+
+
+5
+29% Share
+(+339% YoY)
+
+Top 3 Lead Sources
+371
+(+1179% YoY)
+Email 3PE
+296
+(-31% YoY)
+Content Promotion
+209
+( +11% YoY)
+SEM
+Filters : Macro Segment: CMRCL, ENTR, None ; Product L1 : Service; BDR only
+
+Offer Grouping: Core vs Non-Core
+Traffic flag
+Events/Organic/Paid
+
+
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+2
+Lead Performance Scorecard
+Data Updated 04/10/26 for full Q1 view
+QTD Overview - Sales
+2
+
+Marketing Insights
+Overall lead volume is down -41.8% YoY
+Conversion to S2 is +3.5%, S2 $ is +10.7%, combined with increase in score 5 leads (+12%) indivates an improvement in overall lead quality 
+Core leads are -50%, this could be impacted by localisation issues with English over-riding localised demos, work has begun to solve for this. This could also be due suboptimal offer mix in paid / email campaigns. 
+Both organic and paid traffic sources are experiencing significant decline - Paid is in line with proportional budget cuts
+Third party email represents an opportunity to increase lead volume 
+Actions/Next Steps
+Review core/non core offer mix on DSE and paid to restore core lead volume 
+Partner with PMM and Localisation to introduce non-english demo playlists that can’t be over-writen with refreshed English content 
+Continue to boost paid activity with field campaign $s 
+Increase lead volume by investing more in third party email 
+Ensure stage 3 & 4 leads are retargeted with email nurture 
+Test organic social tactics to reduce reliance on traditional organic and paid 
+Support SEM team with localising CTAs to boost core leads and paid performance 
+
+Valid Leads
+24% Share
+-66% YoY
+Organic (Website + SEO)
+50% Share
+-37% pts YoY
+Paid
+SEM +Paid Digital
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+2.4K
+-41.8%YoY 
+Core Non-Core
+Core
+46%
+-50% YoY
+Non-Core
+54%
+-31.2% YoY
+
+3
+19% Share
+(-54% YoY)
+
+Lead Score: 65% were scored 3+
+(MDS Lead Score Initial)
+
+4
+12% Share
+(-34% YoY)
+
+
+5
+26% Share
+(+12% YoY)
+
+Top 3 Lead Sources
+422
++255% YoY
+3rd Party Email
+372
+2.2% YoY
+AppX/Fdn/Partner/Developer
+358
+-41.5% YoY
+Content Promotion
+25% Share
+26% YoY
+Events/Other
+Traffic Flags
+Central S2 Down Year over Year (number and value) - Mainly caused by: 
+Decline in Website, SEO and Online Campaigns in terms of actual S2 numbers
+In terms of S2 value, Website is down 63% ($202k) and webinars/events are down 77% ($58k)
+“other “ bucket has grown to 1.3M (39% YoY)
+
+
+
+UKI and South positive year over year mainly caused by: 
+UKI
+
+
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+2
+Lead Performance Scorecard
+Data Updated 04/15/26
+2
+
+Marketing Insights
+🟢 Highlights
+Despite significant Y/Y decline, non-core offers are outperforming core offers, with 77% of VLs generated by non-core offers scoring 3+ compared to just 55% for core offers
+Marketing-generated S1 oppties are up in both France (+75% Y/Y) and UKI (+29% Y/Y) along with S2 oppties. For UKI, this is likely driven by strong lead quality w/ 78% of UKI leads scoring 3+. 
+There’s significant growth in VLs in North despite -11.7% decline in MQLs. The notable brightspot in Paid-generated VLs (+36.7% Y/Y) in North is contributing to this growth. Moreover, the 96.4% MQL > VL conversion ratio for North suggests sellers are receiving high-quality leads in spite of reduction in MQLs. 
+
+🔴 Areas to watch
+Double-digit decline in VLs across 4 OUs (most notably in UKI) fueled by decline in MQLs, with -78% Y/Y MQL decline in UKI. This VL decline is primarily driven by Paid (-52% Y/Y) and Organic (-35% Y/Y) 
+MQL > VL conversion ratio slightly below average in South.
+Actions/Next Steps
+Email: Non-core offers recently added to Q2 BOM to balance offer mix; partner with GIC to ensure ongoing balance of both core/non-core offers in future BOMs.
+Webinar: Extend webinar offer performance through DSE activation of on-demand webinars; (4) Q2 webinars to help bolster organic lead performance
+Paid: Explore strong paid performance in North, and apply applicable learnings across the business.
+Valid Leads
+21% Share
++4.5 YoY
+Events/Other
+33% Share
+-35% YoY
+Organic
+46% Share
+-52% YoY
+Paid
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+1.1K
+-40% YoY
+Core Non-Core
+Core
+43% share.
+-6% YoY
+Non-Core
+57% share.
+-53% YoY
+
+3
+19% Share
+(-57.4% YoY)
+
+Lead Score: 68% are scored 3+
+(MDS Lead Score Initial)
+
+4
+21% Share
+(-40.8% YoY)
+
+
+5
+28% Share
+(+422% YoY)
+
+Top 3 Lead Sources
+237
+(-29% YoY)
+SEM
+195
+(-45% YoY)
+Content Promo
+188
+(-15% YoY)
+Website
+Filters : Macro Segment: CMRCL, ENTR, None ; Product L1 : Marketing; BDR only
+
+QTD Overview - Marketing 
+
+
+
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+2
+Lead Performance Scorecard
+Data Updated 03/19/26
+QTD Overview - Commerce
+2
+Valid Leads
+7% Share
++53% YoY
+Events/Other
+22% Share
+-6% YoY
+Organic
+71% Share
+-33% YoY
+Paid
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+342
+-26% YoY
+Core Non-Core
+Core
+31% share
++33% YoY
+Non-Core
+69% share
+-38% YoY
+
+3
+24% Share
+(-49% YoY)
+
+Lead Score: 81% are scored 3+
+(MDS Lead Score Initial)
+
+4
+13% Share
+(+10% YoY)
+
+
+5
+20% Share
+(+509% YoY)
+
+Top 3 Lead Sources
+190
+(-40% YoY)
+Content Promotion
+34
+(+13% YoY)
+SEM
+30
+(-17% YoY)
+Website
+
+Marketing Insights
+🟢 Highlights
+Less time being wasted on ‘low-quality’ Leads with MQL->VL conversion up 17.9% ppts y/y
+Despite fewer leads and S2 Opps, the value of  S2 $ has increased by +22% y/y, with North being a standout (+2,066% y/y), suggesting BDRs are qualifying larger, higher-impact deals.
+Significant increase in Core Lead share which helps explain the explosion in 5-scored Leads (+509% y/y), with SEM and Website strong contributors
+🔴 Areas to watch
+With the exception of North, every OU experienced a double-digit decline in top-of-funnel volume, with less Paid leads reaching BDR due to reduced budgets
+Conversion rate from VLs->S1 is a critical leak in the funnel, with big bottleneck in France 
+Consistent struggle to close deals, with only 2 deals closed and no ACV$ generated from 4/5  OUs
+Actions/Next Steps
+Email: All Commerce Nurture for EMEA has recently been activated which should help uplift Organic performance. Ramp up of CFM webinar program will also support this
+Paid: $20K invested on BrightTALK and topping up existing SEM campaigns across UKI and North
+Feedback for SEM QEO will mean more optimised offers will show for particular keyword themes e.g. sending users to B2B demos for B2B-related searches instead of generic offer
+
+Filters : Macro Segment: CMRCL, ENTR, None ; Product L1 : Commerce; BDR only
+
+Central S2 Down Year over Year (number and value) - Mainly caused by: 
+Decline in Website, SEO and Online Campaigns in terms of actual S2 numbers
+In terms of S2 value, Website is down 63% ($202k) and webinars/events are down 77% ($58k)
+“other “ bucket has grown to 1.3M (39% YoY)
+
+
+
+UKI and South positive year over year mainly caused by: 
+UKI
+
+
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+2
+Lead Performance Scorecard
+Data Updated 04/15/26
+QTD Overview - Commerce
+2
+Valid Leads
+8% Share
+-20% YoY
+Events/Other
+25% Share
+-17% YoY
+Organic
+67% Share
+-61% YoY
+Paid
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+404
+-53% YoY
+Core Non-Core
+Core
+34% share
+-21% YoY
+Non-Core
+69% share
+-68% YoY
+
+3
+24% Share
+(-56% YoY)
+
+Lead Score: 58% are scored 3+
+(MDS Lead Score Initial)
+
+4
+14% Share
+(-22% YoY)
+
+
+5
+21% Share
+(+394% YoY)
+
+Top 3 Lead Sources
+218
+(-64% YoY)
+Content Promotion
+41
+(-9% YoY)
+Email
+39
+(-25% YoY)
+Website
+
+Marketing Insights
+🟢 Highlights
+Decline in VL Leads but VL>S2 conversion rate increased by +1.3 pnts, showing that the lower volume of leads is progressing deeper into the funnel than last year.
+North is a heavy hitter for S2 $, contributing $1.5M (+629.1% y/y). Increased efficiency in South with 133% increase in S2# despite 64% less VLs y/y
+Huge increase in 5-scored Leads generated, with Email, SEM and Website being the primary drivers of these Leads
+🔴 Areas to watch
+Aggressive decline in VL Volume which can be attributed to lack of budget and also changes to the Lead Scoring model which significantly deprioritises Content Promotion Leads
+France is the weakest link, with the steepest VL decline and no VLs converted to S2
+S2 $ is up for most OUs but UK is causing the overall decline, with 69% drop. 
+This time last year no ACV had been generated, 3 deals closed this quarter but count still very low and South only OU to generate ACV
+Actions/Next Steps
+With Content Syndication volume being impacted by Lead Score updates, need to ensure optimisation of other channels to drive high quality Leads - SEM QEO for Q2 is complete which will ensure we have an optimised offer mix and consistent keyword themes to deliver more volume and impact
+
+Email is delivering very high quality Leads thanks to Core offers in the EMEA-wide All Commerce Nurture Quest, look at ways to maximise audience reach and also extend to other Nurtures
+
+UKI BDR: UKI OU is general is suffering from steep declines in pipeline activity for Commerce. Call scheduled with BDR Programs and PMM to raise concerns and increase focus on this Cloud 
+Filters : Macro Segment: CMRCL, ENTR, None ; Product L1 : Commerce; BDR only
+
+Central S2 Down Year over Year (number and value) - Mainly caused by: 
+Decline in Website, SEO and Online Campaigns in terms of actual S2 numbers
+In terms of S2 value, Website is down 63% ($202k) and webinars/events are down 77% ($58k)
+“other “ bucket has grown to 1.3M (39% YoY)
+
+
+
+UKI and South positive year over year mainly caused by: 
+UKI
+
+
+Lead Performance
+Scorecard
+Data Updated 10/20/25
+
+2
+Lead Performance Scorecard
+Data Updated 04/14/26
+Q1 Overview - AI and Data
+2
+
+Marketing Insights
+🟢 Highlights
+Volume is up 11% YoY which is a healthy double digit growth
+High increase in Level 5 leads which points to higher quality sourcing.
+3rd Party marketing via Paid has been one of the main focus areas to drive higher quality leads with specialized publications.
+North OU has been the best performing one at both conversion and increase in dollar value with 60%, France has seen decline in volume but an increase in quality of 66%. 
+🔴 Areas to watch
+While content promotion was the highest lead source we do see a decline YoY which offers us the opportunity to work on refreshed content and pushing more offers out. 
+Organic continues to see a decline inline with the other clouds. 
+Actions/Next Steps
+On Demand and live  webinar program kicking off in April focused on driving leads. First official Agentforce program in the region. 
+Email: DSE refresh, there was no major coverage offered during the last year. We are planning on launching  a localized nurture towards the middle-end of Q2. 
+Paid Media: continue focus on content syndication with the new offers in Q2 to continue the pace on quality leads. 
+Keep an eye on volume conversion once the new tactics get deployed
+Valid Leads
+35% Share
++106% YoY
+Events/Other
+16% Share
+-38% YoY
+Organic
+48% Share
++5% YoY
+Paid
+Core Leads: Demo, Trial, Contact me, Chat, Inbound CallNon-Core Leads: Events, Email, Ebook downloads, Webinars
+2.6K
++11% YoY 
+Core Non-Core
+Core
+23% share.
++3% YoY
+Non-Core
+77% share.
++14% YoY
+
+3
+28% Share
+(-2% YoY)
+
+Lead Score: 71% were scored 3+
+(MDS Lead Score Initial)
+
+4
+24% Share
+(+4% YoY)
+
+
+5
+19% Share
+(+244% YoY)
+
+Top 3 Lead Sources
+545
+(-40% YoY)
+Content Promotion
+501
+(+19% YoY)
+Events
+487
+( +1000% YoY)
+Email Marketing - 3rd Party
+Filters : Macro Segment: CMRCL, ENTR, None ; Product L1 : AIData  BDR only
+
+Offer Grouping: Core vs Non-Core
+Traffic flag
+Events/Organic/Paid
+
+
+Campaign Performance Scorecard
+
+Campaign Performance
+Scorecard
+Data Updated 14/04/26
+
+3
+MDP by Key Contributors Channels
+FY27 Q1 Performance - Webinar Channel by Opp APM L1
+
+Marketing Insights
+
+Webinar channel has generated 14% more MDP across Field Campaign owned Clouds compared to Q1 FY27
+North showing strong growth with Sales having the largest Cloud share and Marketing showing the largest % increase
+Central showing largest decline, largely drops are for AI & Data and Service.
+Service is achieving the highest percentage of the total MDP (27.8%)
+Commerce (-32%) & AI and Data (-31%) are the two clouds declining year over year.
+April Field Campaign webinars kicked off this week, 4 webinars to run next week.
+Q2 plans for Webinars are firmly underway with 7 webinars already live for May, including first AI pilot for France.
+On Demand motion is in flight for all webinars, this will include EMEA Series webinars being promoted via DSE.
+Actions / Next Steps
+Source File 
+Overall in Q1, Webinar channel performance is up year over year 23.8% across  Sales, Service, Marketing, Commerce, AI & Data and Platform.
+We are seeing positive growth across all OUs ranging from a high of 60% in EMEA North to 11% in EMEA Central. 
+This growth is largely driven by Service and Sales which are seeing the largest increas from a cloud level year over year of 65 and 50% respectively. Over 55% of the MDP generated from the webinar channel has been for Service and Sales Cloud.
+Despite the growth we do see that there are two clouds in decline year over year. Commerce at 32% and AI and Data at 25%. 
+Commerce is down across 4 OUs, the only exception being South (which is up 69%) similarly AI and data is down in 4 OUs, with North the OU showing growth at 28%.
+
+Moving into actions, we are hoping that AI and Data will get a boost as we have our first AI and Data webinar being launched in April alongside another en emea sales, service, commerce and marketing webinar. 
+We are also putting some budget behind an on demand paid program for EMEA North and UKI. we have allocated 10k per webinar (that went live in Feb) and we will run this with Brighttalk. We’re hoping that this is something we’ll be able to run on a consistent basis throughout the remainder of FY27.
+Finally, as you know we only are running webinars in EN for a pan EMEA audience, but we are piloting leveraging AI with On24 to dub webinars which will allow us to expand this content into our core EMEA languages. More on the pilot in just a moment.
+
+
+
+
+
+FY27 Q1 Performance - Field Campaign led webinars
+🟢  Highlights
+Overall, we’re at 56% attainment with 82% of the Quarter elapsed.
+Agentforce Commerce outpacing target at 89%.
+EMEA South showing most balanced performance across Clouds.
+Agentforce Sales at 95% of UKI target, which is single largest OU x Cloud target
+Strong performance, despite just 4/9 webinars executed in Q1.
+Data360 and Agentforce Field Campaign targets added since last Hive
+82% Fiscal Quarter elapsed 
+🔴  Areas to watch
+We are trailing slightly behind attainment at 56% QTD with 82% of the Quarter elapsed.
+Central performance has decreased due to Switzerland moving to North, targets to be revisited.
+We expect to see majority of MDP from April webinars to land in Q2 which may mean we miss our Q1 target, but it should mean we make up the difference & overexceed our Q2 target.
+FY27 Field Campaign Webinar All Cloud MDP
+OU
+Campaign APM
+Q1 Target
+Q1 Actual
+Attainment %
+FY27 Target
+Grand Total
+$4.4M
+$2.5M
+56%
+$25.4M
+Subtotal
+$1.8M
+$1.0M
+59%
+$7.9M
+UKI
+Sales
+$754.3K
+$718.2K
+95%
+$3.1M
+Service
+$471.7K
+$267.6K
+57%
+$1.9M
+Marketing
+$322.7K
+$31.7K
+10%
+$1.3M
+Commerce
+$127.3K
+$22.5K
+18%
+$516.7K
+Data 360
+$0.0K
+$0.0K
+0%
+$613.7K
+Agentforce
+$90.7K
+$1.2K
+1%
+$480.1K
+Subtotal
+$1.5M
+$962.3K
+64%
+$6.6M
+EMEA North
+Sales
+$642.8K
+$333.5K
+52%
+$2.6M
+Service
+$402.0K
+$370.2K
+92%
+$1.6M
+Marketing
+$275.0K
+$128.2K
+47%
+$1.1M
+Commerce
+$108.5K
+$130.3K
+120%
+$436.3K
+Data 360
+$0.0K
+$0.0K
+0%
+$516.9K
+Agentforce
+$77.3K
+$0.0K
+0%
+$316.6K
+Subtotal
+$524.2K
+$61.6K
+12%
+$4.2M
+EMEA Central
+Sales
+$223.8K
+$51.7K
+23%
+$1.6M
+Service
+$140.0K
+$8.9K
+6%
+$1.2M
+Marketing
+$95.7K
+$0.7K
+1%
+$487.4K
+Commerce
+$37.8K
+$0.1K
+0%
+$218.6K
+Data 360
+$0.0K
+$0.0K
+0%
+$316.9K
+Agentforce
+$26.9K
+$0.2K
+0%
+$402.4K
+Subtotal
+$409.4K
+$290.6K
+71%
+$4.1M
+EMEA South
+Sales
+$174.8K
+$77.9K
+45%
+$1.5M
+Service
+$109.3K
+$27.2K
+25%
+$1.2M
+Marketing
+$74.8K
+$69.8K
+93%
+$391.7K
+Commerce
+$29.5K
+$115.7K
+392%
+$224.4K
+Data 360
+$0.0K
+$0.0K
+0%
+$303.1K
+Agentforce
+$21.0K
+$0.0K
+0%
+$432.8K
+Subtotal
+$146.8K
+$102.5K
+70%
+$2.6M
+France
+Sales
+$62.7K
+$15.5K
+25%
+$908.5K
+Service
+$39.2K
+$60.0K
+153%
+$823.5K
+Marketing
+$26.8K
+$27.1K
+101%
+$209.3K
+Commerce
+$10.6K
+$0.0K
+0%
+$130.2K
+Data 360
+$0.0K
+$0.0K
+0%
+$185.1K
+Agentforce
+$7.5K
+$0.0K
+0%
+$318.2K
+
+Email Performance
+Scorecard
+Data Updated 10th April 2026 for QTD
+
+Marketing Insights
+Strong coverage, except for South (all clouds) and Data Cloud in North
+Unique CTR is generally weak across the board, but there are exceptions across commerce cloud, agentforce and the UK 
+Delivery numbers are low for commerce 
+
+Actions/ Next Steps
+Working with email team on recommendation for ‘drip feeding’ DSE with Q2 offers to avoid cannibalising the database and diluting scoring algorithm, but should prioritise:
+Prioritise DSE activations in South & Data Cloud in North & France
+Activate Commerce DSEs in North, South & UKI 
+Request support from the email team to help us identify ways to improve overall UCTR, taking best practices from CTRs highlighted in green, and/or consider changing benchmarks (this is our first attempt at benchmark setting so may need adjusting) 
+Investigate hypothesis that commerce cloud has a small mailable audience to explain low delivery numbers. If so, investigate ways to increase mailable audience as performance for commerce is strong 
+
+Inaccurate data
+
+Inaccurate data
+Simplified scorecard has had a glow up - coverage vs numbers with no context and benchmarks for CTR and U:CR based on EMEA FY26 averages. 
+
+
+
+Email Performance Scorecard
+Data Updated 10th April 2026 for QTD
+
+Marketing Insights
+DSE Coverage - 
+At target overall (65%). Most OUs have easily surpassed this but South bringing overall average down, driven by email moratorium in MDE and IL (recently resumed)
+Agentforce (71%) and Data (71%) have highest coverage, while Sales (54%) and Commerce (58%) have lowest. Commerce activation engine impacted by creative resource bandwidth with CNX
+Unique CTR - 
+Overall Unique CTR above benchmark (2.9% vs 2.6%), although a lot of this success is isolated to UKI only (3.9%) while all other OUs are in the red
+Agentforce (5.0%) and Commerce (4.2%) see strongest engagement while Marketing (1.6%) and Service (1.5%) have room for improvement
+
+Actions/ Next Steps
+Working with email team on recommendation for ‘drip feeding’ DSE with Q2 offers to avoid cannibalising the database and diluting scoring algorithm, but should prioritise:
+Prioritise DSE activations in South for all Clouds & Data Cloud in North
+Activate Commerce DSEs once creative resource frees up  - performance is strong so important to continue to fuel engine
+Request support from the email team to help us identify ways to improve overall UCTR, taking best practices from CTRs highlighted in green, and/or consider creating OU-level benchmarks (this is our first attempt at benchmark setting so may need adjusting) 
+
+Inaccurate data
+
+Inaccurate data
+Benchmarks
+
+U:CR
+Green = <16.4%
+Yellow = 16.4%-23.73%
+Red = >23.73%
+
+overage is % eligible subscribers where there is an offer matching their PPI that they haven't been sent yet. There's a report for it.
+So in short — DSE Coverage = the percentage of eligible subscribers who have a matching offer (based on their Product of Interest / PPI) in the DSE that hasn't been sent to them yet. It's essentially a measure of how well the DSE is set up to reach its intended audience with relevant content.
+
+
+
+
+
+OU
+Campaign APM
+Q1 Target
+Q1 Actual
+Attainment %
+FY27 Target
+Grand Total
+$3.0M
+$6.8M
+228%
+$11.9M
+Subtotal
+$854.7K
+$1.5M
+176%
+$3.4M
+UKI
+Sales
+$194.0K
+$133.3K
+69%
+$776.0K
+Service
+$128.5K
+$123.9K
+96%
+$514.1K
+Marketing
+$226.1K
+$264.3K
+117%
+$904.6K
+Commerce
+$67.6K
+$166.0K
+246%
+$270.5K
+Data 360
+$127.7K
+$338.0K
+265%
+$510.9K
+Agentforce
+$110.7K
+$479.2K
+433%
+$442.9K
+Subtotal
+$514.0K
+$1.7M
+331%
+$2.1M
+EMEA North
+Sales
+$116.7K
+$404.0K
+346%
+$466.6K
+Service
+$77.3K
+$289.5K
+375%
+$309.2K
+Marketing
+$136.0K
+$407.2K
+299%
+$544.0K
+Commerce
+$40.7K
+$138.4K
+340%
+$162.7K
+Data 360
+$76.8K
+$317.8K
+414%
+$307.2K
+Agentforce
+$66.6K
+$143.7K
+216%
+$266.3K
+Subtotal
+$645.5K
+$806.4K
+125%
+$2.6M
+EMEA Central
+Sales
+$146.5K
+$178.5K
+122%
+$586.0K
+Service
+$97.1K
+$136.6K
+141%
+$388.3K
+Marketing
+$170.8K
+$192.6K
+113%
+$683.2K
+Commerce
+$51.1K
+$48.8K
+96%
+$204.3K
+Data 360
+$96.5K
+$162.5K
+168%
+$385.8K
+Agentforce
+$83.6K
+$87.4K
+105%
+$334.5K
+Subtotal
+$583.1K
+$1.3M
+230%
+$2.3M
+EMEA South
+Sales
+$132.3K
+$218.4K
+165%
+$529.4K
+Service
+$87.7K
+$185.4K
+211%
+$350.7K
+Marketing
+$154.3K
+$240.4K
+156%
+$617.1K
+Commerce
+$46.1K
+$216.8K
+470%
+$184.5K
+Data 360
+$87.1K
+$197.8K
+227%
+$348.5K
+Agentforce
+$75.5K
+$285.2K
+378%
+$302.1K
+Subtotal
+$374.4K
+$1.4M
+379%
+$1.5M
+France
+Sales
+$85.0K
+$162.3K
+191%
+$339.9K
+Service
+$56.3K
+$197.4K
+351%
+$225.2K
+Marketing
+$99.1K
+$253.3K
+256%
+$396.2K
+Commerce
+$29.6K
+$62.9K
+212%
+$118.5K
+Data 360
+$55.9K
+$143.1K
+256%
+$223.8K
+Agentforce
+$48.5K
+$599.2K
+1236%
+$194.0K
+FY27 Performance - Email
+
+
+Marketing Insights
+Massive overperfromance: Email continues to explode, already surpassing the +15% y/y growth we applied FY27 (228% attainment) from this channel for Q1. 
+Agentforce surge: After generating $1.3M MDP FY26, Agentforce emails have already surpassed this number midway through FY27Q1 - $1.6M, overperforming significantly across all OUs. Largely thanks to FR webinar series
+UKI MDP from Sales email activations: Lowest-performing cloud for UKI and pacing behind Q1 target. Email suppression issue with promotion of Feb Sales webinar slowed down progress
+Webinar + Email - the perfect combo: Around 80% of the Email traffic MDP can be attributed to promoting upcoming webinars. Highlights importance of relationship but need to distribute reliance to other Offer types
+82% Fiscal Quarter elapsed 
+Next Steps
+Re-evaluate targets: FY27 Target is set at $11.9M (+15% y/y), $6.8M already achieved in Q1 alone. 
+Agentic sales webinar: 270 registrations for April 14th webinar, with most from UK - socialise across the org and ensure effective follow up which should help address MDP gap
+
+Campaign Performance
+Scorecard
+Data Updated 14/04/26
+3
+
+Marketing Insights
+
+Q1 Performance Assets Review
+19 Service Cloud offers have generated $2.07M in Q1 to date. 
+Top performing offers are:
+State of Service 7 - $374K
+Field Service Guide - $314.5K
+Contact Center Guide -  $278.6K
+Paid Channels are driving over 90% of global campaign offer MDP in Q1, down from 95% in Q4.
+Email has generated just 6% of all MDP QTD, trending upwards by 2 ppt from March. 
+As we consistently activate content this number should continue to increase. 
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Activate relevant BoM offers for EMEA markets.
+New DSE content activations coming soon includes: 
+Gartner CEC MQ 2025 - April ( NON EN languages)
+Forrester TEI Study 2025 - April (All languages)
+Agentforce Field Service & Operations Demo - Q2 (NON EN languages)
+Feedback for SEM QEO will mean more optimised offers will show for particular keyword themes and should help drive more pipeline for this channel
+
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 04/10/2026 for full Q4
+3
+
+Marketing Insights
+
+QTD Campaign Scorecard EMEA
+Sales Cloud Global campaign offers have generated $6.2M MDP QTD across 17 priority campaign offers - 32% of this is Sales MDP.
+$1.5 from Revenue offers
+32% MDP landed with Sales Cloud 
+Top performing offers are demo-sales ($2.2m), state of sales webinar ($1m) & quote to cash playbook ($983k)
+Top performing channels are paid search ($2.3m), content syndication ($1.5m) and email ($1.1m - however 90% of this is concentrated around one offer - state of webinar)
+24% of global campaign offer MDP is coming from one offer on one channel (paid seach for demo-sales)
+Significant gaps in activation, in particular for customer lookbook, state of sales webinar, billing for consumption and subscription, forrester wave report & revenue cloud billing demo
+
+
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Boost top performing offers by ensuring they’re live in all priority languages across email and paid
+Reveiw demo sales and quote to cash playbook DSE & NQ inclusion 
+Add state of sales webinar to paid campaigns (refreshing ‘preview’ messaging - See if we can localise for non-EN)
+Focus week 20-24 April to activate global campaign content on DSE to booost email performance and reduce reliance the state of webinar emails 
+Prioritise introduction of ‘protected’ non-english demo playlists for top performing demos 
+Investigate ways to leverage organic social in a programmatic scalable way 
+Investigate / audit discrepancies in offer name to ensure we’re capturing everything 
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 04/10/2026 for full Q4
+3
+
+Marketing Insights
+
+QTD Campaign Scorecard EMEA - Agentforce Revenue Management 
+Revenue Cloud offers have generated $1.5m in MDP for EMEA in Q1 QTD 
+Top performing offers are Quote to cash playbook and revenue lifecycle demo 
+Top performing channels are content syndication and third party email 
+Gaps in content activation across email: billing for consumption & subscriptions, forrester wave report, revenue cloud billing demo
+Gaps in content activation across paid: revenue cloud billing demo, forrester wave cpq report
+No dedicated paid campaigns for rev in EMEA as budget doesn’t scale - Not all offers are relevant for sales audiences where offers are tied into sales campaigns 
+
+
+
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Ensure all Q2 BoM offers are localised 
+Introduce non-EN demo playlists to  protect localised demo’s from being over-written by english demo updates (started project in partnership with GIC and HQ PMM)
+Blocked out week 20th-24th April to activate priority offers in DSE in all languages - Once Agentforce Sales Nurture is live across EMEA we will activate a revenue cloud nurture 
+Partnering with GIC and HQ PMM on an email audit to review everything targeting sales/ rev audience on email. 
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 04/16/26
+3
+
+Marketing Insights
+
+QTD Performance Assets Review
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+These 17 Marketing offers generated $807K MDP in Q1, with the following 3 offers contributing over 60%:
+crm-marketing-demo - $172K
+state-of-marketing-9 - $159K
+b2b-marketers-guide - $70K
+
+While Paid Search and Content Syndication continue to be strong channels, driving 66% of the $807K MDP, email contribution is on the rise, up from 1% to 3% of overall MDP generated since March
+
+38% of this MDP is landing in UKI, 21% in South, 20% in North, 14% in Central, and 7% in France
+
+Build on rising momentum in email channel through activation of Q2 GIC BOM, convergence nurtures, and post-CNX nurture
+
+Work to ensure consistent localisation of campaign assets and identify number of France offers
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 03/19/26
+3
+
+Marketing Insights
+
+QTD Performance Assets Review
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Commerce Cloud Global campaign offers have generated $95K MDP in Q4 across 5 recommended offers, with Commerce Cloud Overview Demo generating most of the MDP. 
+Most of the MDP lies in UKI ($40K), followed by Central ($24K). Very little generated in North.
+Reliance on Paid channels, with over 75% MDP generated from Paid Search and Content Syndication. 
+
+Submitted feedback for SEM QEO which will increase core offer mix and reduce reliance on the Commerce Cloud Overview Demo. 
+Localised demo experience currently being addressed for B2C, B2B and OMS - incorrect landing page->conf pages, outdated demos, playlists instead of dedicated demos, lack of in-language demos
+All Commerce Nurture for EN-EMEA has recently been activated which should help uplift email performance. Ramp up of CFM webinar program will also support this
+
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 04/15/26
+3
+
+Marketing Insights
+
+QTD Performance Assets Review
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Agentforce Commerce Global campaign offers have generated $393K MDP in Q1 across 4 offers, a signficant increase from $95K this time last month. 
+The increase is primarily driven from the ramp up of the Content Syndication program which is delivering 73% of the overall MDP. 
+Vast majority of MDP is landing in the UKI OU - 83%, with very little being generated in North
+Starting to see results from the Email channel, specifically the All Commerce Nurture Quest which launched across EMEA in Q1
+
+Continue to fuel the All Commerce Nurture Quest with more audiences, as well as building additional B2B and B2C nurture tracks. We are seeing more results from Nurture Quests vs DSE emails
+Q1 SEM Offers were not optimised for EMEA but in Q2, there will be full alignment with AMER on offer mix and keyword themes which should deliver more impact
+MDP is heavily skewed to the UK - investigate lack of Paid MDP being generated for other OUs
+Localised demo experience currently being addressed for B2C, B2B and OMS - incorrect landing page->conf pages, outdated demos, playlists instead of dedicated demos, lack of in-language demos
+
+
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 03/19/26
+3
+
+Marketing Insights
+
+QTD Performance Assets Review
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+ Cloud Global campaign offers have generated $883K MDP in Q1 across 18 offers. Content syndication has been the best performing channels across core offers such as demos, AI Powered CRM, Trends of AI and the Zero Copy Guide. Most of the MDP lies xxx add region filter 
+Reliance on Paid channels, with majority of the MDP generated from Content Syndication and Third party emailing. Demos are the highest traffic drivers for organic and direct MDP. 
+
+
+New content will be launched in Q2 to refresh the reliance on older content syndication. 
+
+New Agentforce nurture will be set live in English in May with localized versions to be launched towards the end of Q2.
+Email content will receive a boost with new localized offers and a dedicated workstream.
+
+Lead : Etienne
+
+
+Appendix
+
+Campaign Performance
+Scorecard
+Data Updated 12/04/25
+3
+
+Marketing Insights
+
+QTD Campaign Scorecard UKI
+Global campaign offers have generated $506k MDP QTD across 11 offers
+5 recommended offers not activated or not delivering MDP 
+MDP is concentrated around paid search for demo-sales and state of sales 6
+Content syndication is delivering strong MDP for 4 of 6 offers, but hasn’t performed as well for customer lookbook or sales agent playbook 
+Email, organic search, and organic social are underutilised and/or not delivering strong results 
+TPE delivering mixed results but has performed well for state of sales
+Work with paid media to understand context and recommendations for paid performance 
+Ensure all offers are active on web (organic) and email - 5 missing offers 
+Review email performance and make optimisations 
+Work with OUs to leverage organic social for key offers 
+
+
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 12/04/25
+3
+
+Marketing Insights
+
+QTD Campaign Scorecard Central
+Global campaign offers have generated $341k MDP QTD across 13 offers
+3 recommended offers not activated or not delivering MDP 
+MDP is concentrated around content syndication for manage pipeline and forecasts and the state of report, as well as paid search for demos and state of 
+Compared to EMEA, email is well utilised and performing particularly well for consensus sales cloud ai, demo sales and grow your business with subscriptions
+Demos perform well on organic search 
+TPE works well but is used sparingly 
+Work with paid media to understand context and recommendations for paid performance 
+Ensure all offers are active on web (organic) and email - 3 missing offers 
+Review Organic Search performance for agentforce for sales, consensus cloud AI, and sales AI playbook 
+Review email performance and make optimisations 
+Work with OU to leverage organic social for key offers 
+
+
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 12/04/25
+3
+
+Marketing Insights
+
+QTD Campaign Scorecard France 
+Global campaign offers have generated $127k MDP QTD across 9 offers
+7 recommended offers not activated or not delivering MDP 
+MDP is largely concentrated around content syndication which accounts for 77% (highlights sales agent playbook and quote to cash playbook) 
+Organic search shows potential and is performing relatively well for the state of report 
+Paid social shows potential and is performing relatively well for sales AI playbook 
+
+Review which offers are live on paid - Is performance generally low or are we concentrating on other offers/ content syndication?
+Review conversion of content syndication MDP
+Ensure all localised offers are active on web and email 
+Double down on organic search across all live offers 
+Allocate more $ to offers that are performing well on organic but appear to have low spend 
+Investigate ‘state of sales’ offer to check it’s the 6th edition and update offer name for data cleanliness 
+
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 12/04/25
+3
+
+Marketing Insights
+
+QTD Campaign Scorecard South 
+Global campaign offers have generated $111.3k MDP QTD across 14 offers
+2 recommended offers not activated or not delivering MDP 
+MDP is concentrated around content syndication (sales leaders ai growth playbook, state of sales), and paid search (demo sales)
+Content syndication is underperforming for sales agent playbook, quote to cash playbook, and manage pipeline/ forecasts 
+Email, organic social and organic search underutilised 
+TPE underutilised 
+Overall South have a good variety of available/ active content, but performance is sparse across channels 
+
+Work with paid media to understand context and recommendations for paid performance 
+Activate/ optimise email and organic search
+Work with OU to leverage organic social 
+Double down on organic search across all live offers 
+Review offer activation at a country level - Numbers could be skewed by countries which use English offers 
+
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Lead : Etienne
+
+Campaign Performance
+Scorecard
+Data Updated 12/04/25
+3
+
+Marketing Insights
+
+QTD Campaign Scorecard North 
+Global campaign offers have generated $312.6k MDP QTD across 11 offers
+5 recommended offers not activated or not delivering MDP 
+Almost 40% of this MDP is coming from paid search for one offer - demo sales 
+Paid social performing well for sales AI playbook but potentially underutilised 
+Organic search delivering good results for demos and sales AI playbook
+State of Sales underperforming - Only 2% of EMEA State of Sales 6 MDP coming from North vs 22% across all offers 
+Work with paid media to understand context and recommendations for paid performance - in particular what’s working well on paid social for sales ai playbook and search for demo sales? Can we double down there on other offers? 
+Activate/ optimise email and organic search - Investigate success of sales AI playbook on email
+Work with OU to leverage organic social 
+Double down on organic search which performs relatively well in North 
+Activate / optimise 5 missing offers 
+
+Actions / Next Steps
+This Tableau Workbook allows deeper analysis by Offer Name, Traffic Source L2 & Sales Leader L2.
+Lead : Etienne
+
+FY26 QTD Email Content & Optimisation
+
+Actions/Next Steps
+Focus on launching nurtures 
+Activate content on DSE for commerce and marketing 
+Partner with email and organic team on Q1 optimisation 
+Quick optimisation wins: retire duplicate offers and audience overlaps
+
+*** Known issue: Campaign nurture entries are inflating email MDP across the board. Campaign entries should be in generic campaigns not traditional name captures. 
+Marketing Insights
+🟢 Highlights
+New Service Nurtures
+New offers being added for Sales & Service 
+Click rate average in line with all Cloud all EMEA 
+Average U:CR 18% - lower than all EMEA/ Cloud avg and within EMEA target 
+🔴 Lowlights
+Commerce & Marketing Cloud content availability - Commerce UK needs urgent attention
+Nurtures are taking a long time to activate and only EN for now 
+U:CR in North 
+EMEA All Cloud Q3 Average - Coverage: Open rate: 39.19% ; Click Rate: 1.85% ; U:CR: 25.63% ; MDP $: ; % EMEA MDP: 
+Marketing Central Dashboard | DSE Tracker | Campaign MDP Scorecard
+Source File
+OU
+Cloud
+# Active Offers
+New DSE Offers
+Archived DSE Offers
+Emails Delivered
+Clicks
+Click Rate
+U:CR
+Nurtures Live
+UKI
+Sales
+57
+9
+0
+33,3K
+1036
+3,1%
+25.73
+2
+UKI
+Service
+15
+5
+0
+9,4K
+382
+4,1%
+7.54%
+6
+UKI
+Marketing
+47
+9
+0
+56,7K
+1587
+2,8%
+11.74
+5
+UKI
+Commerce
+0
+0
+0
+0,0K
+0
+0,0%
+0%
+2
+CENTRAL
+Sales
+28
+6
+0
+8,2K
+144
+1,5%
+33.72%
+1
+CENTRAL
+Service
+20
+6
+0
+4,6K
+127
+1,4%
+14.94
+2
+CENTRAL
+Marketing
+40
+0
+0
+16,7K
+333
+2,0%
+26.61%
+0
+CENTRAL
+Commerce
+6
+0
+0
+1,3K
+42
+3,3%
+6.45%
+0
+France
+Sales
+13
+4
+0
+7,9K
+95
+1,2%
+39.13%
+1
+France
+Service
+9
+4
+0
+1,3K
+30
+2,2%
+25%
+0
+France
+Marketing
+9
+1
+0
+9,2K
+108
+1,2%
+29.49%
+0
+France
+Commerce
+9
+0
+0
+1,3K
+42
+3,3%
+6.45%%
+0
+North
+Sales
+70
+14
+0
+16,7K
+296
+1,8%
+37.4%
+0
+North
+Service
+26
+5
+0
+6,1K
+143
+2,3%
+35%
+5
+North
+Marketing
+91
+0
+0
+21,1K
+321
+1,5%
+46.32%
+0
+North
+Commerce
+19
+0
+0
+0,4K
+9
+2,0%
+0%
+0
+South
+Sales
+95
+20
+0
+121,6K
+1095
+0,9%
+41.57%
+8
+South
+Service
+55
+16
+0
+76,3K
+718
+0,9%
+27.37%
+34
+South
+Marketing
+81
+0
+0
+96,0K
+1081
+1,1%
+29%
+15
+South
+Commerce
+24
+0
+0
+15,3K
+276
+1,8%
+23.08%
+2
+LEAD : Jordan
+
+Problem Statement
+A number of Org62 Campaigns with a Parent Tactic of ‘Email’ are incorrectly getting attributed with MDP, causing inflated numbers for the email channel. This typically occurs when marketers use the ‘Campaign Entry’ mechanism for Nurture Quests and load their target audience to a Name Capture Campaign with incorrect statuses such as ‘Responded’. This leads to two undesired outcomes:
+MDP: The ‘Campaign Entry’ Org62 Campaign designed to build the target audience list is getting MDP attribution, despite most of the audience not engaging with the actual offers in the Nurture Quest. Examples of these Campaigns below.
+Health of funnel: When Lead records get added to these Campaigns, the Offer Type Most Recent field on the Lead record gets updated with whatever Offer Type value is in the Campaign which impacts Health of Funnel Reporting in the Leads Cockpit
+
+
+Proposed Solution
+Existing Campaigns
+Change Campaign Member status for all Campaign Members in identified Campaigns to ‘Sent’ which is a status that doesn’t qualify for MDP. Will this retroactively disqualify the identified Campaigns or is too late?
+
+New Campaigns
+
+Propose to add Campaign Members to a ‘Generic Campaign’. Generic Campaigns do not qualify for MDP and also do not require an ‘Offer Type’ value which will also help improve Health of Funnel reporting.
+
+
+Sales Cloud
+EMEA-CROSS-COUNTRY-Web Form--DFE EMEA Email Data--FY26Q3 - FY26 $2.1M MDPEMEA-FR-Web Form--Summer Shield NurtureQuest--FY26Q2 - FY26 $895K MDP
+EMEA-FR-Web Form--RISE Nurture Email Campaign Q1--FY26Q1 - FY26 $877K MDP
+
+Service CloudEMEA-CROSS-COUNTRY-Web Form--DFE EMEA Email Data--FY26Q3 - FY26$1.4 MDPEMEA-FR-Web Form--Summer Shield NurtureQuest--FY26Q2 - FY26 $666K MDPEMEA-CROSS-COUNTRY-Web Form--NonCore WelcomeEmail-Cross-South--FY26Q2 - FY26 $533K
+
+Marketing and Commerce Cloud
+EMEA-CROSS-COUNTRY-Web Form--DFE EMEA Email Data--FY26Q3 - FY26 $1.0 MDP
+EMEA-FR-Web Form--Summer Shield NurtureQuest--FY26Q2 - FY26$567K MDPEMEA-CROSS-COUNTRY-Web Form--mktg-com-contact-nurture-egm--FY26Q2 - FY26 $432K
+
+
+OU
+Cloud
+$ email MDP for the Cloud (current reporting method)
+YoY
+$ estimated email MDP for the cloud (proposed reporting method)
+YoY
+$ email MDP by the cloud (current reporting method)
+YoY
+$ email MDP by the cloud (proposed reporting method)
+% Share MDP 
+Click Rate
+U:CR
+Nurtures Live
+UKI
+Sales
+57 (-5)
+9
+3
+33,3K (+5%)
+1036 (+12%)
+3,1% (+0.5%)
+25.73 (-12%)
+2
+UKI
+Service
+15
+5
+0
+9,4K
+382
+4,1%
+7.54%
+6
+UKI
+Marketing
+47
+9
+0
+56,7K
+1587
+2,8%
+11.74
+5
+UKI
+Commerce
+0
+0
+0
+0,0K
+0
+0,0%
+0%
+2
+CENTRAL
+Sales
+28
+6
+0
+8,2K
+144
+1,5%
+33.72%
+1
+CENTRAL
+Service
+20
+6
+0
+4,6K
+127
+1,4%
+14.94
+2
+CENTRAL
+Marketing
+40
+0
+0
+16,7K
+333
+2,0%
+26.61%
+0
+CENTRAL
+Commerce
+6
+0
+0
+1,3K
+42
+3,3%
+6.45%
+0
+France
+Sales
+13
+4
+0
+7,9K
+95
+1,2%
+39.13%
+1
+France
+Service
+9
+4
+0
+1,3K
+30
+2,2%
+25%
+0
+France
+Marketing
+9
+1
+0
+9,2K
+108
+1,2%
+29.49%
+0
+France
+Commerce
+9
+0
+0
+1,3K
+42
+3,3%
+6.45%%
+0
+North
+Sales
+70
+14
+0
+16,7K
+296
+1,8%
+37.4%
+0
+North
+Service
+26
+5
+0
+6,1K
+143
+2,3%
+35%
+5
+North
+Marketing
+91
+0
+0
+21,1K
+321
+1,5%
+46.32%
+0
+North
+Commerce
+19
+0
+0
+0,4K
+9
+2,0%
+0%
+0
+South
+Sales
+95
+20
+0
+121,6K
+1095
+0,9%
+41.57%
+8
+South
+Service
+55
+16
+0
+76,3K
+718
+0,9%
+27.37%
+34
+South
+Marketing
+81
+0
+0
+96,0K
+1081
+1,1%
+29%
+15
+South
+Commerce
+24
+0
+0
+15,3K
+276
+1,8%
+23.08%
+2
+FY26 QTD Email Performance - EXAMPLE
+
+Actions/Next Steps
+Focus on launching nurtures 
+Activate content on DSE for commerce and marketing 
+Partner with email and organic team on Q1 optimisation 
+Quick optimisation wins: retire duplicate offers and audience overlaps
+
+*** Known issue: Campaign nurture entries are inflating email MDP across the board. Campaign entries should be in generic campaigns not traditional name captures. 
+Marketing Insights
+🟢 Highlights
+New Service Nurtures
+New offers being added for Sales & Service 
+Click rate average in line with all Cloud all EMEA 
+Average U:CR 18% - lower than all EMEA/ Cloud avg and within EMEA target 
+🔴 Lowlights
+Commerce & Marketing Cloud content availability - Commerce UK needs urgent attention
+Nurtures are taking a long time to activate and only EN for now 
+U:CR in North 
+EMEA All Cloud Q3 Average - Coverage: Open rate: 39.19% ; Click Rate: 1.85% ; U:CR: 25.63% ; MDP $: ; % EMEA MDP: 
+Marketing Central Dashboard | DSE Tracker | Campaign MDP Scorecard
+Source File
+LEAD : Jordan
+
+Problem Statement
+A number of Org62 Campaigns with a Parent Tactic of ‘Email’ are incorrectly getting attributed with MDP, causing inflated numbers for the email channel. This typically occurs when marketers use the ‘Campaign Entry’ mechanism for Nurture Quests and load their target audience to a Name Capture Campaign with incorrect statuses such as ‘Responded’. This leads to two undesired outcomes:
+MDP: The ‘Campaign Entry’ Org62 Campaign designed to build the target audience list is getting MDP attribution, despite most of the audience not engaging with the actual offers in the Nurture Quest. Examples of these Campaigns below.
+Health of funnel: When Lead records get added to these Campaigns, the Offer Type Most Recent field on the Lead record gets updated with whatever Offer Type value is in the Campaign which impacts Health of Funnel Reporting in the Leads Cockpit
+
+
+Proposed Solution
+Existing Campaigns
+Change Campaign Member status for all Campaign Members in identified Campaigns to ‘Sent’ which is a status that doesn’t qualify for MDP. Will this retroactively disqualify the identified Campaigns or is too late?
+
+New Campaigns
+
+Propose to add Campaign Members to a ‘Generic Campaign’. Generic Campaigns do not qualify for MDP and also do not require an ‘Offer Type’ value which will also help improve Health of Funnel reporting.
+
+
+Sales Cloud
+EMEA-CROSS-COUNTRY-Web Form--DFE EMEA Email Data--FY26Q3 - FY26 $2.1M MDPEMEA-FR-Web Form--Summer Shield NurtureQuest--FY26Q2 - FY26 $895K MDP
+EMEA-FR-Web Form--RISE Nurture Email Campaign Q1--FY26Q1 - FY26 $877K MDP
+
+Service CloudEMEA-CROSS-COUNTRY-Web Form--DFE EMEA Email Data--FY26Q3 - FY26$1.4 MDPEMEA-FR-Web Form--Summer Shield NurtureQuest--FY26Q2 - FY26 $666K MDPEMEA-CROSS-COUNTRY-Web Form--NonCore WelcomeEmail-Cross-South--FY26Q2 - FY26 $533K
+
+Marketing and Commerce Cloud
+EMEA-CROSS-COUNTRY-Web Form--DFE EMEA Email Data--FY26Q3 - FY26 $1.0 MDP
+EMEA-FR-Web Form--Summer Shield NurtureQuest--FY26Q2 - FY26$567K MDPEMEA-CROSS-COUNTRY-Web Form--mktg-com-contact-nurture-egm--FY26Q2 - FY26 $432K
+
