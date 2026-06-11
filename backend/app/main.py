@@ -113,8 +113,16 @@ async def email_scorecard():
 # For Heroku: frontend should be at the same level as backend
 frontend_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend")
 if os.path.exists(frontend_dir):
-    app.mount("/js", StaticFiles(directory=os.path.join(frontend_dir, "js")), name="js")
-    app.mount("/css", StaticFiles(directory=os.path.join(frontend_dir, "css")), name="css")
+    # Mount js directory
+    js_dir = os.path.join(frontend_dir, "js")
+    if os.path.exists(js_dir):
+        app.mount("/js", StaticFiles(directory=js_dir), name="js")
+
+    # Mount css directory (only if exists and not empty)
+    css_dir = os.path.join(frontend_dir, "css")
+    if os.path.exists(css_dir) and os.listdir(css_dir):
+        app.mount("/css", StaticFiles(directory=css_dir), name="css")
+
     # Mount public directory for images, etc.
     public_dir = os.path.join(frontend_dir, "public")
     if os.path.exists(public_dir):
