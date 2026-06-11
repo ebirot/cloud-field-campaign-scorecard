@@ -2071,16 +2071,29 @@ body.dark .metric-bad {
               </div>
             </div>
 
-            <!-- Quick Actions -->
+            <!-- Recent Activity -->
             <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
-              <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Quick Actions</h3>
-              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <button onclick="window.open('/admin', '_blank')" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
-                  📊 Full Analytics Dashboard
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h3 style="font-size: 18px; font-weight: 700;">Recent Activity</h3>
+                <button onclick="loadAnalyticsData()" style="padding: 6px 12px; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px;">
+                  🔄 Refresh
                 </button>
-                <button onclick="window.open('/docs', '_blank')" style="padding: 10px 20px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
-                  📚 API Documentation
-                </button>
+              </div>
+              <div id="recentActivityList" style="display: flex; flex-direction: column; gap: 12px; max-height: 400px; overflow-y: auto;">
+                <div style="text-align: center; padding: 40px; color: var(--muted);">
+                  <div style="font-size: 32px; margin-bottom: 8px;">⏳</div>
+                  <div>Loading activity...</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Users -->
+            <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Active Users (Last 5 min)</h3>
+              <div id="activeUsersList" style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="text-align: center; padding: 20px; color: var(--muted);">
+                  <div>No active users</div>
+                </div>
               </div>
             </div>
           </div>
@@ -2520,11 +2533,14 @@ function switchAdminTab(tabName) {
 async function loadAnalyticsData() {
   try {
     const API_URL = getAdminApiUrl();
-    const [statsRes, refreshRes] = await Promise.all([
+    const [statsRes, refreshRes, eventsRes, usersRes] = await Promise.all([
       fetch(`${API_URL}/api/analytics/stats`),
-      fetch(`${API_URL}/api/refresh/status`)
+      fetch(`${API_URL}/api/refresh/status`),
+      fetch(`${API_URL}/api/analytics/recent-events?limit=20`),
+      fetch(`${API_URL}/api/analytics/active-users?minutes=5`)
     ]);
 
+    // Update stats cards
     if (statsRes.ok) {
       const stats = await statsRes.json();
       document.getElementById('adminTotalEvents').textContent = stats.total_events?.toLocaleString() || '0';
@@ -2532,6 +2548,7 @@ async function loadAnalyticsData() {
       document.getElementById('adminPageViews').textContent = stats.page_views_24h?.toLocaleString() || '0';
     }
 
+    // Update refresh status
     if (refreshRes.ok) {
       const refresh = await refreshRes.json();
       if (refresh.last_update && refresh.last_update.success) {
@@ -2543,6 +2560,59 @@ async function loadAnalyticsData() {
         document.getElementById('adminRefreshTime').textContent = 'Failed';
       }
     }
+
+    // Update recent activity
+    if (eventsRes.ok) {
+      const eventsData = await eventsRes.json();
+      const activityList = document.getElementById('recentActivityList');
+
+      if (eventsData.events && eventsData.events.length > 0) {
+        activityList.innerHTML = eventsData.events.map(event => {
+          const time = new Date(event.timestamp).toLocaleTimeString();
+          return `
+            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg); border-radius: 8px;">
+              <div style="background: #dbeafe; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; color: #1e40af; text-transform: uppercase;">
+                ${event.event_type}
+              </div>
+              <div style="flex: 1;">
+                <div style="font-weight: 600; font-size: 14px;">${event.user_name || 'Anonymous'}</div>
+                <div style="font-size: 12px; color: var(--muted);">${event.page || '-'}</div>
+              </div>
+              <div style="font-size: 12px; color: var(--muted);">${time}</div>
+            </div>
+          `;
+        }).join('');
+      } else {
+        activityList.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--muted);">No recent activity</div>';
+      }
+    }
+
+    // Update active users
+    if (usersRes.ok) {
+      const usersData = await usersRes.json();
+      const usersList = document.getElementById('activeUsersList');
+
+      if (usersData.active_users && usersData.active_users.length > 0) {
+        usersList.innerHTML = usersData.active_users.map(user => {
+          const lastSeen = new Date(user.last_seen).toLocaleTimeString();
+          return `
+            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg); border-radius: 8px;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 16px;">
+                ${(user.user_name || 'A').substring(0, 1).toUpperCase()}
+              </div>
+              <div style="flex: 1;">
+                <div style="font-weight: 600; font-size: 14px;">${user.user_name || 'Anonymous'}</div>
+                <div style="font-size: 12px; color: var(--muted);">${user.current_page || 'Unknown'}</div>
+              </div>
+              <div style="font-size: 12px; color: var(--muted);">${lastSeen}</div>
+            </div>
+          `;
+        }).join('');
+      } else {
+        usersList.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--muted);">No active users</div>';
+      }
+    }
+
   } catch (error) {
     console.error('Failed to load analytics data:', error);
     document.getElementById('adminRefreshTime').textContent = 'Error loading';
