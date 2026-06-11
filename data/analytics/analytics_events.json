@@ -11215,5 +11215,67 @@
     "user_id": "user_1781208591206_40aevf8yb",
     "timestamp": "2026-06-11T22:10:36.905183",
     "metadata": {}
+  },
+  {
+    "type": "page_unload",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:14:38.532151",
+    "metadata": {}
+  },
+  {
+    "type": "page_hidden",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:14:39.095971",
+    "metadata": {}
+  },
+  {
+    "type": "page_view",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:14:39.168687",
+    "metadata": {}
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-11T22:14:39.202445",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "page_hidden",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:14:52.370769",
+    "metadata": {}
+  },
+  {
+    "type": "page_visible",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:14:55.199276",
+    "metadata": {}
+  },
+  {
+    "type": "page_hidden",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:14:59.704248",
+    "metadata": {}
+  },
+  {
+    "type": "page_visible",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:15:00.414820",
+    "metadata": {}
+  },
+  {
+    "type": "page_unload",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:15:01.298519",
+    "metadata": {}
+  },
+  {
+    "type": "page_hidden",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:15:01.378457",
+    "metadata": {}
   }
 ]

@@ -2092,23 +2092,126 @@ body.dark .metric-bad {
                 <span>🗺️</span>
                 <span>Email Mappings Configuration</span>
               </h2>
-              <p style="color: var(--muted); margin-bottom: 24px;">Configure how countries and products are mapped for email campaigns.</p>
+              <p style="color: var(--muted); margin-bottom: 24px;">Configure how countries and products are mapped for email campaigns. Click on any item to edit inline.</p>
 
-              <!-- Inline Mappings Interface -->
-              <div style="margin-bottom: 24px;">
-                <button onclick="window.open('/admin_mappings.html', '_blank')" style="padding: 12px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 15px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">
-                  🚀 Open Full Mappings Editor
-                </button>
-              </div>
-
-              <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.2);">
-                <div style="font-size: 14px; color: var(--text); margin-bottom: 8px;">
-                  💡 <strong>Info:</strong> The mappings editor opens in a new tab for better workflow.
+              <!-- Horizontal Tabs for Country vs Product -->
+              <div style="display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 2px solid var(--border);">
+                <div id="countryMappingTab" class="mapping-tab active" onclick="switchMappingTab('country')" style="padding: 12px 24px; cursor: pointer; font-weight: 600; border-bottom: 3px solid var(--brand); color: var(--brand);">
+                  🌍 Countries (<span id="countryTabCount">0</span>)
                 </div>
-                <div style="font-size: 13px; color: var(--muted);">
-                  Configure country → OU and product → Cloud mappings for email campaigns.
+                <div id="productMappingTab" class="mapping-tab" onclick="switchMappingTab('product')" style="padding: 12px 24px; cursor: pointer; font-weight: 600; color: var(--muted);">
+                  📦 Products (<span id="productTabCount">0</span>)
                 </div>
               </div>
+
+              <!-- Country Mapping Panel -->
+              <div id="countryMappingPanel" style="display: block;">
+                <!-- Statistics Bar -->
+                <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                  <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 8px; border: 1px solid #86efac;">
+                    <div style="font-size: 11px; font-weight: 600; color: #166534; text-transform: uppercase;">Total Countries</div>
+                    <div id="countryTotalCount" style="font-size: 24px; font-weight: 700; color: #15803d;">0</div>
+                  </div>
+                  <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 8px; border: 1px solid #93c5fd;">
+                    <div style="font-size: 11px; font-weight: 600; color: #1e40af; text-transform: uppercase;">EMEA Countries</div>
+                    <div id="countryEmeaCount" style="font-size: 24px; font-weight: 700; color: #1e3a8a;">0</div>
+                  </div>
+                  <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border-radius: 8px; border: 1px solid #fca5a5;">
+                    <div style="font-size: 11px; font-weight: 600; color: #991b1b; text-transform: uppercase;">AMER Countries</div>
+                    <div id="countryAmerCount" style="font-size: 24px; font-weight: 700; color: #b91c1c;">0</div>
+                  </div>
+                </div>
+
+                <!-- Search & Actions -->
+                <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                  <input
+                    type="text"
+                    id="countrySearchInput"
+                    placeholder="🔍 Search countries..."
+                    onkeyup="filterCountryMappings()"
+                    style="flex: 1; min-width: 200px; padding: 10px 16px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px;"
+                  />
+                  <button onclick="showAddCountryModal()" style="padding: 10px 20px; background: var(--brand); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; white-space: nowrap;">
+                    ➕ Add Country
+                  </button>
+                  <button onclick="showManageOUsModal()" style="padding: 10px 20px; background: #8b5cf6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; white-space: nowrap;">
+                    🏢 Manage OUs
+                  </button>
+                  <button onclick="exportCountryCSV()" style="padding: 10px 20px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+                    📥 Export CSV
+                  </button>
+                </div>
+
+                <!-- Mappings Grid -->
+                <div id="countryMappingsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; max-height: 500px; overflow-y: auto; padding: 4px;">
+                  <!-- Generated by JS -->
+                </div>
+
+                <!-- Save Button -->
+                <div style="margin-top: 16px; display: flex; gap: 12px;">
+                  <button onclick="saveCountryMappings()" style="flex: 1; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 15px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">
+                    💾 Save All Country Mappings
+                  </button>
+                  <button onclick="loadCountryMappings()" style="padding: 14px 20px; background: var(--muted); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+                    🔄 Reload
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product Mapping Panel -->
+              <div id="productMappingPanel" style="display: none;">
+                <!-- Statistics Bar -->
+                <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                  <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 8px; border: 1px solid #86efac;">
+                    <div style="font-size: 11px; font-weight: 600; color: #166534; text-transform: uppercase;">Total Products</div>
+                    <div id="productTotalCount" style="font-size: 24px; font-weight: 700; color: #15803d;">0</div>
+                  </div>
+                  <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 8px; border: 1px solid #93c5fd;">
+                    <div style="font-size: 11px; font-weight: 600; color: #1e40af; text-transform: uppercase;">Agentforce Products</div>
+                    <div id="productAgentforceCount" style="font-size: 24px; font-weight: 700; color: #1e3a8a;">0</div>
+                  </div>
+                  <div style="flex: 1; min-width: 150px; padding: 12px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; border: 1px solid #fcd34d;">
+                    <div style="font-size: 11px; font-weight: 600; color: #92400e; text-transform: uppercase;">Core Clouds</div>
+                    <div id="productCoreCount" style="font-size: 24px; font-weight: 700; color: #b45309;">0</div>
+                  </div>
+                </div>
+
+                <!-- Search & Actions -->
+                <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+                  <input
+                    type="text"
+                    id="productSearchInput"
+                    placeholder="🔍 Search products..."
+                    onkeyup="filterProductMappings()"
+                    style="flex: 1; min-width: 200px; padding: 10px 16px; border: 2px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px;"
+                  />
+                  <button onclick="showAddProductModal()" style="padding: 10px 20px; background: var(--brand); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; white-space: nowrap;">
+                    ➕ Add Product
+                  </button>
+                  <button onclick="showManageCloudsModal()" style="padding: 10px 20px; background: #8b5cf6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; white-space: nowrap;">
+                    ☁️ Manage Clouds
+                  </button>
+                  <button onclick="exportProductCSV()" style="padding: 10px 20px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+                    📥 Export CSV
+                  </button>
+                </div>
+
+                <!-- Mappings Grid -->
+                <div id="productMappingsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; max-height: 500px; overflow-y: auto; padding: 4px;">
+                  <!-- Generated by JS -->
+                </div>
+
+                <!-- Save Button -->
+                <div style="margin-top: 16px; display: flex; gap: 12px;">
+                  <button onclick="saveProductMappings()" style="flex: 1; padding: 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 15px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">
+                    💾 Save All Product Mappings
+                  </button>
+                  <button onclick="loadProductMappings()" style="padding: 14px 20px; background: var(--muted); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 15px;">
+                    🔄 Reload
+                  </button>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -2400,6 +2503,14 @@ function switchAdminTab(tabName) {
   // Load data for specific tabs
   if (tabName === 'analytics') {
     loadAnalyticsData();
+  } else if (tabName === 'mappings') {
+    // Load mappings data
+    if (typeof loadCountryMappings === 'function') {
+      loadCountryMappings();
+    }
+    if (typeof loadProductMappings === 'function') {
+      loadProductMappings();
+    }
   } else if (tabName === 'system') {
     loadSystemStatus();
   }
