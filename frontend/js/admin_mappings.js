@@ -3,7 +3,16 @@
  * Country to OU and Product to Cloud mappings
  */
 
-const MAPPINGS_API = 'http://localhost:8000/api/mappings';
+// Auto-detect API URL based on environment
+const getApiUrl = () => {
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+        return 'http://localhost:8000';
+    }
+    return window.location.origin;
+};
+
+const MAPPINGS_API = `${getApiUrl()}/api/mappings`;
 
 let countryMappings = {};
 let productMappings = {};

@@ -3,9 +3,19 @@
  * Displays MDP data in 3-column slide layout
  */
 
-const API_BASE = 'http://localhost:8000/api/data';
-const ANALYTICS_API = 'http://localhost:8000/api/analytics';
-const CAMPAIGN_API = 'http://localhost:8000/api/campaign';
+// Auto-detect API URL based on environment
+const getApiUrl = () => {
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+        return '${API_BASE_URL}';
+    }
+    return window.location.origin; // Use same origin (Heroku URL)
+};
+
+const API_BASE_URL = getApiUrl();
+const API_BASE = `${API_BASE_URL}/api/data`;
+const ANALYTICS_API = `${API_BASE_URL}/api/analytics`;
+const CAMPAIGN_API = `${API_BASE_URL}/api/campaign`;
 
 // Tableau Configuration
 const TABLEAU_SERVER = 'https://prod-uswest-c.online.tableau.com';
@@ -410,7 +420,7 @@ function updateActiveFilters() {
     const freshnessEl = document.getElementById('dataFreshness');
     if (freshnessEl) {
         // Try to get last_refresh.txt timestamp
-        fetch('http://localhost:8000/api/data/last_refresh')
+        fetch('${API_BASE_URL}/api/data/last_refresh')
             .then(r => r.json())
             .then(data => {
                 if (data.last_refresh) {
@@ -2724,7 +2734,7 @@ async function loadEmailData() {
         showLoading();
 
         // Build API URL with filters
-        let url = `http://localhost:8000/api/email/scorecard?`;
+        let url = `${API_BASE_URL}/api/email/scorecard?`;
         const params = [];
 
         // Add quarter filter
@@ -3073,7 +3083,7 @@ async function loadGlobalEmailData() {
         const viewMode = document.getElementById('globalEmailViewMode').value;
 
         // Build API URL
-        let url = `http://localhost:8000/api/email/scorecard?quarters=${encodeURIComponent(currentQuarter)}`;
+        let url = `${API_BASE_URL}/api/email/scorecard?quarters=${encodeURIComponent(currentQuarter)}`;
 
         if (selectedClouds.length > 0) {
             url += `&clouds=${encodeURIComponent(selectedClouds.join(','))}`;
