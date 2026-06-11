@@ -96,8 +96,8 @@ async def overview():
 
 @app.get("/admin")
 async def admin():
-    """Serve the modern admin dashboard"""
-    frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "admin_v2.html")
+    """Serve the unified admin dashboard"""
+    frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "admin_unified.html")
     if os.path.exists(frontend_path):
         return FileResponse(frontend_path)
     # Fallback to old admin
@@ -105,6 +105,14 @@ async def admin():
     if os.path.exists(frontend_path_old):
         return FileResponse(frontend_path_old)
     return {"error": "Admin page not found"}
+
+@app.get("/admin_mappings.html")
+async def admin_mappings():
+    """Serve the standalone mappings interface (loaded in iframe)"""
+    frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "admin_mappings.html")
+    if os.path.exists(frontend_path):
+        return FileResponse(frontend_path)
+    return {"error": "Admin mappings page not found"}
 
 @app.get("/email_scorecard")
 async def email_scorecard():

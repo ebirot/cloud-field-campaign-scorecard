@@ -1,0 +1,48 @@
+Rationalize admin interface - Fix navigation loop and improve UX
+
+PROBLEM:
+- 3 different admin interfaces (admin.html, admin_v2.html, embedded in main app)
+- admin_v2.html "Mappings" section redirected to main app → infinite loop
+- Main app "Admin Mode" loaded admin_v2.html in iframe → admin within admin
+- Confusing user experience, fragmented navigation, maintenance overhead
+
+SOLUTION:
+- Created admin_unified.html: single admin interface with sidebar
+- Created admin_mappings.html: standalone mappings interface (loaded in iframe)
+- Updated backend routes to serve new unified interface
+- Eliminated infinite navigation loop
+
+NEW FEATURES:
+- 📊 Overview: Real-time stats (events, users, pages) + top pages
+- 👥 Active Users: Live user list with sidebar badge
+- ⚡ Recent Events: Last 50 events with filtering
+- 🗺️ Email Mappings: Countries → OU, Products → Cloud (iframe, no loop)
+- 🔄 System & Refresh: Tableau refresh status + manual trigger
+
+TECHNICAL CHANGES:
+- Added: frontend/admin_unified.html (new unified interface)
+- Added: frontend/admin_mappings.html (standalone mappings)
+- Modified: backend/app/main.py (routes /admin and /admin_mappings.html)
+- Reused: frontend/js/admin_mappings.js (unchanged)
+- Preserved: admin.html, admin_v2.html (backup only, no longer used)
+
+BENEFITS:
+- ✅ Single source of truth for admin interface
+- ✅ Clear navigation without loops
+- ✅ Reduced maintenance (2 files instead of 3)
+- ✅ Better UX: all features in one place
+- ✅ Auto-refresh every 30s for live data
+
+DOCUMENTATION:
+- Added: ADMIN_RATIONALIZATION.md (full technical doc)
+- Added: ADMIN_QUICK_START.md (quick start guide)
+- Added: ADMIN_RESUME.md (executive summary)
+
+TESTING:
+- URL: http://localhost:8000/admin
+- All sections load correctly
+- Mappings iframe works without loop
+- Auto-refresh updates stats every 30s
+- Responsive design works on mobile
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>

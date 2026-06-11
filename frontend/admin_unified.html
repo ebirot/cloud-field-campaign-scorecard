@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Cloud Field Campaign Scorecard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sidebar-bg: #1e293b;
+            --sidebar-hover: #334155;
+            --sidebar-active: #3b82f6;
+            --content-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --info: #3b82f6;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--content-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: var(--sidebar-bg);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 24px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-subtitle {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 20px 0;
+            overflow-y: auto;
+        }
+
+        .nav-section-title {
+            padding: 20px 20px 8px 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: var(--sidebar-hover);
+            color: white;
+        }
+
+        .nav-item.active {
+            background: var(--sidebar-hover);
+            color: white;
+            border-left-color: var(--sidebar-active);
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .nav-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-badge {
+            margin-left: auto;
+            background: var(--sidebar-active);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .sidebar-footer {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-to-app {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .back-to-app:hover {
+            background: rgba(59, 130, 246, 0.3);
+            transform: translateX(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 32px;
+            max-width: calc(100vw - 260px);
+        }
+
+        .content-header {
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .stat-icon.blue { background: #dbeafe; color: #3b82f6; }
+        .stat-icon.green { background: #d1fae5; color: #10b981; }
+        .stat-icon.purple { background: #e9d5ff; color: #a855f7; }
+        .stat-icon.orange { background: #fed7aa; color: #f59e0b; }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-change {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--info);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--content-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        /* Section Content */
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .data-table thead th {
+            background: var(--content-bg);
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .data-table tbody td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--content-bg);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .empty-state-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .empty-state-text {
+            font-size: 14px;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: var(--text-secondary);
+        }
+
+        .spinner {
+            border: 3px solid var(--border);
+            border-top-color: var(--info);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            animation: spin 0.8s linear infinite;
+            margin-right: 12px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mappings iframe */
+        .mappings-iframe {
+            width: 100%;
+            height: calc(100vh - 200px);
+            border: none;
+            border-radius: 8px;
+            background: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 80px;
+            }
+
+            .sidebar-title,
+            .sidebar-subtitle,
+            .nav-label,
+            .sidebar-footer {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 80px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">⚙️ Admin</div>
+                <div class="sidebar-subtitle">Cloud Field Scorecard</div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Dashboard</div>
+
+                <a class="nav-item active" data-section="overview">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Vue d'ensemble</span>
+                </a>
+
+                <a class="nav-item" data-section="users">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-label">Utilisateurs actifs</span>
+                    <span class="nav-badge" id="activeUsersBadge">0</span>
+                </a>
+
+                <a class="nav-item" data-section="events">
+                    <span class="nav-icon">⚡</span>
+                    <span class="nav-label">Événements récents</span>
+                </a>
+
+                <div class="nav-section-title">Configuration</div>
+
+                <a class="nav-item" data-section="mappings">
+                    <span class="nav-icon">🗺️</span>
+                    <span class="nav-label">Mappings Email</span>
+                </a>
+
+                <a class="nav-item" data-section="system">
+                    <span class="nav-icon">🔄</span>
+                    <span class="nav-label">Système & Refresh</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="/" class="back-to-app">
+                    <span>←</span>
+                    <span>Retour à l'app</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <div class="section-content active" id="overview-section">
+                <div class="content-header">
+                    <h1 class="page-title">📊 Vue d'ensemble</h1>
+                    <p class="page-subtitle">Monitorer l'usage et la performance de l'application</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Événements totaux</span>
+                            <span class="stat-icon blue">📈</span>
+                        </div>
+                        <div class="stat-value" id="totalEvents">-</div>
+                        <div class="stat-change" id="eventsChange">Chargement...</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Utilisateurs actifs</span>
+                            <span class="stat-icon green">👤</span>
+                        </div>
+                        <div class="stat-value" id="activeUsers">-</div>
+                        <div class="stat-change">5 dernières minutes</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Vues de pages</span>
+                            <span class="stat-icon purple">👁️</span>
+                        </div>
+                        <div class="stat-value" id="pageViews">-</div>
+                        <div class="stat-change">Dernières 24h</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-label">Refresh Data</span>
+                            <span class="stat-icon orange">🔄</span>
+                        </div>
+                        <div class="stat-value" id="refreshStatus">-</div>
+                        <div class="stat-change" id="refreshTime">-</div>
+                    </div>
+                </div>
+
+                <!-- Top Pages -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">🏆 Pages les plus visitées</h2>
+                        <button class="btn btn-secondary" onclick="loadOverview()">
+                            <span>🔄</span>
+                            <span>Actualiser</span>
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Page</th>
+                                <th>Visites</th>
+                                <th>% du total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topPagesTable">
+                            <tr>
+                                <td colspan="3" class="loading">
+                                    <div class="spinner"></div>
+                                    <span>Chargement des données...</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Users Section -->
+            <div class="section-content" id="users-section">
+                <div class="content-header">
+                    <h1 class="page-title">👥 Utilisateurs actifs</h1>
+                    <p class="page-subtitle">Utilisateurs actifs dans les 5 dernières minutes</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Actuellement en ligne</h2>
+                        <button class="btn btn-primary" onclick="loadActiveUsers()">
+                            <span>🔄</span>
+                            <span>Actualiser</span>
+                        </button>
+                    </div>
+                    <div id="activeUsersContent">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <span>Chargement des utilisateurs...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Section -->
+            <div class="section-content" id="events-section">
+                <div class="content-header">
+                    <h1 class="page-title">⚡ Événements récents</h1>
+                    <p class="page-subtitle">Flux d'activité en temps réel (50 derniers événements)</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Activité récente</h2>
+                        <button class="btn btn-primary" onclick="loadRecentEvents()">
+                            <span>🔄</span>
+                            <span>Actualiser</span>
+                        </button>
+                    </div>
+                    <div id="eventsContent">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <span>Chargement des événements...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mappings Section -->
+            <div class="section-content" id="mappings-section">
+                <div class="content-header">
+                    <h1 class="page-title">🗺️ Mappings Email</h1>
+                    <p class="page-subtitle">Configurer les mappings pays et produits pour les campagnes email</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Configuration des mappings</h2>
+                        <button class="btn btn-secondary" onclick="document.getElementById('mappingsFrame').contentWindow.location.reload()">
+                            <span>🔄</span>
+                            <span>Recharger</span>
+                        </button>
+                    </div>
+                    <iframe id="mappingsFrame" class="mappings-iframe" src="/admin_mappings.html"></iframe>
+                </div>
+            </div>
+
+            <!-- System Section -->
+            <div class="section-content" id="system-section">
+                <div class="content-header">
+                    <h1 class="page-title">🔄 Système & Refresh</h1>
+                    <p class="page-subtitle">Monitorer le système et les refresh automatiques des données Tableau</p>
+                </div>
+
+                <!-- Refresh Status Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📊 Statut du refresh automatique</h2>
+                    </div>
+                    <div id="refreshStatusContent">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <span>Chargement du statut...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">⚡ Actions rapides</h2>
+                    </div>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="triggerRefresh()">
+                            <span>🔄</span>
+                            <span>Déclencher refresh manuel</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="window.open('/docs', '_blank')">
+                            <span>📚</span>
+                            <span>Documentation API</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="window.open('/', '_blank')">
+                            <span>📊</span>
+                            <span>Ouvrir l'app principale</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Auto-detect API URL
+        const API_BASE_URL = window.location.hostname === 'localhost'
+            ? 'http://localhost:8000'
+            : window.location.origin;
+
+        // Navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = this.dataset.section;
+
+                // Update active nav
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+
+                // Show section
+                document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+                document.getElementById(section + '-section').classList.add('active');
+
+                // Load section data
+                if (section === 'overview') loadOverview();
+                if (section === 'users') loadActiveUsers();
+                if (section === 'events') loadRecentEvents();
+                if (section === 'system') loadSystemStatus();
+            });
+        });
+
+        // Load Overview
+        async function loadOverview() {
+            try {
+                const [statsRes, refreshRes] = await Promise.all([
+                    fetch(`${API_BASE_URL}/api/analytics/stats`),
+                    fetch(`${API_BASE_URL}/api/refresh/status`)
+                ]);
+
+                const stats = await statsRes.json();
+                const refresh = await refreshRes.json();
+
+                // Update stats
+                document.getElementById('totalEvents').textContent = stats.total_events.toLocaleString();
+                document.getElementById('activeUsers').textContent = stats.unique_users_5m || '0';
+                document.getElementById('pageViews').textContent = stats.page_views_24h?.toLocaleString() || '0';
+                document.getElementById('eventsChange').textContent = `+${stats.events_24h || 0} aujourd'hui`;
+
+                // Update refresh status
+                if (refresh.last_update && refresh.last_update.success) {
+                    document.getElementById('refreshStatus').textContent = '✅';
+                    const date = new Date(refresh.last_update.last_updated);
+                    document.getElementById('refreshTime').textContent = date.toLocaleTimeString('fr-FR');
+                } else {
+                    document.getElementById('refreshStatus').textContent = '⚠️';
+                    document.getElementById('refreshTime').textContent = 'Échec';
+                }
+
+                // Update top pages table
+                const tbody = document.getElementById('topPagesTable');
+                if (stats.top_pages && stats.top_pages.length > 0) {
+                    const total = stats.top_pages.reduce((sum, p) => sum + p.views, 0);
+                    tbody.innerHTML = stats.top_pages.map(page => `
+                        <tr>
+                            <td><strong>${page.page}</strong></td>
+                            <td>${page.views}</td>
+                            <td>${Math.round((page.views / total) * 100)}%</td>
+                        </tr>
+                    `).join('');
+                } else {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="3" class="empty-state">
+                                <div class="empty-state-icon">📊</div>
+                                <div class="empty-state-title">Pas encore de données</div>
+                                <div class="empty-state-text">Les statistiques apparaîtront dès que l'app sera utilisée</div>
+                            </td>
+                        </tr>
+                    `;
+                }
+
+            } catch (error) {
+                console.error('Erreur chargement vue d\'ensemble:', error);
+            }
+        }
+
+        // Load Active Users
+        async function loadActiveUsers() {
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/analytics/active-users?minutes=5`);
+                const data = await res.json();
+
+                document.getElementById('activeUsersBadge').textContent = data.count || '0';
+
+                const container = document.getElementById('activeUsersContent');
+                if (data.active_users && data.active_users.length > 0) {
+                    container.innerHTML = `
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Utilisateur</th>
+                                    <th>Page actuelle</th>
+                                    <th>Dernière activité</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data.active_users.map(user => `
+                                    <tr>
+                                        <td>
+                                            <strong>${user.user_name || 'Anonyme'}</strong>
+                                            <div style="font-size: 11px; color: var(--text-secondary);">${user.user_id}</div>
+                                        </td>
+                                        <td>${user.current_page || 'Inconnue'}</td>
+                                        <td>${new Date(user.last_seen).toLocaleTimeString('fr-FR')}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">👥</div>
+                            <div class="empty-state-title">Aucun utilisateur actif</div>
+                            <div class="empty-state-text">Personne n'a utilisé l'app dans les 5 dernières minutes</div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Erreur chargement utilisateurs:', error);
+            }
+        }
+
+        // Load Recent Events
+        async function loadRecentEvents() {
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/analytics/recent-events?limit=50`);
+                const data = await res.json();
+
+                const container = document.getElementById('eventsContent');
+                if (data.events && data.events.length > 0) {
+                    container.innerHTML = `
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Heure</th>
+                                    <th>Type</th>
+                                    <th>Utilisateur</th>
+                                    <th>Page</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data.events.map(event => `
+                                    <tr>
+                                        <td>${new Date(event.timestamp).toLocaleTimeString('fr-FR')}</td>
+                                        <td><span class="badge info">${event.event_type}</span></td>
+                                        <td>${event.user_name || 'Anonyme'}</td>
+                                        <td>${event.page || '-'}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">⚡</div>
+                            <div class="empty-state-title">Aucun événement</div>
+                            <div class="empty-state-text">Les événements apparaîtront dès que l'app sera utilisée</div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Erreur chargement événements:', error);
+            }
+        }
+
+        // Load System Status
+        async function loadSystemStatus() {
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/refresh/status`);
+                const data = await res.json();
+
+                const container = document.getElementById('refreshStatusContent');
+                const lastUpdate = data.last_update;
+
+                if (lastUpdate && lastUpdate.last_updated) {
+                    const date = new Date(lastUpdate.last_updated);
+                    const statusIcon = lastUpdate.success ? '✅' : '⚠️';
+
+                    container.innerHTML = `
+                        <div style="padding: 20px;">
+                            <div style="display: flex; gap: 20px; align-items: start;">
+                                <div style="font-size: 48px;">${statusIcon}</div>
+                                <div style="flex: 1;">
+                                    <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">
+                                        ${lastUpdate.success ? 'Refresh réussi' : 'Échec du refresh'}
+                                    </div>
+                                    <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">
+                                        Dernière mise à jour : ${date.toLocaleString('fr-FR')}
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
+                                        <div>
+                                            <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">FICHIERS CSV</div>
+                                            <div style="font-size: 20px; font-weight: 700;">${lastUpdate.successful}/${lastUpdate.total}</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">DURÉE</div>
+                                            <div style="font-size: 20px; font-weight: 700;">${lastUpdate.elapsed_seconds}s</div>
+                                        </div>
+                                        <div>
+                                            <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;">PROCHAIN REFRESH</div>
+                                            <div style="font-size: 20px; font-weight: 700;">6h00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">⏳</div>
+                            <div class="empty-state-title">Aucun refresh effectué</div>
+                            <div class="empty-state-text">En attente du premier refresh automatique à 6h00 CET</div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Erreur chargement statut système:', error);
+            }
+        }
+
+        // Trigger Manual Refresh
+        async function triggerRefresh() {
+            if (!confirm('Déclencher un refresh manuel des CSV depuis Tableau ? Cela prendra 10-15 secondes.')) return;
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/refresh/trigger`, { method: 'POST' });
+                const data = await res.json();
+
+                if (data.success) {
+                    alert('✅ Refresh terminé avec succès !\n\n' + data.summary);
+                    loadSystemStatus();
+                    loadOverview();
+                } else {
+                    alert('❌ Échec du refresh : ' + data.error);
+                }
+            } catch (error) {
+                alert('❌ Erreur lors du refresh : ' + error.message);
+            }
+        }
+
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            const activeSection = document.querySelector('.nav-item.active').dataset.section;
+            if (activeSection === 'overview') loadOverview();
+            if (activeSection === 'users') loadActiveUsers();
+        }, 30000);
+
+        // Initial load
+        loadOverview();
+    </script>
+</body>
+</html>
