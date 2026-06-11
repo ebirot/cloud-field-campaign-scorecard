@@ -2015,98 +2015,74 @@ body.dark .metric-bad {
 
       <!-- Admin Dashboard Content -->
       <div id="adminContent" class="tab-content" style="display: none;">
-        <div style="padding: 60px 20px; display: flex; align-items: center; justify-content: center; min-height: 60vh;">
+        <!-- Admin Header with Horizontal Tabs -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px 40px; border-radius: 0;">
+          <h1 style="color: white; font-size: 32px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+            <span>🔐</span>
+            <span>Panneau d'Administration</span>
+          </h1>
 
-          <!-- Admin Portal Card -->
-          <div style="max-width: 600px; width: 100%; text-align: center;">
-            <!-- Icon -->
-            <div style="font-size: 120px; margin-bottom: 30px; filter: drop-shadow(0 10px 30px rgba(102, 126, 234, 0.3));">
-              🔐
-            </div>
-
-            <!-- Title -->
-            <h2 style="font-size: 36px; font-weight: 800; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px;">
-              Panneau d'Administration
-            </h2>
-
-            <!-- Description -->
-            <p style="font-size: 16px; color: var(--muted); margin-bottom: 40px; line-height: 1.6;">
-              Accédez à l'interface admin complète pour gérer les configurations, mappings email, analytics et système de refresh Tableau.
-            </p>
-
-            <!-- Features List -->
-            <div style="background: var(--bg-subtle); border-radius: 16px; padding: 30px; margin-bottom: 40px; text-align: left;">
-              <div style="font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
-                ✨ Fonctionnalités disponibles
-              </div>
-
-              <div style="display: grid; gap: 16px;">
-                <div style="display: flex; align-items: start; gap: 12px;">
-                  <span style="font-size: 24px;">📊</span>
-                  <div>
-                    <div style="font-weight: 600; color: var(--text); margin-bottom: 4px;">Analytics Dashboard</div>
-                    <div style="font-size: 13px; color: var(--muted);">Stats temps réel, utilisateurs actifs, événements</div>
-                  </div>
-                </div>
-
-                <div style="display: flex; align-items: start; gap: 12px;">
-                  <span style="font-size: 24px;">🗺️</span>
-                  <div>
-                    <div style="font-weight: 600; color: var(--text); margin-bottom: 4px;">Email Mappings</div>
-                    <div style="font-size: 13px; color: var(--muted);">Pays → OU, Produits → Cloud</div>
-                  </div>
-                </div>
-
-                <div style="display: flex; align-items: start; gap: 12px;">
-                  <span style="font-size: 24px;">🔄</span>
-                  <div>
-                    <div style="font-weight: 600; color: var(--text); margin-bottom: 4px;">Système & Refresh</div>
-                    <div style="font-size: 13px; color: var(--muted);">Refresh automatique CSV Tableau, monitoring</div>
-                  </div>
-                </div>
-
-                <div style="display: flex; align-items: start; gap: 12px;">
-                  <span style="font-size: 24px;">☁️</span>
-                  <div>
-                    <div style="font-weight: 600; color: var(--text); margin-bottom: 4px;">Cloud Visibility</div>
-                    <div style="font-size: 13px; color: var(--muted);">Configuration des clouds visibles dans l'app</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- CTA Button -->
-            <button
-              onclick="window.open('/admin', '_blank')"
-              style="
-                width: 100%;
-                padding: 20px 40px;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                color: white;
-                border: none;
-                border-radius: 16px;
-                font-size: 18px;
-                font-weight: 700;
-                cursor: pointer;
-                box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-                transition: all 0.3s;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 12px;
-              "
-              onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(102, 126, 234, 0.5)'"
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(102, 126, 234, 0.4)'"
-            >
-              <span style="font-size: 24px;">🚀</span>
-              <span>Ouvrir le Panneau d'Administration</span>
-              <span style="font-size: 20px;">→</span>
+          <!-- Horizontal Tabs -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="admin-tab active" onclick="switchAdminTab('analytics')" data-tab="analytics" style="padding: 12px 24px; background: rgba(255,255,255,0.2); border: none; border-radius: 8px; color: white; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+              <span>📊</span>
+              <span>Analytics</span>
             </button>
+            <button class="admin-tab" onclick="switchAdminTab('mappings')" data-tab="mappings" style="padding: 12px 24px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: rgba(255,255,255,0.8); font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+              <span>🗺️</span>
+              <span>Mappings</span>
+            </button>
+            <button class="admin-tab" onclick="switchAdminTab('system')" data-tab="system" style="padding: 12px 24px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: rgba(255,255,255,0.8); font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+              <span>🔄</span>
+              <span>Système</span>
+            </button>
+            <button class="admin-tab" onclick="switchAdminTab('config')" data-tab="config" style="padding: 12px 24px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: rgba(255,255,255,0.8); font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+              <span>☁️</span>
+              <span>Cloud Config</span>
+            </button>
+          </div>
+        </div>
 
-            <!-- Info Note -->
-            <div style="margin-top: 30px; padding: 16px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 12px;">
-              <div style="font-size: 13px; color: var(--muted); line-height: 1.6;">
-                💡 <strong>Astuce :</strong> L'interface admin s'ouvrira dans un nouvel onglet pour une navigation fluide entre l'app et l'admin.
+        <!-- Tab Contents -->
+        <div style="padding: 32px 40px; background: var(--bg);">
+
+          <!-- Analytics Tab -->
+          <div id="adminTabAnalytics" class="admin-tab-content" style="display: block;">
+            <iframe src="/admin" style="width: 100%; height: 80vh; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>
+          </div>
+
+          <!-- Mappings Tab -->
+          <div id="adminTabMappings" class="admin-tab-content" style="display: none;">
+            <iframe src="/admin_mappings.html" style="width: 100%; height: 80vh; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>
+          </div>
+
+          <!-- System Tab -->
+          <div id="adminTabSystem" class="admin-tab-content" style="display: none;">
+            <div style="background: white; padding: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+                <span>🔄</span>
+                <span>Système & Refresh Tableau</span>
+              </h2>
+              <iframe src="/admin#system-section" style="width: 100%; height: 70vh; border: none;"></iframe>
+            </div>
+          </div>
+
+          <!-- Cloud Config Tab -->
+          <div id="adminTabConfig" class="admin-tab-content" style="display: none;">
+            <div style="background: white; padding: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+                <span>☁️</span>
+                <span>Cloud Visibility Configuration</span>
+              </h2>
+              <p style="color: var(--muted); margin-bottom: 24px;">Configure quels clouds sont visibles dans l'application principale.</p>
+
+              <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <div style="font-size: 14px; color: var(--text); margin-bottom: 12px;">
+                  💡 <strong>Info :</strong> Cette fonctionnalité sera disponible prochainement.
+                </div>
+                <div style="font-size: 13px; color: var(--muted);">
+                  En attendant, utilisez la section Analytics → Mappings pour gérer les configurations.
+                </div>
               </div>
             </div>
           </div>
@@ -2321,6 +2297,71 @@ body.dark .metric-bad {
 
 <script src="js/tracking.js"></script>
 <script src="js/health_of_cloud.js"></script>
+
+<script>
+// Admin tab switching
+function switchAdminTab(tabName) {
+  // Update tab buttons
+  document.querySelectorAll('.admin-tab').forEach(tab => {
+    if (tab.dataset.tab === tabName) {
+      tab.style.background = 'rgba(255,255,255,0.2)';
+      tab.style.color = 'white';
+      tab.classList.add('active');
+    } else {
+      tab.style.background = 'rgba(255,255,255,0.1)';
+      tab.style.color = 'rgba(255,255,255,0.8)';
+      tab.classList.remove('active');
+    }
+  });
+
+  // Update tab contents
+  document.querySelectorAll('.admin-tab-content').forEach(content => {
+    content.style.display = 'none';
+  });
+
+  const selectedTab = document.getElementById('adminTab' + tabName.charAt(0).toUpperCase() + tabName.slice(1));
+  if (selectedTab) {
+    selectedTab.style.display = 'block';
+  }
+}
+
+// Override openAdminSettings to hide header
+const originalOpenAdminSettings = window.openAdminSettings;
+window.openAdminSettings = function() {
+  // Call original function if exists
+  if (typeof originalOpenAdminSettings === 'function') {
+    originalOpenAdminSettings();
+  }
+
+  // Hide header elements when admin panel is opened
+  const selectionBanner = document.getElementById('selectionBanner');
+  const scorecardHeader = document.querySelector('.scorecard-header');
+  const adminContent = document.getElementById('adminContent');
+
+  if (adminContent && adminContent.style.display !== 'none') {
+    // Admin is being shown - hide headers
+    if (selectionBanner) selectionBanner.style.display = 'none';
+    if (scorecardHeader) scorecardHeader.style.display = 'none';
+  }
+};
+
+// When switching away from admin, show headers again
+const originalSwitchTab = window.switchTab;
+if (typeof originalSwitchTab === 'function') {
+  window.switchTab = function(tab) {
+    originalSwitchTab(tab);
+
+    // Show headers again when leaving admin
+    if (tab !== 'admin') {
+      const selectionBanner = document.getElementById('selectionBanner');
+      const scorecardHeader = document.querySelector('.scorecard-header');
+
+      if (selectionBanner) selectionBanner.style.display = '';
+      if (scorecardHeader) scorecardHeader.style.display = '';
+    }
+  };
+}
+</script>
 <script src="js/lead_scorecard.js"></script>
 <script src="js/lead_cockpit.js"></script>
 <script src="js/admin_mappings.js"></script>
