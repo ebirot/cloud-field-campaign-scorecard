@@ -83,9 +83,18 @@ Cliquer : **Try it out** → **Execute**
 Une fois configuré :
 
 - 🌅 **6h00** tous les matins (heure française)
-- 🌙 **23h00** tous les soirs (heure française)
 
 **Automatique, pas besoin d'intervention !** 🎉
+
+## 👁️ Indicateur Visuel
+
+Dans l'app, en haut à droite du header, tu verras :
+
+- ✅ **"Updated 11/06 at 06:00"** - Quand le refresh a réussi (fond vert)
+- ⚠️ **"Last attempt 11/06 at 06:00"** - Si le refresh a échoué (fond rouge)
+- ⏳ **"Loading..."** - En cours de chargement
+
+L'indicateur se met à jour automatiquement toutes les 5 minutes.
 
 ---
 

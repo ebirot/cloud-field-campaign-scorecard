@@ -44,8 +44,17 @@ Le système est **PRÊT** et **DÉPLOYÉ** sur GitHub ! Il ne manque plus qu'à 
 Une fois configuré, Heroku va **automatiquement** :
 
 - ⏰ **6h00** (heure française) : Télécharger les 10 CSV Tableau
-- ⏰ **23h00** (heure française) : Re-télécharger les CSV
 - 🔄 **Tous les jours** sans intervention
+
+## 👁️ Indicateur Visuel dans l'App
+
+Dans le header de l'application, un indicateur montre le statut :
+
+- ✅ **Fond vert** : "Updated 11/06 at 06:00" (refresh réussi)
+- ⚠️ **Fond rouge** : "Last attempt 11/06 at 06:00" (refresh échoué)
+- ⏳ **Gris** : "Loading..." ou "No update yet"
+
+**Auto-refresh toutes les 5 minutes** pour rester à jour.
 
 ---
 

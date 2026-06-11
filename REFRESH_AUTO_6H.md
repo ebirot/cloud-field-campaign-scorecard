@@ -5,9 +5,9 @@
 Le système est **DÉJÀ CONFIGURÉ** pour télécharger automatiquement les CSV Tableau :
 
 - **⏰ Horaire** : Tous les matins à **6h00** (heure française - Europe/Paris)
-- **⏰ Horaire bonus** : Tous les soirs à **23h00** (heure française)
 - **📊 Fichiers** : 10 fichiers CSV depuis Tableau Server
 - **🤖 Automatique** : Pas besoin d'intervention manuelle
+- **👁️ Indicateur visuel** : Statut visible dans l'app (✅ succès, ⚠️ erreur)
 
 ---
 
