@@ -2517,13 +2517,16 @@ function switchAdminTab(tabName) {
   if (tabName === 'analytics') {
     loadAnalyticsData();
   } else if (tabName === 'mappings') {
-    // Load mappings data
-    if (typeof loadCountryMappings === 'function') {
-      loadCountryMappings();
-    }
-    if (typeof loadProductMappings === 'function') {
-      loadProductMappings();
-    }
+    // Initialize mappings - call init function from admin_mappings.js
+    setTimeout(() => {
+      if (typeof initMappingsAdmin === 'function') {
+        initMappingsAdmin();
+      } else {
+        // Fallback: call load functions directly
+        if (typeof loadCountryMappings === 'function') loadCountryMappings();
+        if (typeof loadProductMappings === 'function') loadProductMappings();
+      }
+    }, 100);
   } else if (tabName === 'system') {
     loadSystemStatus();
   }
