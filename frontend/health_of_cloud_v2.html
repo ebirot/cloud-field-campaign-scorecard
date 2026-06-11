@@ -2847,6 +2847,314 @@ async function updateProductMapping(product, newCloud) {
   }
 }
 
+// ============================================
+// ADD COUNTRY / PRODUCT FUNCTIONS
+// ============================================
+
+// Show Add Country Modal
+function showAddCountryModal() {
+  const modal = document.getElementById('editMappingModal');
+  const modalContent = document.getElementById('modalContent');
+  const saveBtn = document.getElementById('modalSaveBtn');
+
+  const ouOptions = AVAILABLE_OUS.map(ou =>
+    `<option value="${ou}">${ou}</option>`
+  ).join('');
+
+  modalContent.innerHTML = `
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #475569;">Country Name</label>
+      <input id="newCountryInput" type="text" placeholder="e.g., France, Germany..." style="width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; background: white; color: #1e293b; font-size: 14px; font-weight: 600;" />
+    </div>
+    <div>
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #475569;">Operating Unit</label>
+      <select id="newCountryOuSelect" style="width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; background: white; color: #1e293b; font-size: 14px; font-weight: 600; cursor: pointer;">
+        ${ouOptions}
+      </select>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+
+  saveBtn.onclick = async () => {
+    const country = document.getElementById('newCountryInput').value.trim();
+    const ou = document.getElementById('newCountryOuSelect').value;
+
+    if (!country) {
+      showToast('❌ Country name is required', 'error');
+      return;
+    }
+
+    try {
+      const API_URL = getAdminApiUrl();
+      const response = await fetch(`${API_URL}/api/mappings/country/${encodeURIComponent(country)}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ou })
+      });
+
+      if (response.ok) {
+        window.countryMappings[country] = ou;
+        renderMappingsManually();
+        updateMappingsCounts();
+        showToast(`✅ Added: ${country} → ${ou}`);
+        closeEditModal();
+      } else {
+        showToast('❌ Failed to add country', 'error');
+      }
+    } catch (error) {
+      console.error('Add error:', error);
+      showToast('❌ Error: ' + error.message, 'error');
+    }
+  };
+}
+
+// Show Add Product Modal
+function showAddProductModal() {
+  const modal = document.getElementById('editMappingModal');
+  const modalContent = document.getElementById('modalContent');
+  const saveBtn = document.getElementById('modalSaveBtn');
+
+  const cloudOptions = AVAILABLE_CLOUDS.map(cloud =>
+    `<option value="${cloud}">${cloud}</option>`
+  ).join('');
+
+  modalContent.innerHTML = `
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #475569;">Product Name</label>
+      <input id="newProductInput" type="text" placeholder="e.g., Marketing Cloud, Service Cloud..." style="width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; background: white; color: #1e293b; font-size: 14px; font-weight: 600;" />
+    </div>
+    <div>
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #475569;">Cloud</label>
+      <select id="newProductCloudSelect" style="width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; background: white; color: #1e293b; font-size: 14px; font-weight: 600; cursor: pointer;">
+        ${cloudOptions}
+      </select>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+
+  saveBtn.onclick = async () => {
+    const product = document.getElementById('newProductInput').value.trim();
+    const cloud = document.getElementById('newProductCloudSelect').value;
+
+    if (!product) {
+      showToast('❌ Product name is required', 'error');
+      return;
+    }
+
+    try {
+      const API_URL = getAdminApiUrl();
+      const response = await fetch(`${API_URL}/api/mappings/product/${encodeURIComponent(product)}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cloud })
+      });
+
+      if (response.ok) {
+        window.productMappings[product] = cloud;
+        renderMappingsManually();
+        updateMappingsCounts();
+        showToast(`✅ Added: ${product} → ${cloud}`);
+        closeEditModal();
+      } else {
+        showToast('❌ Failed to add product', 'error');
+      }
+    } catch (error) {
+      console.error('Add error:', error);
+      showToast('❌ Error: ' + error.message, 'error');
+    }
+  };
+}
+
+// Update counts after adding
+function updateMappingsCounts() {
+  if (window.countryMappings) {
+    const countryCount = Object.keys(window.countryMappings).length;
+    document.getElementById('countryTotalCount').textContent = countryCount;
+    document.getElementById('countryTabCount').textContent = countryCount;
+  }
+
+  if (window.productMappings) {
+    const productCount = Object.keys(window.productMappings).length;
+    document.getElementById('productTotalCount').textContent = productCount;
+    document.getElementById('productTabCount').textContent = productCount;
+  }
+}
+
+// ============================================
+// MANAGE OUs / CLOUDS FUNCTIONS
+// ============================================
+
+// Show Manage OUs Modal
+function showManageOUsModal() {
+  const modal = document.getElementById('editMappingModal');
+  const modalContent = document.getElementById('modalContent');
+  const saveBtn = document.getElementById('modalSaveBtn');
+
+  const ouList = AVAILABLE_OUS.map((ou, idx) => `
+    <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px;">
+      <input type="text" value="${ou}" id="ouItem${idx}" style="flex: 1; padding: 8px 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-weight: 600; color: #1e293b;" />
+      <button onclick="this.parentElement.remove()" style="padding: 8px 12px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">🗑️</button>
+    </div>
+  `).join('');
+
+  modalContent.innerHTML = `
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; font-weight: 600; margin-bottom: 12px; color: #475569;">Operating Units</label>
+      <div id="ouListContainer">
+        ${ouList}
+      </div>
+      <button onclick="addNewOuItem()" style="width: 100%; padding: 10px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; margin-top: 12px;">
+        ➕ Add New OU
+      </button>
+    </div>
+    <div style="padding: 12px; background: #fef3c7; border-radius: 8px; border: 1px solid #fcd34d;">
+      <div style="font-size: 12px; color: #92400e;">⚠️ Changes affect dropdown options only. Existing mappings remain unchanged.</div>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+  saveBtn.textContent = '💾 Close';
+  saveBtn.onclick = () => {
+    // Collect updated OUs
+    const updatedOUs = [];
+    document.querySelectorAll('[id^="ouItem"]').forEach(input => {
+      const val = input.value.trim();
+      if (val) updatedOUs.push(val);
+    });
+
+    // Update global array
+    AVAILABLE_OUS.length = 0;
+    AVAILABLE_OUS.push(...updatedOUs);
+
+    showToast('✅ OUs updated');
+    closeEditModal();
+  };
+}
+
+// Show Manage Clouds Modal
+function showManageCloudsModal() {
+  const modal = document.getElementById('editMappingModal');
+  const modalContent = document.getElementById('modalContent');
+  const saveBtn = document.getElementById('modalSaveBtn');
+
+  const cloudList = AVAILABLE_CLOUDS.map((cloud, idx) => `
+    <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px;">
+      <input type="text" value="${cloud}" id="cloudItem${idx}" style="flex: 1; padding: 8px 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-weight: 600; color: #1e293b;" />
+      <button onclick="this.parentElement.remove()" style="padding: 8px 12px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">🗑️</button>
+    </div>
+  `).join('');
+
+  modalContent.innerHTML = `
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; font-weight: 600; margin-bottom: 12px; color: #475569;">Clouds</label>
+      <div id="cloudListContainer">
+        ${cloudList}
+      </div>
+      <button onclick="addNewCloudItem()" style="width: 100%; padding: 10px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; margin-top: 12px;">
+        ➕ Add New Cloud
+      </button>
+    </div>
+    <div style="padding: 12px; background: #fef3c7; border-radius: 8px; border: 1px solid #fcd34d;">
+      <div style="font-size: 12px; color: #92400e;">⚠️ Changes affect dropdown options only. Existing mappings remain unchanged.</div>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+  saveBtn.textContent = '💾 Close';
+  saveBtn.onclick = () => {
+    // Collect updated clouds
+    const updatedClouds = [];
+    document.querySelectorAll('[id^="cloudItem"]').forEach(input => {
+      const val = input.value.trim();
+      if (val) updatedClouds.push(val);
+    });
+
+    // Update global array
+    AVAILABLE_CLOUDS.length = 0;
+    AVAILABLE_CLOUDS.push(...updatedClouds);
+
+    showToast('✅ Clouds updated');
+    closeEditModal();
+  };
+}
+
+// Add new OU item
+function addNewOuItem() {
+  const container = document.getElementById('ouListContainer');
+  const idx = document.querySelectorAll('[id^="ouItem"]').length;
+  const newItem = document.createElement('div');
+  newItem.style.cssText = 'display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px;';
+  newItem.innerHTML = `
+    <input type="text" placeholder="New OU..." id="ouItem${idx}" style="flex: 1; padding: 8px 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-weight: 600; color: #1e293b;" />
+    <button onclick="this.parentElement.remove()" style="padding: 8px 12px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">🗑️</button>
+  `;
+  container.appendChild(newItem);
+}
+
+// Add new Cloud item
+function addNewCloudItem() {
+  const container = document.getElementById('cloudListContainer');
+  const idx = document.querySelectorAll('[id^="cloudItem"]').length;
+  const newItem = document.createElement('div');
+  newItem.style.cssText = 'display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8fafc; border-radius: 8px; margin-bottom: 8px;';
+  newItem.innerHTML = `
+    <input type="text" placeholder="New Cloud..." id="cloudItem${idx}" style="flex: 1; padding: 8px 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-weight: 600; color: #1e293b;" />
+    <button onclick="this.parentElement.remove()" style="padding: 8px 12px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">🗑️</button>
+  `;
+  container.appendChild(newItem);
+}
+
+// ============================================
+// EXPORT CSV FUNCTIONS
+// ============================================
+
+// Export Country CSV
+function exportCountryCSV() {
+  if (!window.countryMappings) {
+    showToast('❌ No country data to export', 'error');
+    return;
+  }
+
+  const csv = ['Country,Operating Unit'];
+  Object.entries(window.countryMappings)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .forEach(([country, ou]) => {
+      csv.push(`"${country}","${ou}"`);
+    });
+
+  downloadCSV(csv.join('\n'), 'country_mappings.csv');
+  showToast('✅ Country mappings exported');
+}
+
+// Export Product CSV
+function exportProductCSV() {
+  if (!window.productMappings) {
+    showToast('❌ No product data to export', 'error');
+    return;
+  }
+
+  const csv = ['Product,Cloud'];
+  Object.entries(window.productMappings)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .forEach(([product, cloud]) => {
+      csv.push(`"${product}","${cloud}"`);
+    });
+
+  downloadCSV(csv.join('\n'), 'product_mappings.csv');
+  showToast('✅ Product mappings exported');
+}
+
+// Download CSV helper
+function downloadCSV(content, filename) {
+  const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  link.click();
+}
+
 // Load Analytics Data
 async function loadAnalyticsData() {
   try {
