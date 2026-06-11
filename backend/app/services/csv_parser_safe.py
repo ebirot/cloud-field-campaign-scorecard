@@ -20,20 +20,20 @@ class SafeCSVParser:
         return {"leaders": [], "data": {}}
 
     def parse_horseman(self, cloud_filter: str = None, leaders_filter: list = None, quarters: list = None, fiscal_year: str = 'FY 2027') -> Dict:
-        """Return empty horseman data"""
-        return {"data": [], "totals": {"mdp": 0, "yoy_change": 0}}
+        """Return empty horseman data - returns dict with source names as keys"""
+        return {}
 
     def parse_traffic_source(self, cloud_filter: str = None, leaders_filter: list = None, quarters: list = None, fiscal_year: str = 'FY 2027') -> Dict:
-        """Return empty traffic source data"""
-        return {"data": [], "totals": {"mdp": 0}}
+        """Return empty traffic source data - returns dict with source names as keys"""
+        return {}
 
     def parse_offer(self, cloud_filter: str = None, leaders_filter: list = None, quarters: list = None, fiscal_year: str = 'FY 2027') -> Dict:
-        """Return empty offer data"""
-        return {"data": [], "totals": {"mdp": 0}}
+        """Return empty offer data - returns dict with offer names as keys"""
+        return {}
 
     def parse_webinar(self, cloud_filter: str = None, leaders_filter: list = None, quarters: list = None) -> Dict:
-        """Return empty webinar data"""
-        return {"data": [], "totals": {"total_registrations": 0, "total_attended": 0, "total_mdp": 0}}
+        """Return empty webinar data - returns dict with webinar names as keys"""
+        return {}
 
     def get_available_clouds(self) -> List[str]:
         """Return default cloud list"""

@@ -7,7 +7,7 @@
 const getApiUrl = () => {
     const hostname = window.location.hostname;
     if (hostname === 'localhost' || hostname === '127.0.0.1') {
-        return '${API_BASE_URL}';
+        return 'http://localhost:8000';
     }
     return window.location.origin; // Use same origin (Heroku URL)
 };
