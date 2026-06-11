@@ -19,22 +19,31 @@ class SafeCSVParser:
         """Return empty regional data"""
         return {"leaders": [], "data": {}}
 
-    def parse_horseman_view(self, cloud: str = None, quarters: list = None, leaders: list = None) -> List:
+    def parse_horseman(self, cloud_filter: str = None, leaders_filter: list = None, quarters: list = None, fiscal_year: str = 'FY 2027') -> Dict:
         """Return empty horseman data"""
-        return []
+        return {"data": [], "totals": {"mdp": 0, "yoy_change": 0}}
 
-    def parse_traffic_source_view(self, cloud: str = None, quarters: list = None, leaders: list = None) -> List:
+    def parse_traffic_source(self, cloud_filter: str = None, leaders_filter: list = None, quarters: list = None, fiscal_year: str = 'FY 2027') -> Dict:
         """Return empty traffic source data"""
-        return []
+        return {"data": [], "totals": {"mdp": 0}}
 
-    def parse_offer_l1_l2_view(self, cloud: str = None, quarters: list = None, leaders: list = None) -> List:
+    def parse_offer(self, cloud_filter: str = None, leaders_filter: list = None, quarters: list = None, fiscal_year: str = 'FY 2027') -> Dict:
         """Return empty offer data"""
-        return []
+        return {"data": [], "totals": {"mdp": 0}}
 
-    def parse_webinar_view(self, quarters: list = None) -> List:
+    def parse_webinar(self, cloud_filter: str = None, leaders_filter: list = None, quarters: list = None) -> Dict:
         """Return empty webinar data"""
-        return []
+        return {"data": [], "totals": {"total_registrations": 0, "total_attended": 0, "total_mdp": 0}}
 
     def get_available_clouds(self) -> List[str]:
         """Return default cloud list"""
         return ['Agentforce', 'Sales', 'Service', 'Marketing', 'Commerce', 'Data', 'Platform', 'Mulesoft', 'Tableau', 'Slack']
+
+    def get_summary_stats(self) -> Dict:
+        """Return empty summary stats"""
+        return {
+            "total_mdp": 0,
+            "total_leads": 0,
+            "total_campaigns": 0,
+            "yoy_growth": 0
+        }
