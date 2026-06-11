@@ -416,8 +416,11 @@ function updateActiveFilters() {
     const periodEl = document.getElementById('filterPeriod');
     if (periodEl) periodEl.textContent = 'Q2 FY27';
 
-    // Update data freshness
+    // Update data freshness with icons and colors
     const freshnessEl = document.getElementById('dataFreshness');
+    const freshnessIcon = document.getElementById('dataFreshnessIcon');
+    const freshnessContainer = document.getElementById('dataFreshnessContainer');
+
     if (freshnessEl) {
         // Get real refresh status from scheduler
         fetch(`${API_BASE_URL}/api/refresh/status`)
@@ -437,16 +440,29 @@ function updateActiveFilters() {
                     });
 
                     if (data.last_update.success) {
-                        freshnessEl.textContent = `📅 Last updated: ${dateStr} at ${timeStr} CET`;
+                        // Success - green with checkmark
+                        freshnessIcon.textContent = '✅';
+                        freshnessEl.textContent = `Last updated: ${dateStr} at ${timeStr} CET`;
+                        freshnessContainer.classList.remove('error');
+                        freshnessContainer.classList.add('success');
                     } else {
-                        freshnessEl.textContent = `⚠️ Last update failed: ${dateStr} at ${timeStr} CET`;
+                        // Failed - red with warning
+                        freshnessIcon.textContent = '⚠️';
+                        freshnessEl.textContent = `Last update failed: ${dateStr} at ${timeStr} CET`;
+                        freshnessContainer.classList.remove('success');
+                        freshnessContainer.classList.add('error');
                     }
                 } else {
-                    freshnessEl.textContent = '📅 Last updated: Waiting for first refresh (6am daily)';
+                    // No update yet - neutral
+                    freshnessIcon.textContent = '⏳';
+                    freshnessEl.textContent = 'Last updated: Waiting for first refresh (6am daily)';
+                    freshnessContainer.classList.remove('success', 'error');
                 }
             })
             .catch(() => {
-                freshnessEl.textContent = '📅 Last updated: Waiting for first refresh (6am daily)';
+                freshnessIcon.textContent = '⏳';
+                freshnessEl.textContent = 'Last updated: Waiting for first refresh (6am daily)';
+                freshnessContainer.classList.remove('success', 'error');
             });
     }
 }

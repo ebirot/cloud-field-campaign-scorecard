@@ -643,7 +643,21 @@ body.dark .cloud-checkbox-item:hover {
   font-weight: 500;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--bg-subtle);
+  transition: all 0.3s ease;
+}
+
+.data-freshness.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--green);
+}
+
+.data-freshness.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--red);
 }
 
 /* Selection Banner */
@@ -1518,8 +1532,8 @@ body.dark .metric-bad {
 
         <!-- Data Freshness Only -->
         <div class="active-filters">
-          <div class="data-freshness">
-            <span>📅</span>
+          <div class="data-freshness" id="dataFreshnessContainer">
+            <span id="dataFreshnessIcon">📅</span>
             <span id="dataFreshness">Last updated: --</span>
           </div>
         </div>
