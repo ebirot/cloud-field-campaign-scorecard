@@ -419,18 +419,34 @@ function updateActiveFilters() {
     // Update data freshness
     const freshnessEl = document.getElementById('dataFreshness');
     if (freshnessEl) {
-        // Try to get last_refresh.txt timestamp
-        fetch('${API_BASE_URL}/api/data/last_refresh')
+        // Get real refresh status from scheduler
+        fetch(`${API_BASE_URL}/api/refresh/status`)
             .then(r => r.json())
             .then(data => {
-                if (data.last_refresh) {
-                    freshnessEl.textContent = `Last updated: ${data.last_refresh}`;
+                if (data.last_update && data.last_update.last_updated) {
+                    const lastUpdate = new Date(data.last_update.last_updated);
+                    const timeStr = lastUpdate.toLocaleTimeString('fr-FR', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        timeZone: 'Europe/Paris'
+                    });
+                    const dateStr = lastUpdate.toLocaleDateString('fr-FR', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        timeZone: 'Europe/Paris'
+                    });
+
+                    if (data.last_update.success) {
+                        freshnessEl.textContent = `📅 Last updated: ${dateStr} at ${timeStr} CET`;
+                    } else {
+                        freshnessEl.textContent = `⚠️ Last update failed: ${dateStr} at ${timeStr} CET`;
+                    }
                 } else {
-                    freshnessEl.textContent = 'Last updated: Today at 23:00 CET';
+                    freshnessEl.textContent = '📅 Last updated: Waiting for first refresh (6am daily)';
                 }
             })
             .catch(() => {
-                freshnessEl.textContent = 'Last updated: Today at 23:00 CET';
+                freshnessEl.textContent = '📅 Last updated: Waiting for first refresh (6am daily)';
             });
     }
 }
