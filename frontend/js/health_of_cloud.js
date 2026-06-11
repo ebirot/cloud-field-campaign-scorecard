@@ -1670,6 +1670,20 @@ function switchTab(tab) {
     });
     document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
 
+    // Hide/show header based on tab
+    const selectionBanner = document.getElementById('selectionBanner');
+    const scorecardHeader = document.querySelector('.scorecard-header');
+
+    if (tab === 'admin') {
+        // HIDE headers when in admin mode
+        if (selectionBanner) selectionBanner.style.display = 'none';
+        if (scorecardHeader) scorecardHeader.style.display = 'none';
+    } else {
+        // SHOW headers for other tabs
+        if (selectionBanner) selectionBanner.style.display = '';
+        if (scorecardHeader) scorecardHeader.style.display = '';
+    }
+
     // Update header
     const headers = {
         health: { icon: '🏥', title: 'Health of the Cloud Scorecard' },
