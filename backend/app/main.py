@@ -57,45 +57,28 @@ app.add_middleware(
 app.include_router(tableau.router, prefix="/api/tableau", tags=["Tableau"])
 app.include_router(slack.router, prefix="/api/slack", tags=["Slack"])
 app.include_router(scorecard.router, prefix="/api/scorecard", tags=["Scorecard"])
-# Temporarily disable data APIs on Heroku (no CSV files available)
-# Enable these when CSV files are uploaded or use cloud storage
-# app.include_router(export.router, prefix="/api/export", tags=["Export"])
-# app.include_router(data.router, prefix="/api/data", tags=["Data"])
-# app.include_router(insights.router, prefix="/api/insights", tags=["AI Insights"])
-# app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"])
-# app.include_router(refresh.router, prefix="/api/refresh", tags=["Data Refresh"])
-# app.include_router(campaign.router, prefix="/api/campaign", tags=["Campaign Scorecard"])
-# app.include_router(email.router, prefix="/api/email", tags=["Email Scorecard"])
-# app.include_router(lead_scorecard.router, prefix="/api/lead", tags=["Lead Scorecard"])
-# app.include_router(lead_cockpit.router, prefix="/api/lead-cockpit", tags=["Lead Cockpit"])
-
-# Keep mappings API (doesn't need CSV files)
+# Data APIs - Now enabled with CSV files included in Git
+app.include_router(export.router, prefix="/api/export", tags=["Export"])
+app.include_router(data.router, prefix="/api/data", tags=["Data"])
+app.include_router(insights.router, prefix="/api/insights", tags=["AI Insights"])
+app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"])
+app.include_router(refresh.router, prefix="/api/refresh", tags=["Data Refresh"])
+app.include_router(campaign.router, prefix="/api/campaign", tags=["Campaign Scorecard"])
+app.include_router(email.router, prefix="/api/email", tags=["Email Scorecard"])
+app.include_router(lead_scorecard.router, prefix="/api/lead", tags=["Lead Scorecard"])
+app.include_router(lead_cockpit.router, prefix="/api/lead-cockpit", tags=["Lead Cockpit"])
 app.include_router(mappings.router, prefix="/api/mappings", tags=["Mappings"])
 
 @app.get("/")
 async def root():
-    """Serve deployment info page on Heroku, or scorecard locally"""
-    # On Heroku, serve info page. Locally, serve the full app
-    frontend_heroku = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "index_heroku.html")
-    frontend_main = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "health_of_cloud_v2.html")
-
-    # Check if CSV data exists (local) or not (Heroku)
-    csv_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "data", "csv")
-    has_data = os.path.exists(csv_dir) and any(os.path.isfile(os.path.join(csv_dir, f)) for f in os.listdir(csv_dir) if f.endswith('.csv'))
-
-    if has_data and os.path.exists(frontend_main):
-        # Local with data - serve full app
-        return FileResponse(frontend_main)
-    elif os.path.exists(frontend_heroku):
-        # Heroku without data - serve info page
-        return FileResponse(frontend_heroku)
-
+    """Serve the Health of Cloud scorecard V2"""
+    frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "health_of_cloud_v2.html")
+    if os.path.exists(frontend_path):
+        return FileResponse(frontend_path)
     return {
-        "message": "Cloud Field Campaign Scorecard API - Heroku Deployment",
+        "message": "Cloud Field Campaign Scorecard API",
         "version": "1.0.0",
-        "status": "healthy",
-        "note": "Data APIs are temporarily disabled. CSV files need to be uploaded to cloud storage.",
-        "available_apis": ["/health", "/api/mappings"]
+        "status": "healthy"
     }
 
 @app.get("/health")

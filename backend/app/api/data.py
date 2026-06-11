@@ -7,14 +7,8 @@ from typing import Optional, List
 from pathlib import Path
 import os
 
-# Use safe parser if CSV files don't exist (Heroku deployment)
-csv_dir = Path(__file__).parent.parent.parent.parent / 'data' / 'csv'
-if not csv_dir.exists() or not any(csv_dir.glob('*.csv')):
-    print("⚠️ CSV files not found - Using SafeCSVParser (empty data mode)")
-    from app.services.csv_parser_safe import SafeCSVParser
-    csv_parser = SafeCSVParser()
-else:
-    from app.services.csv_parser import csv_parser
+# Use normal CSV parser - files are now included in Git
+from app.services.csv_parser import csv_parser
 
 router = APIRouter()
 

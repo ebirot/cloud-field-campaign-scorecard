@@ -69,7 +69,7 @@ build/
 # Data files (ne pas commit les données sensibles)
 backend/data/tableau_cache/
 backend/data/raw/
-*.csv
+# *.csv  # Commenté - on inclut les CSV pour Heroku (43 Mo seulement)
 *.xlsx
 *.xls
 
