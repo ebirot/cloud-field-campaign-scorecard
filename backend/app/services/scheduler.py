@@ -4,6 +4,8 @@ Runs CSV refresh and other maintenance tasks on schedule
 """
 import asyncio
 import logging
+import json
+from pathlib import Path
 from datetime import datetime, time
 from typing import Optional
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -20,6 +22,9 @@ class TaskScheduler:
     def __init__(self):
         self.scheduler = AsyncIOScheduler()
         self.is_running = False
+        # Status file path
+        self.status_file = Path(__file__).parent.parent.parent.parent / 'data' / 'refresh_status.json'
+        self.status_file.parent.mkdir(parents=True, exist_ok=True)
 
     def start(self):
         """Start the scheduler"""
@@ -27,28 +32,19 @@ class TaskScheduler:
             logger.warning("Scheduler already running")
             return
 
-        # Schedule CSV refresh every day at 23:00 CET
-        self.scheduler.add_job(
-            self._run_csv_refresh,
-            CronTrigger(hour=23, minute=0, timezone='Europe/Paris'),
-            id='daily_csv_refresh',
-            name='Daily CSV Refresh from Tableau',
-            replace_existing=True
-        )
-
-        # Optional: Schedule additional refresh at 06:00 for morning data
+        # Schedule CSV refresh every day at 06:00 CET
         self.scheduler.add_job(
             self._run_csv_refresh,
             CronTrigger(hour=6, minute=0, timezone='Europe/Paris'),
             id='morning_csv_refresh',
-            name='Morning CSV Refresh',
+            name='Morning CSV Refresh at 06:00 CET',
             replace_existing=True
         )
 
         self.scheduler.start()
         self.is_running = True
         logger.info("✅ Task scheduler started")
-        logger.info("📅 CSV refresh scheduled: 06:00 CET and 23:00 CET daily")
+        logger.info("📅 CSV refresh scheduled: 06:00 CET daily")
 
     def stop(self):
         """Stop the scheduler"""
@@ -73,6 +69,9 @@ class TaskScheduler:
 
             logger.info(f"✅ CSV refresh completed: {successful}/{total} files in {elapsed:.1f}s")
 
+            # Save last update timestamp and status
+            self._save_last_update(successful, total, elapsed)
+
             # Log any failures
             failures = [name for name, success in results.items() if not success]
             if failures:
@@ -80,14 +79,20 @@ class TaskScheduler:
 
         except Exception as e:
             logger.error(f"❌ Scheduled CSV refresh failed: {e}")
+            self._save_last_update(0, 0, 0, error=str(e))
 
     def trigger_manual_refresh(self) -> dict:
         """Manually trigger a CSV refresh"""
         logger.info("🔄 Manual CSV refresh triggered")
+        start_time = datetime.now()
         try:
             results = tableau_service.refresh_all_csvs()
             successful = sum(1 for v in results.values() if v)
             total = len(results)
+            elapsed = (datetime.now() - start_time).total_seconds()
+
+            # Save status
+            self._save_last_update(successful, total, elapsed)
 
             return {
                 'success': True,
@@ -97,6 +102,8 @@ class TaskScheduler:
             }
         except Exception as e:
             logger.error(f"Manual refresh failed: {e}")
+            elapsed = (datetime.now() - start_time).total_seconds()
+            self._save_last_update(0, 0, elapsed, error=str(e))
             return {
                 'success': False,
                 'error': str(e),
@@ -121,6 +128,41 @@ class TaskScheduler:
                 'trigger': str(job.trigger)
             })
         return jobs
+
+    def _save_last_update(self, successful: int, total: int, elapsed: float, error: str = None):
+        """Save last refresh status to file"""
+        try:
+            status = {
+                'last_updated': datetime.now().isoformat(),
+                'successful': successful,
+                'total': total,
+                'elapsed_seconds': elapsed,
+                'success': successful == total and total > 0,
+                'error': error
+            }
+            with open(self.status_file, 'w', encoding='utf-8') as f:
+                json.dump(status, f, indent=2)
+            logger.info(f"💾 Saved refresh status: {successful}/{total} files")
+        except Exception as e:
+            logger.error(f"Failed to save refresh status: {e}")
+
+    def get_last_update_status(self) -> dict:
+        """Get last refresh status from file"""
+        try:
+            if self.status_file.exists():
+                with open(self.status_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+        except Exception as e:
+            logger.error(f"Failed to read refresh status: {e}")
+
+        return {
+            'last_updated': None,
+            'successful': 0,
+            'total': 0,
+            'elapsed_seconds': 0,
+            'success': False,
+            'error': None
+        }
 
 
 # Global scheduler instance

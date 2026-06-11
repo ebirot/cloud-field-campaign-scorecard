@@ -26,23 +26,25 @@ def trigger_manual_refresh():
 @router.get("/status")
 async def get_refresh_status():
     """
-    Get status of scheduled refresh jobs
+    Get status of scheduled refresh jobs and last update info
 
-    Returns next run times and job information
+    Returns next run times, job information, and last refresh status
     """
     try:
         jobs = scheduler.get_scheduled_jobs()
 
         # Get next CSV refresh time
-        next_daily = scheduler.get_next_run_time('daily_csv_refresh')
         next_morning = scheduler.get_next_run_time('morning_csv_refresh')
+
+        # Get last update status
+        last_status = scheduler.get_last_update_status()
 
         return {
             'scheduler_running': scheduler.is_running,
             'jobs': jobs,
-            'next_daily_refresh': next_daily.isoformat() if next_daily else None,
-            'next_morning_refresh': next_morning.isoformat() if next_morning else None,
-            'current_time': datetime.now().isoformat()
+            'next_refresh': next_morning.isoformat() if next_morning else None,
+            'current_time': datetime.now().isoformat(),
+            'last_update': last_status
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to get status: {str(e)}")

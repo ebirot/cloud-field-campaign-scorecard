@@ -73,6 +73,9 @@ backend/data/raw/
 *.xlsx
 *.xls
 
+# Refresh status file (runtime data)
+data/refresh_status.json
+
 # Temporary files
 *.tmp
 *.temp

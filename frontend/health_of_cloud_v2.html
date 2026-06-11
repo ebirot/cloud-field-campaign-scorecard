@@ -1456,6 +1456,11 @@ body.dark .metric-bad {
       </div>
 
       <div style="display: flex; align-items: center; gap: 12px;">
+        <!-- Data Refresh Status -->
+        <div id="refreshStatus" style="display: flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(255,255,255,0.1); border-radius: 6px; font-size: 12px; opacity: 0.9;">
+          <span id="refreshIcon">⏳</span>
+          <span id="refreshText">Loading...</span>
+        </div>
         <!-- Quarter Toggle -->
         <div class="region-toggle">
           <button class="region-btn" onclick="setQuarterFilter('Q1')" data-quarter="Q1">
@@ -2399,6 +2404,63 @@ body.dark .metric-bad {
     </div>
   </div>
 </div>
+
+<script>
+// Refresh Status Indicator
+async function loadRefreshStatus() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/refresh/status`);
+    const data = await response.json();
+
+    const refreshIcon = document.getElementById('refreshIcon');
+    const refreshText = document.getElementById('refreshText');
+    const refreshStatus = document.getElementById('refreshStatus');
+
+    if (data.last_update && data.last_update.last_updated) {
+      const lastUpdate = new Date(data.last_update.last_updated);
+      const now = new Date();
+      const diffMinutes = Math.floor((now - lastUpdate) / 1000 / 60);
+
+      // Format time
+      const timeStr = lastUpdate.toLocaleTimeString('fr-FR', {
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZone: 'Europe/Paris'
+      });
+      const dateStr = lastUpdate.toLocaleDateString('fr-FR', {
+        day: '2-digit',
+        month: '2-digit',
+        timeZone: 'Europe/Paris'
+      });
+
+      // Show success or error
+      if (data.last_update.success) {
+        refreshIcon.textContent = '✅';
+        refreshText.textContent = `Updated ${dateStr} at ${timeStr}`;
+        refreshStatus.style.background = 'rgba(16, 185, 129, 0.2)';
+      } else {
+        refreshIcon.textContent = '⚠️';
+        refreshText.textContent = `Last attempt ${dateStr} at ${timeStr}`;
+        refreshStatus.style.background = 'rgba(239, 68, 68, 0.2)';
+      }
+    } else {
+      refreshIcon.textContent = '⏳';
+      refreshText.textContent = 'No update yet';
+      refreshStatus.style.background = 'rgba(255,255,255,0.1)';
+    }
+  } catch (error) {
+    console.error('Failed to load refresh status:', error);
+    document.getElementById('refreshStatus').style.display = 'none';
+  }
+}
+
+// Load status on page load
+document.addEventListener('DOMContentLoaded', () => {
+  loadRefreshStatus();
+  // Refresh status every 5 minutes
+  setInterval(loadRefreshStatus, 5 * 60 * 1000);
+});
+</script>
 
 <script src="js/health_of_cloud.js"></script>
 <script src="js/lead_scorecard.js"></script>
