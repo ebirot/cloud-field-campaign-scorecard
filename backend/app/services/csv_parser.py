@@ -18,6 +18,13 @@ class CSVParser:
         else:
             self.data_dir = Path(data_dir)
 
+    def _check_file_exists(self, file_path: Path, default_return=None):
+        """Helper to check if CSV exists, return default if not"""
+        if not file_path.exists():
+            print(f"⚠️ CSV file not found: {file_path} - Returning empty data")
+            return True, default_return
+        return False, None
+
     def parse_regional_cloud_view(self, quarters: list = None, fiscal_year: str = None) -> List[Dict[str, Any]]:
         """
         Parse REGIONAL VIEW (Sales L2 & Cloud) with Quarter filter
@@ -32,6 +39,11 @@ class CSVParser:
         # Default to Q2 only
         if quarters is None:
             quarters = ['Q2']
+
+        # Check if file exists
+        missing, default = self._check_file_exists(file_path, {"leaders": [], "data": {}})
+        if missing:
+            return default
 
         # Structure: {(leader, cloud, quarter): metrics}
         data_by_quarter = {}
