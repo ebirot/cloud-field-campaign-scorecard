@@ -1670,18 +1670,21 @@ function switchTab(tab) {
     });
     document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
 
-    // Hide/show header based on tab
+    // Hide/show header and tabs navigation based on tab
     const selectionBanner = document.getElementById('selectionBanner');
     const scorecardHeader = document.querySelector('.scorecard-header');
+    const tabsNavigation = document.querySelector('.tabs-navigation');
 
     if (tab === 'admin') {
-        // HIDE headers when in admin mode
+        // HIDE headers and tabs navigation when in admin mode
         if (selectionBanner) selectionBanner.style.display = 'none';
         if (scorecardHeader) scorecardHeader.style.display = 'none';
+        if (tabsNavigation) tabsNavigation.style.display = 'none';
     } else {
-        // SHOW headers for other tabs
+        // SHOW headers and tabs for other tabs
         if (selectionBanner) selectionBanner.style.display = '';
         if (scorecardHeader) scorecardHeader.style.display = '';
+        if (tabsNavigation) tabsNavigation.style.display = '';
     }
 
     // Update header
