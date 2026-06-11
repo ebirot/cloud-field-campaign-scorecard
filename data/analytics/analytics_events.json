@@ -11195,5 +11195,25 @@
     "metadata": {
       "quarter": "Q2"
     }
+  },
+  {
+    "type": "page_view",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:09:51.210181",
+    "metadata": {}
+  },
+  {
+    "type": "page_view",
+    "user_id": "anonymous",
+    "timestamp": "2026-06-11T22:09:51.373580",
+    "metadata": {
+      "page": "health_of_cloud"
+    }
+  },
+  {
+    "type": "user_inactive",
+    "user_id": "user_1781208591206_40aevf8yb",
+    "timestamp": "2026-06-11T22:10:36.905183",
+    "metadata": {}
   }
 ]

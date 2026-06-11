@@ -2019,7 +2019,7 @@ body.dark .metric-bad {
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px 40px; border-radius: 0;">
           <h1 style="color: white; font-size: 32px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
             <span>🔐</span>
-            <span>Panneau d'Administration</span>
+            <span>Admin Panel</span>
           </h1>
 
           <!-- Horizontal Tabs -->
@@ -2030,15 +2030,11 @@ body.dark .metric-bad {
             </button>
             <button class="admin-tab" onclick="switchAdminTab('mappings')" data-tab="mappings" style="padding: 12px 24px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: rgba(255,255,255,0.8); font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 14px; display: flex; align-items: center; gap: 8px;">
               <span>🗺️</span>
-              <span>Mappings</span>
+              <span>Email Mappings</span>
             </button>
             <button class="admin-tab" onclick="switchAdminTab('system')" data-tab="system" style="padding: 12px 24px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: rgba(255,255,255,0.8); font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 14px; display: flex; align-items: center; gap: 8px;">
               <span>🔄</span>
-              <span>Système</span>
-            </button>
-            <button class="admin-tab" onclick="switchAdminTab('config')" data-tab="config" style="padding: 12px 24px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: rgba(255,255,255,0.8); font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 14px; display: flex; align-items: center; gap: 8px;">
-              <span>☁️</span>
-              <span>Cloud Config</span>
+              <span>System & Refresh</span>
             </button>
           </div>
         </div>
@@ -2048,40 +2044,108 @@ body.dark .metric-bad {
 
           <!-- Analytics Tab -->
           <div id="adminTabAnalytics" class="admin-tab-content" style="display: block;">
-            <iframe src="/admin" style="width: 100%; height: 80vh; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 32px;">
+              <!-- Stats Cards -->
+              <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <div style="font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase;">Total Events</div>
+                <div id="adminTotalEvents" style="font-size: 32px; font-weight: 700; color: var(--text);">-</div>
+                <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">All time</div>
+              </div>
+
+              <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <div style="font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase;">Active Users</div>
+                <div id="adminActiveUsers" style="font-size: 32px; font-weight: 700; color: var(--text);">-</div>
+                <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">Last 5 minutes</div>
+              </div>
+
+              <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <div style="font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase;">Page Views</div>
+                <div id="adminPageViews" style="font-size: 32px; font-weight: 700; color: var(--text);">-</div>
+                <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">Last 24 hours</div>
+              </div>
+
+              <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <div style="font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase;">Data Refresh</div>
+                <div id="adminRefreshStatus" style="font-size: 32px; font-weight: 700; color: var(--text);">✅</div>
+                <div style="font-size: 12px; color: var(--muted); margin-top: 4px;" id="adminRefreshTime">Loading...</div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="background: white; padding: 24px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
+              <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Quick Actions</h3>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <button onclick="window.open('/admin', '_blank')" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+                  📊 Full Analytics Dashboard
+                </button>
+                <button onclick="window.open('/docs', '_blank')" style="padding: 10px 20px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+                  📚 API Documentation
+                </button>
+              </div>
+            </div>
           </div>
 
           <!-- Mappings Tab -->
           <div id="adminTabMappings" class="admin-tab-content" style="display: none;">
-            <iframe src="/admin_mappings.html" style="width: 100%; height: 80vh; border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></iframe>
+            <div style="background: white; padding: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+              <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+                <span>🗺️</span>
+                <span>Email Mappings Configuration</span>
+              </h2>
+              <p style="color: var(--muted); margin-bottom: 24px;">Configure how countries and products are mapped for email campaigns.</p>
+
+              <!-- Inline Mappings Interface -->
+              <div style="margin-bottom: 24px;">
+                <button onclick="window.open('/admin_mappings.html', '_blank')" style="padding: 12px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 15px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);">
+                  🚀 Open Full Mappings Editor
+                </button>
+              </div>
+
+              <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.2);">
+                <div style="font-size: 14px; color: var(--text); margin-bottom: 8px;">
+                  💡 <strong>Info:</strong> The mappings editor opens in a new tab for better workflow.
+                </div>
+                <div style="font-size: 13px; color: var(--muted);">
+                  Configure country → OU and product → Cloud mappings for email campaigns.
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- System Tab -->
           <div id="adminTabSystem" class="admin-tab-content" style="display: none;">
             <div style="background: white; padding: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-              <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+              <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
                 <span>🔄</span>
-                <span>Système & Refresh Tableau</span>
+                <span>System & Tableau Refresh</span>
               </h2>
-              <iframe src="/admin#system-section" style="width: 100%; height: 70vh; border: none;"></iframe>
-            </div>
-          </div>
+              <p style="color: var(--muted); margin-bottom: 24px;">Monitor and manage automatic CSV refresh from Tableau Server.</p>
 
-          <!-- Cloud Config Tab -->
-          <div id="adminTabConfig" class="admin-tab-content" style="display: none;">
-            <div style="background: white; padding: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-              <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
-                <span>☁️</span>
-                <span>Cloud Visibility Configuration</span>
-              </h2>
-              <p style="color: var(--muted); margin-bottom: 24px;">Configure quels clouds sont visibles dans l'application principale.</p>
+              <!-- Refresh Status -->
+              <div id="systemRefreshStatus" style="margin-bottom: 24px; padding: 24px; background: var(--bg); border-radius: 8px;">
+                <div style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">📊 Automatic Refresh Status</div>
+                <div style="font-size: 14px; color: var(--muted);">Loading...</div>
+              </div>
+
+              <!-- Actions -->
+              <div style="margin-bottom: 24px;">
+                <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Actions</h3>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                  <button onclick="triggerManualRefresh()" style="padding: 12px 24px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+                    🔄 Trigger Manual Refresh
+                  </button>
+                  <button onclick="loadSystemStatus()" style="padding: 12px 24px; background: #64748b; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
+                    🔄 Reload Status
+                  </button>
+                </div>
+              </div>
 
               <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.2);">
-                <div style="font-size: 14px; color: var(--text); margin-bottom: 12px;">
-                  💡 <strong>Info :</strong> Cette fonctionnalité sera disponible prochainement.
+                <div style="font-size: 14px; color: var(--text); margin-bottom: 8px;">
+                  ⏰ <strong>Schedule:</strong> Automatic refresh runs daily at 6:00 AM CET
                 </div>
                 <div style="font-size: 13px; color: var(--muted);">
-                  En attendant, utilisez la section Analytics → Mappings pour gérer les configurations.
+                  Downloads 10 CSV files from Tableau Server automatically.
                 </div>
               </div>
             </div>
@@ -2299,6 +2363,15 @@ body.dark .metric-bad {
 <script src="js/health_of_cloud.js"></script>
 
 <script>
+// Get API base URL
+const getAdminApiUrl = () => {
+  const hostname = window.location.hostname;
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return 'http://localhost:8000';
+  }
+  return window.location.origin;
+};
+
 // Admin tab switching
 function switchAdminTab(tabName) {
   // Update tab buttons
@@ -2322,6 +2395,121 @@ function switchAdminTab(tabName) {
   const selectedTab = document.getElementById('adminTab' + tabName.charAt(0).toUpperCase() + tabName.slice(1));
   if (selectedTab) {
     selectedTab.style.display = 'block';
+  }
+
+  // Load data for specific tabs
+  if (tabName === 'analytics') {
+    loadAnalyticsData();
+  } else if (tabName === 'system') {
+    loadSystemStatus();
+  }
+}
+
+// Load Analytics Data
+async function loadAnalyticsData() {
+  try {
+    const API_URL = getAdminApiUrl();
+    const [statsRes, refreshRes] = await Promise.all([
+      fetch(`${API_URL}/api/analytics/stats`),
+      fetch(`${API_URL}/api/refresh/status`)
+    ]);
+
+    if (statsRes.ok) {
+      const stats = await statsRes.json();
+      document.getElementById('adminTotalEvents').textContent = stats.total_events?.toLocaleString() || '0';
+      document.getElementById('adminActiveUsers').textContent = stats.unique_users_5m || '0';
+      document.getElementById('adminPageViews').textContent = stats.page_views_24h?.toLocaleString() || '0';
+    }
+
+    if (refreshRes.ok) {
+      const refresh = await refreshRes.json();
+      if (refresh.last_update && refresh.last_update.success) {
+        document.getElementById('adminRefreshStatus').textContent = '✅';
+        const date = new Date(refresh.last_update.last_updated);
+        document.getElementById('adminRefreshTime').textContent = date.toLocaleTimeString();
+      } else {
+        document.getElementById('adminRefreshStatus').textContent = '⚠️';
+        document.getElementById('adminRefreshTime').textContent = 'Failed';
+      }
+    }
+  } catch (error) {
+    console.error('Failed to load analytics data:', error);
+    document.getElementById('adminRefreshTime').textContent = 'Error loading';
+  }
+}
+
+// Load System Status
+async function loadSystemStatus() {
+  try {
+    const API_URL = getAdminApiUrl();
+    const res = await fetch(`${API_URL}/api/refresh/status`);
+
+    if (res.ok) {
+      const data = await res.json();
+      const container = document.getElementById('systemRefreshStatus');
+      const lastUpdate = data.last_update;
+
+      if (lastUpdate && lastUpdate.last_updated) {
+        const date = new Date(lastUpdate.last_updated);
+        const statusIcon = lastUpdate.success ? '✅' : '⚠️';
+        const statusText = lastUpdate.success ? 'Refresh Successful' : 'Refresh Failed';
+
+        container.innerHTML = `
+          <div style="display: flex; gap: 20px; align-items: start;">
+            <div style="font-size: 48px;">${statusIcon}</div>
+            <div style="flex: 1;">
+              <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">
+                ${statusText}
+              </div>
+              <div style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">
+                Last updated: ${date.toLocaleString()}
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
+                <div>
+                  <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">CSV FILES</div>
+                  <div style="font-size: 20px; font-weight: 700;">${lastUpdate.successful}/${lastUpdate.total}</div>
+                </div>
+                <div>
+                  <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">DURATION</div>
+                  <div style="font-size: 20px; font-weight: 700;">${lastUpdate.elapsed_seconds}s</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 20px;">
+            <div style="font-size: 32px; margin-bottom: 12px;">⏳</div>
+            <div style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">No refresh yet</div>
+            <div style="font-size: 13px; color: var(--muted);">Waiting for first automatic refresh at 6:00 AM CET</div>
+          </div>
+        `;
+      }
+    }
+  } catch (error) {
+    console.error('Failed to load system status:', error);
+  }
+}
+
+// Trigger Manual Refresh
+async function triggerManualRefresh() {
+  if (!confirm('Trigger a manual CSV refresh from Tableau? This will take 10-15 seconds.')) return;
+
+  try {
+    const API_URL = getAdminApiUrl();
+    const res = await fetch(`${API_URL}/api/refresh/trigger`, { method: 'POST' });
+    const data = await res.json();
+
+    if (data.success) {
+      alert('✅ Refresh completed successfully!\n\n' + data.summary);
+      loadSystemStatus();
+      loadAnalyticsData();
+    } else {
+      alert('❌ Refresh failed: ' + data.error);
+    }
+  } catch (error) {
+    alert('❌ Failed to trigger refresh: ' + error.message);
   }
 }
 
