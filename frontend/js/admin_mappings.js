@@ -4,7 +4,7 @@
  */
 
 // Auto-detect API URL based on environment
-const getApiUrl = () => {
+const getMappingsApiUrl = () => {
     const hostname = window.location.hostname;
     if (hostname === 'localhost' || hostname === '127.0.0.1') {
         return 'http://localhost:8000';
@@ -12,7 +12,7 @@ const getApiUrl = () => {
     return window.location.origin;
 };
 
-const MAPPINGS_API = `${getApiUrl()}/api/mappings`;
+const MAPPINGS_API = `${getMappingsApiUrl()}/api/mappings`;
 
 let countryMappings = {};
 let productMappings = {};
