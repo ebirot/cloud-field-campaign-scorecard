@@ -1291,6 +1291,16 @@ body.dark .metric-bad {
   10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
   20%, 40%, 60%, 80% { transform: translateX(10px); }
 }
+
+@keyframes slideIn {
+  from { transform: translateX(400px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(400px); opacity: 0; }
+}
 </style>
 </head>
 <body>
@@ -2497,6 +2507,10 @@ const getAdminApiUrl = () => {
   return window.location.origin;
 };
 
+// Available OUs and Clouds for dropdowns
+const AVAILABLE_OUS = ['FRANCE', 'CENTRAL', 'UKI', 'NORTH', 'SOUTH', 'AMER', 'Canada', 'Others'];
+const AVAILABLE_CLOUDS = ['Service', 'Sales', 'Marketing', 'Commerce', 'Data', 'AI & Data', 'Field Service', 'Platform'];
+
 // Admin tab switching
 function switchAdminTab(tabName) {
   // Update tab buttons
@@ -2530,6 +2544,32 @@ function switchAdminTab(tabName) {
     loadMappingsData();
   } else if (tabName === 'system') {
     loadSystemStatus();
+  }
+}
+
+// Switch between Country and Product tabs in Mappings
+function switchMappingTab(tab) {
+  const countryTab = document.getElementById('countryMappingTab');
+  const productTab = document.getElementById('productMappingTab');
+  const countryPanel = document.getElementById('countryMappingPanel');
+  const productPanel = document.getElementById('productMappingPanel');
+
+  if (tab === 'country') {
+    // Activate country tab
+    countryTab.style.borderBottom = '3px solid var(--brand)';
+    countryTab.style.color = 'var(--brand)';
+    productTab.style.borderBottom = 'none';
+    productTab.style.color = 'var(--muted)';
+    countryPanel.style.display = 'block';
+    productPanel.style.display = 'none';
+  } else {
+    // Activate product tab
+    productTab.style.borderBottom = '3px solid var(--brand)';
+    productTab.style.color = 'var(--brand)';
+    countryTab.style.borderBottom = 'none';
+    countryTab.style.color = 'var(--muted)';
+    productPanel.style.display = 'block';
+    countryPanel.style.display = 'none';
   }
 }
 
@@ -2664,20 +2704,101 @@ function renderMappingsManually() {
   }
 }
 
-// Edit Country Mapping (inline prompt)
+// Edit Country Mapping (with modal + dropdown)
 function editCountryMapping(country, currentOU) {
-  const newOU = prompt(`Edit mapping for "${country}"\n\nCurrent OU: ${currentOU}\nEnter new OU:`, currentOU);
-  if (newOU && newOU !== currentOU) {
-    updateCountryMapping(country, newOU);
-  }
+  const modal = document.getElementById('editMappingModal');
+  const modalContent = document.getElementById('modalContent');
+  const saveBtn = document.getElementById('modalSaveBtn');
+
+  // Build dropdown options
+  const ouOptions = AVAILABLE_OUS.map(ou =>
+    `<option value="${ou}" ${ou === currentOU ? 'selected' : ''}>${ou}</option>`
+  ).join('');
+
+  modalContent.innerHTML = `
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #475569;">Country</label>
+      <input type="text" value="${country}" disabled style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; background: #f8fafc; color: #64748b; font-size: 14px; font-weight: 600;" />
+    </div>
+    <div>
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #475569;">Operating Unit</label>
+      <select id="modalOuSelect" style="width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; background: white; color: #1e293b; font-size: 14px; font-weight: 600; cursor: pointer;">
+        ${ouOptions}
+      </select>
+    </div>
+  `;
+
+  // Show modal
+  modal.style.display = 'flex';
+
+  // Handle save
+  saveBtn.onclick = () => {
+    const newOU = document.getElementById('modalOuSelect').value;
+    if (newOU && newOU !== currentOU) {
+      updateCountryMapping(country, newOU);
+    }
+    closeEditModal();
+  };
 }
 
-// Edit Product Mapping (inline prompt)
+// Edit Product Mapping (with modal + dropdown)
 function editProductMapping(product, currentCloud) {
-  const newCloud = prompt(`Edit mapping for "${product}"\n\nCurrent Cloud: ${currentCloud}\nEnter new Cloud:`, currentCloud);
-  if (newCloud && newCloud !== currentCloud) {
-    updateProductMapping(product, newCloud);
-  }
+  const modal = document.getElementById('editMappingModal');
+  const modalContent = document.getElementById('modalContent');
+  const saveBtn = document.getElementById('modalSaveBtn');
+
+  // Build dropdown options
+  const cloudOptions = AVAILABLE_CLOUDS.map(cloud =>
+    `<option value="${cloud}" ${cloud === currentCloud ? 'selected' : ''}>${cloud}</option>`
+  ).join('');
+
+  modalContent.innerHTML = `
+    <div style="margin-bottom: 16px;">
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #475569;">Product</label>
+      <input type="text" value="${product}" disabled style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; background: #f8fafc; color: #64748b; font-size: 14px; font-weight: 600;" />
+    </div>
+    <div>
+      <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #475569;">Cloud</label>
+      <select id="modalCloudSelect" style="width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; background: white; color: #1e293b; font-size: 14px; font-weight: 600; cursor: pointer;">
+        ${cloudOptions}
+      </select>
+    </div>
+  `;
+
+  // Show modal
+  modal.style.display = 'flex';
+
+  // Handle save
+  saveBtn.onclick = () => {
+    const newCloud = document.getElementById('modalCloudSelect').value;
+    if (newCloud && newCloud !== currentCloud) {
+      updateProductMapping(product, newCloud);
+    }
+    closeEditModal();
+  };
+}
+
+// Close modal
+function closeEditModal() {
+  document.getElementById('editMappingModal').style.display = 'none';
+}
+
+// Show toast notification
+function showToast(message, type = 'success') {
+  const toast = document.createElement('div');
+  const bgColor = type === 'success' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+  toast.style.cssText = `
+    position: fixed; top: 24px; right: 24px; z-index: 10001;
+    background: ${bgColor}; color: white; padding: 16px 24px;
+    border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    font-weight: 600; font-size: 14px; animation: slideIn 0.3s ease;
+  `;
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  setTimeout(() => {
+    toast.style.animation = 'slideOut 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
 }
 
 // Update Country Mapping
@@ -2693,13 +2814,13 @@ async function updateCountryMapping(country, newOU) {
     if (response.ok) {
       window.countryMappings[country] = newOU;
       renderMappingsManually();
-      alert(`✅ Updated: ${country} → ${newOU}`);
+      showToast(`✅ Updated: ${country} → ${newOU}`);
     } else {
-      alert('❌ Failed to update mapping');
+      showToast('❌ Failed to update mapping', 'error');
     }
   } catch (error) {
     console.error('Update error:', error);
-    alert('❌ Error: ' + error.message);
+    showToast('❌ Error: ' + error.message, 'error');
   }
 }
 
@@ -2716,13 +2837,13 @@ async function updateProductMapping(product, newCloud) {
     if (response.ok) {
       window.productMappings[product] = newCloud;
       renderMappingsManually();
-      alert(`✅ Updated: ${product} → ${newCloud}`);
+      showToast(`✅ Updated: ${product} → ${newCloud}`);
     } else {
-      alert('❌ Failed to update mapping');
+      showToast('❌ Failed to update mapping', 'error');
     }
   } catch (error) {
     console.error('Update error:', error);
-    alert('❌ Error: ' + error.message);
+    showToast('❌ Error: ' + error.message, 'error');
   }
 }
 
@@ -2928,6 +3049,30 @@ if (typeof originalSwitchTab === 'function') {
   };
 }
 </script>
+
+<!-- Edit Mapping Modal -->
+<div id="editMappingModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10000; justify-content: center; align-items: center;">
+  <div style="background: white; border-radius: 16px; padding: 32px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+      <h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #1e293b;">Edit Mapping</h3>
+      <button onclick="closeEditModal()" style="background: none; border: none; font-size: 28px; cursor: pointer; color: #64748b; line-height: 1; padding: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: all 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='none'">×</button>
+    </div>
+
+    <div id="modalContent">
+      <!-- Dynamic content -->
+    </div>
+
+    <div style="display: flex; gap: 12px; margin-top: 24px;">
+      <button onclick="closeEditModal()" style="flex: 1; padding: 12px; background: #e2e8f0; color: #475569; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.background='#cbd5e1'" onmouseout="this.style.background='#e2e8f0'">
+        Cancel
+      </button>
+      <button id="modalSaveBtn" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+        💾 Save Changes
+      </button>
+    </div>
+  </div>
+</div>
+
 <script src="js/lead_scorecard.js"></script>
 <script src="js/lead_cockpit.js"></script>
 <script src="js/admin_mappings.js"></script>
