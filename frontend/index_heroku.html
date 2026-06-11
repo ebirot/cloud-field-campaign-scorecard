@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Field Campaign Scorecard - Heroku Deployment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .status {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        p {
+            color: #666;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+        .info-box {
+            background: #f3f4f6;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-box li {
+            padding: 8px 0;
+            color: #555;
+        }
+        .info-box li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            background: #5568d3;
+        }
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .warning h3 {
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Déploiement Réussi !</h1>
+        <div class="status">✓ Application En Ligne</div>
+
+        <p>L'application <strong>Cloud Field Campaign Scorecard</strong> est maintenant déployée sur Heroku !</p>
+
+        <div class="info-box">
+            <h3>✅ Ce qui fonctionne :</h3>
+            <ul>
+                <li>Backend FastAPI démarré avec succès</li>
+                <li>Frontend HTML/JS accessible</li>
+                <li>API Mappings (Country/Product) disponible</li>
+                <li>Interface Admin fonctionnelle</li>
+                <li>Health check endpoint actif</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ Données CSV Non Disponibles</h3>
+            <p style="color: #78350f; font-size: 1em;">Les fichiers CSV (plusieurs Go) ne sont pas uploadés sur Heroku car trop volumineux pour Git.</p>
+            <p style="color: #78350f; font-size: 1em; margin-top: 10px;"><strong>Pour afficher les données :</strong></p>
+            <ul style="margin-top: 10px;">
+                <li style="color: #78350f;">Option 1 : Uploader les CSV sur Google Cloud Storage ou AWS S3</li>
+                <li style="color: #78350f;">Option 2 : Utiliser l'API Tableau directement</li>
+                <li style="color: #78350f;">Option 3 : Tester en local avec les CSV</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <a href="/health" class="btn">Vérifier Health Check</a>
+            <a href="/docs" class="btn">Voir API Docs</a>
+        </div>
+
+        <p style="margin-top: 40px; color: #999; font-size: 0.9em;">
+            Heroku URL: <strong id="url"></strong>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('url').textContent = window.location.href;
+    </script>
+</body>
+</html>

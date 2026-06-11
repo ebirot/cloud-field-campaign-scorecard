@@ -74,10 +74,22 @@ app.include_router(mappings.router, prefix="/api/mappings", tags=["Mappings"])
 
 @app.get("/")
 async def root():
-    """Serve the Health of Cloud scorecard V2"""
-    frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "health_of_cloud_v2.html")
-    if os.path.exists(frontend_path):
-        return FileResponse(frontend_path)
+    """Serve deployment info page on Heroku, or scorecard locally"""
+    # On Heroku, serve info page. Locally, serve the full app
+    frontend_heroku = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "index_heroku.html")
+    frontend_main = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "frontend", "health_of_cloud_v2.html")
+
+    # Check if CSV data exists (local) or not (Heroku)
+    csv_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "..", "data", "csv")
+    has_data = os.path.exists(csv_dir) and any(os.path.isfile(os.path.join(csv_dir, f)) for f in os.listdir(csv_dir) if f.endswith('.csv'))
+
+    if has_data and os.path.exists(frontend_main):
+        # Local with data - serve full app
+        return FileResponse(frontend_main)
+    elif os.path.exists(frontend_heroku):
+        # Heroku without data - serve info page
+        return FileResponse(frontend_heroku)
+
     return {
         "message": "Cloud Field Campaign Scorecard API - Heroku Deployment",
         "version": "1.0.0",
