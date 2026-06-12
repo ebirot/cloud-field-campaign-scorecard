@@ -86,3 +86,20 @@ async def get_campaign_data(
         raise HTTPException(status_code=500, detail=result.get("message"))
 
     return result
+
+
+@router.post("/download-insights-csv")
+async def download_insights_backend_csv():
+    """
+    Download FY27 AMER + EMEA CFM MDP Insights Back End workbook as CSV
+    Workbook: https://prod-uswest-c.online.tableau.com/#/site/salesforce/workbooks/1830767
+
+    Returns:
+        Status, file path, and available views
+    """
+    result = tableau_service.download_insights_backend_csv()
+
+    if result.get("status") == "error":
+        raise HTTPException(status_code=500, detail=result.get("message"))
+
+    return result

@@ -97,6 +97,89 @@ class TableauService:
             print(f"ERROR: Error fetching view data: {str(e)}")
             return None
 
+    def download_insights_backend_csv(self, save_path: str = "data/insights_backend.csv") -> Dict:
+        """
+        Download FY27 AMER + EMEA CFM MDP Insights Back End workbook as CSV
+        Workbook ID from URL: 1830767
+
+        Args:
+            save_path: Path to save the CSV file
+
+        Returns:
+            Dict with status and file path
+        """
+        try:
+            if not self.server:
+                self.connect()
+
+            # The workbook numeric ID from the URL needs to be converted to LUID
+            # We'll search by name or use the views endpoint
+            workbook_name = "FY27 AMER + EMEA CFM MDP Insights Back End"
+
+            print(f"INFO: Searching for workbook: {workbook_name}")
+
+            # Search all workbooks for the one we need
+            all_workbooks, _ = self.server.workbooks.get()
+            target_workbook = None
+
+            for wb in all_workbooks:
+                if workbook_name.lower() in wb.name.lower():
+                    target_workbook = wb
+                    print(f"SUCCESS: Found workbook '{wb.name}' with ID: {wb.id}")
+                    break
+
+            if not target_workbook:
+                return {
+                    "status": "error",
+                    "message": f"Workbook '{workbook_name}' not found"
+                }
+
+            # Get all views from this workbook
+            self.server.workbooks.populate_views(target_workbook)
+            views = list(target_workbook.views)
+
+            if not views:
+                return {
+                    "status": "error",
+                    "message": "No views found in workbook"
+                }
+
+            print(f"INFO: Found {len(views)} views in workbook")
+
+            # Download the first view as CSV (or we can iterate through all)
+            # For now, let's get the first view
+            view = views[0]
+            print(f"INFO: Downloading view: {view.name}")
+
+            # Download CSV data
+            self.server.views.populate_csv(view)
+            csv_data = b"".join(view.csv)
+
+            # Save to file
+            import os
+            os.makedirs(os.path.dirname(save_path), exist_ok=True)
+
+            with open(save_path, 'wb') as f:
+                f.write(csv_data)
+
+            print(f"SUCCESS: CSV saved to {save_path}")
+
+            return {
+                "status": "success",
+                "message": f"Downloaded {len(views)} view(s)",
+                "file_path": save_path,
+                "workbook_id": target_workbook.id,
+                "view_name": view.name,
+                "views_available": [v.name for v in views]
+            }
+
+        except Exception as e:
+            print(f"ERROR: Failed to download insights CSV: {str(e)}")
+            return {
+                "status": "error",
+                "message": str(e)
+            }
+
     def extract_mdp_data(self, region: str = "EMEA", month: str = None) -> Dict:
         """
         Extract MDP scorecard data for a specific region and month
