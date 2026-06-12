@@ -2240,25 +2240,53 @@ body.dark .metric-bad {
               </h2>
               <p style="color: var(--muted); margin-bottom: 24px;">Monitor and manage automatic CSV refresh from Tableau Server.</p>
 
-              <!-- Scorecard CSV Status -->
-              <div id="systemRefreshStatus" style="margin-bottom: 20px; padding: 24px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 12px; border: 1px solid #93c5fd;">
-                <div style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #1e40af; display: flex; align-items: center; gap: 8px;">
-                  <span>📊</span>
-                  <span>Scorecard CSV Files Status</span>
+              <!-- Main Status Container -->
+              <div id="mainRefreshStatus" style="margin-bottom: 24px;">
+                <!-- Overall Status Header -->
+                <div id="overallStatus" style="background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                  <div style="font-size: 14px; color: #6b7280;">Loading refresh status...</div>
                 </div>
-                <div style="font-size: 14px; color: #1e3a8a;">Loading...</div>
-              </div>
 
-              <!-- Insights CSV Status -->
-              <div id="insightsRefreshStatus" style="margin-bottom: 24px; padding: 24px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; border: 1px solid #fcd34d;">
-                <div style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #92400e; display: flex; align-items: center; gap: 8px;">
-                  <span>🧠</span>
-                  <span>Insights Backend CSV Status</span>
+                <!-- Scorecard Workbook Section -->
+                <div style="background: white; border: 2px solid #3b82f6; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(59,130,246,0.1);">
+                  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 2px solid #dbeafe;">
+                    <div style="font-size: 32px;">📊</div>
+                    <div style="flex: 1;">
+                      <h3 style="margin: 0; font-size: 18px; font-weight: 700; color: #1e40af;">
+                        Main Scorecard Workbook
+                      </h3>
+                      <div style="font-size: 13px; color: #6b7280; margin-top: 4px;">
+                        FY27 AMER + EMEA CFM MDP Scorecard Builder
+                      </div>
+                    </div>
+                  </div>
+                  <div id="scorecardDetails" style="font-size: 14px; color: #1e3a8a;">
+                    Loading...
+                  </div>
                 </div>
-                <div style="font-size: 13px; color: #78350f; margin-bottom: 8px; font-style: italic;">
-                  Hidden data source for AI-generated Highs/Lows/Next Steps
+
+                <!-- Insights Workbook Section -->
+                <div style="background: white; border: 2px solid #f59e0b; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(245,158,11,0.1);">
+                  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 2px solid #fef3c7;">
+                    <div style="font-size: 32px;">🧠</div>
+                    <div style="flex: 1;">
+                      <h3 style="margin: 0; font-size: 18px; font-weight: 700; color: #92400e;">
+                        Insights Backend Workbook
+                      </h3>
+                      <div style="font-size: 13px; color: #6b7280; margin-top: 4px;">
+                        FY27 AMER + EMEA CFM MDP Insights Back End VF
+                      </div>
+                    </div>
+                  </div>
+                  <div style="background: rgba(245,158,11,0.05); padding: 12px; border-radius: 8px; margin-bottom: 12px; border-left: 3px solid #f59e0b;">
+                    <div style="font-size: 12px; color: #92400e; font-weight: 600;">
+                      ℹ️ Hidden data source for AI-generated Highs/Lows/Next Steps
+                    </div>
+                  </div>
+                  <div id="insightsDetails" style="font-size: 14px; color: #92400e;">
+                    Loading...
+                  </div>
                 </div>
-                <div id="insightsRefreshDetails" style="font-size: 14px; color: #92400e;">Loading...</div>
               </div>
 
               <!-- Actions -->
@@ -3252,52 +3280,83 @@ async function loadSystemStatus() {
 
     if (res.ok) {
       const data = await res.json();
-      const scorecardContainer = document.getElementById('systemRefreshStatus');
-      const insightsContainer = document.getElementById('insightsRefreshDetails');
+      const overallContainer = document.getElementById('overallStatus');
+      const scorecardContainer = document.getElementById('scorecardDetails');
+      const insightsContainer = document.getElementById('insightsDetails');
       const lastUpdate = data.last_update;
 
       if (lastUpdate && lastUpdate.last_updated) {
         const date = new Date(lastUpdate.last_updated);
         const statusIcon = lastUpdate.success ? '✅' : '⚠️';
         const statusText = lastUpdate.success ? 'Refresh Successful' : 'Refresh Failed';
+        const statusColor = lastUpdate.success ? '#10b981' : '#ef4444';
 
-        // Scorecard CSV Status (10 views from main workbook)
-        const scorecardViews = lastUpdate.details?.scorecard_views || [];
-        const scorecardSuccess = scorecardViews.filter(v => lastUpdate.details?.scorecard_success?.includes(v)).length || 10;
-        const scorecardTotal = scorecardViews.length || 10;
-
-        scorecardContainer.innerHTML = `
-          <div style="display: flex; gap: 20px; align-items: start;">
-            <div style="font-size: 48px;">${statusIcon}</div>
+        // Overall Status Header
+        overallContainer.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="font-size: 56px;">${statusIcon}</div>
             <div style="flex: 1;">
-              <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #1e40af;">
+              <div style="font-size: 24px; font-weight: 700; color: ${statusColor}; margin-bottom: 8px;">
                 ${statusText}
               </div>
-              <div style="font-size: 14px; color: #1e3a8a; margin-bottom: 16px;">
-                Last updated: ${date.toLocaleString()}
+              <div style="font-size: 14px; color: #6b7280; margin-bottom: 12px;">
+                Last updated: ${date.toLocaleString('fr-FR', { dateStyle: 'short', timeStyle: 'medium' })}
               </div>
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 16px;">
-                <div>
-                  <div style="font-size: 11px; color: #1e3a8a; margin-bottom: 4px; font-weight: 600;">SCORECARD VIEWS</div>
-                  <div style="font-size: 20px; font-weight: 700; color: #1e40af;">${scorecardSuccess}/${scorecardTotal}</div>
-                </div>
-                <div>
-                  <div style="font-size: 11px; color: #1e3a8a; margin-bottom: 4px; font-weight: 600;">DURATION</div>
-                  <div style="font-size: 20px; font-weight: 700; color: #1e40af;">${lastUpdate.elapsed_seconds}s</div>
-                </div>
+              <div style="display: inline-flex; align-items: center; gap: 8px; background: #f3f4f6; padding: 8px 16px; border-radius: 8px;">
+                <div style="font-size: 12px; color: #6b7280; font-weight: 600;">TOTAL DURATION</div>
+                <div style="font-size: 18px; font-weight: 700; color: #1f2937;">${lastUpdate.elapsed_seconds?.toFixed(1)}s</div>
               </div>
-              ${lastUpdate.details?.scorecard_success?.length > 0 ? `
-                <details style="margin-top: 12px;">
-                  <summary style="cursor: pointer; font-size: 13px; color: #1e40af; font-weight: 600; padding: 8px; background: rgba(30, 64, 175, 0.05); border-radius: 6px;">
-                    📄 View Downloaded Files (${lastUpdate.details.scorecard_success.length})
-                  </summary>
-                  <div style="margin-top: 8px; padding: 12px; background: rgba(30, 64, 175, 0.03); border-radius: 6px; font-size: 12px; color: #1e3a8a;">
-                    ${lastUpdate.details.scorecard_success.map(v => `<div style="padding: 4px 0;">✅ ${v}</div>`).join('')}
-                  </div>
-                </details>
-              ` : ''}
             </div>
           </div>
+        `;
+
+        // Scorecard CSV Status (10 views from main workbook)
+        const scorecardSuccess = lastUpdate.details?.scorecard_success || [];
+        const scorecardFailed = lastUpdate.details?.scorecard_failed || [];
+        const scorecardTotal = scorecardSuccess.length + scorecardFailed.length;
+
+        scorecardContainer.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 16px; padding: 16px; background: #eff6ff; border-radius: 8px; margin-bottom: 16px;">
+            <div style="font-size: 40px;">${scorecardSuccess.length === scorecardTotal ? '✅' : '⚠️'}</div>
+            <div style="flex: 1;">
+              <div style="font-size: 16px; font-weight: 700; color: #1e40af; margin-bottom: 4px;">
+                ${scorecardSuccess.length}/${scorecardTotal} Views Downloaded
+              </div>
+              <div style="font-size: 13px; color: #6b7280;">
+                Main scorecard data for dashboard display
+              </div>
+            </div>
+          </div>
+
+          ${scorecardSuccess.length > 0 ? `
+            <details open style="margin-bottom: 12px;">
+              <summary style="cursor: pointer; font-size: 14px; font-weight: 600; color: #1e40af; padding: 12px; background: #dbeafe; border-radius: 8px; display: flex; align-items: center; gap: 8px;">
+                <span>✅ Successfully Downloaded (${scorecardSuccess.length})</span>
+              </summary>
+              <div style="margin-top: 8px; padding: 16px; background: #f0f9ff; border-radius: 8px; border: 1px solid #dbeafe;">
+                ${scorecardSuccess.map((v, i) => `
+                  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 0; ${i < scorecardSuccess.length - 1 ? 'border-bottom: 1px solid #dbeafe;' : ''}">
+                    <div style="background: #10b981; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0;">
+                      ${i + 1}
+                    </div>
+                    <div style="font-size: 13px; color: #1e40af; flex: 1;">${v}</div>
+                    <div style="color: #10b981; font-size: 16px;">✓</div>
+                  </div>
+                `).join('')}
+              </div>
+            </details>
+          ` : ''}
+
+          ${scorecardFailed.length > 0 ? `
+            <details style="margin-bottom: 12px;">
+              <summary style="cursor: pointer; font-size: 14px; font-weight: 600; color: #dc2626; padding: 12px; background: #fee2e2; border-radius: 8px;">
+                ❌ Failed Downloads (${scorecardFailed.length})
+              </summary>
+              <div style="margin-top: 8px; padding: 16px; background: #fef2f2; border-radius: 8px; border: 1px solid #fecaca;">
+                ${scorecardFailed.map(v => `<div style="padding: 6px 0; font-size: 13px; color: #dc2626;">❌ ${v}</div>`).join('')}
+              </div>
+            </details>
+          ` : ''}
         `;
 
         // Insights Backend Status - need to fetch detailed results from last refresh
@@ -3309,56 +3368,70 @@ async function loadSystemStatus() {
             const viewsSuccess = insightsData.views_success || 0;
             const viewsTotal = insightsData.views_total || 0;
 
-            const insightsIcon = workbookFound && viewsSuccess > 0 ? '✅' : '⚠️';
-            const insightsText = workbookFound
-              ? `${viewsSuccess}/${viewsTotal} views downloaded`
-              : 'Workbook not found';
-
+            const workbookFound = insightsData.workbook_found || false;
             const insightsSuccessList = insightsData.views_success_list || [];
             const insightsFailedList = insightsData.views_failed_list || [];
+            const insightsTotal = insightsSuccessList.length + insightsFailedList.length;
 
-            insightsContainer.innerHTML = `
-              <div style="display: flex; gap: 16px; align-items: start;">
-                <div style="font-size: 36px;">${insightsIcon}</div>
-                <div style="flex: 1;">
-                  <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #92400e;">
-                    ${insightsText}
-                  </div>
-                  <div style="font-size: 13px; color: #78350f; margin-bottom: 12px;">
-                    Last refresh: ${date.toLocaleString()}
-                  </div>
-                  ${!workbookFound ? `
-                    <div style="font-size: 12px; color: #dc2626; margin-top: 8px; background: #fee2e2; padding: 8px; border-radius: 6px; font-weight: 600;">
-                      ⚠️ Workbook "FY27 AMER + EMEA CFM MDP Insights Back End VF" not found on Tableau Server
+            if (!workbookFound) {
+              insightsContainer.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 16px; padding: 16px; background: #fee2e2; border-radius: 8px;">
+                  <div style="font-size: 40px;">⚠️</div>
+                  <div style="flex: 1;">
+                    <div style="font-size: 16px; font-weight: 700; color: #dc2626; margin-bottom: 4px;">
+                      Workbook Not Found
                     </div>
-                  ` : `
-                    <div style="font-size: 12px; color: #92400e; margin-bottom: 12px; background: rgba(255,255,255,0.5); padding: 8px; border-radius: 6px;">
-                      ℹ️ This workbook contains unlocked data for AI insight generation
+                    <div style="font-size: 13px; color: #991b1b;">
+                      Unable to locate Insights workbook on Tableau Server
                     </div>
-                    ${insightsSuccessList.length > 0 ? `
-                      <details style="margin-top: 8px;">
-                        <summary style="cursor: pointer; font-size: 13px; color: #92400e; font-weight: 600; padding: 8px; background: rgba(146, 64, 14, 0.08); border-radius: 6px;">
-                          📄 View Downloaded Insights Files (${insightsSuccessList.length})
-                        </summary>
-                        <div style="margin-top: 8px; padding: 12px; background: rgba(146, 64, 14, 0.05); border-radius: 6px; font-size: 12px; color: #78350f;">
-                          ${insightsSuccessList.map(v => `<div style="padding: 4px 0;">✅ ${v}</div>`).join('')}
-                        </div>
-                      </details>
-                    ` : ''}
-                    ${insightsFailedList.length > 0 ? `
-                      <details style="margin-top: 8px;">
-                        <summary style="cursor: pointer; font-size: 13px; color: #dc2626; font-weight: 600; padding: 8px; background: rgba(220, 38, 38, 0.08); border-radius: 6px;">
-                          ❌ Failed Downloads (${insightsFailedList.length})
-                        </summary>
-                        <div style="margin-top: 8px; padding: 12px; background: rgba(220, 38, 38, 0.05); border-radius: 6px; font-size: 12px; color: #dc2626;">
-                          ${insightsFailedList.map(v => `<div style="padding: 4px 0;">❌ ${v}</div>`).join('')}
-                        </div>
-                      </details>
-                    ` : ''}
-                  `}
+                  </div>
                 </div>
-              </div>
-            `;
+              `;
+            } else {
+              insightsContainer.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 16px; padding: 16px; background: #fef3c7; border-radius: 8px; margin-bottom: 16px;">
+                  <div style="font-size: 40px;">${insightsSuccessList.length === insightsTotal ? '✅' : '⚠️'}</div>
+                  <div style="flex: 1;">
+                    <div style="font-size: 16px; font-weight: 700; color: #92400e; margin-bottom: 4px;">
+                      ${insightsSuccessList.length}/${insightsTotal} Views Downloaded
+                    </div>
+                    <div style="font-size: 13px; color: #6b7280;">
+                      Unlocked data for AI-generated Highs/Lows/Next Steps
+                    </div>
+                  </div>
+                </div>
+
+                ${insightsSuccessList.length > 0 ? `
+                  <details open style="margin-bottom: 12px;">
+                    <summary style="cursor: pointer; font-size: 14px; font-weight: 600; color: #92400e; padding: 12px; background: #fef3c7; border-radius: 8px; display: flex; align-items: center; gap: 8px;">
+                      <span>✅ Successfully Downloaded (${insightsSuccessList.length})</span>
+                    </summary>
+                    <div style="margin-top: 8px; padding: 16px; background: #fffbeb; border-radius: 8px; border: 1px solid #fef3c7;">
+                      ${insightsSuccessList.map((v, i) => `
+                        <div style="display: flex; align-items: center; gap: 8px; padding: 8px 0; ${i < insightsSuccessList.length - 1 ? 'border-bottom: 1px solid #fef3c7;' : ''}">
+                          <div style="background: #10b981; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0;">
+                            ${i + 1}
+                          </div>
+                          <div style="font-size: 13px; color: #92400e; flex: 1;">${v}</div>
+                          <div style="color: #10b981; font-size: 16px;">✓</div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </details>
+                ` : ''}
+
+                ${insightsFailedList.length > 0 ? `
+                  <details style="margin-bottom: 12px;">
+                    <summary style="cursor: pointer; font-size: 14px; font-weight: 600; color: #dc2626; padding: 12px; background: #fee2e2; border-radius: 8px;">
+                      ❌ Failed Downloads (${insightsFailedList.length})
+                    </summary>
+                    <div style="margin-top: 8px; padding: 16px; background: #fef2f2; border-radius: 8px; border: 1px solid #fecaca;">
+                      ${insightsFailedList.map(v => `<div style="padding: 6px 0; font-size: 13px; color: #dc2626;">❌ ${v}</div>`).join('')}
+                    </div>
+                  </details>
+                ` : ''}
+              `;
+            }
           })
           .catch(() => {
             // Fallback if endpoint doesn't exist yet
@@ -3369,18 +3442,24 @@ async function loadSystemStatus() {
             `;
           });
       } else {
+        // No refresh yet
+        overallContainer.innerHTML = `
+          <div style="text-align: center; padding: 32px;">
+            <div style="font-size: 64px; margin-bottom: 16px;">⏳</div>
+            <div style="font-size: 20px; font-weight: 700; color: #6b7280; margin-bottom: 8px;">No Refresh Yet</div>
+            <div style="font-size: 14px; color: #9ca3af;">Waiting for first automatic refresh at 6:00 AM CET</div>
+          </div>
+        `;
+
         scorecardContainer.innerHTML = `
-          <div style="text-align: center; padding: 20px;">
-            <div style="font-size: 32px; margin-bottom: 12px;">⏳</div>
-            <div style="font-size: 16px; font-weight: 600; margin-bottom: 4px; color: #1e40af;">No refresh yet</div>
-            <div style="font-size: 13px; color: #1e3a8a;">Waiting for first automatic refresh at 6:00 AM CET</div>
+          <div style="text-align: center; padding: 24px; background: #f9fafb; border-radius: 8px;">
+            <div style="font-size: 14px; color: #6b7280;">No data available yet</div>
           </div>
         `;
 
         insightsContainer.innerHTML = `
-          <div style="text-align: center; padding: 12px;">
-            <div style="font-size: 24px; margin-bottom: 8px;">⏳</div>
-            <div style="font-size: 14px; color: #92400e;">Waiting for first refresh...</div>
+          <div style="text-align: center; padding: 24px; background: #fffbeb; border-radius: 8px;">
+            <div style="font-size: 14px; color: #92400e;">No data available yet</div>
           </div>
         `;
       }
