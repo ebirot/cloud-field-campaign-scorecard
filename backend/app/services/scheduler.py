@@ -64,18 +64,27 @@ class TaskScheduler:
             results = tableau_service.refresh_all_csvs()
 
             elapsed = (datetime.now() - start_time).total_seconds()
-            successful = sum(1 for v in results.values() if v)
-            total = len(results)
 
-            logger.info(f"✅ CSV refresh completed: {successful}/{total} files in {elapsed:.1f}s")
+            # Calculate totals
+            scorecard_success = len(results.get('scorecard', {}).get('success', []))
+            scorecard_failed = len(results.get('scorecard', {}).get('failed', []))
+            insights_success = len(results.get('insights', {}).get('success', []))
+            insights_failed = len(results.get('insights', {}).get('failed', []))
+
+            total_success = scorecard_success + insights_success
+            total_files = scorecard_success + scorecard_failed + insights_success + insights_failed
+
+            logger.info(f"✅ CSV refresh completed: {total_success}/{total_files} files in {elapsed:.1f}s")
+            logger.info(f"   Scorecard: {scorecard_success}/{scorecard_success + scorecard_failed}")
+            logger.info(f"   Insights: {insights_success}/{insights_success + insights_failed}")
 
             # Save last update timestamp and status
-            self._save_last_update(successful, total, elapsed)
+            self._save_last_update(total_success, total_files, elapsed)
 
             # Log any failures
-            failures = [name for name, success in results.items() if not success]
-            if failures:
-                logger.warning(f"⚠️  Failed to refresh: {', '.join(failures)}")
+            all_failures = results.get('scorecard', {}).get('failed', []) + results.get('insights', {}).get('failed', [])
+            if all_failures:
+                logger.warning(f"⚠️  Failed to refresh: {', '.join(all_failures)}")
 
         except Exception as e:
             logger.error(f"❌ Scheduled CSV refresh failed: {e}")
@@ -87,17 +96,29 @@ class TaskScheduler:
         start_time = datetime.now()
         try:
             results = tableau_service.refresh_all_csvs()
-            successful = sum(1 for v in results.values() if v)
-            total = len(results)
+
+            # Calculate totals
+            scorecard_success = len(results.get('scorecard', {}).get('success', []))
+            scorecard_failed = len(results.get('scorecard', {}).get('failed', []))
+            insights_success = len(results.get('insights', {}).get('success', []))
+            insights_failed = len(results.get('insights', {}).get('failed', []))
+
+            total_success = scorecard_success + insights_success
+            total_files = scorecard_success + scorecard_failed + insights_success + insights_failed
             elapsed = (datetime.now() - start_time).total_seconds()
 
             # Save status
-            self._save_last_update(successful, total, elapsed)
+            self._save_last_update(total_success, total_files, elapsed)
 
             return {
                 'success': True,
                 'results': results,
-                'summary': f'{successful}/{total} files refreshed',
+                'summary': {
+                    'scorecard': f'{scorecard_success}/{scorecard_success + scorecard_failed} views',
+                    'insights': f'{insights_success}/{insights_success + insights_failed} views',
+                    'total': f'{total_success}/{total_files} files'
+                },
+                'elapsed_seconds': elapsed,
                 'timestamp': datetime.now().isoformat()
             }
         except Exception as e:

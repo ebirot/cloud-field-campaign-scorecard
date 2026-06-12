@@ -3336,18 +3336,45 @@ async function triggerManualRefresh() {
 
   try {
     const API_URL = getAdminApiUrl();
+    showToast('🔄 Refreshing CSV files...', 'info');
+
     const res = await fetch(`${API_URL}/api/refresh/trigger`, { method: 'POST' });
     const data = await res.json();
 
     if (data.success) {
-      alert('✅ Refresh completed successfully!\n\n' + data.summary);
+      const results = data.results;
+      const summary = data.summary;
+
+      // Build detailed message
+      let message = '✅ Refresh completed successfully!\n\n';
+      message += `📊 Scorecard: ${summary.scorecard}\n`;
+      message += `   ✅ Success: ${results.scorecard.success.join(', ')}\n`;
+      if (results.scorecard.failed.length > 0) {
+        message += `   ❌ Failed: ${results.scorecard.failed.join(', ')}\n`;
+      }
+      message += `\n🧠 Insights Backend: ${summary.insights}\n`;
+      if (results.insights.workbook_found) {
+        message += `   ✅ Workbook found: ${results.insights.views_count} views\n`;
+        message += `   ✅ Success: ${results.insights.success.join(', ')}\n`;
+        if (results.insights.failed.length > 0) {
+          message += `   ❌ Failed: ${results.insights.failed.join(', ')}\n`;
+        }
+      } else {
+        message += `   ❌ Workbook not found\n`;
+      }
+      message += `\n⏱️ Duration: ${data.elapsed_seconds.toFixed(1)}s`;
+
+      alert(message);
+      showToast('✅ Refresh completed!', 'success');
       loadSystemStatus();
       loadAnalyticsData();
     } else {
       alert('❌ Refresh failed: ' + data.error);
+      showToast('❌ Refresh failed', 'error');
     }
   } catch (error) {
     alert('❌ Failed to trigger refresh: ' + error.message);
+    showToast('❌ Error: ' + error.message, 'error');
   }
 }
 

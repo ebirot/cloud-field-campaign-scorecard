@@ -42,9 +42,20 @@ class TableauRefreshService:
         # Point to centralized data folder at project root
         self.data_dir = Path(__file__).parent.parent.parent.parent / 'data' / 'csv'
 
-    def refresh_all_csvs(self) -> Dict[str, bool]:
+    def refresh_all_csvs(self) -> Dict:
         """Download all CSV files from Tableau Server using official SDK - in parallel"""
-        results = {}
+        results = {
+            'scorecard': {
+                'success': [],
+                'failed': []
+            },
+            'insights': {
+                'success': [],
+                'failed': [],
+                'workbook_found': False,
+                'views_count': 0
+            }
+        }
 
         try:
             # Create authentication object using Personal Access Token
@@ -91,27 +102,40 @@ class TableauRefreshService:
                         futures[future] = ('scorecard', view.name)
 
                     # Submit Insights Backend download
-                    insights_future = executor.submit(self.download_insights_backend, server)
+                    insights_future = executor.submit(self.download_insights_backend_detailed, server)
                     futures[insights_future] = ('insights', 'Insights Backend')
 
                     # Collect results as they complete
                     for future in as_completed(futures):
                         task_type, task_name = futures[future]
                         try:
-                            success = future.result()
-                            results[task_name] = success
+                            result = future.result()
 
-                            if success:
-                                print(f"[TABLEAU] ✅ {task_name} downloaded successfully")
-                                logger.info(f"✅ {task_name} downloaded successfully")
-                            else:
-                                print(f"[TABLEAU] ❌ {task_name} failed")
-                                logger.error(f"❌ {task_name} failed")
+                            if task_type == 'scorecard':
+                                if result:
+                                    results['scorecard']['success'].append(task_name)
+                                    print(f"[TABLEAU] ✅ {task_name} downloaded successfully")
+                                    logger.info(f"✅ {task_name} downloaded successfully")
+                                else:
+                                    results['scorecard']['failed'].append(task_name)
+                                    print(f"[TABLEAU] ❌ {task_name} failed")
+                                    logger.error(f"❌ {task_name} failed")
+
+                            elif task_type == 'insights':
+                                # Result is now a dict with details
+                                results['insights'] = result
+                                if result.get('workbook_found'):
+                                    print(f"[TABLEAU] ✅ Insights Backend: {len(result['success'])} views downloaded")
+                                    logger.info(f"✅ Insights Backend: {len(result['success'])} views downloaded")
+                                else:
+                                    print(f"[TABLEAU] ❌ Insights Backend workbook not found")
+                                    logger.error(f"❌ Insights Backend workbook not found")
 
                         except Exception as e:
                             print(f"[TABLEAU] ERROR {task_name} error: {e}")
                             logger.error(f"{task_name} error: {e}")
-                            results[task_name] = False
+                            if task_type == 'scorecard':
+                                results['scorecard']['failed'].append(task_name)
 
                 print(f"[TABLEAU] COMPLETE Parallel refresh complete!")
                 logger.info("COMPLETE Parallel CSV refresh complete (Scorecard + Insights)")
@@ -157,6 +181,95 @@ class TableauRefreshService:
             print(f"[TABLEAU] ERROR Error downloading {view.name}: {e}")
             logger.error(f"Error downloading {view.name}: {e}")
             return False
+
+    def download_insights_backend_detailed(self, server: TSC.Server) -> Dict:
+        """
+        Download FY27 AMER + EMEA CFM MDP Insights Back End workbook CSV
+        Returns detailed results for UI display
+
+        Args:
+            server: Authenticated Tableau server instance
+
+        Returns:
+            Dict with success/failed lists and metadata
+        """
+        result = {
+            'workbook_found': False,
+            'views_count': 0,
+            'success': [],
+            'failed': []
+        }
+
+        try:
+            print(f"[TABLEAU] Searching for workbook: {self.insights_workbook_name}")
+            logger.info(f"Searching for insights workbook: {self.insights_workbook_name}")
+
+            # Search for the workbook by name
+            all_workbooks, _ = server.workbooks.get()
+            insights_workbook = None
+
+            for wb in all_workbooks:
+                if self.insights_workbook_name.lower() in wb.name.lower():
+                    insights_workbook = wb
+                    print(f"[TABLEAU] OK Found workbook: {wb.name} (ID: {wb.id})")
+                    logger.info(f"Found insights workbook: {wb.name} (ID: {wb.id})")
+                    break
+
+            if not insights_workbook:
+                print(f"[TABLEAU] ERROR Insights workbook not found: {self.insights_workbook_name}")
+                logger.error(f"Insights workbook not found: {self.insights_workbook_name}")
+                return result
+
+            result['workbook_found'] = True
+
+            # Get all views from this workbook
+            server.workbooks.populate_views(insights_workbook)
+            views = list(insights_workbook.views)
+
+            if not views:
+                print(f"[TABLEAU] ERROR No views found in insights workbook")
+                logger.error("No views found in insights workbook")
+                return result
+
+            result['views_count'] = len(views)
+            print(f"[TABLEAU] INFO Found {len(views)} views in insights workbook")
+            logger.info(f"Found {len(views)} views in insights workbook")
+
+            # Download all views from this workbook
+            for idx, view in enumerate(views, 1):
+                try:
+                    print(f"[TABLEAU] Downloading insights view {idx}/{len(views)}: {view.name}")
+
+                    # Get full view details
+                    view = server.views.get_by_id(view.id)
+
+                    # Download as CSV
+                    server.views.populate_csv(view)
+                    csv_data = b''.join(view.csv).decode('utf-8-sig')
+
+                    # Save to file with numbered prefix
+                    safe_filename = f"insights_{idx:02d}_{view.name.replace(' ', '_').replace('/', '_')[:50]}.csv"
+                    output_path = self.data_dir / safe_filename
+
+                    with open(output_path, 'w', encoding='utf-8') as f:
+                        f.write(csv_data)
+
+                    file_size = len(csv_data) / 1024  # KB
+                    print(f"[TABLEAU] OK Downloaded {view.name} -> {safe_filename} ({file_size:.1f} KB)")
+                    logger.info(f"OK Downloaded insights view: {view.name} -> {safe_filename} ({file_size:.1f} KB)")
+
+                    result['success'].append(view.name)
+
+                except Exception as e:
+                    print(f"[TABLEAU] ERROR Error downloading insights view {view.name}: {e}")
+                    logger.error(f"Error downloading insights view {view.name}: {e}")
+                    result['failed'].append(view.name)
+
+        except Exception as e:
+            print(f"[TABLEAU] ERROR Failed to download insights backend: {e}")
+            logger.error(f"Failed to download insights backend: {e}")
+
+        return result
 
     def download_insights_backend(self, server: TSC.Server) -> bool:
         """
