@@ -1,134 +1,134 @@
 APM L1,Measure Names,Opportunity Stage 2 Date - Fiscal Quarter,Measure Values
-,Current FY MDP,Q1,"118,898.499224114"
-,% YoY,Q1,-0.748997615
-,CFY MDP Contribution,Q1,0.230075663
-,Previous FY MDP Contribution,Q1,0.444886888
-,MDP Contr. Diff vs FY-1 (ppts),Q1,-21.481122467
-AI and Data,Current FY MDP,Q1,"654,554,881.908764"
-AI and Data,% YoY,Q1,-0.230578788
-AI and Data,CFY MDP Contribution,Q1,0.340840066
-AI and Data,Previous FY MDP Contribution,Q1,0.360553798
-AI and Data,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.971373213
-Analytics,Current FY MDP,Q1,"330,248,211.612161"
-Analytics,% YoY,Q1,0.000146343
-Analytics,CFY MDP Contribution,Q1,0.343344110
-Analytics,Previous FY MDP Contribution,Q1,0.367223892
-Analytics,MDP Contr. Diff vs FY-1 (ppts),Q1,-2.387978229
-Commerce,Current FY MDP,Q1,"106,148,889.587292"
-Commerce,% YoY,Q1,-0.142500947
-Commerce,CFY MDP Contribution,Q1,0.329584035
-Commerce,Previous FY MDP Contribution,Q1,0.346302512
-Commerce,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.671847689
-Core Success Plans,Current FY MDP,Q1,"95,355,228.4834072"
-Core Success Plans,% YoY,Q1,-0.056420354
-Core Success Plans,CFY MDP Contribution,Q1,0.334887872
-Core Success Plans,Previous FY MDP Contribution,Q1,0.363209905
-Core Success Plans,MDP Contr. Diff vs FY-1 (ppts),Q1,-2.832203274
-Informatica,Current FY MDP,Q1,"195,513,377.243858"
+,Current FY MDP,Q1,"124,263.510568379"
+,% YoY,Q1,-0.739534698
+,CFY MDP Contribution,Q1,0.240457279
+,Previous FY MDP Contribution,Q1,0.448068923
+,MDP Contr. Diff vs FY-1 (ppts),Q1,-20.761164456
+AI and Data,Current FY MDP,Q1,"655,830,380.242628"
+AI and Data,% YoY,Q1,-0.229576016
+AI and Data,CFY MDP Contribution,Q1,0.341504244
+AI and Data,Previous FY MDP Contribution,Q1,0.360786185
+AI and Data,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.928194123
+Analytics,Current FY MDP,Q1,"330,787,354.361999"
+Analytics,% YoY,Q1,-5.007775625e-05
+Analytics,CFY MDP Contribution,Q1,0.343904632
+Analytics,Previous FY MDP Contribution,Q1,0.367895651
+Analytics,MDP Contr. Diff vs FY-1 (ppts),Q1,-2.399101860
+Commerce,Current FY MDP,Q1,"107,017,154.708657"
+Commerce,% YoY,Q1,-0.128530610
+Commerce,CFY MDP Contribution,Q1,0.332279930
+Commerce,Previous FY MDP Contribution,Q1,0.343538249
+Commerce,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.125831853
+Core Success Plans,Current FY MDP,Q1,"95,424,698.7122288"
+Core Success Plans,% YoY,Q1,-0.050427538
+Core Success Plans,CFY MDP Contribution,Q1,0.335131852
+Core Success Plans,Previous FY MDP Contribution,Q1,0.361180607
+Core Success Plans,MDP Contr. Diff vs FY-1 (ppts),Q1,-2.604875440
+Informatica,Current FY MDP,Q1,"196,116,749.391758"
 Informatica,% YoY,Q1,
-Informatica,CFY MDP Contribution,Q1,0.286261834
+Informatica,CFY MDP Contribution,Q1,0.287145264
 Informatica,Previous FY MDP Contribution,Q1,
 Informatica,MDP Contr. Diff vs FY-1 (ppts),Q1,
-Integration,Current FY MDP,Q1,"375,920,681.307988"
-Integration,% YoY,Q1,0.105147923
-Integration,CFY MDP Contribution,Q1,0.324353948
-Integration,Previous FY MDP Contribution,Q1,0.345426679
-Integration,MDP Contr. Diff vs FY-1 (ppts),Q1,-2.107273048
-Marketing,Current FY MDP,Q1,"517,505,512.232041"
-Marketing,% YoY,Q1,0.137080512
-Marketing,CFY MDP Contribution,Q1,0.327897394
-Marketing,Previous FY MDP Contribution,Q1,0.344185228
-Marketing,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.628783375
-Other,Current FY MDP,Q1,"237,133,803.532689"
-Other,% YoY,Q1,-0.180125432
-Other,CFY MDP Contribution,Q1,0.425735786
-Other,Previous FY MDP Contribution,Q1,0.381831768
-Other,MDP Contr. Diff vs FY-1 (ppts),Q1,4.390401771
-Sales,Current FY MDP,Q1,"1,113,939,101.92473"
-Sales,% YoY,Q1,0.183680077
-Sales,CFY MDP Contribution,Q1,0.335217991
-Sales,Previous FY MDP Contribution,Q1,0.357464785
-Sales,MDP Contr. Diff vs FY-1 (ppts),Q1,-2.224679377
-Salesforce Platform,Current FY MDP,Q1,"261,409,325.077458"
-Salesforce Platform,% YoY,Q1,0.005382692
-Salesforce Platform,CFY MDP Contribution,Q1,0.308634271
-Salesforce Platform,Previous FY MDP Contribution,Q1,0.323912857
-Salesforce Platform,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.527858593
-Service,Current FY MDP,Q1,"1,026,182,937.70614"
-Service,% YoY,Q1,0.252619815
-Service,CFY MDP Contribution,Q1,0.328563665
-Service,Previous FY MDP Contribution,Q1,0.346299539
-Service,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.773587377
-Slack,Current FY MDP,Q1,"356,336,442.400975"
-Slack,% YoY,Q1,0.526998959
-Slack,CFY MDP Contribution,Q1,0.345845661
-Slack,Previous FY MDP Contribution,Q1,0.377489052
-Slack,MDP Contr. Diff vs FY-1 (ppts),Q1,-3.164339156
+Integration,Current FY MDP,Q1,"374,086,392.688734"
+Integration,% YoY,Q1,0.101390611
+Integration,CFY MDP Contribution,Q1,0.322771277
+Integration,Previous FY MDP Contribution,Q1,0.344913832
+Integration,MDP Contr. Diff vs FY-1 (ppts),Q1,-2.214255456
+Marketing,Current FY MDP,Q1,"518,342,771.624608"
+Marketing,% YoY,Q1,0.138491154
+Marketing,CFY MDP Contribution,Q1,0.328427891
+Marketing,Previous FY MDP Contribution,Q1,0.344314925
+Marketing,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.588703440
+Other,Current FY MDP,Q1,"236,491,759.172469"
+Other,% YoY,Q1,-0.187039713
+Other,CFY MDP Contribution,Q1,0.424583098
+Other,Previous FY MDP Contribution,Q1,0.384036663
+Other,MDP Contr. Diff vs FY-1 (ppts),Q1,4.054643528
+Sales,Current FY MDP,Q1,"1,115,721,679.71523"
+Sales,% YoY,Q1,0.183198308
+Sales,CFY MDP Contribution,Q1,0.335754423
+Sales,Previous FY MDP Contribution,Q1,0.358182601
+Sales,MDP Contr. Diff vs FY-1 (ppts),Q1,-2.242817794
+Salesforce Platform,Current FY MDP,Q1,"262,401,191.862174"
+Salesforce Platform,% YoY,Q1,0.008571371
+Salesforce Platform,CFY MDP Contribution,Q1,0.309805324
+Salesforce Platform,Previous FY MDP Contribution,Q1,0.324113919
+Salesforce Platform,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.430859537
+Service,Current FY MDP,Q1,"1,028,100,138.30517"
+Service,% YoY,Q1,0.255281804
+Service,CFY MDP Contribution,Q1,0.329177515
+Service,Previous FY MDP Contribution,Q1,0.346210779
+Service,MDP Contr. Diff vs FY-1 (ppts),Q1,-1.703326410
+Slack,Current FY MDP,Q1,"359,140,729.407605"
+Slack,% YoY,Q1,0.546008426
+Slack,CFY MDP Contribution,Q1,0.348567388
+Slack,Previous FY MDP Contribution,Q1,0.375781734
+Slack,MDP Contr. Diff vs FY-1 (ppts),Q1,-2.721434640
 ,Current FY MDP,Q2,
 ,% YoY,Q2,
 ,CFY MDP Contribution,Q2,
-,Previous FY MDP Contribution,Q2,0.294024239
+,Previous FY MDP Contribution,Q2,0.301265580
 ,MDP Contr. Diff vs FY-1 (ppts),Q2,
-AI and Data,Current FY MDP,Q2,"253,998,397.8107"
-AI and Data,% YoY,Q2,-0.101488991
-AI and Data,CFY MDP Contribution,Q2,0.338453173
-AI and Data,Previous FY MDP Contribution,Q2,0.341456625
-AI and Data,MDP Contr. Diff vs FY-1 (ppts),Q2,-0.300345240
-Analytics,Current FY MDP,Q2,"110,284,006.207526"
-Analytics,% YoY,Q2,-0.082794762
-Analytics,CFY MDP Contribution,Q2,0.343563541
-Analytics,Previous FY MDP Contribution,Q2,0.357286487
-Analytics,MDP Contr. Diff vs FY-1 (ppts),Q2,-1.372294528
-Commerce,Current FY MDP,Q2,"37,254,658.2131872"
-Commerce,% YoY,Q2,-0.273124980
-Commerce,CFY MDP Contribution,Q2,0.314703370
-Commerce,Previous FY MDP Contribution,Q2,0.328640063
-Commerce,MDP Contr. Diff vs FY-1 (ppts),Q2,-1.393669319
-Core Success Plans,Current FY MDP,Q2,"29,028,704.8760429"
-Core Success Plans,% YoY,Q2,-0.267739067
-Core Success Plans,CFY MDP Contribution,Q2,0.330627860
-Core Success Plans,Previous FY MDP Contribution,Q2,0.362040271
-Core Success Plans,MDP Contr. Diff vs FY-1 (ppts),Q2,-3.141241167
-Informatica,Current FY MDP,Q2,"107,358,586.639954"
+AI and Data,Current FY MDP,Q2,"258,480,805.798226"
+AI and Data,% YoY,Q2,-0.118548536
+AI and Data,CFY MDP Contribution,Q2,0.335797594
+AI and Data,Previous FY MDP Contribution,Q2,0.343692761
+AI and Data,MDP Contr. Diff vs FY-1 (ppts),Q2,-0.789516704
+Analytics,Current FY MDP,Q2,"113,125,773.847561"
+Analytics,% YoY,Q2,-0.087695873
+Analytics,CFY MDP Contribution,Q2,0.342623758
+Analytics,Previous FY MDP Contribution,Q2,0.359587750
+Analytics,MDP Contr. Diff vs FY-1 (ppts),Q2,-1.696399258
+Commerce,Current FY MDP,Q2,"38,892,324.5136117"
+Commerce,% YoY,Q2,-0.241998986
+Commerce,CFY MDP Contribution,Q2,0.316460384
+Commerce,Previous FY MDP Contribution,Q2,0.325541615
+Commerce,MDP Contr. Diff vs FY-1 (ppts),Q2,-0.908123114
+Core Success Plans,Current FY MDP,Q2,"29,724,299.8268375"
+Core Success Plans,% YoY,Q2,-0.269201481
+Core Success Plans,CFY MDP Contribution,Q2,0.331164923
+Core Success Plans,Previous FY MDP Contribution,Q2,0.361440002
+Core Success Plans,MDP Contr. Diff vs FY-1 (ppts),Q2,-3.027507922
+Informatica,Current FY MDP,Q2,"108,296,064.528201"
 Informatica,% YoY,Q2,
-Informatica,CFY MDP Contribution,Q2,0.275959315
+Informatica,CFY MDP Contribution,Q2,0.272917326
 Informatica,Previous FY MDP Contribution,Q2,
 Informatica,MDP Contr. Diff vs FY-1 (ppts),Q2,
-Integration,Current FY MDP,Q2,"125,734,059.940642"
-Integration,% YoY,Q2,-0.081725002
-Integration,CFY MDP Contribution,Q2,0.314333550
-Integration,Previous FY MDP Contribution,Q2,0.337137069
-Integration,MDP Contr. Diff vs FY-1 (ppts),Q2,-2.280351859
-Marketing,Current FY MDP,Q2,"205,917,861.345563"
-Marketing,% YoY,Q2,0.125831895
-Marketing,CFY MDP Contribution,Q2,0.305400367
-Marketing,Previous FY MDP Contribution,Q2,0.344791992
-Marketing,MDP Contr. Diff vs FY-1 (ppts),Q2,-3.939162523
-Other,Current FY MDP,Q2,"99,134,999.3500442"
-Other,% YoY,Q2,-0.070779078
-Other,CFY MDP Contribution,Q2,0.334525798
-Other,Previous FY MDP Contribution,Q2,0.351434271
-Other,MDP Contr. Diff vs FY-1 (ppts),Q2,-1.690847355
-Sales,Current FY MDP,Q2,"405,564,243.570083"
-Sales,% YoY,Q2,0.128137614
-Sales,CFY MDP Contribution,Q2,0.333378907
-Sales,Previous FY MDP Contribution,Q2,0.354965920
-Sales,MDP Contr. Diff vs FY-1 (ppts),Q2,-2.158701298
-Salesforce Platform,Current FY MDP,Q2,"102,232,919.903819"
-Salesforce Platform,% YoY,Q2,-0.086256627
-Salesforce Platform,CFY MDP Contribution,Q2,0.306258146
-Salesforce Platform,Previous FY MDP Contribution,Q2,0.309477633
-Salesforce Platform,MDP Contr. Diff vs FY-1 (ppts),Q2,-0.321948671
-Service,Current FY MDP,Q2,"353,557,253.091746"
-Service,% YoY,Q2,0.064178623
-Service,CFY MDP Contribution,Q2,0.319408928
-Service,Previous FY MDP Contribution,Q2,0.334019646
-Service,MDP Contr. Diff vs FY-1 (ppts),Q2,-1.461071771
-Slack,Current FY MDP,Q2,"133,348,616.526435"
-Slack,% YoY,Q2,0.702149543
-Slack,CFY MDP Contribution,Q2,0.336188918
-Slack,Previous FY MDP Contribution,Q2,0.361646595
-Slack,MDP Contr. Diff vs FY-1 (ppts),Q2,-2.545767689
+Integration,Current FY MDP,Q2,"128,671,054.087436"
+Integration,% YoY,Q2,-0.088558745
+Integration,CFY MDP Contribution,Q2,0.314673398
+Integration,Previous FY MDP Contribution,Q2,0.337963559
+Integration,MDP Contr. Diff vs FY-1 (ppts),Q2,-2.329016118
+Marketing,Current FY MDP,Q2,"212,002,682.974394"
+Marketing,% YoY,Q2,0.125098454
+Marketing,CFY MDP Contribution,Q2,0.306217888
+Marketing,Previous FY MDP Contribution,Q2,0.347520121
+Marketing,MDP Contr. Diff vs FY-1 (ppts),Q2,-4.130223271
+Other,Current FY MDP,Q2,"101,625,022.628574"
+Other,% YoY,Q2,-0.071102241
+Other,CFY MDP Contribution,Q2,0.335034193
+Other,Previous FY MDP Contribution,Q2,0.352026971
+Other,MDP Contr. Diff vs FY-1 (ppts),Q2,-1.699277793
+Sales,Current FY MDP,Q2,"419,569,452.507942"
+Sales,% YoY,Q2,0.130238411
+Sales,CFY MDP Contribution,Q2,0.334069204
+Sales,Previous FY MDP Contribution,Q2,0.356223105
+Sales,MDP Contr. Diff vs FY-1 (ppts),Q2,-2.215390163
+Salesforce Platform,Current FY MDP,Q2,"103,852,046.990669"
+Salesforce Platform,% YoY,Q2,-0.096342561
+Salesforce Platform,CFY MDP Contribution,Q2,0.304395197
+Salesforce Platform,Previous FY MDP Contribution,Q2,0.309870700
+Salesforce Platform,MDP Contr. Diff vs FY-1 (ppts),Q2,-0.547550286
+Service,Current FY MDP,Q2,"367,512,009.013915"
+Service,% YoY,Q2,0.073571777
+Service,CFY MDP Contribution,Q2,0.320539879
+Service,Previous FY MDP Contribution,Q2,0.334150259
+Service,MDP Contr. Diff vs FY-1 (ppts),Q2,-1.361037975
+Slack,Current FY MDP,Q2,"138,056,869.092671"
+Slack,% YoY,Q2,0.693826568
+Slack,CFY MDP Contribution,Q2,0.336360300
+Slack,Previous FY MDP Contribution,Q2,0.367066670
+Slack,MDP Contr. Diff vs FY-1 (ppts),Q2,-3.070637001
 ,Current FY MDP,Q3,
 ,% YoY,Q3,
 ,CFY MDP Contribution,Q3,
@@ -254,8 +254,8 @@ Slack,% YoY,Q4,
 Slack,CFY MDP Contribution,Q4,
 Slack,Previous FY MDP Contribution,Q4,
 Slack,MDP Contr. Diff vs FY-1 (ppts),Q4,
-All,Current FY MDP,All,"7,233,781,598.99247"
-All,% YoY,All,0.104913360
-All,CFY MDP Contribution,All,0.330587474
-All,Previous FY MDP Contribution,All,0.351314442
-All,MDP Contr. Diff vs FY-1 (ppts),All,-2.072696744
+All,Current FY MDP,All,"7,299,393,669.51387"
+All,% YoY,All,0.105203287
+All,CFY MDP Contribution,All,0.330911409
+All,Previous FY MDP Contribution,All,0.351713277
+All,MDP Contr. Diff vs FY-1 (ppts),All,-2.080186769

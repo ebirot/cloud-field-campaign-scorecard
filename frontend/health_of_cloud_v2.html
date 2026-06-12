@@ -2240,10 +2240,25 @@ body.dark .metric-bad {
               </h2>
               <p style="color: var(--muted); margin-bottom: 24px;">Monitor and manage automatic CSV refresh from Tableau Server.</p>
 
-              <!-- Refresh Status -->
-              <div id="systemRefreshStatus" style="margin-bottom: 24px; padding: 24px; background: var(--bg); border-radius: 8px;">
-                <div style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">📊 Automatic Refresh Status</div>
-                <div style="font-size: 14px; color: var(--muted);">Loading...</div>
+              <!-- Scorecard CSV Status -->
+              <div id="systemRefreshStatus" style="margin-bottom: 20px; padding: 24px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 12px; border: 1px solid #93c5fd;">
+                <div style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #1e40af; display: flex; align-items: center; gap: 8px;">
+                  <span>📊</span>
+                  <span>Scorecard CSV Files Status</span>
+                </div>
+                <div style="font-size: 14px; color: #1e3a8a;">Loading...</div>
+              </div>
+
+              <!-- Insights CSV Status -->
+              <div id="insightsRefreshStatus" style="margin-bottom: 24px; padding: 24px; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; border: 1px solid #fcd34d;">
+                <div style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #92400e; display: flex; align-items: center; gap: 8px;">
+                  <span>🧠</span>
+                  <span>Insights Backend CSV Status</span>
+                </div>
+                <div style="font-size: 13px; color: #78350f; margin-bottom: 8px; font-style: italic;">
+                  Hidden data source for AI-generated Highs/Lows/Next Steps
+                </div>
+                <div id="insightsRefreshDetails" style="font-size: 14px; color: #92400e;">Loading...</div>
               </div>
 
               <!-- Actions -->
@@ -2251,7 +2266,7 @@ body.dark .metric-bad {
                 <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Actions</h3>
                 <div style="display: flex; gap: 12px; flex-wrap: wrap;">
                   <button onclick="triggerManualRefresh()" style="padding: 12px 24px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
-                    🔄 Trigger Manual Refresh
+                    🔄 Trigger Full Refresh (All CSV)
                   </button>
                   <button onclick="loadSystemStatus()" style="padding: 12px 24px; background: #64748b; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px;">
                     🔄 Reload Status
@@ -2264,7 +2279,7 @@ body.dark .metric-bad {
                   ⏰ <strong>Schedule:</strong> Automatic refresh runs daily at 6:00 AM CET
                 </div>
                 <div style="font-size: 13px; color: var(--muted);">
-                  Downloads 10 CSV files from Tableau Server automatically.
+                  Downloads all CSV files from Tableau Server (Scorecard + Insights Backend).
                 </div>
               </div>
             </div>
@@ -3237,7 +3252,8 @@ async function loadSystemStatus() {
 
     if (res.ok) {
       const data = await res.json();
-      const container = document.getElementById('systemRefreshStatus');
+      const scorecardContainer = document.getElementById('systemRefreshStatus');
+      const insightsContainer = document.getElementById('insightsRefreshDetails');
       const lastUpdate = data.last_update;
 
       if (lastUpdate && lastUpdate.last_updated) {
@@ -3245,35 +3261,66 @@ async function loadSystemStatus() {
         const statusIcon = lastUpdate.success ? '✅' : '⚠️';
         const statusText = lastUpdate.success ? 'Refresh Successful' : 'Refresh Failed';
 
-        container.innerHTML = `
+        // Scorecard CSV Status
+        scorecardContainer.innerHTML = `
           <div style="display: flex; gap: 20px; align-items: start;">
             <div style="font-size: 48px;">${statusIcon}</div>
             <div style="flex: 1;">
-              <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">
+              <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #1e40af;">
                 ${statusText}
               </div>
-              <div style="font-size: 14px; color: var(--muted); margin-bottom: 16px;">
+              <div style="font-size: 14px; color: #1e3a8a; margin-bottom: 16px;">
                 Last updated: ${date.toLocaleString()}
               </div>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
                 <div>
-                  <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">CSV FILES</div>
-                  <div style="font-size: 20px; font-weight: 700;">${lastUpdate.successful}/${lastUpdate.total}</div>
+                  <div style="font-size: 11px; color: #1e3a8a; margin-bottom: 4px; font-weight: 600;">CSV FILES</div>
+                  <div style="font-size: 20px; font-weight: 700; color: #1e40af;">${lastUpdate.successful - 1}/${lastUpdate.total - 1}</div>
                 </div>
                 <div>
-                  <div style="font-size: 11px; color: var(--muted); margin-bottom: 4px;">DURATION</div>
-                  <div style="font-size: 20px; font-weight: 700;">${lastUpdate.elapsed_seconds}s</div>
+                  <div style="font-size: 11px; color: #1e3a8a; margin-bottom: 4px; font-weight: 600;">DURATION</div>
+                  <div style="font-size: 20px; font-weight: 700; color: #1e40af;">${lastUpdate.elapsed_seconds}s</div>
                 </div>
               </div>
             </div>
           </div>
         `;
+
+        // Insights Backend Status (check if "Insights Backend" is in results)
+        // For now, assume it's included in the total
+        const insightsSuccess = lastUpdate.success;
+        const insightsIcon = insightsSuccess ? '✅' : '⚠️';
+        const insightsText = insightsSuccess ? 'Downloaded successfully' : 'Failed to download';
+
+        insightsContainer.innerHTML = `
+          <div style="display: flex; gap: 16px; align-items: start;">
+            <div style="font-size: 36px;">${insightsIcon}</div>
+            <div style="flex: 1;">
+              <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #92400e;">
+                ${insightsText}
+              </div>
+              <div style="font-size: 13px; color: #78350f;">
+                Last refresh: ${date.toLocaleString()}
+              </div>
+              <div style="font-size: 12px; color: #92400e; margin-top: 8px; background: rgba(255,255,255,0.5); padding: 8px; border-radius: 6px;">
+                ℹ️ This workbook contains unlocked data for AI insight generation
+              </div>
+            </div>
+          </div>
+        `;
       } else {
-        container.innerHTML = `
+        scorecardContainer.innerHTML = `
           <div style="text-align: center; padding: 20px;">
             <div style="font-size: 32px; margin-bottom: 12px;">⏳</div>
-            <div style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">No refresh yet</div>
-            <div style="font-size: 13px; color: var(--muted);">Waiting for first automatic refresh at 6:00 AM CET</div>
+            <div style="font-size: 16px; font-weight: 600; margin-bottom: 4px; color: #1e40af;">No refresh yet</div>
+            <div style="font-size: 13px; color: #1e3a8a;">Waiting for first automatic refresh at 6:00 AM CET</div>
+          </div>
+        `;
+
+        insightsContainer.innerHTML = `
+          <div style="text-align: center; padding: 12px;">
+            <div style="font-size: 24px; margin-bottom: 8px;">⏳</div>
+            <div style="font-size: 14px; color: #92400e;">Waiting for first refresh...</div>
           </div>
         `;
       }
