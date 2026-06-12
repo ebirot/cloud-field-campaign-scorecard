@@ -78,21 +78,26 @@ class InsightsGenerator:
     def _filter_by_cloud_ou(self, data, cloud, ou):
         """Filter parsed data by cloud and/or OU"""
         if not data:
-            return []
+            return [] if isinstance(data, list) else {}
 
-        filtered = []
-        for item in data:
-            # Filter by cloud
-            if cloud and item.get('cloud') != cloud:
-                continue
+        # Handle list format (regional data)
+        if isinstance(data, list):
+            filtered = []
+            for item in data:
+                # Filter by cloud
+                if cloud and item.get('cloud') != cloud:
+                    continue
 
-            # Filter by OU if specified
-            if ou and item.get('leader') != ou:
-                continue
+                # Filter by OU if specified
+                if ou and item.get('leader') != ou:
+                    continue
 
-            filtered.append(item)
+                filtered.append(item)
+            return filtered
 
-        return filtered
+        # Handle dict format (horseman, traffic, offers)
+        # Already aggregated - just return as-is
+        return data
 
     def _calculate_metrics(self, regional, horseman, traffic, offers, cloud, ou):
         """Calculate aggregate metrics from filtered data"""
@@ -136,53 +141,36 @@ class InsightsGenerator:
                 if item.get('contribution') is not None:
                     metrics["ou_breakdown"][leader]["contribution"] = item.get('contribution')
 
-        # Horseman breakdown
-        if horseman:
-            for item in horseman:
-                source = item.get('horseman', 'Unknown')
-                if source not in metrics["horseman_breakdown"]:
-                    metrics["horseman_breakdown"][source] = {
-                        "mdp": 0,
-                        "yoy": None,
-                        "share": None
-                    }
-                metrics["horseman_breakdown"][source]["mdp"] += item.get('mdp', 0)
-                if item.get('yoy_change') is not None:
-                    metrics["horseman_breakdown"][source]["yoy"] = item.get('yoy_change')
-                if item.get('share') is not None:
-                    metrics["horseman_breakdown"][source]["share"] = item.get('share')
+        # Horseman breakdown (already a dict from parser)
+        if horseman and isinstance(horseman, dict):
+            for source, data in horseman.items():
+                metrics["horseman_breakdown"][source] = {
+                    "mdp": data.get('mdp', 0),
+                    "yoy": data.get('yoy_change'),
+                    "share": data.get('mdp_share')
+                }
 
-        # Traffic breakdown
-        if traffic:
-            for item in traffic:
-                source = item.get('traffic_source', 'Unknown')
-                if source not in metrics["traffic_breakdown"]:
-                    metrics["traffic_breakdown"][source] = {
-                        "mdp": 0,
-                        "yoy": None,
-                        "share": None
+        # Traffic breakdown (already a dict from parser)
+        if traffic and isinstance(traffic, dict):
+            for source_key, data in traffic.items():
+                # Traffic parser returns nested dict with L1 -> L2 structure
+                if isinstance(data, dict) and 'total_mdp' in data:
+                    metrics["traffic_breakdown"][source_key] = {
+                        "mdp": data.get('total_mdp', 0),
+                        "yoy": data.get('yoy_change'),
+                        "share": data.get('mdp_share')
                     }
-                metrics["traffic_breakdown"][source]["mdp"] += item.get('mdp', 0)
-                if item.get('yoy_change') is not None:
-                    metrics["traffic_breakdown"][source]["yoy"] = item.get('yoy_change')
-                if item.get('share') is not None:
-                    metrics["traffic_breakdown"][source]["share"] = item.get('share')
 
-        # Offer breakdown
-        if offers:
-            for item in offers:
-                offer = item.get('offer', 'Unknown')
-                if offer not in metrics["offer_breakdown"]:
-                    metrics["offer_breakdown"][offer] = {
-                        "mdp": 0,
-                        "yoy": None,
-                        "share": None
+        # Offer breakdown (already a dict from parser)
+        if offers and isinstance(offers, dict):
+            for offer_key, data in offers.items():
+                # Offer parser returns nested dict with L1 -> L2 structure
+                if isinstance(data, dict) and 'total_mdp' in data:
+                    metrics["offer_breakdown"][offer_key] = {
+                        "mdp": data.get('total_mdp', 0),
+                        "yoy": data.get('yoy_change'),
+                        "share": data.get('mdp_share')
                     }
-                metrics["offer_breakdown"][offer]["mdp"] += item.get('mdp', 0)
-                if item.get('yoy_change') is not None:
-                    metrics["offer_breakdown"][offer]["yoy"] = item.get('yoy_change')
-                if item.get('share') is not None:
-                    metrics["offer_breakdown"][offer]["share"] = item.get('share')
 
         return metrics
 

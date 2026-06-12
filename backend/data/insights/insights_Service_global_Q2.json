@@ -5,19 +5,15 @@
   "generated_at": "1781258356.2756178",
   "insights": {
     "highlights": [
-      "Data refresh in progress for Service",
-      "Insights will be available once CSV files are fully loaded",
-      "Check back after the next automatic refresh (6:00 AM or 11:00 PM CET)"
+      "Service MDP at $377.4M, -5.0% YoY \u2014 contribution at 30.0%, -5.1ppts vs. FY-1",
+      "AE horseman surging at +285.5% YoY, now 0.0% MDP share",
+      "Lenore Lang leading growth at +46.5% YoY"
     ],
     "areas_to_watch": [
-      "CSV data files not accessible or empty",
-      "Ensure Tableau refresh has completed successfully",
-      "Verify data quality in admin panel"
+      "Service contribution at 30.0%, approaching the 30% floor \u2014 -5.1ppts vs. FY-1"
     ],
     "next_steps": [
-      "Trigger a manual CSV refresh from the Admin panel",
-      "Check system logs for any errors during the last refresh",
-      "Contact support if the issue persists"
+      "Email & Webinar: Activate BOM offers in DSE; submit Service prospects into Nurture Quest; drive registrations for upcoming webinars via BASHO outreach"
     ]
   }
 }

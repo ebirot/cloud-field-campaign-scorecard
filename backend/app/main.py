@@ -13,7 +13,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from contextlib import asynccontextmanager
 from app.core.config import settings
-from app.api import tableau, slack, scorecard, export, data, insights, analytics, refresh, campaign, lead_scorecard, lead_cockpit, email, mappings
+from app.api import tableau, slack, scorecard, export, data, insights, analytics, refresh, campaign, lead_scorecard, lead_cockpit, email, mappings, insights_api
 from app.services.scheduler import scheduler, init_scheduler, shutdown_scheduler
 import os
 import logging
@@ -61,6 +61,7 @@ app.include_router(scorecard.router, prefix="/api/scorecard", tags=["Scorecard"]
 app.include_router(export.router, prefix="/api/export", tags=["Export"])
 app.include_router(data.router, prefix="/api/data", tags=["Data"])
 app.include_router(insights.router, prefix="/api/insights", tags=["AI Insights"])
+app.include_router(insights_api.router, prefix="/api/insights-auto", tags=["Auto Insights"])
 app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"])
 app.include_router(refresh.router, prefix="/api/refresh", tags=["Data Refresh"])
 app.include_router(campaign.router, prefix="/api/campaign", tags=["Campaign Scorecard"])
