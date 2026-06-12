@@ -35,6 +35,9 @@ class TableauRefreshService:
             'Data Freshness': '10_data_freshness.csv'
         }
 
+        # Insights Backend workbook (for AI-generated insights)
+        self.insights_workbook_name = "FY27 AMER + EMEA CFM MDP Insights Back End"
+
         # Point to centralized data folder at project root
         self.data_dir = Path(__file__).parent.parent.parent.parent / 'data' / 'csv'
 
@@ -104,14 +107,108 @@ class TableauRefreshService:
                         logger.error(f"Error downloading {view_name}: {e}")
                         results[view_name] = False
 
-                print(f"[TABLEAU] COMPLETE Refresh complete!")
-                logger.info("COMPLETE CSV refresh complete")
+                print(f"[TABLEAU] COMPLETE Main scorecard refresh complete!")
+                logger.info("COMPLETE Main scorecard CSV refresh complete")
+
+                # Now download the Insights Backend workbook
+                print(f"[TABLEAU] Starting Insights Backend download...")
+                logger.info("Starting Insights Backend download...")
+
+                insights_success = self.download_insights_backend(server)
+                results['Insights Backend'] = insights_success
+
+                if insights_success:
+                    print(f"[TABLEAU] OK Insights Backend downloaded successfully")
+                    logger.info("OK Insights Backend downloaded successfully")
+                else:
+                    print(f"[TABLEAU] ERROR Failed to download Insights Backend")
+                    logger.error("Failed to download Insights Backend")
+
+                print(f"[TABLEAU] COMPLETE Full refresh complete!")
+                logger.info("COMPLETE Full CSV refresh complete (including Insights Backend)")
 
         except Exception as e:
             print(f"[TABLEAU] ERROR Tableau refresh error: {e}")
             logger.error(f"Tableau refresh error: {e}")
 
         return results
+
+    def download_insights_backend(self, server: TSC.Server) -> bool:
+        """
+        Download FY27 AMER + EMEA CFM MDP Insights Back End workbook CSV
+        This contains unlocked data for AI-generated insights (Highs/Lows/Next Steps)
+
+        Args:
+            server: Authenticated Tableau server instance
+
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            print(f"[TABLEAU] Searching for workbook: {self.insights_workbook_name}")
+            logger.info(f"Searching for insights workbook: {self.insights_workbook_name}")
+
+            # Search for the workbook by name
+            all_workbooks, _ = server.workbooks.get()
+            insights_workbook = None
+
+            for wb in all_workbooks:
+                if self.insights_workbook_name.lower() in wb.name.lower():
+                    insights_workbook = wb
+                    print(f"[TABLEAU] OK Found workbook: {wb.name} (ID: {wb.id})")
+                    logger.info(f"Found insights workbook: {wb.name} (ID: {wb.id})")
+                    break
+
+            if not insights_workbook:
+                print(f"[TABLEAU] ERROR Insights workbook not found: {self.insights_workbook_name}")
+                logger.error(f"Insights workbook not found: {self.insights_workbook_name}")
+                return False
+
+            # Get all views from this workbook
+            server.workbooks.populate_views(insights_workbook)
+            views = list(insights_workbook.views)
+
+            if not views:
+                print(f"[TABLEAU] ERROR No views found in insights workbook")
+                logger.error("No views found in insights workbook")
+                return False
+
+            print(f"[TABLEAU] INFO Found {len(views)} views in insights workbook")
+            logger.info(f"Found {len(views)} views in insights workbook")
+
+            # Download all views from this workbook
+            for idx, view in enumerate(views, 1):
+                try:
+                    print(f"[TABLEAU] Downloading insights view {idx}/{len(views)}: {view.name}")
+
+                    # Get full view details
+                    view = server.views.get_by_id(view.id)
+
+                    # Download as CSV
+                    server.views.populate_csv(view)
+                    csv_data = b''.join(view.csv).decode('utf-8-sig')
+
+                    # Save to file with numbered prefix
+                    safe_filename = f"insights_{idx:02d}_{view.name.replace(' ', '_').replace('/', '_')[:50]}.csv"
+                    output_path = self.data_dir / safe_filename
+
+                    with open(output_path, 'w', encoding='utf-8') as f:
+                        f.write(csv_data)
+
+                    file_size = len(csv_data) / 1024  # KB
+                    print(f"[TABLEAU] OK Downloaded {view.name} -> {safe_filename} ({file_size:.1f} KB)")
+                    logger.info(f"Downloaded insights view: {view.name} -> {safe_filename} ({file_size:.1f} KB)")
+
+                except Exception as e:
+                    print(f"[TABLEAU] ERROR Error downloading insights view {view.name}: {e}")
+                    logger.error(f"Error downloading insights view {view.name}: {e}")
+
+            return True
+
+        except Exception as e:
+            print(f"[TABLEAU] ERROR Failed to download insights backend: {e}")
+            logger.error(f"Failed to download insights backend: {e}")
+            return False
 
 
 # Global instance
