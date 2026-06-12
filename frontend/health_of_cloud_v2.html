@@ -3392,9 +3392,13 @@ async function loadSystemStatus() {
 
 // Trigger Manual Refresh
 async function triggerManualRefresh() {
-  if (!confirm('Trigger a manual CSV refresh from Tableau? This will take 10-15 seconds.')) return;
+  // Show custom confirmation modal instead of browser confirm()
+  showConfirmRefreshModal();
+}
 
+async function executeManualRefresh() {
   try {
+    closeConfirmRefreshModal();
     const API_URL = getAdminApiUrl();
     showToast('🔄 Refreshing CSV files...', 'info');
 
@@ -3464,6 +3468,18 @@ function copyRefreshResults() {
   });
 }
 
+// Show confirmation modal for refresh
+function showConfirmRefreshModal() {
+  const modal = document.getElementById('confirmRefreshModal');
+  modal.style.display = 'flex';
+}
+
+// Close confirmation modal
+function closeConfirmRefreshModal() {
+  const modal = document.getElementById('confirmRefreshModal');
+  modal.style.display = 'none';
+}
+
 // Override openAdminSettings to hide header
 const originalOpenAdminSettings = window.openAdminSettings;
 window.openAdminSettings = function() {
@@ -3501,6 +3517,30 @@ if (typeof originalSwitchTab === 'function') {
   };
 }
 </script>
+
+<!-- Confirm Refresh Modal -->
+<div id="confirmRefreshModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10001; justify-content: center; align-items: center; padding: 20px;">
+  <div style="background: white; border-radius: 16px; padding: 32px; max-width: 500px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+    <div style="text-align: center; margin-bottom: 24px;">
+      <div style="font-size: 48px; margin-bottom: 16px;">🔄</div>
+      <h3 style="margin: 0 0 12px 0; font-size: 20px; font-weight: 700; color: #1e293b;">Trigger Manual CSV Refresh?</h3>
+      <p style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.6;">
+        This will download all CSV files from Tableau Server (Scorecard + Insights Backend).
+        <br><br>
+        <strong>Duration:</strong> 15-20 seconds
+      </p>
+    </div>
+
+    <div style="display: flex; gap: 12px;">
+      <button onclick="closeConfirmRefreshModal()" style="flex: 1; padding: 14px; background: #e2e8f0; color: #475569; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.background='#cbd5e1'" onmouseout="this.style.background='#e2e8f0'">
+        Cancel
+      </button>
+      <button onclick="executeManualRefresh()" style="flex: 1; padding: 14px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.background='#5a67d8'" onmouseout="this.style.background='#667eea'">
+        🔄 Start Refresh
+      </button>
+    </div>
+  </div>
+</div>
 
 <!-- Refresh Results Modal -->
 <div id="refreshResultsModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10000; justify-content: center; align-items: center; padding: 20px; overflow-y: auto;">
