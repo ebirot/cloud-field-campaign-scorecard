@@ -103,3 +103,47 @@ async def download_insights_backend_csv():
         raise HTTPException(status_code=500, detail=result.get("message"))
 
     return result
+
+
+@router.get("/list-workbooks")
+async def list_all_workbooks():
+    """
+    List ALL workbooks accessible with current token
+    Useful for debugging permission issues
+
+    Returns:
+        List of workbook names and IDs
+    """
+    try:
+        import tableauserverclient as TSC
+        import os
+
+        # Auth
+        tableau_auth = TSC.PersonalAccessTokenAuth(
+            os.getenv('TABLEAU_TOKEN_NAME'),
+            os.getenv('TABLEAU_TOKEN_VALUE'),
+            site_id=os.getenv('TABLEAU_SITE_ID')
+        )
+
+        server = TSC.Server(os.getenv('TABLEAU_SERVER_URL'), use_server_version=True)
+
+        with server.auth.sign_in(tableau_auth):
+            all_workbooks, _ = server.workbooks.get()
+
+            workbooks = []
+            for wb in all_workbooks:
+                workbooks.append({
+                    'id': wb.id,
+                    'name': wb.name,
+                    'project_name': wb.project_name,
+                    'created_at': wb.created_at.isoformat() if wb.created_at else None,
+                    'updated_at': wb.updated_at.isoformat() if wb.updated_at else None
+                })
+
+            return {
+                'total': len(workbooks),
+                'workbooks': workbooks
+            }
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to list workbooks: {str(e)}")
