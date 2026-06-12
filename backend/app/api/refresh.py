@@ -39,6 +39,15 @@ async def get_refresh_status():
         # Get last update status
         last_status = scheduler.get_last_update_status()
 
+        # Add details about which views were downloaded
+        if last_status and 'scorecard' in last_status:
+            scorecard = last_status['scorecard']
+            last_status['details'] = {
+                'scorecard_success': scorecard.get('success', []),
+                'scorecard_failed': scorecard.get('failed', []),
+                'scorecard_views': scorecard.get('success', []) + scorecard.get('failed', [])
+            }
+
         return {
             'scheduler_running': scheduler.is_running,
             'jobs': jobs,
@@ -98,6 +107,8 @@ async def get_last_insights_status():
             'views_success': insights.get('views_success', 0),
             'views_failed': insights.get('views_failed', 0),
             'views_total': insights.get('views_total', 0),
+            'views_success_list': insights.get('success', []),
+            'views_failed_list': insights.get('failed', []),
             'last_updated': last_status.get('last_updated')
         }
     except Exception as e:

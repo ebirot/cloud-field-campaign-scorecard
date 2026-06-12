@@ -3261,7 +3261,11 @@ async function loadSystemStatus() {
         const statusIcon = lastUpdate.success ? '✅' : '⚠️';
         const statusText = lastUpdate.success ? 'Refresh Successful' : 'Refresh Failed';
 
-        // Scorecard CSV Status
+        // Scorecard CSV Status (10 views from main workbook)
+        const scorecardViews = lastUpdate.details?.scorecard_views || [];
+        const scorecardSuccess = scorecardViews.filter(v => lastUpdate.details?.scorecard_success?.includes(v)).length || 10;
+        const scorecardTotal = scorecardViews.length || 10;
+
         scorecardContainer.innerHTML = `
           <div style="display: flex; gap: 20px; align-items: start;">
             <div style="font-size: 48px;">${statusIcon}</div>
@@ -3272,16 +3276,26 @@ async function loadSystemStatus() {
               <div style="font-size: 14px; color: #1e3a8a; margin-bottom: 16px;">
                 Last updated: ${date.toLocaleString()}
               </div>
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 16px;">
                 <div>
-                  <div style="font-size: 11px; color: #1e3a8a; margin-bottom: 4px; font-weight: 600;">CSV FILES</div>
-                  <div style="font-size: 20px; font-weight: 700; color: #1e40af;">${lastUpdate.successful - 1}/${lastUpdate.total - 1}</div>
+                  <div style="font-size: 11px; color: #1e3a8a; margin-bottom: 4px; font-weight: 600;">SCORECARD VIEWS</div>
+                  <div style="font-size: 20px; font-weight: 700; color: #1e40af;">${scorecardSuccess}/${scorecardTotal}</div>
                 </div>
                 <div>
                   <div style="font-size: 11px; color: #1e3a8a; margin-bottom: 4px; font-weight: 600;">DURATION</div>
                   <div style="font-size: 20px; font-weight: 700; color: #1e40af;">${lastUpdate.elapsed_seconds}s</div>
                 </div>
               </div>
+              ${lastUpdate.details?.scorecard_success?.length > 0 ? `
+                <details style="margin-top: 12px;">
+                  <summary style="cursor: pointer; font-size: 13px; color: #1e40af; font-weight: 600; padding: 8px; background: rgba(30, 64, 175, 0.05); border-radius: 6px;">
+                    📄 View Downloaded Files (${lastUpdate.details.scorecard_success.length})
+                  </summary>
+                  <div style="margin-top: 8px; padding: 12px; background: rgba(30, 64, 175, 0.03); border-radius: 6px; font-size: 12px; color: #1e3a8a;">
+                    ${lastUpdate.details.scorecard_success.map(v => `<div style="padding: 4px 0;">✅ ${v}</div>`).join('')}
+                  </div>
+                </details>
+              ` : ''}
             </div>
           </div>
         `;
@@ -3300,6 +3314,9 @@ async function loadSystemStatus() {
               ? `${viewsSuccess}/${viewsTotal} views downloaded`
               : 'Workbook not found';
 
+            const insightsSuccessList = insightsData.views_success_list || [];
+            const insightsFailedList = insightsData.views_failed_list || [];
+
             insightsContainer.innerHTML = `
               <div style="display: flex; gap: 16px; align-items: start;">
                 <div style="font-size: 36px;">${insightsIcon}</div>
@@ -3307,17 +3324,37 @@ async function loadSystemStatus() {
                   <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #92400e;">
                     ${insightsText}
                   </div>
-                  <div style="font-size: 13px; color: #78350f;">
+                  <div style="font-size: 13px; color: #78350f; margin-bottom: 12px;">
                     Last refresh: ${date.toLocaleString()}
                   </div>
                   ${!workbookFound ? `
                     <div style="font-size: 12px; color: #dc2626; margin-top: 8px; background: #fee2e2; padding: 8px; border-radius: 6px; font-weight: 600;">
-                      ⚠️ Workbook "FY27 AMER + EMEA CFM MDP Insights Back End" not found on Tableau Server
+                      ⚠️ Workbook "FY27 AMER + EMEA CFM MDP Insights Back End VF" not found on Tableau Server
                     </div>
                   ` : `
-                    <div style="font-size: 12px; color: #92400e; margin-top: 8px; background: rgba(255,255,255,0.5); padding: 8px; border-radius: 6px;">
+                    <div style="font-size: 12px; color: #92400e; margin-bottom: 12px; background: rgba(255,255,255,0.5); padding: 8px; border-radius: 6px;">
                       ℹ️ This workbook contains unlocked data for AI insight generation
                     </div>
+                    ${insightsSuccessList.length > 0 ? `
+                      <details style="margin-top: 8px;">
+                        <summary style="cursor: pointer; font-size: 13px; color: #92400e; font-weight: 600; padding: 8px; background: rgba(146, 64, 14, 0.08); border-radius: 6px;">
+                          📄 View Downloaded Insights Files (${insightsSuccessList.length})
+                        </summary>
+                        <div style="margin-top: 8px; padding: 12px; background: rgba(146, 64, 14, 0.05); border-radius: 6px; font-size: 12px; color: #78350f;">
+                          ${insightsSuccessList.map(v => `<div style="padding: 4px 0;">✅ ${v}</div>`).join('')}
+                        </div>
+                      </details>
+                    ` : ''}
+                    ${insightsFailedList.length > 0 ? `
+                      <details style="margin-top: 8px;">
+                        <summary style="cursor: pointer; font-size: 13px; color: #dc2626; font-weight: 600; padding: 8px; background: rgba(220, 38, 38, 0.08); border-radius: 6px;">
+                          ❌ Failed Downloads (${insightsFailedList.length})
+                        </summary>
+                        <div style="margin-top: 8px; padding: 12px; background: rgba(220, 38, 38, 0.05); border-radius: 6px; font-size: 12px; color: #dc2626;">
+                          ${insightsFailedList.map(v => `<div style="padding: 4px 0;">❌ ${v}</div>`).join('')}
+                        </div>
+                      </details>
+                    ` : ''}
                   `}
                 </div>
               </div>
