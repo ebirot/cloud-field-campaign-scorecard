@@ -80,3 +80,25 @@ async def get_last_update():
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to read freshness: {str(e)}")
+
+
+@router.get("/last-insights-status")
+async def get_last_insights_status():
+    """
+    Get detailed status of last Insights Backend refresh
+
+    Returns workbook_found status and views count
+    """
+    try:
+        last_status = scheduler.get_last_update_status()
+        insights = last_status.get('insights', {})
+
+        return {
+            'workbook_found': insights.get('workbook_found', False),
+            'views_success': insights.get('views_success', 0),
+            'views_failed': insights.get('views_failed', 0),
+            'views_total': insights.get('views_total', 0),
+            'last_updated': last_status.get('last_updated')
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to get insights status: {str(e)}")

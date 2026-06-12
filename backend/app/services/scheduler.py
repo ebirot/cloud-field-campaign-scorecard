@@ -78,8 +78,16 @@ class TaskScheduler:
             logger.info(f"   Scorecard: {scorecard_success}/{scorecard_success + scorecard_failed}")
             logger.info(f"   Insights: {insights_success}/{insights_success + insights_failed}")
 
+            # Prepare insights details for status file
+            insights_details = {
+                'workbook_found': results.get('insights', {}).get('workbook_found', False),
+                'views_success': insights_success,
+                'views_failed': insights_failed,
+                'views_total': insights_success + insights_failed
+            }
+
             # Save last update timestamp and status
-            self._save_last_update(total_success, total_files, elapsed)
+            self._save_last_update(total_success, total_files, elapsed, insights_details=insights_details)
 
             # Log any failures
             all_failures = results.get('scorecard', {}).get('failed', []) + results.get('insights', {}).get('failed', [])
@@ -107,8 +115,16 @@ class TaskScheduler:
             total_files = scorecard_success + scorecard_failed + insights_success + insights_failed
             elapsed = (datetime.now() - start_time).total_seconds()
 
+            # Prepare insights details for status file
+            insights_details = {
+                'workbook_found': results.get('insights', {}).get('workbook_found', False),
+                'views_success': insights_success,
+                'views_failed': insights_failed,
+                'views_total': insights_success + insights_failed
+            }
+
             # Save status
-            self._save_last_update(total_success, total_files, elapsed)
+            self._save_last_update(total_success, total_files, elapsed, insights_details=insights_details)
 
             return {
                 'success': True,
@@ -150,7 +166,7 @@ class TaskScheduler:
             })
         return jobs
 
-    def _save_last_update(self, successful: int, total: int, elapsed: float, error: str = None):
+    def _save_last_update(self, successful: int, total: int, elapsed: float, error: str = None, insights_details: dict = None):
         """Save last refresh status to file"""
         try:
             status = {
@@ -159,7 +175,8 @@ class TaskScheduler:
                 'total': total,
                 'elapsed_seconds': elapsed,
                 'success': successful == total and total > 0,
-                'error': error
+                'error': error,
+                'insights': insights_details or {}
             }
             with open(self.status_file, 'w', encoding='utf-8') as f:
                 json.dump(status, f, indent=2)

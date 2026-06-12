@@ -3286,28 +3286,51 @@ async function loadSystemStatus() {
           </div>
         `;
 
-        // Insights Backend Status (check if "Insights Backend" is in results)
-        // For now, assume it's included in the total
-        const insightsSuccess = lastUpdate.success;
-        const insightsIcon = insightsSuccess ? '✅' : '⚠️';
-        const insightsText = insightsSuccess ? 'Downloaded successfully' : 'Failed to download';
+        // Insights Backend Status - need to fetch detailed results from last refresh
+        // For now, we only have aggregate status - will be improved
+        fetch(`${API_URL}/api/refresh/last-insights-status`)
+          .then(res => res.json())
+          .then(insightsData => {
+            const workbookFound = insightsData.workbook_found || false;
+            const viewsSuccess = insightsData.views_success || 0;
+            const viewsTotal = insightsData.views_total || 0;
 
-        insightsContainer.innerHTML = `
-          <div style="display: flex; gap: 16px; align-items: start;">
-            <div style="font-size: 36px;">${insightsIcon}</div>
-            <div style="flex: 1;">
-              <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #92400e;">
-                ${insightsText}
+            const insightsIcon = workbookFound && viewsSuccess > 0 ? '✅' : '⚠️';
+            const insightsText = workbookFound
+              ? `${viewsSuccess}/${viewsTotal} views downloaded`
+              : 'Workbook not found';
+
+            insightsContainer.innerHTML = `
+              <div style="display: flex; gap: 16px; align-items: start;">
+                <div style="font-size: 36px;">${insightsIcon}</div>
+                <div style="flex: 1;">
+                  <div style="font-size: 16px; font-weight: 700; margin-bottom: 6px; color: #92400e;">
+                    ${insightsText}
+                  </div>
+                  <div style="font-size: 13px; color: #78350f;">
+                    Last refresh: ${date.toLocaleString()}
+                  </div>
+                  ${!workbookFound ? `
+                    <div style="font-size: 12px; color: #dc2626; margin-top: 8px; background: #fee2e2; padding: 8px; border-radius: 6px; font-weight: 600;">
+                      ⚠️ Workbook "FY27 AMER + EMEA CFM MDP Insights Back End" not found on Tableau Server
+                    </div>
+                  ` : `
+                    <div style="font-size: 12px; color: #92400e; margin-top: 8px; background: rgba(255,255,255,0.5); padding: 8px; border-radius: 6px;">
+                      ℹ️ This workbook contains unlocked data for AI insight generation
+                    </div>
+                  `}
+                </div>
               </div>
-              <div style="font-size: 13px; color: #78350f;">
-                Last refresh: ${date.toLocaleString()}
+            `;
+          })
+          .catch(() => {
+            // Fallback if endpoint doesn't exist yet
+            insightsContainer.innerHTML = `
+              <div style="text-align: center; padding: 12px;">
+                <div style="font-size: 14px; color: #92400e;">Status unavailable - check logs</div>
               </div>
-              <div style="font-size: 12px; color: #92400e; margin-top: 8px; background: rgba(255,255,255,0.5); padding: 8px; border-radius: 6px;">
-                ℹ️ This workbook contains unlocked data for AI insight generation
-              </div>
-            </div>
-          </div>
-        `;
+            `;
+          });
       } else {
         scorecardContainer.innerHTML = `
           <div style="text-align: center; padding: 20px;">
@@ -3360,22 +3383,48 @@ async function triggerManualRefresh() {
           message += `   ❌ Failed: ${results.insights.failed.join(', ')}\n`;
         }
       } else {
-        message += `   ❌ Workbook not found\n`;
+        message += `   ❌ Workbook NOT FOUND on Tableau Server\n`;
+        message += `   🔍 Searched for: "FY27 AMER + EMEA CFM MDP Insights Back End"\n`;
       }
       message += `\n⏱️ Duration: ${data.elapsed_seconds.toFixed(1)}s`;
 
-      alert(message);
+      // Show in modal instead of alert
+      showRefreshResultsModal(message);
       showToast('✅ Refresh completed!', 'success');
       loadSystemStatus();
       loadAnalyticsData();
     } else {
-      alert('❌ Refresh failed: ' + data.error);
+      showRefreshResultsModal('❌ Refresh failed: ' + data.error);
       showToast('❌ Refresh failed', 'error');
     }
   } catch (error) {
-    alert('❌ Failed to trigger refresh: ' + error.message);
+    showRefreshResultsModal('❌ Failed to trigger refresh: ' + error.message);
     showToast('❌ Error: ' + error.message, 'error');
   }
+}
+
+// Show refresh results in modal
+function showRefreshResultsModal(message) {
+  const modal = document.getElementById('refreshResultsModal');
+  const content = document.getElementById('refreshResultsContent');
+  content.textContent = message;
+  window.lastRefreshResults = message; // Store for copy
+  modal.style.display = 'flex';
+}
+
+// Close refresh results modal
+function closeRefreshResultsModal() {
+  document.getElementById('refreshResultsModal').style.display = 'none';
+}
+
+// Copy refresh results to clipboard
+function copyRefreshResults() {
+  const message = window.lastRefreshResults || '';
+  navigator.clipboard.writeText(message).then(() => {
+    showToast('📋 Copied to clipboard!', 'success');
+  }).catch(err => {
+    showToast('❌ Failed to copy', 'error');
+  });
 }
 
 // Override openAdminSettings to hide header
@@ -3415,6 +3464,29 @@ if (typeof originalSwitchTab === 'function') {
   };
 }
 </script>
+
+<!-- Refresh Results Modal -->
+<div id="refreshResultsModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10000; justify-content: center; align-items: center; padding: 20px; overflow-y: auto;">
+  <div style="background: white; border-radius: 16px; padding: 32px; max-width: 700px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+      <h3 style="margin: 0; font-size: 20px; font-weight: 700; color: #1e293b;">📊 CSV Refresh Results</h3>
+      <button onclick="closeRefreshResultsModal()" style="background: none; border: none; font-size: 28px; cursor: pointer; color: #64748b; line-height: 1; padding: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: all 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='none'">×</button>
+    </div>
+
+    <div id="refreshResultsContent" style="font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.6; white-space: pre-wrap; background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
+      Loading...
+    </div>
+
+    <div style="display: flex; gap: 12px; margin-top: 24px;">
+      <button onclick="copyRefreshResults()" style="flex: 1; padding: 12px; background: #10b981; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.background='#059669'" onmouseout="this.style.background='#10b981'">
+        📋 Copy to Clipboard
+      </button>
+      <button onclick="closeRefreshResultsModal()" style="flex: 1; padding: 12px; background: #e2e8f0; color: #475569; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.background='#cbd5e1'" onmouseout="this.style.background='#e2e8f0'">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
 
 <!-- Edit Mapping Modal -->
 <div id="editMappingModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 10000; justify-content: center; align-items: center;">
