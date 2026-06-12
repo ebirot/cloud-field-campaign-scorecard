@@ -1,63 +1,32 @@
 """
 Insights Generator - Analyze CSV data and generate insights in Scorecard style
-Replicates the Slack Skills "Health of Cloud Scorecard Builder" logic
+Uses the SAME csv_parser as the frontend to ensure data consistency
 """
-import pandas as pd
-import os
 from typing import Dict, List, Any
-from datetime import datetime
+from app.services.csv_parser import csv_parser
 
 
 class InsightsGenerator:
-    """Generate Marketing Performance Insights from CSV data"""
+    """Generate Marketing Performance Insights from parsed CSV data"""
 
-    def __init__(self, data_dir: str = None):
-        if data_dir is None:
-            data_dir = os.path.join(
-                os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-                "data"
-            )
-        self.data_dir = data_dir
-
-        # Load all CSV files
-        self.regional_sales_l2_cloud = None
-        self.horseman = None
-        self.traffic_source = None
-        self.offer_l1_l2 = None
-
-    def load_csvs(self):
-        """Load all required CSV files"""
-        try:
-            self.regional_sales_l2_cloud = pd.read_csv(
-                os.path.join(self.data_dir, "2_regional_sales_l2_cloud.csv")
-            )
-            self.horseman = pd.read_csv(
-                os.path.join(self.data_dir, "6_horseman.csv")
-            )
-            self.traffic_source = pd.read_csv(
-                os.path.join(self.data_dir, "7_traffic_source.csv")
-            )
-            self.offer_l1_l2 = pd.read_csv(
-                os.path.join(self.data_dir, "8_offer_l1_l2.csv")
-            )
-            return True
-        except Exception as e:
-            print(f"Error loading CSVs: {str(e)}")
-            return False
+    def __init__(self):
+        # Use the existing CSV parser that the frontend uses
+        self.parser = csv_parser
 
     def generate_insights(
         self,
         cloud: str,
         ou: str = None,
-        quarter: str = "All"
+        quarter: str = "Q2"
     ) -> Dict[str, List[str]]:
         """
         Generate insights for a specific Cloud or OU
+        Uses THE SAME data that the frontend scorecard displays
 
         Args:
-            cloud: Cloud name (Service, Sales, Marketing, Commerce, AI & Data)
+            cloud: Cloud name (Service, Sales, Marketing, Commerce, AI & Data, Analytics)
             ou: Optional OU filter (France, UKI, North, South, Central, AMER CBS, etc.)
-            quarter: Q1, Q2, Q3, Q4, or All (YTD)
+            quarter: Q1, Q2, Q3, Q4 (default Q2)
 
         Returns:
             {
@@ -66,325 +35,341 @@ class InsightsGenerator:
                 "next_steps": [...]
             }
         """
-        if not self.load_csvs():
-            return self._fallback_insights()
+        try:
+            # Parse data using the SAME parser as frontend
+            quarters = [quarter] if quarter != "All" else ["Q1", "Q2", "Q3", "Q4"]
 
-        # Filter data
-        df_regional = self._filter_regional(cloud, ou, quarter)
-        df_horseman = self._filter_horseman(cloud, ou, quarter)
-        df_traffic = self._filter_traffic(cloud, ou, quarter)
-        df_offers = self._filter_offers(cloud, ou, quarter)
+            regional_data = self.parser.parse_regional_cloud_view(quarters=quarters)
+            horseman_data = self.parser.parse_horseman(quarters=quarters)
+            traffic_data = self.parser.parse_traffic_source(quarters=quarters)
+            offer_data = self.parser.parse_offer(quarters=quarters)
 
-        # Calculate metrics
-        metrics = self._calculate_metrics(
-            df_regional, df_horseman, df_traffic, df_offers
-        )
+            # Filter by cloud and ou
+            filtered_regional = self._filter_by_cloud_ou(regional_data, cloud, ou)
+            filtered_horseman = self._filter_by_cloud_ou(horseman_data, cloud, ou)
+            filtered_traffic = self._filter_by_cloud_ou(traffic_data, cloud, ou)
+            filtered_offers = self._filter_by_cloud_ou(offer_data, cloud, ou)
 
-        # Generate insights
-        highlights = self._generate_highlights(metrics, cloud, ou)
-        areas_to_watch = self._generate_areas_to_watch(metrics, cloud, ou)
-        next_steps = self._generate_next_steps(metrics, cloud, ou)
+            # Calculate aggregate metrics
+            metrics = self._calculate_metrics(
+                filtered_regional,
+                filtered_horseman,
+                filtered_traffic,
+                filtered_offers,
+                cloud,
+                ou
+            )
 
-        return {
-            "highlights": highlights,
-            "areas_to_watch": areas_to_watch,
-            "next_steps": next_steps
-        }
+            # Generate insights
+            highlights = self._generate_highlights(metrics, cloud, ou)
+            areas_to_watch = self._generate_areas_to_watch(metrics, cloud, ou)
+            next_steps = self._generate_next_steps(metrics, cloud, ou)
 
-    def _filter_regional(self, cloud, ou, quarter):
-        """Filter regional data by cloud/ou/quarter"""
-        df = self.regional_sales_l2_cloud.copy()
+            return {
+                "highlights": highlights,
+                "areas_to_watch": areas_to_watch,
+                "next_steps": next_steps
+            }
 
-        # Filter by cloud
-        if 'APM L1' in df.columns:
-            df = df[df['APM L1'] == cloud]
-        elif 'Product L1' in df.columns:
-            df = df[df['Product L1'] == cloud]
+        except Exception as e:
+            print(f"Error generating insights: {str(e)}")
+            return self._fallback_insights(cloud, ou)
 
-        # Filter by OU
-        if ou and 'OU' in df.columns:
-            df = df[df['OU'] == ou]
+    def _filter_by_cloud_ou(self, data, cloud, ou):
+        """Filter parsed data by cloud and/or OU"""
+        if not data:
+            return []
 
-        # Filter by quarter
-        if quarter != "All" and 'Opportunity Stage 2 Date - Fiscal Quarter' in df.columns:
-            df = df[df['Opportunity Stage 2 Date - Fiscal Quarter'] == quarter]
+        filtered = []
+        for item in data:
+            # Filter by cloud
+            if cloud and item.get('cloud') != cloud:
+                continue
 
-        return df
+            # Filter by OU if specified
+            if ou and item.get('leader') != ou:
+                continue
 
-    def _filter_horseman(self, cloud, ou, quarter):
-        """Filter horseman data"""
-        df = self.horseman.copy()
+            filtered.append(item)
 
-        if 'APM L1' in df.columns:
-            df = df[df['APM L1'] == cloud]
-        if ou and 'OU' in df.columns:
-            df = df[df['OU'] == ou]
-        if quarter != "All" and 'Opportunity Stage 2 Date - Fiscal Quarter' in df.columns:
-            df = df[df['Opportunity Stage 2 Date - Fiscal Quarter'] == quarter]
+        return filtered
 
-        return df
-
-    def _filter_traffic(self, cloud, ou, quarter):
-        """Filter traffic source data"""
-        df = self.traffic_source.copy()
-
-        if 'APM L1' in df.columns:
-            df = df[df['APM L1'] == cloud]
-        if ou and 'OU' in df.columns:
-            df = df[df['OU'] == ou]
-        if quarter != "All" and 'Opportunity Stage 2 Date - Fiscal Quarter' in df.columns:
-            df = df[df['Opportunity Stage 2 Date - Fiscal Quarter'] == quarter]
-
-        return df
-
-    def _filter_offers(self, cloud, ou, quarter):
-        """Filter offer data"""
-        df = self.offer_l1_l2.copy()
-
-        if 'APM L1' in df.columns:
-            df = df[df['APM L1'] == cloud]
-        if ou and 'OU' in df.columns:
-            df = df[df['OU'] == ou]
-        if quarter != "All" and 'Opportunity Stage 2 Date - Fiscal Quarter' in df.columns:
-            df = df[df['Opportunity Stage 2 Date - Fiscal Quarter'] == quarter]
-
-        return df
-
-    def _calculate_metrics(self, df_regional, df_horseman, df_traffic, df_offers):
-        """Calculate all required metrics"""
+    def _calculate_metrics(self, regional, horseman, traffic, offers, cloud, ou):
+        """Calculate aggregate metrics from filtered data"""
         metrics = {
+            "cloud": cloud,
+            "ou": ou,
             "total_mdp": 0,
-            "yoy_change": 0,
-            "contribution_rate": 0,
-            "contribution_diff": 0,
-            "horseman": {},
-            "traffic": {},
-            "offers": {},
-            "ous": {}
+            "avg_yoy": 0,
+            "avg_contribution": 0,
+            "avg_contribution_diff": 0,
+            "horseman_breakdown": {},
+            "traffic_breakdown": {},
+            "offer_breakdown": {},
+            "ou_breakdown": {}
         }
 
-        # Total MDP
-        if 'Current FY MDP' in df_regional.columns:
-            metrics["total_mdp"] = df_regional['Current FY MDP'].sum()
+        # Regional aggregates
+        if regional:
+            total_mdp = sum(item.get('mdp', 0) for item in regional if item.get('mdp'))
+            yoys = [item.get('yoy_change') for item in regional if item.get('yoy_change') is not None]
+            contribs = [item.get('contribution') for item in regional if item.get('contribution') is not None]
+            contrib_diffs = [item.get('contribution_diff') for item in regional if item.get('contribution_diff') is not None]
 
-        # YoY Change
-        if '% YoY' in df_regional.columns:
-            metrics["yoy_change"] = df_regional['% YoY'].mean()
+            metrics["total_mdp"] = total_mdp
+            metrics["avg_yoy"] = sum(yoys) / len(yoys) if yoys else 0
+            metrics["avg_contribution"] = sum(contribs) / len(contribs) if contribs else 0
+            metrics["avg_contribution_diff"] = sum(contrib_diffs) / len(contrib_diffs) if contrib_diffs else 0
 
-        # Contribution
-        if 'CFY MDP Contribution' in df_regional.columns:
-            metrics["contribution_rate"] = df_regional['CFY MDP Contribution'].mean()
-
-        if 'MDP Contr. Diff vs FY-1 (ppts)' in df_regional.columns:
-            metrics["contribution_diff"] = df_regional['MDP Contr. Diff vs FY-1 (ppts)'].mean()
+            # OU breakdown
+            for item in regional:
+                leader = item.get('leader', 'Unknown')
+                if leader not in metrics["ou_breakdown"]:
+                    metrics["ou_breakdown"][leader] = {
+                        "mdp": 0,
+                        "yoy": None,
+                        "contribution": None
+                    }
+                metrics["ou_breakdown"][leader]["mdp"] += item.get('mdp', 0)
+                if item.get('yoy_change') is not None:
+                    metrics["ou_breakdown"][leader]["yoy"] = item.get('yoy_change')
+                if item.get('contribution') is not None:
+                    metrics["ou_breakdown"][leader]["contribution"] = item.get('contribution')
 
         # Horseman breakdown
-        if not df_horseman.empty and 'Opportunity Source' in df_horseman.columns:
-            for _, row in df_horseman.iterrows():
-                source = row['Opportunity Source']
-                if source not in ['SDR', 'Unknown']:  # Exclude SDR
-                    metrics["horseman"][source] = {
-                        "mdp": row.get('Current FY MDP', 0),
-                        "yoy": row.get('% YoY', 0),
-                        "share": row.get('% MDP Share', 0)
+        if horseman:
+            for item in horseman:
+                source = item.get('horseman', 'Unknown')
+                if source not in metrics["horseman_breakdown"]:
+                    metrics["horseman_breakdown"][source] = {
+                        "mdp": 0,
+                        "yoy": None,
+                        "share": None
                     }
+                metrics["horseman_breakdown"][source]["mdp"] += item.get('mdp', 0)
+                if item.get('yoy_change') is not None:
+                    metrics["horseman_breakdown"][source]["yoy"] = item.get('yoy_change')
+                if item.get('share') is not None:
+                    metrics["horseman_breakdown"][source]["share"] = item.get('share')
 
-        # Traffic Source breakdown
-        if not df_traffic.empty and 'Traffic Source Grouping L1' in df_traffic.columns:
-            for _, row in df_traffic.iterrows():
-                source = row['Traffic Source Grouping L1']
-                metrics["traffic"][source] = {
-                    "mdp": row.get('Current FY MDP', 0),
-                    "yoy": row.get('% YoY', 0),
-                    "share": row.get('% MDP Share', 0)
-                }
+        # Traffic breakdown
+        if traffic:
+            for item in traffic:
+                source = item.get('traffic_source', 'Unknown')
+                if source not in metrics["traffic_breakdown"]:
+                    metrics["traffic_breakdown"][source] = {
+                        "mdp": 0,
+                        "yoy": None,
+                        "share": None
+                    }
+                metrics["traffic_breakdown"][source]["mdp"] += item.get('mdp', 0)
+                if item.get('yoy_change') is not None:
+                    metrics["traffic_breakdown"][source]["yoy"] = item.get('yoy_change')
+                if item.get('share') is not None:
+                    metrics["traffic_breakdown"][source]["share"] = item.get('share')
 
-        # Offers breakdown
-        if not df_offers.empty and 'Offer Grouping L1' in df_offers.columns:
-            for _, row in df_offers.iterrows():
-                offer = row['Offer Grouping L1']
-                metrics["offers"][offer] = {
-                    "mdp": row.get('Current FY MDP', 0),
-                    "yoy": row.get('% YoY', 0),
-                    "share": row.get('% MDP Share', 0)
-                }
-
-        # OU breakdown
-        if not df_regional.empty and 'OU' in df_regional.columns:
-            for _, row in df_regional.iterrows():
-                ou = row['OU']
-                metrics["ous"][ou] = {
-                    "mdp": row.get('Current FY MDP', 0),
-                    "yoy": row.get('% YoY', 0),
-                    "contribution": row.get('CFY MDP Contribution', 0)
-                }
+        # Offer breakdown
+        if offers:
+            for item in offers:
+                offer = item.get('offer', 'Unknown')
+                if offer not in metrics["offer_breakdown"]:
+                    metrics["offer_breakdown"][offer] = {
+                        "mdp": 0,
+                        "yoy": None,
+                        "share": None
+                    }
+                metrics["offer_breakdown"][offer]["mdp"] += item.get('mdp', 0)
+                if item.get('yoy_change') is not None:
+                    metrics["offer_breakdown"][offer]["yoy"] = item.get('yoy_change')
+                if item.get('share') is not None:
+                    metrics["offer_breakdown"][offer]["share"] = item.get('share')
 
         return metrics
 
     def _generate_highlights(self, metrics, cloud, ou):
-        """Generate highlights based on metrics"""
+        """Generate highlights - positive trends and standout performers"""
         highlights = []
 
         # Overall performance
-        total_mdp = metrics["total_mdp"] / 1_000_000  # Convert to millions
-        yoy = metrics["yoy_change"] * 100
-        contrib = metrics["contribution_rate"] * 100
+        total_mdp_m = metrics["total_mdp"] / 1_000_000
+        yoy_pct = metrics["avg_yoy"] * 100
+        contrib_pct = metrics["avg_contribution"] * 100
 
-        if yoy > 0:
+        scope = f"{ou} - {cloud}" if ou else cloud
+
+        if yoy_pct > 10:
             highlights.append(
-                f"{cloud} MDP at ${total_mdp:.1f}M, up {yoy:+.1f}% YoY with strong overall growth"
+                f"{scope} MDP at ${total_mdp_m:.1f}M, up {yoy_pct:+.1f}% YoY with strong overall growth — "
+                f"contribution at {contrib_pct:.1f}%"
+            )
+        elif yoy_pct > 0:
+            highlights.append(
+                f"{scope} MDP at ${total_mdp_m:.1f}M, {yoy_pct:+.1f}% YoY — "
+                f"contribution at {contrib_pct:.1f}%"
             )
         else:
             highlights.append(
-                f"{cloud} MDP at ${total_mdp:.1f}M, {yoy:+.1f}% YoY — contribution at {contrib:.1f}%"
+                f"{scope} MDP at ${total_mdp_m:.1f}M, {yoy_pct:+.1f}% YoY — "
+                f"contribution at {contrib_pct:.1f}%, {metrics['avg_contribution_diff']:+.1f}ppts vs. FY-1"
             )
 
-        # Top horseman
-        if metrics["horseman"]:
-            top_horseman = max(
-                metrics["horseman"].items(),
-                key=lambda x: x[1]["yoy"]
+        # Best horseman
+        if metrics["horseman_breakdown"]:
+            sorted_horseman = sorted(
+                [(k, v) for k, v in metrics["horseman_breakdown"].items() if v["yoy"] is not None],
+                key=lambda x: x[1]["yoy"],
+                reverse=True
             )
-            horseman_name, horseman_data = top_horseman
-            if horseman_data["yoy"] > 0:
+            if sorted_horseman and sorted_horseman[0][1]["yoy"] > 0:
+                name, data = sorted_horseman[0]
                 highlights.append(
-                    f"{horseman_name} horseman surging at {horseman_data['yoy']:+.1f}% YoY, "
-                    f"now {horseman_data['share']:.1f}% MDP share"
+                    f"{name} horseman surging at {data['yoy']*100:+.1f}% YoY, "
+                    f"now {data['share']*100:.1f}% MDP share" if data["share"] else
+                    f"{name} horseman up {data['yoy']*100:+.1f}% YoY"
                 )
 
-        # Top traffic source
-        if metrics["traffic"]:
-            top_traffic = max(
-                metrics["traffic"].items(),
-                key=lambda x: x[1]["yoy"]
+        # Best traffic source
+        if metrics["traffic_breakdown"]:
+            sorted_traffic = sorted(
+                [(k, v) for k, v in metrics["traffic_breakdown"].items() if v["yoy"] is not None],
+                key=lambda x: x[1]["yoy"],
+                reverse=True
             )
-            traffic_name, traffic_data = top_traffic
-            if traffic_data["yoy"] > 0:
+            if sorted_traffic and sorted_traffic[0][1]["yoy"] > 0:
+                name, data = sorted_traffic[0]
                 highlights.append(
-                    f"{traffic_name} channel up {traffic_data['yoy']:+.1f}% YoY, "
-                    f"{traffic_data['share']:.1f}% of MDP share"
+                    f"{name} channel up {data['yoy']*100:+.1f}% YoY, "
+                    f"{data['share']*100:.1f}% of MDP share" if data["share"] else
+                    f"{name} channel growing {data['yoy']*100:+.1f}% YoY"
                 )
 
-        # Top OU
-        if metrics["ous"]:
-            top_ou = max(
-                metrics["ous"].items(),
-                key=lambda x: x[1]["yoy"]
+        # Best OU (if global view)
+        if not ou and metrics["ou_breakdown"]:
+            sorted_ous = sorted(
+                [(k, v) for k, v in metrics["ou_breakdown"].items() if v["yoy"] is not None],
+                key=lambda x: x[1]["yoy"],
+                reverse=True
             )
-            ou_name, ou_data = top_ou
-            if ou_data["yoy"] > 0:
+            if sorted_ous and sorted_ous[0][1]["yoy"] > 0:
+                name, data = sorted_ous[0]
                 highlights.append(
-                    f"{ou_name} leading growth at {ou_data['yoy']:+.1f}% YoY"
+                    f"{name} leading growth at {data['yoy']*100:+.1f}% YoY"
                 )
 
-        return highlights[:3]  # Limit to 3 highlights
+        return highlights[:3]
 
     def _generate_areas_to_watch(self, metrics, cloud, ou):
-        """Generate areas to watch based on metrics"""
+        """Generate areas to watch - declining metrics and risks"""
         areas = []
 
+        contrib_pct = metrics["avg_contribution"] * 100
+        scope = f"{ou} - {cloud}" if ou else cloud
+
         # Contribution floor risk
-        contrib = metrics["contribution_rate"] * 100
-        if contrib < 30:
-            contrib_diff = metrics["contribution_diff"]
+        if contrib_pct < 28:
             areas.append(
-                f"{cloud} contribution at {contrib:.1f}%, below the 30% floor — "
-                f"{contrib_diff:+.1f}ppts vs. FY-1; urgent remediation needed"
+                f"{scope} contribution at {contrib_pct:.1f}%, well below the 30% floor — "
+                f"{metrics['avg_contribution_diff']:+.1f}ppts vs. FY-1; urgent remediation needed"
             )
-        elif contrib < 32:
+        elif contrib_pct < 30:
             areas.append(
-                f"{cloud} contribution at {contrib:.1f}%, approaching the 30% floor"
+                f"{scope} contribution at {contrib_pct:.1f}%, approaching the 30% floor — "
+                f"{metrics['avg_contribution_diff']:+.1f}ppts vs. FY-1"
             )
 
-        # Declining horseman
-        if metrics["horseman"]:
-            worst_horseman = min(
-                metrics["horseman"].items(),
+        # Worst horseman
+        if metrics["horseman_breakdown"]:
+            sorted_horseman = sorted(
+                [(k, v) for k, v in metrics["horseman_breakdown"].items() if v["yoy"] is not None],
                 key=lambda x: x[1]["yoy"]
             )
-            horseman_name, horseman_data = worst_horseman
-            if horseman_data["yoy"] < 0:
+            if sorted_horseman and sorted_horseman[0][1]["yoy"] < -5:
+                name, data = sorted_horseman[0]
                 areas.append(
-                    f"{horseman_name} horseman declining at {horseman_data['yoy']:+.1f}% YoY, "
-                    f"now {horseman_data['share']:.1f}% MDP share"
+                    f"{name} horseman declining at {data['yoy']*100:+.1f}% YoY — "
+                    f"only horseman in significant decline"
                 )
 
-        # Declining traffic
-        if metrics["traffic"]:
-            worst_traffic = min(
-                metrics["traffic"].items(),
+        # Worst traffic
+        if metrics["traffic_breakdown"]:
+            sorted_traffic = sorted(
+                [(k, v) for k, v in metrics["traffic_breakdown"].items() if v["yoy"] is not None],
                 key=lambda x: x[1]["yoy"]
             )
-            traffic_name, traffic_data = worst_traffic
-            if traffic_data["yoy"] < -10:  # Only flag significant declines
+            if sorted_traffic and sorted_traffic[0][1]["yoy"] < -15:
+                name, data = sorted_traffic[0]
                 areas.append(
-                    f"{traffic_name} channel down {traffic_data['yoy']:+.1f}% YoY — "
-                    f"structural weakness needs attention"
+                    f"{name} channel down {data['yoy']*100:+.1f}% YoY — structural weakness needs attention"
                 )
 
-        # Declining OU
-        if metrics["ous"]:
-            worst_ou = min(
-                metrics["ous"].items(),
+        # Worst OU
+        if not ou and metrics["ou_breakdown"]:
+            sorted_ous = sorted(
+                [(k, v) for k, v in metrics["ou_breakdown"].items() if v["yoy"] is not None],
                 key=lambda x: x[1]["yoy"]
             )
-            ou_name, ou_data = worst_ou
-            if ou_data["yoy"] < 0:
+            if sorted_ous and sorted_ous[0][1]["yoy"] < -10:
+                name, data = sorted_ous[0]
                 areas.append(
-                    f"{ou_name} declining at {ou_data['yoy']:+.1f}% YoY"
+                    f"{name} declining at {data['yoy']*100:+.1f}% YoY — needs targeted support"
                 )
 
-        return areas[:3]  # Limit to 3 areas
+        return areas[:3]
 
     def _generate_next_steps(self, metrics, cloud, ou):
         """Generate specific next steps based on metrics"""
         next_steps = []
 
-        # Email activation
+        # Always include email/webinar as baseline tactics
         next_steps.append(
-            f"Email: Submit {cloud} prospects into Nurture Quest; activate BOM offers in DSE; "
-            f"refresh underperforming email content"
+            f"Email & Webinar: Activate BOM offers in DSE; submit {cloud} prospects into Nurture Quest; "
+            f"drive registrations for upcoming webinars via BASHO outreach"
         )
 
-        # Webinar/Events
-        next_steps.append(
-            f"Webinar: Drive registrations for upcoming {cloud} webinars via BASHO outreach; "
-            f"promote on-demand content via paid and organic social"
-        )
-
-        # BDR TAL
-        if metrics["horseman"].get("AE", {}).get("yoy", 0) < 0:
+        # BDR TAL if AE declining
+        ae_data = metrics["horseman_breakdown"].get("AE")
+        if ae_data and ae_data["yoy"] and ae_data["yoy"] < -0.05:
             next_steps.append(
-                f"BDR TAL: Issue TAL requests for open {cloud} opps with declining AE-sourced MDP; "
-                f"target hotspot accounts to compensate for AE gap"
+                f"BDR TAL: Issue TAL requests for open {cloud} opps with declining AE-sourced MDP "
+                f"({ae_data['yoy']*100:.1f}% YoY); target hotspot accounts"
             )
 
-        # Paid activation
-        if metrics["traffic"].get("Paid", {}).get("yoy", 0) > 0:
+        # Paid if performing well
+        paid_data = metrics["traffic_breakdown"].get("Paid")
+        if paid_data and paid_data["yoy"] and paid_data["yoy"] > 0.1:
             next_steps.append(
-                f"Paid: Continue scaling paid tactics — Content Syndication and SEM showing strong ROI; "
-                f"enter leads into nurture for mid-funnel conversion"
+                f"Paid: Continue scaling paid tactics — Content Syndication and SEM showing strong ROI "
+                f"({paid_data['yoy']*100:+.1f}% YoY); enter leads into nurture for conversion"
             )
 
-        return next_steps[:3]  # Limit to 3 actions
+        # Organic if declining
+        organic_data = metrics["traffic_breakdown"].get("Organic")
+        if organic_data and organic_data["yoy"] and organic_data["yoy"] < -0.2:
+            next_steps.append(
+                f"Organic: Address organic channel decline ({organic_data['yoy']*100:.1f}% YoY); "
+                f"audit SEO, review content strategy, activate organic social"
+            )
 
-    def _fallback_insights(self):
-        """Fallback insights if CSV loading fails"""
+        return next_steps[:3]
+
+    def _fallback_insights(self, cloud, ou):
+        """Fallback insights if generation fails"""
+        scope = f"{ou} - {cloud}" if ou else cloud
         return {
             "highlights": [
-                "Data refresh in progress — insights will be available once CSV files are loaded",
-                "Check back after the next automatic refresh (6:00 AM or 11:00 PM CET)",
-                "Contact admin if this message persists"
+                f"Data refresh in progress for {scope}",
+                "Insights will be available once CSV files are fully loaded",
+                "Check back after the next automatic refresh (6:00 AM or 11:00 PM CET)"
             ],
             "areas_to_watch": [
-                "CSV data files not accessible",
+                "CSV data files not accessible or empty",
                 "Ensure Tableau refresh has completed successfully",
-                "Verify CSV files exist in backend/data/ directory"
+                "Verify data quality in admin panel"
             ],
             "next_steps": [
                 "Trigger a manual CSV refresh from the Admin panel",
                 "Check system logs for any errors during the last refresh",
-                "Contact support if the issue continues"
+                "Contact support if the issue persists"
             ]
         }
 
