@@ -5,7 +5,18 @@ Generate insights using Claude
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import Dict, Any, Optional
-from app.services.claude_insights import claude_service
+import os
+
+# Use local Claude Code service if no Anthropic API key available
+USE_LOCAL_CLAUDE = not os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_API_KEY") == "your-anthropic-api-key-here"
+
+if USE_LOCAL_CLAUDE:
+    from app.services.local_claude_insights import local_claude_service as claude_service
+    print("✅ Using LOCAL Claude Code for insights generation")
+else:
+    from app.services.claude_insights import claude_service
+    print("✅ Using Anthropic API for insights generation")
+
 from app.services.csv_parser import csv_parser
 
 router = APIRouter()

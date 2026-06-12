@@ -18,6 +18,9 @@ tableauserverclient==0.28
 # Slack Integration
 slack-sdk==3.26.2
 
+# AI Integration (Claude for Insights)
+anthropic==0.40.0
+
 # Google Slides Integration
 google-auth==2.27.0
 google-auth-oauthlib==1.2.0
