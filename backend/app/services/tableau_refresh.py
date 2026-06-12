@@ -196,6 +196,42 @@ class TableauRefreshService:
             logger.error(f"Error downloading {view.name}: {e}")
             return False
 
+    def _download_single_insights_view(self, server: TSC.Server, view: TSC.ViewItem, output_filename: str) -> bool:
+        """
+        Download a single insights view as CSV (helper for parallel execution)
+
+        Args:
+            server: Authenticated Tableau server instance
+            view: View item to download
+            output_filename: Local filename to save
+
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            output_path = self.data_dir / output_filename
+
+            # Get full view details
+            view = server.views.get_by_id(view.id)
+
+            # Download as CSV
+            server.views.populate_csv(view)
+            csv_data = b''.join(view.csv).decode('utf-8-sig')
+
+            # Save to file
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(csv_data)
+
+            file_size = len(csv_data) / 1024  # KB
+            print(f"[TABLEAU] OK Downloaded insights {view.name} -> {output_filename} ({file_size:.1f} KB)")
+            logger.info(f"OK Downloaded insights {view.name} -> {output_filename} ({file_size:.1f} KB)")
+            return True
+
+        except Exception as e:
+            print(f"[TABLEAU] ERROR Error downloading insights {view.name}: {e}")
+            logger.error(f"Error downloading insights {view.name}: {e}")
+            return False
+
     def download_insights_backend_detailed(self, server: TSC.Server) -> Dict:
         """
         Download FY27 AMER + EMEA CFM MDP Insights Back End workbook CSV
@@ -242,42 +278,42 @@ class TableauRefreshService:
             print(f"[TABLEAU] INFO Found {len(views)} views in insights workbook")
             logger.info(f"Found {len(views)} views in insights workbook")
 
-            # Download views that are in our mapping
+            # Filter views that are in our mapping
+            insights_views_to_download = []
             for view in views:
-                view_name = view.name
+                if view.name in self.insights_view_mappings:
+                    output_filename = self.insights_view_mappings[view.name]
+                    insights_views_to_download.append((view, output_filename))
+                else:
+                    print(f"[TABLEAU] WARNING  Insights view '{view.name}' not in mapping, skipping")
+                    logger.warning(f"Insights view '{view.name}' not in mapping, skipping")
 
-                if view_name not in self.insights_view_mappings:
-                    print(f"[TABLEAU] WARNING  Insights view '{view_name}' not in mapping, skipping")
-                    logger.warning(f"Insights view '{view_name}' not in mapping, skipping")
-                    continue
+            print(f"[TABLEAU] Starting PARALLEL download of {len(insights_views_to_download)} insights views...")
 
-                output_filename = self.insights_view_mappings[view_name]
-                output_path = self.data_dir / output_filename
+            # Download views in PARALLEL
+            with ThreadPoolExecutor(max_workers=5) as executor:
+                futures = {}
+                for view, output_filename in insights_views_to_download:
+                    future = executor.submit(self._download_single_insights_view, server, view, output_filename)
+                    futures[future] = view.name
 
-                try:
-                    print(f"[TABLEAU] Downloading insights view: {view_name}")
-
-                    # Get full view details
-                    view = server.views.get_by_id(view.id)
-
-                    # Download as CSV
-                    server.views.populate_csv(view)
-                    csv_data = b''.join(view.csv).decode('utf-8-sig')
-
-                    # Save to file
-                    with open(output_path, 'w', encoding='utf-8') as f:
-                        f.write(csv_data)
-
-                    file_size = len(csv_data) / 1024  # KB
-                    print(f"[TABLEAU] OK Downloaded {view_name} -> {output_filename} ({file_size:.1f} KB)")
-                    logger.info(f"OK Downloaded insights view: {view_name} -> {output_filename} ({file_size:.1f} KB)")
-
-                    result['success'].append(view_name)
-
-                except Exception as e:
-                    print(f"[TABLEAU] ERROR Error downloading insights view {view_name}: {e}")
-                    logger.error(f"Error downloading insights view {view_name}: {e}")
-                    result['failed'].append(view_name)
+                # Collect results as they complete
+                for future in as_completed(futures):
+                    view_name = futures[future]
+                    try:
+                        success = future.result()
+                        if success:
+                            result['success'].append(view_name)
+                            print(f"[TABLEAU] ✅ Insights view {view_name} downloaded successfully")
+                            logger.info(f"✅ Insights view {view_name} downloaded successfully")
+                        else:
+                            result['failed'].append(view_name)
+                            print(f"[TABLEAU] ❌ Insights view {view_name} failed")
+                            logger.error(f"❌ Insights view {view_name} failed")
+                    except Exception as e:
+                        result['failed'].append(view_name)
+                        print(f"[TABLEAU] ERROR Insights view {view_name} exception: {e}")
+                        logger.error(f"Insights view {view_name} exception: {e}")
 
         except Exception as e:
             print(f"[TABLEAU] ERROR Failed to download insights backend: {e}")
