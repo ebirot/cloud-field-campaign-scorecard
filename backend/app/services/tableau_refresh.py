@@ -38,7 +38,7 @@ class TableauRefreshService:
 
         # Insights Backend workbook (for AI-generated insights)
         self.insights_workbook_name = "FY27 AMER + EMEA CFM MDP Insights Back End VF"
-        self.insights_workbook_id = None  # Will search by name instead
+        self.insights_workbook_id = os.getenv('TABLEAU_WORKBOOK_INSIGHTS_BACKEND', '67803e71-63ff-41a5-ac82-e54de69d0dcc')
 
         # Insights views mapping (similar to scorecard but with -SB suffix)
         self.insights_view_mappings = {
@@ -215,26 +215,19 @@ class TableauRefreshService:
         }
 
         try:
-            print(f"[TABLEAU] Searching for Insights workbook: {self.insights_workbook_name}")
-            logger.info(f"Searching for Insights workbook: {self.insights_workbook_name}")
+            print(f"[TABLEAU] Fetching Insights workbook by ID: {self.insights_workbook_id}")
+            logger.info(f"Fetching Insights workbook by ID: {self.insights_workbook_id}")
 
-            # Search for workbook by name
-            all_workbooks, _ = server.workbooks.get()
-            insights_workbook = None
-
-            for wb in all_workbooks:
-                if wb.name == self.insights_workbook_name:
-                    insights_workbook = wb
-                    print(f"[TABLEAU] OK Found workbook: {wb.name} (ID: {wb.id})")
-                    logger.info(f"Found insights workbook: {wb.name} (ID: {wb.id})")
-                    break
-
-            if not insights_workbook:
-                print(f"[TABLEAU] ERROR Insights workbook not found: {self.insights_workbook_name}")
-                logger.error(f"Insights workbook not found: {self.insights_workbook_name}")
+            # Get workbook directly by ID (much faster and more reliable)
+            try:
+                insights_workbook = server.workbooks.get_by_id(self.insights_workbook_id)
+                print(f"[TABLEAU] OK Found workbook: {insights_workbook.name} (ID: {insights_workbook.id})")
+                logger.info(f"Found insights workbook: {insights_workbook.name}")
+                result['workbook_found'] = True
+            except Exception as e:
+                print(f"[TABLEAU] ERROR Insights workbook not found (ID: {self.insights_workbook_id}): {e}")
+                logger.error(f"Insights workbook not found (ID: {self.insights_workbook_id}): {e}")
                 return result
-
-            result['workbook_found'] = True
 
             # Get all views from this workbook
             server.workbooks.populate_views(insights_workbook)
@@ -304,23 +297,17 @@ class TableauRefreshService:
             True if successful, False otherwise
         """
         try:
-            print(f"[TABLEAU] Searching for Insights workbook: {self.insights_workbook_name}")
-            logger.info(f"Searching for Insights workbook: {self.insights_workbook_name}")
+            print(f"[TABLEAU] Fetching Insights workbook by ID: {self.insights_workbook_id}")
+            logger.info(f"Fetching Insights workbook by ID: {self.insights_workbook_id}")
 
-            # Search for workbook by name
-            all_workbooks, _ = server.workbooks.get()
-            insights_workbook = None
-
-            for wb in all_workbooks:
-                if wb.name == self.insights_workbook_name:
-                    insights_workbook = wb
-                    print(f"[TABLEAU] OK Found workbook: {wb.name} (ID: {wb.id})")
-                    logger.info(f"Found insights workbook: {wb.name} (ID: {wb.id})")
-                    break
-
-            if not insights_workbook:
-                print(f"[TABLEAU] ERROR Insights workbook not found: {self.insights_workbook_name}")
-                logger.error(f"Insights workbook not found: {self.insights_workbook_name}")
+            # Get workbook directly by ID (much faster and more reliable)
+            try:
+                insights_workbook = server.workbooks.get_by_id(self.insights_workbook_id)
+                print(f"[TABLEAU] OK Found workbook: {insights_workbook.name} (ID: {insights_workbook.id})")
+                logger.info(f"Found insights workbook: {insights_workbook.name}")
+            except Exception as e:
+                print(f"[TABLEAU] ERROR Insights workbook not found (ID: {self.insights_workbook_id}): {e}")
+                logger.error(f"Insights workbook not found (ID: {self.insights_workbook_id}): {e}")
                 return False
 
             # Get all views from this workbook
