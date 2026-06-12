@@ -7,6 +7,7 @@ import os
 import logging
 from pathlib import Path
 from typing import Dict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +43,7 @@ class TableauRefreshService:
         self.data_dir = Path(__file__).parent.parent.parent.parent / 'data' / 'csv'
 
     def refresh_all_csvs(self) -> Dict[str, bool]:
-        """Download all CSV files from Tableau Server using official SDK"""
+        """Download all CSV files from Tableau Server using official SDK - in parallel"""
         results = {}
 
         try:
@@ -63,75 +64,99 @@ class TableauRefreshService:
                 print(f"[TABLEAU] OK Signed in successfully")
                 logger.info("OK Tableau authentication successful")
 
-                # Get all views from the workbook
+                # Get all views from the main scorecard workbook
                 print(f"[TABLEAU] Fetching views from workbook {self.workbook_id}")
                 workbook = server.workbooks.get_by_id(self.workbook_id)
                 server.workbooks.populate_views(workbook)
 
-                print(f"[TABLEAU] Found {len(workbook.views)} views in workbook")
-                logger.info(f"INFO Found {len(workbook.views)} views in workbook")
+                print(f"[TABLEAU] Found {len(workbook.views)} views in main workbook")
+                logger.info(f"INFO Found {len(workbook.views)} views in main workbook")
 
-                # Download each view that's in our mapping
+                # Prepare tasks for parallel download
+                scorecard_views = []
                 for view in workbook.views:
-                    view_name = view.name
+                    if view.name in self.view_mappings:
+                        scorecard_views.append((view, self.view_mappings[view.name]))
 
-                    if view_name not in self.view_mappings:
-                        print(f"[TABLEAU] WARNING  View '{view_name}' not in mapping, skipping")
-                        logger.warning(f"View '{view_name}' not in mapping, skipping")
-                        continue
+                print(f"[TABLEAU] Starting PARALLEL download of {len(scorecard_views)} scorecard views + Insights Backend...")
+                logger.info(f"Starting parallel download: {len(scorecard_views)} scorecard + Insights Backend")
 
-                    output_filename = self.view_mappings[view_name]
-                    output_path = self.data_dir / output_filename
+                # Use ThreadPoolExecutor for parallel downloads
+                with ThreadPoolExecutor(max_workers=5) as executor:
+                    futures = {}
 
-                    try:
-                        print(f"[TABLEAU] Downloading {view_name}...")
+                    # Submit scorecard view downloads
+                    for view, output_filename in scorecard_views:
+                        future = executor.submit(self._download_single_view, server, view, output_filename)
+                        futures[future] = ('scorecard', view.name)
 
-                        # Populate the view to get full details
-                        view = server.views.get_by_id(view.id)
+                    # Submit Insights Backend download
+                    insights_future = executor.submit(self.download_insights_backend, server)
+                    futures[insights_future] = ('insights', 'Insights Backend')
 
-                        # Download as CSV
-                        server.views.populate_csv(view)
-                        csv_data = b''.join(view.csv).decode('utf-8-sig')
+                    # Collect results as they complete
+                    for future in as_completed(futures):
+                        task_type, task_name = futures[future]
+                        try:
+                            success = future.result()
+                            results[task_name] = success
 
-                        # Save to file
-                        with open(output_path, 'w', encoding='utf-8') as f:
-                            f.write(csv_data)
+                            if success:
+                                print(f"[TABLEAU] ✅ {task_name} downloaded successfully")
+                                logger.info(f"✅ {task_name} downloaded successfully")
+                            else:
+                                print(f"[TABLEAU] ❌ {task_name} failed")
+                                logger.error(f"❌ {task_name} failed")
 
-                        file_size = len(csv_data) / 1024  # KB
-                        print(f"[TABLEAU] OK Downloaded {view_name} -> {output_filename} ({file_size:.1f} KB)")
-                        logger.info(f"OK Downloaded {view_name} -> {output_filename} ({file_size:.1f} KB)")
-                        results[view_name] = True
+                        except Exception as e:
+                            print(f"[TABLEAU] ERROR {task_name} error: {e}")
+                            logger.error(f"{task_name} error: {e}")
+                            results[task_name] = False
 
-                    except Exception as e:
-                        print(f"[TABLEAU] ERROR Error downloading {view_name}: {e}")
-                        logger.error(f"Error downloading {view_name}: {e}")
-                        results[view_name] = False
-
-                print(f"[TABLEAU] COMPLETE Main scorecard refresh complete!")
-                logger.info("COMPLETE Main scorecard CSV refresh complete")
-
-                # Now download the Insights Backend workbook
-                print(f"[TABLEAU] Starting Insights Backend download...")
-                logger.info("Starting Insights Backend download...")
-
-                insights_success = self.download_insights_backend(server)
-                results['Insights Backend'] = insights_success
-
-                if insights_success:
-                    print(f"[TABLEAU] OK Insights Backend downloaded successfully")
-                    logger.info("OK Insights Backend downloaded successfully")
-                else:
-                    print(f"[TABLEAU] ERROR Failed to download Insights Backend")
-                    logger.error("Failed to download Insights Backend")
-
-                print(f"[TABLEAU] COMPLETE Full refresh complete!")
-                logger.info("COMPLETE Full CSV refresh complete (including Insights Backend)")
+                print(f"[TABLEAU] COMPLETE Parallel refresh complete!")
+                logger.info("COMPLETE Parallel CSV refresh complete (Scorecard + Insights)")
 
         except Exception as e:
             print(f"[TABLEAU] ERROR Tableau refresh error: {e}")
             logger.error(f"Tableau refresh error: {e}")
 
         return results
+
+    def _download_single_view(self, server: TSC.Server, view: TSC.ViewItem, output_filename: str) -> bool:
+        """
+        Download a single view as CSV (helper for parallel execution)
+
+        Args:
+            server: Authenticated Tableau server instance
+            view: View item to download
+            output_filename: Local filename to save
+
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            output_path = self.data_dir / output_filename
+
+            # Get full view details
+            view = server.views.get_by_id(view.id)
+
+            # Download as CSV
+            server.views.populate_csv(view)
+            csv_data = b''.join(view.csv).decode('utf-8-sig')
+
+            # Save to file
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(csv_data)
+
+            file_size = len(csv_data) / 1024  # KB
+            print(f"[TABLEAU] OK Downloaded {view.name} -> {output_filename} ({file_size:.1f} KB)")
+            logger.info(f"OK Downloaded {view.name} -> {output_filename} ({file_size:.1f} KB)")
+            return True
+
+        except Exception as e:
+            print(f"[TABLEAU] ERROR Error downloading {view.name}: {e}")
+            logger.error(f"Error downloading {view.name}: {e}")
+            return False
 
     def download_insights_backend(self, server: TSC.Server) -> bool:
         """
